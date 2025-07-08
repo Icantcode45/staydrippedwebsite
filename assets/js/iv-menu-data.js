@@ -3,34 +3,6 @@
  * Reduces code duplication by centralizing service data
  */
 
-const IVServiceHelper = {
-  createService(
-    id,
-    name,
-    price,
-    sku,
-    icon,
-    description,
-    ingredients,
-    serviceId,
-    widgetId,
-    featured = false,
-  ) {
-    return {
-      id,
-      name,
-      price,
-      sku,
-      icon,
-      description,
-      ingredients,
-      serviceId,
-      widgetId,
-      featured,
-    };
-  },
-};
-
 const IVMenuData = {
   categories: [
     {
