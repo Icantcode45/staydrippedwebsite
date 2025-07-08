@@ -1,188 +1,134 @@
-// Stay Dripped Mobile IV - Design Tokens & Variables
+/* ========================================================================
+   CSS CUSTOM PROPERTIES (Design System)
+   ======================================================================== */
 
-// Brand Colors - Professional Healthcare Palette
-$color-primary: #1a2a47; // Deep navy - trust and professionalism
-$color-secondary: #fff; // Pure white - cleanliness and clarity
-$color-accent: #f5f5f5; // Light gray - modern minimalism
-$color-charcoal: #333; // Dark charcoal - contrast and readability
-$color-success: #28a745; // Medical green - health and vitality
-$color-warning: #ffc107; // Attention yellow - important information
-$color-error: #dc3545; // Medical red - alerts and errors
-$color-info: #17a2b8; // Medical blue - calm and informative
+:root {
+  /* Healthcare Professional Color Palette */
+  --color-primary: #007aff; /* Medical blue - trust & professionalism */
+  --color-primary-light: #5ac8fa; /* Light blue for accents */
+  --color-primary-dark: #0051d4; /* Deep blue for depth */
+  --color-secondary: #00c851; /* Health green - vitality */
+  --color-accent: #ff3b30; /* Alert red for urgency */
+  --color-success: #34c759; /* Success green */
+  --color-warning: #ff9500; /* Warning orange */
 
-// Extended Color Palette
-$color-light-bg: #f8fafc; // Light background
-$color-dark-bg: #1e293b; // Dark mode background
-$color-text-light: #64748b; // Light text
-$color-text-dark: #0f172a; // Dark text
-$color-border: rgb(255 255 255 / 20%); // Border color
+  /* Neutral Healthcare Palette */
+  --color-white: #fff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-black: #000;
 
-// Typography System
-$font-base: "Inter",
-  -apple-system,
-  blinkmacsystemfont,
-  "Segoe UI",
-  roboto,
-  oxygen,
-  ubuntu,
-  cantarell,
-  sans-serif;
-$font-heading: "Inter",
-  -apple-system,
-  blinkmacsystemfont,
-  "Segoe UI",
-  roboto,
-  oxygen,
-  ubuntu,
-  cantarell,
-  sans-serif;
+  /* Professional Gradients */
+  --gradient-primary: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%);
+  --gradient-secondary: linear-gradient(135deg, #00c851 0%, #34c759 100%);
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 10%) 0%,
+    rgb(255 255 255 / 5%) 100%
+  );
+  --gradient-overlay: linear-gradient(
+    135deg,
+    rgb(0 122 255 / 80%) 0%,
+    rgb(90 200 250 / 90%) 100%
+  );
 
-// Typography Scale - Perfect Fourth (1.333)
-$fs-scale: (
-  xs: 0.75rem,
-  // 12px
-  sm: 0.875rem,
-  // 14px
-  base: 1rem,
-  // 16px - base
-  lg: 1.125rem,
-  // 18px
-  xl: 1.25rem,
-  // 20px
-  2xl: 1.5rem,
-  // 24px
-  3xl: 1.875rem,
-  // 30px
-  4xl: 2.25rem,
-  // 36px
-  5xl: 3rem,
-  // 48px
-  6xl: 3.75rem,
-  // 60px
-  7xl: 4.5rem, // 72px
-);
+  /* Typography System */
+  --font-family-primary:
+    -apple-system, blinkmacsystemfont, "SF Pro Display", "Segoe UI", roboto,
+    helvetica, arial, sans-serif;
+  --font-family-secondary:
+    -apple-system, blinkmacsystemfont, "SF Pro Text", "Segoe UI", roboto,
+    helvetica, arial, sans-serif;
 
-// Spacing Scale - Consistent 8px grid system
-$spacing: (
-  0: 0,
-  1: 0.25rem,
-  // 4px
-  2: 0.5rem,
-  // 8px
-  3: 0.75rem,
-  // 12px
-  4: 1rem,
-  // 16px
-  5: 1.25rem,
-  // 20px
-  6: 1.5rem,
-  // 24px
-  8: 2rem,
-  // 32px
-  10: 2.5rem,
-  // 40px
-  12: 3rem,
-  // 48px
-  16: 4rem,
-  // 64px
-  20: 5rem,
-  // 80px
-  24: 6rem,
-  // 96px
-  32: 8rem,
-  // 128px
-  40: 10rem,
-  // 160px
-  48: 12rem, // 192px
-);
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 800;
 
-// Responsive Breakpoints
-$breakpoints: (
-  xs: 475px,
-  // Extra small devices
-  sm: 640px,
-  // Small devices
-  md: 768px,
-  // Medium devices
-  lg: 1024px,
-  // Large devices
-  xl: 1280px,
-  // Extra large devices
-  2xl: 1536px, // 2X Extra large devices
-);
+  /* Typography Scale */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+  --text-6xl: 3.75rem; /* 60px */
+  --text-7xl: 4.5rem; /* 72px */
 
-// Z-index Scale
-$z-index: (
-  base: 1,
-  dropdown: 1000,
-  sticky: 1020,
-  fixed: 1030,
-  modal-backdrop: 1040,
-  modal: 1050,
-  popover: 1060,
-  tooltip: 1070,
-  overlay: 1080,
-  max: 9999,
-);
+  /* Spacing System (8px grid) */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
+  --space-32: 8rem; /* 128px */
 
-// Border Radius Scale
-$border-radius: (
-  none: 0,
-  sm: 0.125rem,
-  // 2px
-  base: 0.25rem,
-  // 4px
-  md: 0.375rem,
-  // 6px
-  lg: 0.5rem,
-  // 8px
-  xl: 0.75rem,
-  // 12px
-  2xl: 1rem,
-  // 16px
-  3xl: 1.5rem,
-  // 24px
-  full: 9999px,
-);
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.125rem; /* 2px */
+  --radius-base: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.5rem; /* 24px */
+  --radius-full: 9999px;
 
-// Box Shadow Scale
-$shadow: (
-  none: "none",
-  sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-  base: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
-  md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-  lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-  xl:
-    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-  2xl: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-  inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
-);
+  /* Shadows (Apple-style) */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+  --shadow-base:
+    0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+  --shadow-md:
+    0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+  --shadow-lg:
+    0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+  --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 25%);
+  --shadow-2xl: 0 50px 100px -20px rgb(0 0 0 / 25%);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 6%);
 
-// Transition Timing
-$transition-duration: (
-  75: 75ms,
-  100: 100ms,
-  150: 150ms,
-  200: 200ms,
-  300: 300ms,
-  500: 500ms,
-  700: 700ms,
-  1000: 1000ms,
-);
-$transition-timing: (
-  linear: linear,
-  in: cubic-bezier(0.4, 0, 1, 1),
-  out: cubic-bezier(0, 0, 0.2, 1),
-  in-out: cubic-bezier(0.4, 0, 0.2, 1),
-);
+  /* Transitions */
+  --transition-fast: 150ms ease-out;
+  --transition-base: 250ms ease-out;
+  --transition-slow: 350ms ease-out;
+  --transition-bounce: 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-// Grid System
-$grid-columns: 12;
-$grid-gutter: map-get($spacing, 6);
-$container-max-widths: (
-  sm: 640px,
-  md: 768px,
-  lg: 1024px,
-  xl: 1280px,
-  2xl: 1536px,
-);
+  /* Z-index Scale */
+  --z-behind: -1;
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal-backdrop: 200;
+  --z-modal: 300;
+  --z-popover: 400;
+  --z-skip-link: 500;
+  --z-toast: 600;
+
+  /* Breakpoints (for reference in JS) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
