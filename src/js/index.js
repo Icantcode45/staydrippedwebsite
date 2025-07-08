@@ -1,6 +1,7 @@
 // Main JavaScript entry point for Stay Dripped Mobile IV
 
 // Import utilities
+import "./utilities/dom.js";
 import "./utilities/validation.js";
 import "./utilities/event-manager.js";
 import "./utilities/theme-manager.js";
