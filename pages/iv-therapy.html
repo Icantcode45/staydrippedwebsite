@@ -2031,8 +2031,7 @@
       function toggleWidget(widgetId) {
         const widget = document.getElementById(widgetId);
         if (widget) {
-          widget.style.display =
-            widget.style.display === "none" ? "block" : "none";
+          widget.classList.toggle("hidden");
         }
       }
 
