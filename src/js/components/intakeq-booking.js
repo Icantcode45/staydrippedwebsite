@@ -138,8 +138,6 @@ class IntakeQCategoryBooking {
         description: "Quick B12 energy boost injection",
       },
     };
-
-    this.init();
   }
 
   async init() {
