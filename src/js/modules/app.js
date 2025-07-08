@@ -130,16 +130,23 @@ class App {
   }
 
   initAccessibilityEnhancements() {
-    // Keyboard navigation for custom elements
-    document.addEventListener("keydown", (e) => {
-      this.handleKeyboardNavigation(e);
-    });
+    this.setupKeyboardNavigation();
+    this.setupFocusManagement();
+    this.setupMotionPreferences();
+  }
 
-    // Focus management
+  setupKeyboardNavigation() {
+    document.addEventListener("keydown", (e) =>
+      this.handleKeyboardNavigation(e),
+    );
+  }
+
+  setupFocusManagement() {
+    const focusSelectors =
+      ".btn, .card--interactive, a, input, textarea, select";
+
     document.addEventListener("focusin", (e) => {
-      if (
-        e.target.matches(".btn, .card--interactive, a, input, textarea, select")
-      ) {
+      if (e.target.matches(focusSelectors)) {
         e.target.classList.add("focus-visible");
       }
     });
@@ -147,8 +154,9 @@ class App {
     document.addEventListener("focusout", (e) => {
       e.target.classList.remove("focus-visible");
     });
+  }
 
-    // Reduced motion preference
+  setupMotionPreferences() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.documentElement.classList.add("reduce-motion");
     }
