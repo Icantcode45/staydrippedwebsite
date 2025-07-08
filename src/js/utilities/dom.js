@@ -22,7 +22,11 @@ export const DOM = {
     });
 
     if (content) {
-      element.innerHTML = content;
+      if (typeof content === "string") {
+        element.textContent = content;
+      } else {
+        element.appendChild(content);
+      }
     }
 
     return element;
