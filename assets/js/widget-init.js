@@ -33,7 +33,10 @@ function initializeWidgets() {
       serviceId: "0c0c56b7-85a4-4e01-9b9c-180bc714fa94",
     },
     { id: "nad-widget", serviceId: "7c8dcca4-35b4-44bd-a242-d1fdc722ddb5" },
-    { id: "diamond-nad-widget", serviceId: "19.00" },
+    {
+      id: "diamond-nad-widget",
+      serviceId: "ddf30134-b441-4226-bfe9-27eed5368949",
+    },
   ];
 
   services.forEach((service, index) => {
