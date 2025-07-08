@@ -171,15 +171,14 @@ class AnalyticsManager {
 
     // Track outbound links
     document.addEventListener("click", (e) => {
-      if (
-        e.target.matches(
-          'a[href^="http"]:not([href*="' + window.location.hostname + '"])',
-        )
-      ) {
-        this.trackEvent("click", "outbound_link", {
-          url: e.target.href,
-          text: e.target.textContent.trim(),
-        });
+      if (e.target.tagName === "A" && e.target.href) {
+        const isOutbound = !e.target.href.includes(window.location.hostname);
+        if (isOutbound && e.target.href.startsWith("http")) {
+          this.trackEvent("click", "outbound_link", {
+            url: e.target.href,
+            text: e.target.textContent.trim(),
+          });
+        }
       }
     });
 
