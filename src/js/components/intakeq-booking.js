@@ -214,22 +214,69 @@ class IntakeQCategoryBooking {
   }
 
   getWidgetTemplate(service, serviceKey) {
-    return `
-      <div class="widget-header">
-        <span class="widget-icon">${service.icon}</span>
-        <h3 class="widget-title">${service.name}</h3>
-        <p class="widget-description">${service.description}</p>
-      </div>
-      <div class="widget-content">
-        <div id="intakeq-widget-${serviceKey}" class="intakeq-embed"></div>
-      </div>
-      <div class="widget-fallback">
-        <button class="book-now-btn" data-service="${serviceKey}">
-          <i class="fas fa-calendar-plus"></i>
-          Book Now
-        </button>
-      </div>
-    `;
+    const header = this.createWidgetHeader(service);
+    const content = this.createWidgetContent(serviceKey);
+    const fallback = this.createWidgetFallback(serviceKey);
+
+    const container = document.createElement("div");
+    container.appendChild(header);
+    container.appendChild(content);
+    container.appendChild(fallback);
+
+    return container.innerHTML;
+  }
+
+  createWidgetHeader(service) {
+    const header = document.createElement("div");
+    header.className = "widget-header";
+
+    const icon = document.createElement("span");
+    icon.className = "widget-icon";
+    icon.textContent = service.icon;
+
+    const title = document.createElement("h3");
+    title.className = "widget-title";
+    title.textContent = service.name;
+
+    const description = document.createElement("p");
+    description.className = "widget-description";
+    description.textContent = service.description;
+
+    header.appendChild(icon);
+    header.appendChild(title);
+    header.appendChild(description);
+
+    return header;
+  }
+
+  createWidgetContent(serviceKey) {
+    const content = document.createElement("div");
+    content.className = "widget-content";
+
+    const embed = document.createElement("div");
+    embed.id = `intakeq-widget-${serviceKey}`;
+    embed.className = "intakeq-embed";
+
+    content.appendChild(embed);
+    return content;
+  }
+
+  createWidgetFallback(serviceKey) {
+    const fallback = document.createElement("div");
+    fallback.className = "widget-fallback";
+
+    const button = document.createElement("button");
+    button.className = "book-now-btn";
+    button.dataset.service = serviceKey;
+
+    const icon = document.createElement("i");
+    icon.className = "fas fa-calendar-plus";
+
+    button.appendChild(icon);
+    button.appendChild(document.createTextNode(" Book Now"));
+    fallback.appendChild(button);
+
+    return fallback;
   }
 
   setupWidget(container, widgetContainer, serviceKey, service) {
