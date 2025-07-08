@@ -1984,6 +1984,12 @@
         }
       }
 
+      // Initialize all IntakeQ widgets on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load the IntakeQ script once for all widgets
+        loadIntakeQWidget({});
+      });
+
       // Smooth scrolling for navigation tabs
       document.querySelectorAll(".nav-tab").forEach((tab) => {
         tab.addEventListener("click", function (e) {
