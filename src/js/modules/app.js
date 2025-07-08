@@ -5,6 +5,15 @@ class App {
     this.version = "2.0.0";
     this.isDebug =
       typeof process !== "undefined" && process.env?.NODE_ENV === "development";
+
+    // Constants
+    this.RIPPLE_DURATION = 400;
+    this.TOAST_DURATION = 3000;
+    this.TOAST_SHOW_DELAY = 100;
+    this.TOAST_HIDE_DELAY = 300;
+    this.FORM_SUBMIT_TIMEOUT = 2000;
+    this.ANNOUNCEMENT_CLEANUP_DELAY = 1000;
+
     this.init();
   }
 
