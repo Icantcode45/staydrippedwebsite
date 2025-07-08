@@ -11,9 +11,13 @@ class IntakeQCategoryBooking {
     this.baseUrl = "https://Staydripped.intakeq.com/booking";
     this.scriptLoaded = false;
     this.widgets = new Map();
+    this.services = this.getServiceConfigurations();
 
-    // Individual service configurations
-    this.services = {
+    this.init();
+  }
+
+  getServiceConfigurations() {
+    return {
       "rehydrate-iv": {
         id: "73e00621-4069-486a-9fa8-a5a94a089618",
         name: "Rehydrate IV Drip",
