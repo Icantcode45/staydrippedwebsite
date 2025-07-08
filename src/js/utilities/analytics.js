@@ -68,9 +68,15 @@ class AnalyticsManager {
   }
 
   showConsentBanner() {
-    // Check if banner is already shown
     if (document.querySelector(".consent-banner")) return;
 
+    const banner = this.createConsentBanner();
+    this.addConsentStyles();
+    document.body.appendChild(banner);
+    this.setupConsentHandlers(banner);
+  }
+
+  createConsentBanner() {
     const banner = document.createElement("div");
     banner.className = "consent-banner";
     banner.innerHTML = `
@@ -82,9 +88,15 @@ class AnalyticsManager {
         </div>
       </div>
     `;
+    return banner;
+  }
 
-    // Add styles
-    const styles = `
+  addConsentStyles() {
+    if (document.querySelector("#consent-styles")) return;
+
+    const styleSheet = document.createElement("style");
+    styleSheet.id = "consent-styles";
+    styleSheet.textContent = `
       .consent-banner {
         position: fixed;
         bottom: 0;
@@ -115,22 +127,16 @@ class AnalyticsManager {
         }
       }
     `;
+    document.head.appendChild(styleSheet);
+  }
 
-    if (!document.querySelector("#consent-styles")) {
-      const styleSheet = document.createElement("style");
-      styleSheet.id = "consent-styles";
-      styleSheet.textContent = styles;
-      document.head.appendChild(styleSheet);
-    }
-
-    document.body.appendChild(banner);
-
-    // Add event listeners
+  setupConsentHandlers(banner) {
     banner.addEventListener("click", (e) => {
-      if (e.target.dataset.consent === "accept") {
+      const { consent } = e.target.dataset;
+      if (consent === "accept") {
         this.giveConsent();
         banner.remove();
-      } else if (e.target.dataset.consent === "reject") {
+      } else if (consent === "reject") {
         this.rejectConsent();
         banner.remove();
       }
