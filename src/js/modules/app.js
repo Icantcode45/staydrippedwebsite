@@ -316,8 +316,5 @@ class App {
   }
 }
 
-// Make App available globally
-window.App = App;
-
 // Export for module usage
 export default App;
