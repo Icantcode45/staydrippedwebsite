@@ -38,38 +38,40 @@ class App {
   }
 
   initServiceWorker() {
-    if (
+    if (!this.isServiceWorkerSupported()) return;
+
+    window.addEventListener("load", () => this.registerServiceWorker());
+  }
+
+  isServiceWorkerSupported() {
+    return (
       "serviceWorker" in navigator &&
       window.location.protocol === "https:" &&
       !this.isDebug
-    ) {
-      window.addEventListener("load", async () => {
-        try {
-          const registration = await navigator.serviceWorker.register("/sw.js");
+    );
+  }
 
-          if (this.isDebug) {
-            console.log("SW registered: ", registration);
-          }
+  async registerServiceWorker() {
+    try {
+      const registration = await navigator.serviceWorker.register("/sw.js");
+      this.handleServiceWorkerUpdate(registration);
+    } catch (error) {
+      if (this.isDebug) console.log("SW registration failed: ", error);
+    }
+  }
 
-          // Listen for updates
-          registration.addEventListener("updatefound", () => {
-            const newWorker = registration.installing;
-            newWorker.addEventListener("statechange", () => {
-              if (
-                newWorker.state === "installed" &&
-                navigator.serviceWorker.controller
-              ) {
-                this.showUpdateAvailable();
-              }
-            });
-          });
-        } catch (registrationError) {
-          if (this.isDebug) {
-            console.log("SW registration failed: ", registrationError);
-          }
+  handleServiceWorkerUpdate(registration) {
+    registration.addEventListener("updatefound", () => {
+      const newWorker = registration.installing;
+      newWorker.addEventListener("statechange", () => {
+        if (
+          newWorker.state === "installed" &&
+          navigator.serviceWorker.controller
+        ) {
+          this.showUpdateAvailable();
         }
       });
-    }
+    });
   }
 
   initErrorHandling() {
