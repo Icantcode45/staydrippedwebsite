@@ -545,6 +545,15 @@
         display: none !important;
       }
 
+      /* Client portal background */
+      .client-portal-section {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 102, 204, 0.05),
+          rgba(0, 180, 216, 0.05)
+        );
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         .header-title {
@@ -1826,16 +1835,7 @@
     </section>
 
     <!-- Client Management Portal -->
-    <section
-      class="category-section"
-      style="
-        background: linear-gradient(
-          135deg,
-          rgba(0, 102, 204, 0.05),
-          rgba(0, 180, 216, 0.05)
-        );
-      "
-    >
+    <section class="category-section client-portal-section">
       <div class="container">
         <div class="category-header">
           <div class="category-badge">Client Portal</div>
