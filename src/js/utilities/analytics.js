@@ -254,43 +254,61 @@ class AnalyticsManager {
   }
 
   trackScrollDepth() {
-    let maxScroll = 0;
-    const thresholds = [25, 50, 75, 90];
-    const tracked = new Set();
+    const tracker = new ScrollDepthTracker(this);
+    tracker.init();
+  }
+}
 
-    const trackScroll = () => {
-      const scrollPercent = Math.round(
-        (window.scrollY /
-          (document.documentElement.scrollHeight - window.innerHeight)) *
-          100,
-      );
+class ScrollDepthTracker {
+  constructor(analyticsManager) {
+    this.analytics = analyticsManager;
+    this.maxScroll = 0;
+    this.thresholds = [25, 50, 75, 90];
+    this.tracked = new Set();
+    this.ticking = false;
+  }
 
-      if (scrollPercent > maxScroll) {
-        maxScroll = scrollPercent;
-
-        thresholds.forEach((threshold) => {
-          if (scrollPercent >= threshold && !tracked.has(threshold)) {
-            tracked.add(threshold);
-            this.trackEvent("scroll", "scroll_depth", {
-              scroll_depth: threshold,
-            });
-          }
-        });
-      }
-    };
-
-    let ticking = false;
-    const scrollHandler = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          trackScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
+  init() {
+    const scrollHandler = () => this.handleScroll();
     window.addEventListener("scroll", scrollHandler, { passive: true });
+  }
+
+  handleScroll() {
+    if (!this.ticking) {
+      requestAnimationFrame(() => {
+        this.trackScroll();
+        this.ticking = false;
+      });
+      this.ticking = true;
+    }
+  }
+
+  trackScroll() {
+    const scrollPercent = this.calculateScrollPercent();
+
+    if (scrollPercent > this.maxScroll) {
+      this.maxScroll = scrollPercent;
+      this.checkThresholds(scrollPercent);
+    }
+  }
+
+  calculateScrollPercent() {
+    return Math.round(
+      (window.scrollY /
+        (document.documentElement.scrollHeight - window.innerHeight)) *
+        100,
+    );
+  }
+
+  checkThresholds(scrollPercent) {
+    this.thresholds.forEach((threshold) => {
+      if (scrollPercent >= threshold && !this.tracked.has(threshold)) {
+        this.tracked.add(threshold);
+        this.analytics.trackEvent("scroll", "scroll_depth", {
+          scroll_depth: threshold,
+        });
+      }
+    });
   }
 
   processQueue() {
