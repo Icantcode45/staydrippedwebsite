@@ -1,9 +1,9 @@
 // Main JavaScript entry point for Stay Dripped Mobile IV
 
 // Import utilities
-import "./utils/theme-manager.js";
-import "./utils/lazy-loading.js";
-import "./utils/analytics.js";
+import "./utilities/theme-manager.js";
+import "./utilities/lazy-loading.js";
+import "./utilities/analytics.js";
 
 // Import components
 import "./components/mobile-menu.js";
