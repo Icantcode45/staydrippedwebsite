@@ -1982,6 +1982,28 @@
 
     <!-- JavaScript -->
     <script>
+      // Reusable IntakeQ widget loader to reduce code duplication
+      function loadIntakeQWidget(config) {
+        const { serviceId, categoryId, clientArea } = config;
+
+        // Set window properties
+        window.intakeq = "68460f36bc104b6aa9da43e0";
+        if (serviceId) window.intakeqServiceId = serviceId;
+        if (categoryId) window.intakeqCategoryId = categoryId;
+        if (clientArea) window.intakeqClientArea = true;
+
+        // Load script if not already loaded
+        if (
+          !document.querySelector('script[src*="intakeq.com/js/widget.min.js"]')
+        ) {
+          const script = document.createElement("script");
+          script.type = "text/javascript";
+          script.async = true;
+          script.src = "https://intakeq.com/js/widget.min.js?1";
+          document.head.appendChild(script);
+        }
+      }
+
       // Smooth scrolling for navigation tabs
       document.querySelectorAll(".nav-tab").forEach((tab) => {
         tab.addEventListener("click", function (e) {
