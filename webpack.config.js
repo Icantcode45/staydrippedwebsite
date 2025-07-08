@@ -130,7 +130,7 @@ module.exports = (env) => {
               paths: glob.sync([
                 path.join(__dirname, "public/**/*.html"),
                 path.join(__dirname, "components/**/*.html"),
-                path.join(__dirname, "src/js/**/*.js"),
+                path.join(__dirname, "src/**/*.js"),
               ]),
               safelist: {
                 standard: [
