@@ -177,9 +177,17 @@ class IntakeQCategoryBooking {
 
   createServiceWidget(serviceKey) {
     const service = this.services[serviceKey];
-    const container = document.getElementById(service.containerId);
 
-    if (!container) return;
+    if (!ValidationUtils.isValidServiceConfig(service)) {
+      console.error(`Invalid service configuration for ${serviceKey}`);
+      return;
+    }
+
+    const container = document.getElementById(service.containerId);
+    if (!ValidationUtils.isElementValid(container)) {
+      console.warn(`Container not found for service: ${serviceKey}`);
+      return;
+    }
 
     try {
       this.renderServiceWidget(container, service, serviceKey);
