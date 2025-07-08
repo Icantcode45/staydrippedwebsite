@@ -1,600 +1,108 @@
-// Comprehensive Header System for Stay Dripped Mobile IV
+/* ========================================================================
+   HEADER & NAVIGATION
+   ======================================================================== */
 
 .site-header {
+  background-color: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-gray-200);
   position: sticky;
   top: 0;
-  z-index: map-get($z-index, sticky);
-  background: rgba($color-secondary, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba($color-primary, 0.1);
-
-  @include transition(background-color, border-color, backdrop-filter);
-
-  &--transparent {
-    background: transparent;
-    border-bottom-color: transparent;
-
-    &.scrolled {
-      background: rgba($color-secondary, 0.95);
-      border-bottom-color: rgba($color-primary, 0.1);
-    }
-  }
-
-  @include dark-mode {
-    background: rgba($color-dark-bg, 0.95);
-    border-bottom-color: rgba($color-secondary, 0.1);
-
-    &--transparent {
-      background: transparent;
-      border-bottom-color: transparent;
-
-      &.scrolled {
-        background: rgba($color-dark-bg, 0.95);
-        border-bottom-color: rgba($color-secondary, 0.1);
-      }
-    }
-  }
-
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: map-get($spacing, 4);
-    padding-bottom: map-get($spacing, 4);
-
-    @include respond-to(lg) {
-      padding-top: map-get($spacing, 5);
-      padding-bottom: map-get($spacing, 5);
-    }
-  }
+  z-index: var(--z-fixed);
+  transition: all var(--transition-base);
 }
 
-// Logo
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+/* Logo */
 .site-logo {
   display: flex;
   align-items: center;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
   text-decoration: none;
-
-  @include transition(transform);
+  transition: all var(--transition-base);
 
   &:hover {
-    transform: scale(1.05);
-  }
-
-  &:focus {
-    @include focus-ring;
-    border-radius: map-get($border-radius, base);
+    transform: scale(1.02);
   }
 
   img {
-    height: 40px;
+    max-height: 48px;
     width: auto;
-    display: block;
-
-    @include respond-to(md) {
-      height: 48px;
-    }
-
-    @include respond-to(lg) {
-      height: 52px;
-    }
-  }
-
-  // Text logo variant
-  &--text {
-    font-size: map-get($fs-scale, xl);
-    font-weight: 700;
-    color: $color-primary;
-
-    @include dark-mode {
-      color: $color-secondary;
-    }
-
-    @include respond-to(md) {
-      font-size: map-get($fs-scale, 2xl);
-    }
   }
 }
 
-// Main navigation
+/* Main Navigation */
 .main-nav {
   display: none;
 
-  @include respond-to(lg) {
-    display: flex;
-    align-items: center;
-    gap: map-get($spacing, 8);
-  }
-
-  &__list {
-    display: flex;
-    align-items: center;
-    gap: map-get($spacing, 6);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @include respond-to(xl) {
-      gap: map-get($spacing, 8);
-    }
-  }
-
-  &__item {
-    position: relative;
-
-    &--has-dropdown {
-      &:hover .main-nav__dropdown {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-    }
-  }
-
-  &__link {
+  @media (width >= 1024px) {
     display: block;
-    padding: map-get($spacing, 2) map-get($spacing, 3);
-    color: $color-text-dark;
-    font-weight: 500;
-    font-size: map-get($fs-scale, base);
-    text-decoration: none;
-    border-radius: map-get($border-radius, base);
-
-    @include transition(color, background-color);
-
-    &:hover,
-    &:focus {
-      color: $color-primary;
-      background: rgba($color-primary, 0.05);
-    }
-
-    &.active {
-      color: $color-primary;
-      background: rgba($color-primary, 0.1);
-      font-weight: 600;
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 20px;
-        height: 2px;
-        background: $color-primary;
-        border-radius: map-get($border-radius, full);
-      }
-    }
-
-    @include dark-mode {
-      color: $color-secondary;
-
-      &:hover,
-      &:focus,
-      &.active {
-        color: $color-info;
-        background: rgba($color-info, 0.1);
-      }
-
-      &.active::after {
-        background: $color-info;
-      }
-    }
-  }
-
-  // Dropdown menu
-  &__dropdown {
-    position: absolute;
-    top: calc(100% + map-get($spacing, 2));
-    left: 0;
-    min-width: 220px;
-    background: $color-secondary;
-    border-radius: map-get($border-radius, lg);
-    box-shadow: map-get($shadow, lg);
-    padding: map-get($spacing, 2);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-
-    @include transition(opacity, visibility, transform);
-    z-index: map-get($z-index, dropdown);
-
-    @include dark-mode {
-      background: lighten($color-dark-bg, 5%);
-      border: 1px solid rgba($color-secondary, 0.1);
-    }
-  }
-
-  &__dropdown-item {
-    margin: 0;
-  }
-
-  &__dropdown-link {
-    display: block;
-    padding: map-get($spacing, 3);
-    color: $color-text-dark;
-    text-decoration: none;
-    border-radius: map-get($border-radius, base);
-    font-size: map-get($fs-scale, sm);
-
-    @include transition(background-color, color);
-
-    &:hover,
-    &:focus {
-      background: rgba($color-primary, 0.1);
-      color: $color-primary;
-    }
-
-    @include dark-mode {
-      color: $color-secondary;
-
-      &:hover,
-      &:focus {
-        background: rgba($color-secondary, 0.1);
-        color: $color-info;
-      }
-    }
-  }
-
-  &__dropdown-divider {
-    height: 1px;
-    background: rgba($color-primary, 0.1);
-    margin: map-get($spacing, 2) 0;
-
-    @include dark-mode {
-      background: rgba($color-secondary, 0.1);
-    }
   }
 }
 
-// Header actions
-.header-actions {
+.main-nav__list {
   display: flex;
   align-items: center;
-  gap: map-get($spacing, 3);
+  gap: var(--space-6);
+}
 
-  @include respond-to(md) {
-    gap: map-get($spacing, 4);
+.main-nav__item {
+  position: relative;
+}
+
+.main-nav__link {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+
+  &:hover {
+    color: var(--color-primary);
+    background-color: var(--color-gray-50);
   }
 }
 
-// Mobile menu toggle
+/* Mobile Menu Toggle */
 .mobile-menu-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  background: transparent;
-  border: 1px solid rgba($color-primary, 0.2);
-  border-radius: map-get($border-radius, base);
-  color: $color-primary;
-  cursor: pointer;
+  border-radius: var(--radius-lg);
+  background-color: transparent;
+  color: var(--color-gray-700);
+  transition: all var(--transition-base);
 
-  @include transition(all);
+  &:hover {
+    background-color: var(--color-gray-100);
+  }
 
-  @include respond-to(lg) {
+  @media (width >= 1024px) {
     display: none;
   }
-
-  &:hover {
-    background: rgba($color-primary, 0.1);
-    border-color: $color-primary;
-  }
-
-  &:focus {
-    @include focus-ring;
-  }
-
-  &.active {
-    background: $color-primary;
-    color: $color-secondary;
-    border-color: $color-primary;
-  }
-
-  .hamburger {
-    width: 20px;
-    height: 14px;
-    position: relative;
-
-    span {
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: currentcolor;
-      border-radius: 1px;
-      position: absolute;
-
-      @include transition(all);
-
-      &:nth-child(1) {
-        top: 0;
-      }
-
-      &:nth-child(2) {
-        top: 6px;
-      }
-
-      &:nth-child(3) {
-        top: 12px;
-      }
-    }
-  }
-
-  &.active .hamburger span {
-    &:nth-child(1) {
-      transform: rotate(45deg);
-      top: 6px;
-    }
-
-    &:nth-child(2) {
-      opacity: 0;
-    }
-
-    &:nth-child(3) {
-      transform: rotate(-45deg);
-      top: 6px;
-    }
-  }
-
-  @include dark-mode {
-    border-color: rgba($color-secondary, 0.2);
-    color: $color-secondary;
-
-    &:hover {
-      background: rgba($color-secondary, 0.1);
-      border-color: $color-secondary;
-    }
-
-    &.active {
-      background: $color-secondary;
-      color: $color-dark-bg;
-    }
-  }
 }
 
-// Mobile menu
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba($color-dark-bg, 0.95);
-  backdrop-filter: blur(20px);
-  z-index: map-get($z-index, modal);
-  opacity: 0;
-  visibility: hidden;
-
-  @include transition(opacity, visibility);
-
-  &.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    padding: map-get($spacing, 6);
-  }
-
-  &__close {
-    position: absolute;
-    top: map-get($spacing, 6);
-    right: map-get($spacing, 6);
-    width: 44px;
-    height: 44px;
-    background: transparent;
-    border: none;
-    color: $color-secondary;
-    font-size: map-get($fs-scale, xl);
-    cursor: pointer;
-    border-radius: map-get($border-radius, base);
-
-    @include transition(transform, background-color);
-
-    &:hover {
-      transform: scale(1.1);
-      background: rgba($color-secondary, 0.1);
-    }
-
-    &:focus {
-      @include focus-ring($color-secondary);
-    }
-  }
-
-  &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-bottom: map-get($spacing, 8);
-  }
-
-  &__item {
-    margin-bottom: map-get($spacing, 4);
-  }
-
-  &__link {
-    display: block;
-    font-size: map-get($fs-scale, xl);
-    font-weight: 600;
-    color: $color-secondary;
-    padding: map-get($spacing, 3);
-    text-decoration: none;
-    border-radius: map-get($border-radius, lg);
-
-    @include transition(color, background-color);
-
-    &:hover,
-    &:focus {
-      color: $color-info;
-      background: rgba($color-info, 0.1);
-    }
-
-    &.active {
-      color: $color-info;
-      background: rgba($color-info, 0.2);
-    }
-
-    @include respond-to(md) {
-      font-size: map-get($fs-scale, 2xl);
-    }
-  }
-
-  &__actions {
-    display: flex;
-    flex-direction: column;
-    gap: map-get($spacing, 4);
-
-    @include respond-to(sm) {
-      flex-direction: row;
-    }
-  }
-
-  &__social {
-    display: flex;
-    gap: map-get($spacing, 4);
-    margin-top: map-get($spacing, 8);
-
-    .social-link {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba($color-secondary, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: $color-secondary;
-      text-decoration: none;
-
-      @include transition(background-color, transform);
-
-      &:hover {
-        background: rgba($color-secondary, 0.2);
-        transform: translateY(-2px);
-      }
-    }
-  }
-}
-
-// Dark mode toggle
-.dark-mode-toggle {
-  width: 44px;
-  height: 44px;
-  background: transparent;
-  border: 1px solid rgba($color-primary, 0.2);
-  border-radius: 50%;
-  color: $color-primary;
-  font-size: map-get($fs-scale, lg);
-  cursor: pointer;
+.hamburger {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
 
-  @include transition(all);
-
-  &:hover {
-    background: rgba($color-primary, 0.1);
-    border-color: $color-primary;
-    transform: rotate(180deg);
-  }
-
-  &:focus {
-    @include focus-ring;
-  }
-
-  @include dark-mode {
-    border-color: rgba($color-secondary, 0.2);
-    color: $color-secondary;
-
-    &:hover {
-      background: rgba($color-secondary, 0.1);
-      border-color: $color-secondary;
-    }
-  }
-}
-
-// Header search (if needed)
-.header-search {
-  position: relative;
-
-  &__input {
-    width: 200px;
-    padding: map-get($spacing, 2) map-get($spacing, 3);
-    border: 1px solid rgba($color-primary, 0.2);
-    border-radius: map-get($border-radius, full);
-    background: $color-secondary;
-    color: $color-text-dark;
-    font-size: map-get($fs-scale, sm);
-
-    @include transition(border-color, box-shadow);
-
-    &:focus {
-      outline: none;
-      border-color: $color-primary;
-      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
-    }
-
-    &::placeholder {
-      color: $color-text-light;
-    }
-
-    @include dark-mode {
-      background: lighten($color-dark-bg, 5%);
-      border-color: rgba($color-secondary, 0.2);
-      color: $color-secondary;
-
-      &:focus {
-        border-color: $color-info;
-        box-shadow: 0 0 0 3px rgba($color-info, 0.1);
-      }
-    }
-  }
-
-  &__button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 40px;
-    background: transparent;
-    border: none;
-    color: $color-text-light;
-    cursor: pointer;
-    border-radius: 0 map-get($border-radius, full) map-get($border-radius, full)
-      0;
-
-    @include transition(color);
-
-    &:hover {
-      color: $color-primary;
-    }
-  }
-}
-
-// Scroll behavior
-.header-scrolled {
-  .site-header {
-    box-shadow: map-get($shadow, sm);
-  }
-}
-
-// Reduced motion support
-@media (prefers-reduced-motion: reduce) {
-  .site-logo,
-  .dark-mode-toggle,
-  .mobile-menu-toggle {
-    &:hover {
-      transform: none;
-    }
-  }
-
-  .mobile-menu__close:hover {
-    transform: none;
+  span {
+    width: 20px;
+    height: 2px;
+    background-color: currentcolor;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
   }
 }
