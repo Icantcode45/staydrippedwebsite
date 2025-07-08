@@ -357,14 +357,23 @@ class IntakeQCategoryBooking {
       `Error initializing embedded widget for ${serviceKey}:`,
       error,
     );
-    embedContainer.innerHTML = `
-      <div class="widget-error">
-        <p>Widget temporarily unavailable</p>
-        <button class="book-now-btn" data-service="${serviceKey}">
-          Book Now
-        </button>
-      </div>
-    `;
+
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "widget-error";
+
+    const message = document.createElement("p");
+    message.textContent = "Widget temporarily unavailable";
+
+    const button = document.createElement("button");
+    button.className = "book-now-btn";
+    button.dataset.service = serviceKey;
+    button.textContent = "Book Now";
+
+    errorDiv.appendChild(message);
+    errorDiv.appendChild(button);
+
+    embedContainer.innerHTML = "";
+    embedContainer.appendChild(errorDiv);
   }
 
   openBookingForService(serviceKey) {
