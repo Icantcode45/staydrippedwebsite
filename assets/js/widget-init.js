@@ -1,7 +1,13 @@
 // Widget initialization for IV Menu page
 function initializeWidgets() {
-  // Service configurations
-  const services = [
+  const services = getServiceConfigs();
+  services.forEach((service, index) => {
+    setTimeout(() => createWidget(service), index * 500);
+  });
+}
+
+function getServiceConfigs() {
+  return [
     {
       id: "rehydrate-widget",
       serviceId: "73e00621-4069-486a-9fa8-a5a94a089618",
@@ -38,12 +44,6 @@ function initializeWidgets() {
       serviceId: "ddf30134-b441-4226-bfe9-27eed5368949",
     },
   ];
-
-  services.forEach((service, index) => {
-    setTimeout(() => {
-      createWidget(service);
-    }, index * 500);
-  });
 }
 
 function createWidget(service) {
