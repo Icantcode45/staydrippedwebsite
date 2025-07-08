@@ -223,9 +223,9 @@ module.exports = (env) => {
     resolve: {
       extensions: [".js", ".json"],
       alias: {
-        "@": path.resolve(__dirname, "js"),
-        "@styles": path.resolve(__dirname, "assets/css"),
-        "@assets": path.resolve(__dirname, "assets"),
+        "@": path.resolve(__dirname, "src/js"),
+        "@styles": path.resolve(__dirname, "src/scss"),
+        "@assets": path.resolve(__dirname, "src/assets"),
       },
     },
     devtool: isProduction ? "source-map" : "eval-source-map",
