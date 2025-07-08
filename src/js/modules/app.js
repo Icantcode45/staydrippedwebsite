@@ -103,13 +103,21 @@ class App {
   }
 
   observeLargestContentfulPaint() {
-    new PerformanceObserver((entryList) => {
-      const entries = entryList.getEntries();
-      const lastEntry = entries[entries.length - 1];
+    try {
+      new PerformanceObserver((entryList) => {
+        const entries = entryList.getEntries();
+        if (entries.length > 0) {
+          const lastEntry = entries[entries.length - 1];
+          if (this.isDebug && lastEntry.startTime) {
+            console.log("LCP:", Math.round(lastEntry.startTime));
+          }
+        }
+      }).observe({ entryTypes: ["largest-contentful-paint"] });
+    } catch (error) {
       if (this.isDebug) {
-        console.log("LCP:", Math.round(lastEntry.startTime));
+        console.warn("Performance observer not supported:", error);
       }
-    }).observe({ entryTypes: ["largest-contentful-paint"] });
+    }
   }
 
   initAccessibilityEnhancements() {
