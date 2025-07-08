@@ -1,0 +1,445 @@
+// Comprehensive Button System for Stay Dripped Mobile IV
+
+.btn {
+  @include button-base;
+  @include button-size(md);
+  @include button-variant(primary);
+
+  // Icon support
+  &--icon {
+    gap: map-get($spacing, 2);
+
+    .icon {
+      width: 1.25em;
+      height: 1.25em;
+      fill: currentcolor;
+      flex-shrink: 0;
+    }
+  }
+
+  // Size variants
+  &--sm {
+    @include button-size(sm);
+  }
+
+  &--lg {
+    @include button-size(lg);
+  }
+
+  // Style variants
+  &--primary {
+    @include button-variant(primary);
+  }
+
+  &--secondary {
+    @include button-variant(secondary);
+  }
+
+  &--outline {
+    @include button-variant(outline);
+  }
+
+  &--ghost {
+    @include button-variant(ghost);
+  }
+
+  &--success {
+    background: linear-gradient(
+      145deg,
+      $color-success,
+      darken($color-success, 10%)
+    );
+    color: $color-secondary;
+    box-shadow: map-get($shadow, md);
+
+    &:hover {
+      background: linear-gradient(
+        145deg,
+        lighten($color-success, 5%),
+        $color-success
+      );
+      box-shadow: map-get($shadow, lg);
+      transform: translateY(-1px);
+    }
+  }
+
+  &--warning {
+    background: linear-gradient(
+      145deg,
+      $color-warning,
+      darken($color-warning, 10%)
+    );
+    color: $color-text-dark;
+    box-shadow: map-get($shadow, md);
+
+    &:hover {
+      background: linear-gradient(
+        145deg,
+        lighten($color-warning, 5%),
+        $color-warning
+      );
+      box-shadow: map-get($shadow, lg);
+      transform: translateY(-1px);
+    }
+  }
+
+  &--error {
+    background: linear-gradient(
+      145deg,
+      $color-error,
+      darken($color-error, 10%)
+    );
+    color: $color-secondary;
+    box-shadow: map-get($shadow, md);
+
+    &:hover {
+      background: linear-gradient(
+        145deg,
+        lighten($color-error, 5%),
+        $color-error
+      );
+      box-shadow: map-get($shadow, lg);
+      transform: translateY(-1px);
+    }
+  }
+
+  // Full width
+  &--full {
+    width: 100%;
+  }
+
+  // Loading state
+  &--loading {
+    position: relative;
+    color: transparent;
+    cursor: wait;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1rem;
+      height: 1rem;
+      margin: -0.5rem 0 0 -0.5rem;
+      border: 2px solid transparent;
+      border-top-color: currentcolor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+
+  // Round variant
+  &--round {
+    border-radius: map-get($border-radius, full);
+  }
+
+  // Elevated variant
+  &--elevated {
+    box-shadow: map-get($shadow, lg);
+
+    &:hover {
+      box-shadow: map-get($shadow, xl);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Button group
+.btn-group {
+  display: inline-flex;
+  border-radius: map-get($border-radius, md);
+  overflow: hidden;
+  box-shadow: map-get($shadow, sm);
+
+  .btn {
+    border-radius: 0;
+    margin: 0;
+
+    &:not(:last-child) {
+      border-right: 1px solid rgba($color-primary, 0.2);
+    }
+
+    &:first-child {
+      border-radius: map-get($border-radius, md) 0 0 map-get($border-radius, md);
+    }
+
+    &:last-child {
+      border-radius: 0 map-get($border-radius, md) map-get($border-radius, md) 0;
+    }
+
+    &:only-child {
+      border-radius: map-get($border-radius, md);
+    }
+
+    &:focus {
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  &--vertical {
+    flex-direction: column;
+
+    .btn {
+      &:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid rgba($color-primary, 0.2);
+      }
+
+      &:first-child {
+        border-radius: map-get($border-radius, md) map-get($border-radius, md) 0
+          0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 map-get($border-radius, md)
+          map-get($border-radius, md);
+      }
+    }
+  }
+}
+
+// Floating action button
+.fab {
+  @include button-base;
+  position: fixed;
+  bottom: map-get($spacing, 6);
+  right: map-get($spacing, 6);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    $color-primary,
+    darken($color-primary, 10%)
+  );
+  color: $color-secondary;
+  box-shadow: map-get($shadow, lg);
+  z-index: map-get($z-index, sticky);
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: map-get($shadow, xl);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: currentcolor;
+  }
+
+  // Mini variant
+  &--mini {
+    width: 40px;
+    height: 40px;
+
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  // Extended variant with text
+  &--extended {
+    width: auto;
+    padding: 0 map-get($spacing, 4);
+    border-radius: map-get($border-radius, full);
+    gap: map-get($spacing, 2);
+    font-weight: 600;
+  }
+}
+
+// CTA (Call to Action) buttons
+.cta-button {
+  @extend .btn;
+  @extend .btn--primary;
+  @extend .btn--lg;
+
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 20%),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+// Link buttons
+.btn-link {
+  @include button-base;
+  background: transparent;
+  color: $color-primary;
+  border: none;
+  box-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+
+  &:hover {
+    background: transparent;
+    color: lighten($color-primary, 15%);
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline-offset: 0.25em;
+  }
+}
+
+// Social media buttons
+.btn-social {
+  @include button-base;
+  @include button-size(md);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+
+  &--facebook {
+    background: #1877f2;
+    color: white;
+
+    &:hover {
+      background: darken(#1877f2, 10%);
+    }
+  }
+
+  &--twitter {
+    background: #1da1f2;
+    color: white;
+
+    &:hover {
+      background: darken(#1da1f2, 10%);
+    }
+  }
+
+  &--instagram {
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    color: white;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &--linkedin {
+    background: #0077b5;
+    color: white;
+
+    &:hover {
+      background: darken(#0077b5, 10%);
+    }
+  }
+}
+
+// Toggle buttons
+.btn-toggle {
+  @include button-base;
+  @include button-size(md);
+  background: rgba($color-primary, 0.1);
+  color: $color-primary;
+  border: 2px solid rgba($color-primary, 0.2);
+
+  &.active {
+    background: $color-primary;
+    color: $color-secondary;
+    border-color: $color-primary;
+  }
+
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+// Animations
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Dark mode support
+@include dark-mode {
+  .btn {
+    &--secondary {
+      background: lighten($color-dark-bg, 10%);
+      color: $color-secondary;
+      border-color: rgba($color-secondary, 0.3);
+
+      &:hover {
+        background: $color-secondary;
+        color: $color-dark-bg;
+      }
+    }
+
+    &--ghost {
+      color: $color-secondary;
+
+      &:hover {
+        background: rgba($color-secondary, 0.1);
+      }
+    }
+  }
+
+  .btn-link {
+    color: $color-info;
+
+    &:hover {
+      color: lighten($color-info, 15%);
+    }
+  }
+
+  .btn-toggle {
+    background: rgba($color-secondary, 0.1);
+    color: $color-secondary;
+    border-color: rgba($color-secondary, 0.2);
+
+    &.active {
+      background: $color-secondary;
+      color: $color-dark-bg;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .fab {
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .btn--loading::after {
+    animation: none;
+  }
+
+  .cta-button::before {
+    display: none;
+  }
+}
