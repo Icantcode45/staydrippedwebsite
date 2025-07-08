@@ -48,15 +48,40 @@ function initializeWidgets() {
 
 function createWidget(service) {
   const container = document.getElementById(service.id);
-  if (container) {
-    window.intakeqServiceId = service.serviceId;
-    const widgetDiv = document.createElement("div");
-    widgetDiv.id = `intakeq-${service.id}`;
-    widgetDiv.style.maxWidth = "100%";
-    widgetDiv.style.width = "100%";
-    widgetDiv.style.minHeight = "400px";
-    container.appendChild(widgetDiv);
+  if (!container) {
+    console.warn(`Container not found for service: ${service.id}`);
+    return;
   }
+
+  try {
+    window.intakeqServiceId = service.serviceId;
+    const widgetDiv = createWidgetElement(service.id);
+    container.appendChild(widgetDiv);
+  } catch (error) {
+    console.error(`Failed to create widget for ${service.id}:`, error);
+    renderFallbackContent(container, service);
+  }
+}
+
+function createWidgetElement(serviceId) {
+  const widgetDiv = document.createElement("div");
+  widgetDiv.id = `intakeq-${serviceId}`;
+  widgetDiv.style.maxWidth = "100%";
+  widgetDiv.style.width = "100%";
+  widgetDiv.style.minHeight = "400px";
+  return widgetDiv;
+}
+
+function renderFallbackContent(container, service) {
+  container.innerHTML = `
+    <div class="widget-fallback">
+      <p>Widget temporarily unavailable</p>
+      <a href="https://Staydripped.intakeq.com/booking?serviceId=${service.serviceId}"
+         target="_blank" class="book-now-btn">
+        Book Now
+      </a>
+    </div>
+  `;
 }
 
 // Initialize when DOM is ready
