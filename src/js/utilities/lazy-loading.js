@@ -129,9 +129,6 @@ class LazyLoader {
 }
 
 // Initialize lazy loader
-const lazyLoader = new LazyLoader();
-
-// Make it available globally for dynamic content
-window.lazyLoader = lazyLoader;
+new LazyLoader();
 
 export default LazyLoader;
