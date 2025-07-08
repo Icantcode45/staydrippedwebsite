@@ -207,9 +207,14 @@ class IntakeQCategoryBooking {
   }
 
   buildWidgetContainer(service, serviceKey) {
-    const widgetContainer = document.createElement("div");
-    widgetContainer.className = "intakeq-service-widget";
-    widgetContainer.innerHTML = `
+    const container = document.createElement("div");
+    container.className = "intakeq-service-widget";
+    container.innerHTML = this.getWidgetTemplate(service, serviceKey);
+    return container;
+  }
+
+  getWidgetTemplate(service, serviceKey) {
+    return `
       <div class="widget-header">
         <span class="widget-icon">${service.icon}</span>
         <h3 class="widget-title">${service.name}</h3>
@@ -225,7 +230,6 @@ class IntakeQCategoryBooking {
         </button>
       </div>
     `;
-    return widgetContainer;
   }
 
   setupWidget(container, widgetContainer, serviceKey, service) {
