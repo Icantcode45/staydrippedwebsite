@@ -257,6 +257,13 @@ class AnalyticsManager {
     const tracker = new ScrollDepthTracker(this);
     tracker.init();
   }
+
+  processQueue() {
+    while (this.trackingQueue.length > 0) {
+      const event = this.trackingQueue.shift();
+      this.trackEvent(event.action, event.category, event);
+    }
+  }
 }
 
 class ScrollDepthTracker {
