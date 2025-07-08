@@ -18,8 +18,10 @@ import App from "./modules/app.js";
 
 // Application initialization
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize the application
-  if (window.App) {
-    new window.App();
+  try {
+    // Initialize the application
+    new App();
+  } catch (error) {
+    console.error("Failed to initialize application:", error);
   }
 });
