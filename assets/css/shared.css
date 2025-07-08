@@ -286,8 +286,99 @@ body {
   transform: translateY(0);
 }
 
+/* Common Card Styles */
+.card-base {
+  background: var(--white);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  border: 2px solid var(--gray-100);
+}
+
+.card-base:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary);
+}
+
+.card-featured {
+  border-color: var(--gold);
+  transform: scale(1.02);
+}
+
+.card-featured .card-header {
+  background: var(--gradient-primary);
+  position: relative;
+}
+
+.card-featured .card-header::before {
+  content: "POPULAR";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--gold);
+  color: var(--gray-900);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Widget Error Styles */
+.widget-error,
+.widget-fallback {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  text-align: center;
+}
+
+.widget-error p {
+  color: #dc2626;
+  margin: 0 0 1rem 0;
+}
+
+.book-now-btn {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.book-now-btn:hover {
+  background: linear-gradient(135deg, #00ffa6 0%, #00cc99 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4);
+  text-decoration: none;
+  color: var(--white);
+}
+
 @media (width <= 768px) {
   .nav-links {
     display: none;
+  }
+
+  .card-featured {
+    transform: none;
+  }
+
+  .book-now-btn {
+    width: 100%;
+    min-width: auto;
   }
 }
