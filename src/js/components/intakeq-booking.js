@@ -180,12 +180,20 @@ class IntakeQCategoryBooking {
     if (!container) return;
 
     try {
-      const widgetContainer = this.buildWidgetContainer(service, serviceKey);
-      this.setupWidget(container, widgetContainer, serviceKey, service);
+      this.renderServiceWidget(container, service, serviceKey);
     } catch (error) {
-      console.error(`Error creating widget for ${service.name}:`, error);
-      this.createFallbackButton(container, service);
+      this.handleWidgetError(error, container, service);
     }
+  }
+
+  renderServiceWidget(container, service, serviceKey) {
+    const widgetContainer = this.buildWidgetContainer(service, serviceKey);
+    this.setupWidget(container, widgetContainer, serviceKey, service);
+  }
+
+  handleWidgetError(error, container, service) {
+    console.error(`Error creating widget for ${service.name}:`, error);
+    this.createFallbackButton(container, service);
   }
 
   buildWidgetContainer(service, serviceKey) {
