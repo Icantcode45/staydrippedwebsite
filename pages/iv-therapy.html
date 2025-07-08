@@ -1870,7 +1870,6 @@
 
           // Validate config object
           if (typeof config !== "object") {
-            console.warn("Invalid config provided to loadIntakeQWidget");
             return;
           }
 
@@ -1902,7 +1901,7 @@
             document.head.appendChild(script);
           }
         } catch (error) {
-          console.error("Error loading IntakeQ widget:", error);
+          // Silent error handling for production
         }
       }
 
@@ -1934,7 +1933,6 @@
         try {
           // Validate input
           if (!widgetId || typeof widgetId !== "string") {
-            console.warn("Invalid widget ID provided");
             return;
           }
 
@@ -1946,7 +1944,7 @@
             widget.classList.toggle("hidden");
           }
         } catch (error) {
-          console.error("Error toggling widget:", error);
+          // Silent error handling for production
         }
       }
 
