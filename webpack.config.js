@@ -106,7 +106,7 @@ module.exports = (env) => {
           : "css/[name].css",
       }),
       new HtmlWebpackPlugin({
-        template: "./public/index.html",
+        template: "./index.html",
         filename: "index.html",
         inject: "body",
         minify: isProduction
