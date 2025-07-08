@@ -4,26 +4,23 @@
    ======================================================================== */
 
 // Import base styles first
-@import "base/variables";
-@import "base/reset";
-@import "base/typography";
+@use "base/variables";
+@use "base/reset";
+@use "base/typography";
 
 // Import layout components
-@import "layouts/container";
-@import "layouts/grid";
-@import "layouts/flexbox";
+@use "layouts/container";
+@use "layouts/grid";
+@use "layouts/flexbox";
 
 // Import components
-@import "components/buttons";
-@import "components/cards";
-@import "components/header";
-@import "components/hero";
-@import "components/navigation";
-@import "components/forms";
-@import "components/animations";
+@use "components/buttons";
+@use "components/cards";
+@use "components/forms";
+@use "components/animations";
 
 // Import utilities last
-@import "utilities/spacing";
-@import "utilities/display";
-@import "utilities/responsive";
-@import "utilities/accessibility";
+@use "utilities/spacing";
+@use "utilities/display";
+@use "utilities/responsive";
+@use "utilities/accessibility";
