@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Portal - Stay Dripped Mobile IV</title>
+    <meta
+      name="description"
+      content="Access your Stay Dripped client portal to manage appointments, view treatment history, and update your information."
+    />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/favicon-32x32.png"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .portal-hero {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+        padding: 120px 0 80px;
+        text-align: center;
+      }
+
+      .portal-content {
+        padding: 80px 0;
+        background: #f8fafc;
+      }
+
+      .portal-widget {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 3rem;
+      }
+
+      .portal-info {
+        padding: 60px 0;
+        background: white;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .info-card {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 12px;
+        background: #f8fafc;
+        border: 2px solid #e5e7eb;
+      }
+
+      .info-icon {
+        font-size: 3rem;
+        color: #6366f1;
+        margin-bottom: 1rem;
+      }
+
+      .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: rgb(255 255 255 / 90%);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .back-button:hover {
+        background: white;
+        transform: scale(1.1);
+      }
+
+      .fallback-link {
+        display: block;
+        text-align: center;
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .fallback-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        text-decoration: none;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .portal-widget {
+          margin: 0 1rem;
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <a
+      href="../index.html"
+      class="back-button"
+      aria-label="Go back to homepage"
+    >
+      <i class="fas fa-home"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="portal-hero">
+      <div class="container">
+        <h1 class="display-1 mb-4">Client Portal</h1>
+        <p class="lead">
+          Manage your appointments, view treatment history, and update your
+          information
+        </p>
+      </div>
+    </section>
+
+    <!-- Portal Content Section -->
+    <section class="portal-content">
+      <div class="container">
+        <h2
+          class="text-center mb-4"
+          style="font-size: 2.5rem; font-weight: 700; color: #333"
+        >
+          Access Your Account
+        </h2>
+        <p class="text-center text-muted mb-5">
+          Login to your patient portal to manage your wellness journey
+        </p>
+
+        <div class="portal-widget">
+          <!-- IntakeQ Client Portal Widget -->
+          <div id="intakeq-client-portal"></div>
+
+          <!-- Fallback Link -->
+          <a
+            href="https://Staydripped.intakeq.com/booking?clientArea=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="fallback-link"
+          >
+            <i class="fas fa-external-link-alt"></i>
+            Open Client Portal in New Window
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portal Info Section -->
+    <section class="portal-info">
+      <div class="container">
+        <h2
+          class="text-center mb-4"
+          style="font-size: 2.5rem; font-weight: 700"
+        >
+          What You Can Do
+        </h2>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">📅</div>
+            <h4>Manage Appointments</h4>
+            <p>View, reschedule, or cancel your upcoming appointments</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">📋</div>
+            <h4>Treatment History</h4>
+            <p>Access your complete treatment history and medical records</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">📝</div>
+            <h4>Update Information</h4>
+            <p>Keep your contact details and medical information current</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">💬</div>
+            <h4>Message Your Provider</h4>
+            <p>Communicate securely with your healthcare team</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IntakeQ Client Area Script -->
+    <script>
+      (function (c) {
+        window.intakeq = "68460f36bc104b6aa9da43e0";
+        window.intakeqClientArea = true;
+        var i = c.createElement("script");
+        i.type = "text/javascript";
+        i.async = true;
+        i.src = "https://intakeq.com/js/widget.min.js?1";
+        document.head.appendChild(i);
+      })(document);
+    </script>
+
+    <!-- Initialize widget in container -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById("intakeq-client-portal");
+        if (container) {
+          // Create the IntakeQ div for client area
+          const widgetDiv = document.createElement("div");
+          widgetDiv.id = "intakeq";
+          widgetDiv.style.maxWidth = "720px";
+          widgetDiv.style.width = "100%";
+          widgetDiv.style.minHeight = "500px";
+          container.appendChild(widgetDiv);
+        }
+
+        // Track client portal visits
+        if (typeof gtag !== "undefined") {
+          gtag("event", "page_view", {
+            page_title: "Client Portal",
+            page_location: window.location.href,
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
