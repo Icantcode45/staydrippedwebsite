@@ -75,28 +75,24 @@ class App {
   }
 
   initErrorHandling() {
-    // Global error handler
-    window.addEventListener("error", (event) => {
-      if (this.isDebug) {
-        console.error("Global error:", {
-          message: event.message || "Unknown error",
-          filename: event.filename || "Unknown file",
-          lineno: event.lineno || "Unknown line",
-          error: event.error,
-        });
-      }
-    });
+    window.addEventListener("error", this.handleError.bind(this));
+    window.addEventListener(
+      "unhandledrejection",
+      this.handleRejection.bind(this),
+    );
+  }
 
-    // Unhandled promise rejection handler
-    window.addEventListener("unhandledrejection", (event) => {
-      event.preventDefault();
+  handleError(event) {
+    if (this.isDebug) {
+      console.error("Global error:", event.message || "Unknown error");
+    }
+  }
 
-      if (this.isDebug) {
-        console.error("Unhandled promise rejection:", {
-          reason: event.reason?.toString() || "Unknown promise rejection",
-        });
-      }
-    });
+  handleRejection(event) {
+    event.preventDefault();
+    if (this.isDebug) {
+      console.error("Unhandled promise rejection:", event.reason?.toString());
+    }
   }
 
   initPerformanceMonitoring() {
