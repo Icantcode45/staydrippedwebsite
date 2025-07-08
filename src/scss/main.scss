@@ -4,28 +4,6 @@
    ======================================================================== */
 
 // Import base styles first
-<<<<<<< HEAD
-@use "base/variables";
-@use "base/reset";
-@use "base/typography";
-
-// Import layout components
-@use "layouts/container";
-@use "layouts/grid";
-@use "layouts/flexbox";
-
-// Import components
-@use "components/buttons";
-@use "components/cards";
-@use "components/forms";
-@use "components/animations";
-
-// Import utilities last
-@use "utilities/spacing";
-@use "utilities/display";
-@use "utilities/responsive";
-@use "utilities/accessibility";
-=======
 @import "base/variables";
 @import "base/reset";
 @import "base/typography";
@@ -38,9 +16,6 @@
 // Import components
 @import "components/buttons";
 @import "components/cards";
-@import "components/header";
-@import "components/hero";
-@import "components/navigation";
 @import "components/forms";
 @import "components/animations";
 
@@ -49,4 +24,3 @@
 @import "utilities/display";
 @import "utilities/responsive";
 @import "utilities/accessibility";
->>>>>>> origin/main
