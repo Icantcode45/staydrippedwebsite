@@ -191,7 +191,7 @@ class App {
     if (existing) existing.remove();
 
     button.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 400);
+    setTimeout(() => ripple.remove(), this.RIPPLE_DURATION);
   }
 
   buildRippleElement(e, button) {
