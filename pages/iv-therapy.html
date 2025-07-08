@@ -1956,24 +1956,45 @@
     <!-- JavaScript -->
     <script>
       // Reusable IntakeQ widget loader to reduce code duplication
-      function loadIntakeQWidget(config) {
-        const { serviceId, categoryId, clientArea } = config;
+      function loadIntakeQWidget(config = {}) {
+        try {
+          const { serviceId, categoryId, clientArea } = config;
 
-        // Set window properties
-        window.intakeq = "68460f36bc104b6aa9da43e0";
-        if (serviceId) window.intakeqServiceId = serviceId;
-        if (categoryId) window.intakeqCategoryId = categoryId;
-        if (clientArea) window.intakeqClientArea = true;
+          // Validate config object
+          if (typeof config !== "object") {
+            console.warn("Invalid config provided to loadIntakeQWidget");
+            return;
+          }
 
-        // Load script if not already loaded
-        if (
-          !document.querySelector('script[src*="intakeq.com/js/widget.min.js"]')
-        ) {
-          const script = document.createElement("script");
-          script.type = "text/javascript";
-          script.async = true;
-          script.src = "https://intakeq.com/js/widget.min.js?1";
-          document.head.appendChild(script);
+          // Set window properties
+          window.intakeq = "68460f36bc104b6aa9da43e0";
+          if (serviceId && typeof serviceId === "string") {
+            window.intakeqServiceId = serviceId;
+          }
+          if (categoryId && typeof categoryId === "string") {
+            window.intakeqCategoryId = categoryId;
+          }
+          if (clientArea === true) {
+            window.intakeqClientArea = true;
+          }
+
+          // Load script if not already loaded
+          if (
+            !document.querySelector(
+              'script[src*="intakeq.com/js/widget.min.js"]',
+            )
+          ) {
+            const script = document.createElement("script");
+            script.type = "text/javascript";
+            script.async = true;
+            script.src = "https://intakeq.com/js/widget.min.js?1";
+            script.onerror = function () {
+              console.error("Failed to load IntakeQ widget script");
+            };
+            document.head.appendChild(script);
+          }
+        } catch (error) {
+          console.error("Error loading IntakeQ widget:", error);
         }
       }
 
