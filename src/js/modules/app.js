@@ -175,27 +175,30 @@ class App {
 
   createRippleEffect(e) {
     const button = e.target;
+    const ripple = this.buildRippleElement(e, button);
+
+    // Remove existing ripple
+    const existing = button.querySelector(".ripple");
+    if (existing) existing.remove();
+
+    button.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 400);
+  }
+
+  buildRippleElement(e, button) {
     const ripple = document.createElement("span");
     const rect = button.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
-    const x = e.clientX - rect.left - size / 2;
-    const y = e.clientY - rect.top - size / 2;
 
-    ripple.style.width = ripple.style.height = size + "px";
-    ripple.style.left = x + "px";
-    ripple.style.top = y + "px";
+    Object.assign(ripple.style, {
+      width: `${size}px`,
+      height: `${size}px`,
+      left: `${e.clientX - rect.left - size / 2}px`,
+      top: `${e.clientY - rect.top - size / 2}px`,
+    });
+
     ripple.classList.add("ripple");
-
-    // Remove existing ripples
-    const existingRipple = button.querySelector(".ripple");
-    if (existingRipple) {
-      existingRipple.remove();
-    }
-
-    button.appendChild(ripple);
-
-    // Remove ripple after animation
-    setTimeout(() => ripple.remove(), 400);
+    return ripple;
   }
 
   async copyToClipboard(text) {
