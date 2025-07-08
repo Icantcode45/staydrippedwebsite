@@ -311,13 +311,6 @@ class ScrollDepthTracker {
     });
   }
 
-  processQueue() {
-    while (this.trackingQueue.length > 0) {
-      const event = this.trackingQueue.shift();
-      this.trackEvent(event.action, event.category, event);
-    }
-  }
-
   sendToCustomAnalytics(eventData) {
     // Implement custom analytics endpoint if needed
     // This could be your own analytics server or third-party service
