@@ -58,7 +58,7 @@ class IntakeQCategoryBooking {
         id: "3519d39a-31ac-4944-80c9-4eb667a13df4",
         name: 'The "Gold" Ultimate Hydration & Recovery IV Drip',
         containerId: "intakeq-gold-hydration-iv",
-        icon: "🥇",
+        icon: "����",
         description: "Premium hydration and recovery formula",
       },
       "platinum-hydration-iv": {
@@ -260,44 +260,54 @@ class IntakeQCategoryBooking {
     if (!embedContainer) return;
 
     try {
-      // Set service-specific configuration
-      window.intakeqServiceId = service.id;
-
-      // Create embedded widget script
-      const widgetScript = document.createElement("script");
-      widgetScript.innerHTML = `
-        (function(c) {
-          var containerId = 'intakeq-widget-${serviceKey}';
-          var container = document.getElementById(containerId);
-          if (container && window.intakeq) {
-            window.intakeqServiceId = '${service.id}';
-            // Create the widget div
-            var widgetDiv = document.createElement('div');
-            widgetDiv.id = 'intakeq-${serviceKey}';
-            widgetDiv.style.maxWidth = '100%';
-            widgetDiv.style.width = '100%';
-            widgetDiv.style.minHeight = '400px';
-            container.appendChild(widgetDiv);
-          }
-        })(document);
-      `;
-
-      // Append and execute script
-      document.head.appendChild(widgetScript);
+      this.setServiceConfiguration(service.id);
+      this.createEmbeddedScript(serviceKey, service.id);
     } catch (error) {
-      console.error(
-        `Error initializing embedded widget for ${serviceKey}:`,
-        error,
-      );
-      embedContainer.innerHTML = `
-        <div class="widget-error">
-          <p>Widget temporarily unavailable</p>
-          <button class="book-now-btn" data-service="${serviceKey}">
-            Book Now
-          </button>
-        </div>
-      `;
+      this.renderWidgetError(error, embedContainer, serviceKey);
     }
+  }
+
+  setServiceConfiguration(serviceId) {
+    window.intakeqServiceId = serviceId;
+  }
+
+  createEmbeddedScript(serviceKey, serviceId) {
+    const widgetScript = document.createElement("script");
+    widgetScript.innerHTML = this.generateWidgetScript(serviceKey, serviceId);
+    document.head.appendChild(widgetScript);
+  }
+
+  generateWidgetScript(serviceKey, serviceId) {
+    return `
+      (function(c) {
+        var containerId = 'intakeq-widget-${serviceKey}';
+        var container = document.getElementById(containerId);
+        if (container && window.intakeq) {
+          window.intakeqServiceId = '${serviceId}';
+          var widgetDiv = document.createElement('div');
+          widgetDiv.id = 'intakeq-${serviceKey}';
+          widgetDiv.style.maxWidth = '100%';
+          widgetDiv.style.width = '100%';
+          widgetDiv.style.minHeight = '400px';
+          container.appendChild(widgetDiv);
+        }
+      })(document);
+    `;
+  }
+
+  renderWidgetError(error, embedContainer, serviceKey) {
+    console.error(
+      `Error initializing embedded widget for ${serviceKey}:`,
+      error,
+    );
+    embedContainer.innerHTML = `
+      <div class="widget-error">
+        <p>Widget temporarily unavailable</p>
+        <button class="book-now-btn" data-service="${serviceKey}">
+          Book Now
+        </button>
+      </div>
+    `;
   }
 
   openBookingForService(serviceKey) {
