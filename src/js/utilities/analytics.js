@@ -5,6 +5,8 @@ class AnalyticsManager {
     this.isEnabled = false;
     this.consentGiven = false;
     this.trackingQueue = [];
+    this.isDebug =
+      typeof process !== "undefined" && process.env?.NODE_ENV === "development";
 
     this.init();
   }
