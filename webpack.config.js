@@ -24,9 +24,15 @@ module.exports = (env) => {
       publicPath: "/",
     },
     devServer: {
-      static: {
-        directory: path.join(__dirname, "dist"),
-      },
+      static: [
+        {
+          directory: path.join(__dirname, "dist"),
+        },
+        {
+          directory: path.join(__dirname, "pages"),
+          publicPath: "/pages",
+        },
+      ],
       compress: true,
       port: 3000,
       hot: false,
@@ -106,7 +112,7 @@ module.exports = (env) => {
           : "css/[name].css",
       }),
       new HtmlWebpackPlugin({
-        template: "./public/index.html",
+        template: "./index.html",
         filename: "index.html",
         inject: "body",
         minify: isProduction

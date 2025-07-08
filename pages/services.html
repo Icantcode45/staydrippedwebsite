@@ -32,10 +32,13 @@
     <link rel="manifest" href="../manifest.json" />
     <meta name="theme-color" content="#1a2a47" />
 
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Premium Mobile IV & Wellness Services | Stay Dripped Mobile IV"
+    <!-- CSS -->
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
     />
     <meta
       property="og:description"
@@ -52,9 +55,14 @@
     </title>
   </head>
   <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
+    <!-- Back Button -->
+    <a
+      href="../index.html"
+      class="back-button"
+      aria-label="Go back to homepage"
+    >
+      <i class="fas fa-home"></i>
+    </a>
     <!-- Header -->
     <header class="site-header" role="banner">
       <div class="container">
@@ -102,23 +110,50 @@
         <div class="hero__overlay"></div>
       </div>
       <div class="container">
-        <div class="hero__content">
-          <div class="hero__text">
-            <h1 class="hero__title">
-              <span class="hero__title-primary">Premium Mobile</span>
-              <span class="hero__title-secondary">Wellness Services</span>
-            </h1>
-            <p class="hero__subtitle lead">
-              Professional IV therapy, hormone optimization, aesthetic
-              treatments, and comprehensive wellness services delivered to your
-              location in Scottsdale & Phoenix.
-            </p>
-            <div class="hero__actions">
-              <a href="tel:+16026889825" class="btn btn--primary btn--lg"
-                >Book Treatment</a
+        <!-- IV Therapy Category -->
+        <div class="category-section">
+          <h2 class="category-title">IV Therapy Services</h2>
+          <p class="category-description">
+            Premium intravenous therapy treatments for hydration, wellness, and
+            recovery
+          </p>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">💧</div>
+              <h3 class="service-title">IV Hydration Therapy</h3>
+              <p class="service-description">
+                Comprehensive IV hydration with vitamins, minerals, and
+                electrolytes for optimal wellness and energy.
+              </p>
+              <div class="service-price">Starting at $150</div>
+              <ul class="service-features">
+                <li>Myers Cocktail blends available</li>
+                <li>Customizable vitamin combinations</li>
+                <li>Rapid hydration and energy boost</li>
+                <li>Licensed medical professional administration</li>
+              </ul>
+              <a href="booking.html" class="service-button"
+                >Learn More & Book</a
               >
-              <a href="#services" class="btn btn--outline btn--lg"
-                >View Services</a
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🧬</div>
+              <h3 class="service-title">NAD+ Therapy</h3>
+              <p class="service-description">
+                Revolutionary cellular repair and anti-aging therapy for
+                enhanced mental clarity and longevity.
+              </p>
+              <div class="service-price">Starting at $300</div>
+              <ul class="service-features">
+                <li>Cellular regeneration and repair</li>
+                <li>Enhanced cognitive function</li>
+                <li>Anti-aging benefits</li>
+                <li>Addiction recovery support</li>
+              </ul>
+              <a href="booking.html" class="service-button"
+                >Learn More & Book</a
               >
             </div>
           </div>
@@ -139,238 +174,161 @@
             </p>
           </div>
 
-          <div class="programs-grid">
-            <!-- IV Therapy -->
-            <div class="program-card featured">
-              <div class="program-header">
-                <h3>💧 IV Therapy</h3>
-                <div class="program-price">$149 - $449</div>
-                <span class="popular-badge">Most Popular</span>
-              </div>
-              <div class="program-content">
-                <p>
-                  Premium IV hydration and nutrient therapy delivered to you
-                </p>
-                <ul class="program-features">
-                  <li>Basic Hydration & Electrolytes</li>
-                  <li>Energy & Immunity Boost</li>
-                  <li>Beauty & Anti-Aging Formulas</li>
-                  <li>Athletic Performance Enhancement</li>
-                  <li>Hangover Recovery</li>
-                  <li>Custom Nutrient Blends</li>
-                </ul>
-                <div class="program-benefits">
-                  <strong>Benefits:</strong> Rapid rehydration, increased
-                  energy, enhanced immunity, improved skin health
-                </div>
-                <a
-                  href="iv-therapy.html"
-                  class="btn btn--primary btn--full mt-4"
-                  >Learn More</a
-                >
-              </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">🔬</div>
+              <h3 class="service-title">Peptide Therapy</h3>
+              <p class="service-description">
+                Advanced peptide treatments for enhanced recovery, performance,
+                and anti-aging benefits.
+              </p>
+              <div class="service-price">Starting at $250</div>
+              <ul class="service-features">
+                <li>Custom peptide protocols</li>
+                <li>Enhanced muscle recovery</li>
+                <li>Improved sleep quality</li>
+                <li>Anti-aging benefits</li>
+              </ul>
+              <a href="booking.html" class="service-button"
+                >Learn More & Book</a
+              >
             </div>
 
-            <!-- NAD+ Therapy -->
-            <div class="program-card">
-              <div class="program-header">
-                <h3>🧬 NAD+ Therapy</h3>
-                <div class="program-price">$449 - $899</div>
-              </div>
-              <div class="program-content">
-                <p>Advanced cellular regeneration and anti-aging therapy</p>
-                <ul class="program-features">
-                  <li>Cellular energy restoration</li>
-                  <li>DNA repair optimization</li>
-                  <li>Cognitive function enhancement</li>
-                  <li>Metabolic improvement</li>
-                  <li>Anti-aging benefits</li>
-                  <li>Addiction recovery support</li>
-                </ul>
-                <div class="program-benefits">
-                  <strong>Benefits:</strong> Mental clarity, energy boost,
-                  longevity, cellular repair
-                </div>
-                <a
-                  href="nad-therapy.html"
-                  class="btn btn--primary btn--full mt-4"
-                  >Learn More</a
-                >
-              </div>
+            <div class="service-card">
+              <div class="service-icon">❄️</div>
+              <h3 class="service-title">Mobile Cold Plunge</h3>
+              <p class="service-description">
+                Professional cold therapy sessions for enhanced recovery, mental
+                clarity, and wellness optimization.
+              </p>
+              <div class="service-price">Starting at $400</div>
+              <ul class="service-features">
+                <li>Professional portable setup</li>
+                <li>Supervised sessions</li>
+                <li>Inflammation reduction</li>
+                <li>Enhanced mental resilience</li>
+              </ul>
+              <a href="booking.html" class="service-button"
+                >Learn More & Book</a
+              >
             </div>
 
-            <!-- Hormone Replacement -->
-            <div class="program-card">
-              <div class="program-header">
-                <h3>⚖️ Hormone Replacement</h3>
-                <div class="program-price">$199 - $499</div>
-              </div>
-              <div class="program-content">
-                <p>Comprehensive hormone optimization for men and women</p>
-                <ul class="program-features">
-                  <li>Testosterone replacement therapy</li>
-                  <li>Women's hormone optimization</li>
-                  <li>Thyroid function improvement</li>
-                  <li>Growth hormone therapy</li>
-                  <li>Comprehensive lab testing</li>
-                  <li>Ongoing monitoring & support</li>
-                </ul>
-                <div class="program-benefits">
-                  <strong>Benefits:</strong> Increased energy, improved mood,
-                  better sleep, enhanced libido
-                </div>
-                <a
-                  href="hormone-replacement.html"
-                  class="btn btn--primary btn--full mt-4"
-                  >Learn More</a
-                >
-              </div>
+            <div class="service-card">
+              <div class="service-icon">⚡</div>
+              <h3 class="service-title">Hormone Replacement Therapy</h3>
+              <p class="service-description">
+                Comprehensive hormone optimization for enhanced vitality,
+                energy, and overall wellness.
+              </p>
+              <div class="service-price">Starting at $350</div>
+              <ul class="service-features">
+                <li>Comprehensive hormone testing</li>
+                <li>Personalized protocols</li>
+                <li>Regular monitoring</li>
+                <li>Enhanced vitality and energy</li>
+              </ul>
+              <a href="booking.html" class="service-button"
+                >Learn More & Book</a
+              >
             </div>
 
-            <!-- Aesthetic Services -->
-            <div class="program-card">
-              <div class="program-header">
-                <h3>✨ Aesthetic Services</h3>
-                <div class="program-price">$199 - $599</div>
-              </div>
-              <div class="program-content">
-                <p>
-                  Professional aesthetic treatments for beauty and anti-aging
-                </p>
-                <ul class="program-features">
-                  <li>Botox & dermal fillers</li>
-                  <li>Skin rejuvenation treatments</li>
-                  <li>Hair restoration therapy</li>
-                  <li>Body contouring options</li>
-                  <li>Anti-aging protocols</li>
-                  <li>Skin health optimization</li>
-                </ul>
-                <div class="program-benefits">
-                  <strong>Benefits:</strong> Youthful appearance, skin
-                  improvement, confidence boost
-                </div>
-                <a href="aesthetic.html" class="btn btn--primary btn--full mt-4"
-                  >Learn More</a
-                >
-              </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">💉</div>
+              <h3 class="service-title">Vitamin Injections</h3>
+              <p class="service-description">
+                Quick vitamin shots including B12, Lipo, Vitamin D, and custom
+                blends for energy and wellness.
+              </p>
+              <div class="service-price">Starting at $50</div>
+              <ul class="service-features">
+                <li>B12 energy shots</li>
+                <li>Lipotropic fat burning injections</li>
+                <li>Vitamin D immune support</li>
+                <li>Custom vitamin combinations</li>
+              </ul>
+              <a href="booking.html" class="service-button"
+                >Learn More & Book</a
+              >
             </div>
 
-            <!-- Blood Testing -->
-            <div class="program-card">
-              <div class="program-header">
-                <h3>🔬 Blood Testing & Analysis</h3>
-                <div class="program-price">$99 - $399</div>
-              </div>
-              <div class="program-content">
-                <p>
-                  Comprehensive health assessment through advanced blood work
-                </p>
-                <ul class="program-features">
-                  <li>Complete metabolic panel</li>
-                  <li>Hormone level analysis</li>
-                  <li>Vitamin & mineral status</li>
-                  <li>Inflammatory markers</li>
-                  <li>Cardiovascular health</li>
-                  <li>Detailed health report</li>
-                </ul>
-                <div class="program-benefits">
-                  <strong>Benefits:</strong> Health insights, early detection,
-                  personalized recommendations
-                </div>
-                <a
-                  href="blood-testing.html"
-                  class="btn btn--primary btn--full mt-4"
-                  >Learn More</a
-                >
-              </div>
+            <div class="service-card">
+              <div class="service-icon">⚖️</div>
+              <h3 class="service-title">Weight Management</h3>
+              <p class="service-description">
+                Comprehensive weight management solutions including Semaglutide,
+                B12, and lipotropic treatments.
+              </p>
+              <div class="service-price">Starting at $200</div>
+              <ul class="service-features">
+                <li>Semaglutide weight loss therapy</li>
+                <li>Lipotropic fat burning shots</li>
+                <li>Metabolism boosting treatments</li>
+                <li>Personalized protocols</li>
+              </ul>
+              <a href="booking.html" class="service-button"
+                >Learn More & Book</a
+              >
             </div>
 
-            <!-- Injection Shots -->
-            <div class="program-card">
-              <div class="program-header">
-                <h3>💉 Vitamin Injections</h3>
-                <div class="program-price">$49 - $149</div>
-              </div>
-              <div class="program-content">
-                <p>Targeted vitamin and wellness shots for quick results</p>
-                <ul class="program-features">
-                  <li>B12 energy shots</li>
-                  <li>Vitamin D injections</li>
-                  <li>Fat burner shots</li>
-                  <li>Immune boost injections</li>
-                  <li>Beauty enhancement shots</li>
-                  <li>Custom vitamin blends</li>
-                </ul>
-                <div class="program-benefits">
-                  <strong>Benefits:</strong> Quick absorption, targeted
-                  nutrition, immediate effects
-                </div>
-                <a
-                  href="injection-shots.html"
-                  class="btn btn--primary btn--full mt-4"
-                  >Learn More</a
-                >
-              </div>
+            <div class="service-card">
+              <div class="service-icon">✨</div>
+              <h3 class="service-title">Aesthetic Treatments</h3>
+              <p class="service-description">
+                Beauty and anti-aging treatments including Botox, dermal
+                fillers, and skin rejuvenation.
+              </p>
+              <div class="service-price">Starting at $300</div>
+              <ul class="service-features">
+                <li>Botox and neuromodulators</li>
+                <li>Dermal filler treatments</li>
+                <li>Skin rejuvenation therapy</li>
+                <li>Anti-aging protocols</li>
+              </ul>
+              <a href="aesthetic.html" class="service-button"
+                >Learn More & Book</a
+              >
             </div>
           </div>
 
-          <!-- How Our Services Work -->
-          <div class="treatment-process">
-            <h3>How Our Mobile Services Work</h3>
-            <div class="process-steps">
-              <div class="step-item">
-                <div class="step-number">1</div>
-                <h4>Book Online</h4>
-                <p>
-                  Schedule your appointment through our easy online booking
-                  system
-                </p>
-              </div>
-              <div class="step-item">
-                <div class="step-number">2</div>
-                <h4>We Come to You</h4>
-                <p>
-                  Our licensed medical professionals arrive at your location
-                </p>
-              </div>
-              <div class="step-item">
-                <div class="step-number">3</div>
-                <h4>Professional Treatment</h4>
-                <p>Receive premium care in the comfort of your space</p>
-              </div>
-              <div class="step-item">
-                <div class="step-number">4</div>
-                <h4>Feel Amazing</h4>
-                <p>
-                  Experience the benefits and schedule your next appointment
-                </p>
-              </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">🩸</div>
+              <h3 class="service-title">Blood Testing & Analysis</h3>
+              <p class="service-description">
+                Comprehensive blood testing including micronutrient analysis,
+                hormone panels, and wellness markers.
+              </p>
+              <div class="service-price">Starting at $199</div>
+              <ul class="service-features">
+                <li>Comprehensive blood panels</li>
+                <li>Micronutrient analysis</li>
+                <li>Hormone level testing</li>
+                <li>Personalized recommendations</li>
+              </ul>
+              <a href="blood-testing.html" class="service-button"
+                >Learn More & Book</a
+              >
             </div>
           </div>
 
-          <!-- Service Areas -->
-          <div class="service-areas">
-            <h3>Service Areas</h3>
-            <div class="areas-grid">
-              <div class="area-card">
-                <h4>📍 Scottsdale</h4>
-                <p>
-                  Premium mobile services throughout Scottsdale and surrounding
-                  areas
-                </p>
-              </div>
-              <div class="area-card">
-                <h4>📍 Phoenix</h4>
-                <p>Comprehensive coverage across Phoenix metro area</p>
-              </div>
-              <div class="area-card">
-                <h4>📍 Paradise Valley</h4>
-                <p>Luxury wellness services in Paradise Valley</p>
-              </div>
-              <div class="area-card">
-                <h4>📍 Tempe</h4>
-                <p>Mobile health services for Tempe residents</p>
-              </div>
+            <div class="service-card">
+              <div class="service-icon">🧪</div>
+              <h3 class="service-title">Micronutrient Testing</h3>
+              <p class="service-description">
+                Detailed analysis of vitamin and mineral levels to optimize your
+                wellness protocols.
+              </p>
+              <div class="service-price">Starting at $299</div>
+              <ul class="service-features">
+                <li>35+ vitamin and mineral analysis</li>
+                <li>Cellular absorption testing</li>
+                <li>Personalized supplementation plan</li>
+                <li>Follow-up consultations</li>
+              </ul>
+              <a href="booking.html" class="service-button"
+                >Learn More & Book</a
+              >
             </div>
           </div>
         </div>
