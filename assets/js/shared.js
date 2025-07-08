@@ -9,12 +9,7 @@ function initHeaderScroll() {
   }
 
   const handleScroll = () => {
-    try {
-      const shouldAddScrollClass = window.scrollY > 100;
-      header.classList.toggle("scrolled", shouldAddScrollClass);
-    } catch (error) {
-      console.error("Error in scroll handler:", error);
-    }
+    header.classList.toggle("scrolled", window.scrollY > 100);
   };
 
   window.addEventListener("scroll", handleScroll, { passive: true });
