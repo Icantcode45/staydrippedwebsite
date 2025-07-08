@@ -251,18 +251,14 @@ class IntakeQCategoryBooking {
   addBookingHandler(container, serviceKey) {
     const bookButton = container.querySelector(".book-now-btn");
     if (bookButton) {
-      bookButton.addEventListener("click", () => {
-        this.openBookingForService(serviceKey);
-      });
+      bookButton.addEventListener("click", () =>
+        this.openBookingForService(serviceKey),
+      );
     }
   }
 
   storeWidgetReference(serviceKey, container, service) {
-    this.widgets.set(serviceKey, {
-      container: container,
-      service: service,
-      initialized: true,
-    });
+    this.widgets.set(serviceKey, { container, service, initialized: true });
   }
 
   initializeEmbeddedWidget(serviceKey) {
