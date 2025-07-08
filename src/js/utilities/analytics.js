@@ -79,16 +79,43 @@ class AnalyticsManager {
   createConsentBanner() {
     const banner = document.createElement("div");
     banner.className = "consent-banner";
-    banner.innerHTML = `
-      <div class="consent-banner__content">
-        <p>We use cookies to improve your experience and analyze site usage. By continuing to browse, you consent to our use of cookies.</p>
-        <div class="consent-banner__actions">
-          <button class="btn btn--sm btn--secondary" data-consent="reject">Decline</button>
-          <button class="btn btn--sm btn--primary" data-consent="accept">Accept</button>
-        </div>
-      </div>
-    `;
+
+    const content = document.createElement("div");
+    content.className = "consent-banner__content";
+
+    const text = document.createElement("p");
+    text.textContent =
+      "We use cookies to improve your experience and analyze site usage. By continuing to browse, you consent to our use of cookies.";
+
+    const actions = document.createElement("div");
+    actions.className = "consent-banner__actions";
+
+    const rejectBtn = this.createConsentButton(
+      "reject",
+      "Decline",
+      "btn btn--sm btn--secondary",
+    );
+    const acceptBtn = this.createConsentButton(
+      "accept",
+      "Accept",
+      "btn btn--sm btn--primary",
+    );
+
+    actions.appendChild(rejectBtn);
+    actions.appendChild(acceptBtn);
+    content.appendChild(text);
+    content.appendChild(actions);
+    banner.appendChild(content);
+
     return banner;
+  }
+
+  createConsentButton(consentValue, textContent, className) {
+    const button = document.createElement("button");
+    button.className = className;
+    button.textContent = textContent;
+    button.dataset.consent = consentValue;
+    return button;
   }
 
   addConsentStyles() {
