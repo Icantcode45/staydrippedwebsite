@@ -3,6 +3,8 @@
  * Handles specific category widgets for each service type
  */
 
+import { ValidationUtils } from "../utilities/validation.js";
+
 class IntakeQCategoryBooking {
   constructor() {
     this.accountId = "68460f36bc104b6aa9da43e0";
@@ -58,7 +60,7 @@ class IntakeQCategoryBooking {
         id: "3519d39a-31ac-4944-80c9-4eb667a13df4",
         name: 'The "Gold" Ultimate Hydration & Recovery IV Drip',
         containerId: "intakeq-gold-hydration-iv",
-        icon: "����",
+        icon: "🥇",
         description: "Premium hydration and recovery formula",
       },
       "platinum-hydration-iv": {
