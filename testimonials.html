@@ -4,714 +4,269 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Client Reviews & Testimonials - Stay Dripped Mobile IV Therapy
+      Patient Testimonials & Success Stories | Stay Dripped® Mobile IV
     </title>
     <meta
       name="description"
-      content="Read real client reviews and testimonials about Stay Dripped Mobile IV therapy services. See why hundreds trust us for mobile wellness treatments in Phoenix and Scottsdale."
-    />
-    <meta
-      name="keywords"
-      content="IV therapy reviews, mobile wellness testimonials, Stay Dripped reviews, Scottsdale IV therapy feedback, Phoenix mobile IV testimonials"
+      content="Read real success stories from Qualiphy clients who transformed their health through our premium wellness services."
     />
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="assets/images/favicon-32x32.png"
+      href="../assets/images/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/images/favicon-16x16.png"
+      href="../assets/images/favicon-16x16.png"
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/qualiphy-style.css" />
+    <link rel="stylesheet" href="../assets/css/responsive.css" />
 
     <style>
-      :root {
-        --primary: #007aff;
-        --secondary: #5ac8fa;
-        --accent: #34c759;
-        --gold: #ffd700;
-        --dark: #1d1d1f;
-        --light: #f5f5f7;
-        --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          Inter,
-          -apple-system,
-          BlinkMacSystemFont,
-          sans-serif;
-        line-height: 1.6;
-        color: var(--dark);
-        background: white;
-      }
-
-      .container {
+      .elfsight-wrapper {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 2rem;
+        background: #fff;
+        border-radius: 10px;
+        padding: 40px 20px;
+        box-shadow: 0 10px 30px rgb(0 0 0 / 8%);
+        border-top: 5px solid #2c5aa0;
       }
 
-      .back-button {
+      .google-reviews-widget-section {
+        padding: 60px 20px;
+        background: #f5f9ff;
+      }
+
+      .google-reviews-widget-section h2 {
+        color: #2c5aa0;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2.4rem;
+      }
+
+      .floating-review-btn {
         position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-        background: rgb(255 255 255 / 95%);
-        border: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-      }
-
-      .back-button:hover {
-        background: white;
-        transform: scale(1.1);
-      }
-
-      .hero {
-        background: var(--gradient);
-        color: white;
-        padding: 120px 0 80px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero h1 {
-        font-size: 3.5rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        position: relative;
-        z-index: 2;
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        z-index: 2;
-      }
-
-      .stats-section {
-        padding: 60px 0;
-        background: white;
-      }
-
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        text-align: center;
-      }
-
-      .stat-item {
-        padding: 1rem;
-      }
-
-      .stat-number {
-        font-size: 3rem;
-        font-weight: 800;
-        color: var(--primary);
-        display: block;
-      }
-
-      .stat-label {
-        font-size: 1rem;
-        color: #666;
-        margin-top: 0.5rem;
-      }
-
-      .testimonials-section {
-        padding: 100px 0;
-        background: var(--light);
-      }
-
-      .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--dark);
-      }
-
-      .section-subtitle {
-        text-align: center;
-        font-size: 1.1rem;
-        color: #666;
-        margin-bottom: 4rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-
-      .testimonial-card {
-        background: white;
-        border-radius: 20px;
-        padding: 2rem;
-        box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
-        transition: all 0.3s ease;
-        position: relative;
-      }
-
-      .testimonial-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 16px 48px rgb(0 0 0 / 15%);
-      }
-
-      .testimonial-card.featured {
-        border: 2px solid var(--gold);
-      }
-
-      .testimonial-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .testimonial-avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: var(--gradient);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: 700;
-        font-size: 1.2rem;
-      }
-
-      .testimonial-info h3 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--dark);
-        margin-bottom: 0.25rem;
-      }
-
-      .testimonial-role {
+        right: 30px;
+        padding: 10px 18px;
         font-size: 0.9rem;
-        color: #666;
-      }
-
-      .testimonial-rating {
-        margin-bottom: 1rem;
-      }
-
-      .stars {
-        color: var(--gold);
-        font-size: 1.2rem;
-      }
-
-      .testimonial-text {
-        color: #555;
-        line-height: 1.7;
-        font-style: italic;
-        margin-bottom: 1rem;
-      }
-
-      .testimonial-treatment {
-        font-size: 0.85rem;
-        color: var(--primary);
         font-weight: 600;
-        background: rgb(0 122 255 / 10%);
-        padding: 0.25rem 0.75rem;
-        border-radius: 12px;
-        display: inline-block;
-      }
-
-      .quote-icon {
-        position: absolute;
-        top: 1rem;
-        right: 1.5rem;
-        font-size: 2rem;
-        color: rgb(0 122 255 / 10%);
-      }
-
-      .video-testimonials {
-        padding: 100px 0;
-        background: white;
-      }
-
-      .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-
-      .video-card {
-        background: #f8f9fa;
-        border-radius: 16px;
-        padding: 1.5rem;
-        text-align: center;
-      }
-
-      .video-placeholder {
-        width: 100%;
-        height: 200px;
-        background: var(--gradient);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .video-placeholder:hover {
-        transform: scale(1.02);
-      }
-
-      .video-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: var(--dark);
-      }
-
-      .video-description {
-        font-size: 0.9rem;
-        color: #666;
-      }
-
-      .cta-section {
-        padding: 80px 0;
-        background: var(--gradient);
-        color: white;
-        text-align: center;
-      }
-
-      .cta-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-      }
-
-      .cta-subtitle {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-      }
-
-      .cta-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        padding: 15px 30px;
-        border: none;
         border-radius: 30px;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
+        color: #fff;
         text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
+        box-shadow: 0 6px 18px rgb(0 0 0 / 20%);
+        transition: transform 0.3s ease;
+        z-index: 999;
       }
 
-      .btn-primary {
-        background: white;
-        color: var(--primary);
+      .floating-review-btn:hover {
+        transform: scale(1.07);
       }
 
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgb(255 255 255 / 30%);
+      .floating-review-btn.google {
+        bottom: 100px;
+        background-color: #2c5aa0;
       }
 
-      .btn-outline {
-        background: transparent;
-        color: white;
-        border: 2px solid white;
+      .floating-review-btn.yelp {
+        bottom: 60px;
+        background-color: #af0606;
       }
 
-      .btn-outline:hover {
-        background: white;
-        color: var(--primary);
-      }
-
-      @media (width <= 768px) {
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-
-        .container {
-          padding: 0 1rem;
-        }
-
-        .testimonials-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .cta-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
+      .floating-review-btn.facebook {
+        bottom: 20px;
+        background-color: #3b5998;
       }
     </style>
   </head>
   <body>
     <!-- Back Button -->
-    <button
-      class="back-button"
-      onclick="window.location.href='/'"
-      aria-label="Go back to homepage"
-    >
-      <i class="fas fa-home"></i>
-    </button>
+    <div class="back-button-container">
+      <a href="../index.html" class="back-button metallic-btn">
+        <i class="fas fa-arrow-left"></i>
+        <span>Back to Home</span>
+      </a>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <h1>Client Reviews & Testimonials</h1>
+    <!-- Header -->
+    <header id="header">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a href="../index.html">
+              <img
+                src="../assets/images/logo.png"
+                alt="Qualiphy"
+                class="logo"
+              />
+            </a>
+          </div>
+          <div class="navbar-menu">
+            <ul class="navbar-nav">
+              <li><a href="../index.html" class="nav-link">Home</a></li>
+              <li><a href="services.html" class="nav-link">Services</a></li>
+              <li><a href="membership.html" class="nav-link">Membership</a></li>
+              <li>
+                <a href="testimonials.html" class="nav-link active"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+              </li>
+            </ul>
+            <button class="btn btn-primary" onclick="openBookingModal()">
+              Book Now
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Page Header -->
+    <section class="page-header testimonials-header">
+      <div class="container text-center">
+        <h1>Patient Success Stories</h1>
         <p>
-          Hear from real clients who have experienced the transformative
-          benefits of our mobile IV therapy services.
+          Real transformations from real people who chose Qualiphy for their
+          wellness journey
         </p>
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- Google Reviews Widget -->
+    <section class="google-reviews-widget-section">
       <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <span class="stat-number">5,000+</span>
-            <span class="stat-label">Treatments Delivered</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">4.9★</span>
-            <span class="stat-label">Average Rating</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">98%</span>
-            <span class="stat-label">Customer Satisfaction</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">2,500+</span>
-            <span class="stat-label">Happy Clients</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-      <div class="container">
-        <h2 class="section-title">What Our Clients Say</h2>
-        <p class="section-subtitle">
-          Real experiences from real people who have chosen Stay Dripped for
-          their wellness journey.
-        </p>
-
-        <div class="testimonials-grid">
-          <div class="testimonial-card featured">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">SJ</div>
-              <div class="testimonial-info">
-                <h3>Sarah Johnson</h3>
-                <div class="testimonial-role">Executive, Tech Company</div>
-              </div>
-            </div>
-            <div class="testimonial-rating">
-              <span class="stars">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "Absolutely life-changing! I was feeling completely run down from
-              work stress and poor sleep. The Myers' Cocktail treatment gave me
-              energy I hadn't felt in months. The nurse was professional and
-              made me feel completely comfortable in my own home."
-            </p>
-            <span class="testimonial-treatment">Myers' Cocktail IV</span>
-          </div>
-
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">MR</div>
-              <div class="testimonial-info">
-                <h3>Mike Rodriguez</h3>
-                <div class="testimonial-role">Fitness Trainer</div>
-              </div>
-            </div>
-            <div class="testimonial-rating">
-              <span class="stars">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "As an athlete, recovery is everything. The NAD+ therapy has been
-              a game-changer for my performance and recovery time. I feel
-              sharper mentally and my endurance has noticeably improved. Worth
-              every penny!"
-            </p>
-            <span class="testimonial-treatment">NAD+ Therapy</span>
-          </div>
-
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">LP</div>
-              <div class="testimonial-info">
-                <h3>Linda Parker</h3>
-                <div class="testimonial-role">Working Mom</div>
-              </div>
-            </div>
-            <div class="testimonial-rating">
-              <span class="stars">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "Between kids and work, I had no time for self-care. Stay Dripped
-              comes to my house while the kids nap! The convenience is unmatched
-              and I feel so much more energized. The B12 shots are amazing!"
-            </p>
-            <span class="testimonial-treatment">Hydration + B12 Shot</span>
-          </div>
-
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">DH</div>
-              <div class="testimonial-info">
-                <h3>David Harrison</h3>
-                <div class="testimonial-role">Real Estate Agent</div>
-              </div>
-            </div>
-            <div class="testimonial-rating">
-              <span class="stars">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "I was skeptical at first, but after my first IV treatment for a
-              hangover, I was sold. Now I use their services regularly for
-              energy and immune support. The team is always professional and
-              punctual."
-            </p>
-            <span class="testimonial-treatment">Hangover Recovery IV</span>
-          </div>
-
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">AC</div>
-              <div class="testimonial-info">
-                <h3>Amanda Chen</h3>
-                <div class="testimonial-role">Nurse Practitioner</div>
-              </div>
-            </div>
-            <div class="testimonial-rating">
-              <span class="stars">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "As a healthcare professional myself, I appreciate the quality and
-              safety standards Stay Dripped maintains. Their medical team is
-              top-notch and the peptide therapy has helped with my sleep and
-              recovery tremendously."
-            </p>
-            <span class="testimonial-treatment">Peptide Therapy</span>
-          </div>
-
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">RT</div>
-              <div class="testimonial-info">
-                <h3>Robert Taylor</h3>
-                <div class="testimonial-role">Business Owner</div>
-              </div>
-            </div>
-            <div class="testimonial-rating">
-              <span class="stars">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "I've been using Stay Dripped for over a year now. The consistency
-              and quality of service is outstanding. My wellness membership has
-              been one of the best investments I've made for my health."
-            </p>
-            <span class="testimonial-treatment">Wellness Membership</span>
-          </div>
-
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">JM</div>
-              <div class="testimonial-info">
-                <h3>Jennifer Moore</h3>
-                <div class="testimonial-role">Marketing Director</div>
-              </div>
-            </div>
-            <div class="testimonial-rating">
-              <span class="stars">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "The convenience of having IV therapy at my office between
-              meetings is incredible. I feel more focused and energized
-              throughout the day. The staff is always accommodating with my busy
-              schedule."
-            </p>
-            <span class="testimonial-treatment">Office Wellness Visit</span>
-          </div>
-
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">KW</div>
-              <div class="testimonial-info">
-                <h3>Kevin Williams</h3>
-                <div class="testimonial-role">Retired Veteran</div>
-              </div>
-            </div>
-            <div class="testimonial-rating">
-              <span class="stars">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "After dealing with chronic fatigue, the regular IV treatments
-              have given me my life back. I can play with my grandkids again and
-              feel like myself. The medical team treats me like family."
-            </p>
-            <span class="testimonial-treatment">Chronic Fatigue Protocol</span>
-          </div>
-
-          <div class="testimonial-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">EB</div>
-              <div class="testimonial-info">
-                <h3>Emily Brooks</h3>
-                <div class="testimonial-role">Wellness Coach</div>
-              </div>
-            </div>
-            <div class="testimonial-rating">
-              <span class="stars">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "I recommend Stay Dripped to all my clients. The quality of their
-              ingredients and the professionalism of their team is unmatched.
-              The blood testing helped identify deficiencies I didn't know I
-              had."
-            </p>
-            <span class="testimonial-treatment">Micronutrient Testing</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Video Testimonials Section -->
-    <section class="video-testimonials">
-      <div class="container">
-        <h2 class="section-title">Video Testimonials</h2>
-        <p class="section-subtitle">
-          Watch real clients share their Stay Dripped experience in their own
-          words.
-        </p>
-
-        <div class="video-grid">
-          <div class="video-card">
-            <div class="video-placeholder">
-              <i class="fas fa-play"></i>
-            </div>
-            <h3 class="video-title">Sarah's Energy Transformation</h3>
-            <p class="video-description">
-              Executive shares how regular IV therapy boosted her energy and
-              productivity.
-            </p>
-          </div>
-
-          <div class="video-card">
-            <div class="video-placeholder">
-              <i class="fas fa-play"></i>
-            </div>
-            <h3 class="video-title">Mike's Athletic Performance</h3>
-            <p class="video-description">
-              Professional athlete discusses NAD+ therapy's impact on recovery
-              and performance.
-            </p>
-          </div>
-
-          <div class="video-card">
-            <div class="video-placeholder">
-              <i class="fas fa-play"></i>
-            </div>
-            <h3 class="video-title">Linda's Convenience Story</h3>
-            <p class="video-description">
-              Busy mom explains how mobile IV therapy fits perfectly into her
-              schedule.
-            </p>
-          </div>
+        <h2>What Our Patients Are Saying</h2>
+        <div class="elfsight-wrapper">
+          <script
+            src="https://static.elfsight.com/platform/platform.js"
+            async
+          ></script>
+          <div
+            class="elfsight-app-d433d327-22a0-44e1-b166-f607a4df45d8"
+            data-elfsight-app-lazy
+          ></div>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="testimonials-cta">
       <div class="container">
-        <h2 class="cta-title">Ready to Join Our Happy Clients?</h2>
-        <p class="cta-subtitle">
-          Experience the same transformative results that our clients rave
-          about. Book your treatment today.
-        </p>
-        <div class="cta-buttons">
-          <a href="/booking" class="btn btn-primary">
-            <i class="fas fa-calendar-alt"></i>
-            Book Your Treatment
-          </a>
-          <a href="tel:+16026889825" class="btn btn-outline">
-            <i class="fas fa-phone"></i>
-            Call (602) 688-9825
-          </a>
+        <div class="cta-content text-center">
+          <h2>Ready to Write Your Own Success Story?</h2>
+          <p>
+            Join hundreds of satisfied clients who have transformed their health
+            and wellness with Qualiphy's premium services.
+          </p>
+          <div class="cta-buttons">
+            <button class="btn btn-primary btn-lg" onclick="openBookingModal()">
+              Start Your Journey
+            </button>
+            <a href="services.html" class="btn btn-secondary btn-lg"
+              >Explore Services</a
+            >
+          </div>
+          <p class="cta-note">
+            Schedule your consultation today and take the first step toward your
+            transformation
+          </p>
         </div>
       </div>
     </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img src="../assets/images/logo.png" alt="Qualiphy" />
+            </div>
+            <p>
+              Transforming lives through premium wellness and personalized
+              healthcare solutions.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="iv-therapy.html">IV Therapy</a></li>
+              <li>
+                <a href="hormone-replacement.html">Hormone Replacement</a>
+              </li>
+              <li><a href="aesthetic.html">Aesthetic Treatments</a></li>
+              <li><a href="weight-management.html">Weight Management</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="membership.html">Membership</a></li>
+              <li><a href="corporate-events.html">Corporate Events</a></li>
+              <li><a href="franchise.html">Franchise</a></li>
+              <li><a href="partnerships.html">Partnerships</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="../terms-of-service.html">Terms of Service</a></li>
+              <li>
+                <a href="../medical-disclaimer.html">Medical Disclaimer</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Stay Dripped® Mobile IV. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Review Buttons -->
+    <a
+      href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID"
+      class="floating-review-btn google"
+      target="_blank"
+      rel="noopener"
+    >
+      ★ Google
+    </a>
+
+    <a
+      href="https://www.yelp.com/writeareview/biz/YOUR_YELP_URL"
+      class="floating-review-btn yelp"
+      target="_blank"
+      rel="noopener"
+    >
+      ★ Yelp
+    </a>
+
+    <a
+      href="https://www.facebook.com/YOUR_FACEBOOK_REVIEW_URL"
+      class="floating-review-btn facebook"
+      target="_blank"
+      rel="noopener"
+    >
+      ★ Facebook
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+      function openBookingModal() {
+        window.location.href = "../index.html#contact";
+      }
+    </script>
   </body>
 </html>

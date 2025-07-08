@@ -1,0 +1,1812 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stay Dripped® Mobile IV - Mobile IV Therapy</title>
+    <meta
+      name="description"
+      content="Premium mobile IV therapy services including hydration, recovery, immunity, anti-aging treatments delivered to you. Book now!"
+    />
+
+    <link rel="icon" href="../assets/images/logo.png" type="image/png" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-T9V90Q7G0M"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-T9V90Q7G0M");
+    </script>
+
+    <style>
+      /* CSS Variables */
+      :root {
+        /* Brand Colors */
+        --primary: #0a2a43;
+        --secondary: #00bcd4;
+        --accent: #4fc3f7;
+        --gold: #ffd700;
+        --platinum: #e5e5e5;
+        --success: #4caf50;
+        --warning: #ff9800;
+        --error: #f44336;
+
+        /* Text Colors */
+        --text-dark: #1a1a1a;
+        --text-light: #666;
+        --text-muted: #999;
+        --text-white: #fff;
+
+        /* Background Colors */
+        --bg-light: #f1fbff;
+        --bg-dark: #1a1a1a;
+        --white: #fff;
+
+        /* Shadows */
+        --shadow: 0 4px 12px rgb(0 0 0 / 10%);
+        --shadow-hover: 0 8px 25px rgb(0 0 0 / 15%);
+        --shadow-lg: 0 10px 40px rgb(0 0 0 / 10%);
+
+        /* Border Radius */
+        --br: 12px;
+        --br-lg: 16px;
+        --br-xl: 24px;
+
+        /* Transitions */
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-fast: all 0.15s ease;
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--secondary),
+          var(--accent)
+        );
+        --gradient-gold: linear-gradient(135deg, #ffd700, #ffed4e);
+        --gradient-hero: linear-gradient(
+          135deg,
+          rgb(10 42 67 / 90%),
+          rgb(0 188 212 / 70%)
+        );
+      }
+
+      /* CSS Reset */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          sans-serif;
+        line-height: 1.7;
+        color: var(--text-dark);
+        background: #fafafa;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      img,
+      iframe,
+      svg {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Header */
+      .header {
+        background:
+          var(--gradient-hero),
+          url("https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1600&q=80")
+            center/cover no-repeat;
+        color: white;
+        text-align: center;
+        padding: 3rem 2rem;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-hero);
+        z-index: 1;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .header h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+      }
+
+      .header p {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        margin-bottom: 2rem;
+        opacity: 0.95;
+      }
+
+      /* Back Button */
+      .back-button-container {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: linear-gradient(135deg, #c0c0c0, #e5e5e5);
+        color: #2c3e50;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+        transition: all 0.3s ease;
+        border: 1px solid rgb(255 255 255 / 20%);
+      }
+
+      .back-button:hover {
+        background: linear-gradient(135deg, #a8a8a8, #d0d0d0);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgb(0 0 0 / 20%);
+      }
+
+      /* Navigation */
+      .nav {
+        background: var(--white);
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary);
+      }
+
+      .logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-link {
+        color: var(--text-dark);
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 0.5rem 0;
+        position: relative;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--secondary);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        transition: var(--transition);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Mobile Navigation */
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        cursor: pointer;
+      }
+
+      /* Main Content */
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+      }
+
+      /* Menu Grid */
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Menu Cards */
+      .menu-card {
+        background: var(--white);
+        border-radius: var(--br-lg);
+        padding: 0;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid #f0f0f0;
+        position: relative;
+        overflow: hidden;
+        animation: fade-in-up 0.6s ease forwards;
+      }
+
+      .menu-card:nth-child(even) {
+        animation-delay: 0.1s;
+      }
+
+      .menu-card:nth-child(3n) {
+        animation-delay: 0.2s;
+      }
+
+      .menu-card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-radius: var(--br-lg) var(--br-lg) 0 0;
+      }
+
+      .menu-card-content {
+        padding: 2rem;
+      }
+
+      .menu-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-primary);
+      }
+
+      .menu-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .menu-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .menu-card .price {
+        color: var(--secondary);
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .menu-card .description {
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .menu-card .benefits {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .menu-card .benefits li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+      }
+
+      .menu-card .benefits li::before {
+        content: "✓";
+        color: var(--success);
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      /* Action Buttons */
+      .action-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--br);
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+        border: none;
+        font-size: 0.9rem;
+        flex: 1;
+        min-width: 100px;
+      }
+
+      .btn-primary {
+        background: var(--gradient-primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Quick Actions */
+      .quick-actions-section {
+        background: var(--bg-light);
+        padding: 3rem 0;
+        margin-top: 3rem;
+      }
+
+      .quick-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .quick-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        background: var(--gradient-primary);
+        color: white;
+        border-radius: var(--br-lg);
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+      }
+
+      .quick-action-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      /* Categories */
+      .categories {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .category-filter {
+        padding: 0.75rem 1.5rem;
+        background: var(--white);
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        border-radius: var(--br);
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .category-filter:hover,
+      .category-filter.active {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Animations */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Mobile Responsiveness */
+      @media (width <= 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        .header {
+          padding: 2rem 1rem;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+
+        .menu-grid {
+          grid-template-columns: 1fr;
+          padding: 0 1rem;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+
+        .quick-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .categories {
+          justify-content: flex-start;
+          overflow-x: auto;
+          padding: 0 1rem;
+        }
+
+        .category-filter {
+          white-space: nowrap;
+        }
+
+        .back-button-container {
+          position: static;
+          margin-bottom: 1rem;
+          padding: 0 1rem;
+        }
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary);
+        color: white;
+        text-align: center;
+        padding: 3rem 2rem 2rem;
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-logo {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .footer-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .footer-section h3 {
+        color: var(--accent);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .footer-section p,
+      .footer-section a {
+        color: rgb(255 255 255 / 80%);
+        line-height: 1.6;
+        transition: var(--transition);
+      }
+
+      .footer-section a:hover {
+        color: var(--accent);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgb(255 255 255 / 10%);
+        padding-top: 2rem;
+        margin-top: 2rem;
+        color: rgb(255 255 255 / 60%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="../assets/images/logo.png" alt="Stay Dripped Logo" />
+          <span>Stay Dripped</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="#menu" class="nav-link active">IV Menu</a></li>
+          <li><a href="membership.html" class="nav-link">Membership</a></li>
+          <li><a href="tel:+16026889825" class="nav-link">Call Now</a></li>
+        </ul>
+        <button class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="back-button-container">
+        <a href="../index.html" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+          <span>Back to Home</span>
+        </a>
+      </div>
+
+      <div class="header-content">
+        <h1>IV Therapy Menu</h1>
+        <p>
+          Premium mobile IV therapy services delivered directly to your location
+          in the Phoenix metropolitan area
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section id="menu" class="section">
+        <h2 class="section-title">IV Therapy Menu</h2>
+
+        <!-- Featured Treatments -->
+        <div class="menu-grid">
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2Ff5958fd15db54ea28489076f16976d01?format=webp&width=800"
+              alt="Myers' Cocktail IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3><i class="fas fa-star"></i> Myers' Cocktail IV Bag</h3>
+              <div class="price">$205</div>
+              <div class="description">
+                The original gold-standard IV blend for immune boosting, energy,
+                and full-body wellness.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% IV Solution</li>
+                <li>Vitamin B-12</li>
+                <li>Zinc Sulfate</li>
+                <li>Magnesium Chloride</li>
+                <li>Glutathione</li>
+                <li>Vitamin C</li>
+                <li>Vitamin B-Complex</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking?serviceId=c13f904a-a8d0-43b1-bd5f-570387ee77d6"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+              <div class="intakeq-widget" style="margin-top: 1rem">
+                <div
+                  id="intakeq-myers-cocktail"
+                  style="max-width: 720px; width: 100%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2F53b96c765a114d0682a9902ab397efc0?format=webp&width=800"
+              alt="Mega Myers' Cocktail IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3><i class="fas fa-bolt"></i> Mega Myers' Cocktail IV Bag</h3>
+              <div class="price">$235</div>
+              <div class="description">
+                Double the strength of the original Myers' Cocktail for enhanced
+                energy, immunity, and recovery.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% IV Solution</li>
+                <li>Vitamin B-12</li>
+                <li>Zinc Sulfate</li>
+                <li>Magnesium Chloride</li>
+                <li>Glutathione - 2x Dose</li>
+                <li>Vitamin C - 2x Dose</li>
+                <li>Vitamin B-Complex</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking?serviceId=e14cdb17-a9d1-47cb-90e1-d3050059bcf3"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+              <div class="intakeq-widget" style="margin-top: 1rem">
+                <div
+                  id="intakeq-mega-myers"
+                  style="max-width: 720px; width: 100%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2Ff5958fd15db54ea28489076f16976d01?format=webp&width=800"
+              alt="Day After The Dale Hangover Relief"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-cocktail"></i> The "Day After The Dale"
+                Hangover Relief
+              </h3>
+              <div class="price">$195</div>
+              <div class="description">
+                Rapid hangover recovery with hydration, anti-nausea, and
+                headache relief to feel human again.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% IV Solution</li>
+                <li>Vitamin B Complex</li>
+                <li>Vitamin B-12</li>
+                <li>Ondansetron HCl (Anti-Nausea)</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking?serviceId=a7d83ea1-cf5e-4865-923e-bfe2232de898"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+              <div class="intakeq-widget" style="margin-top: 1rem">
+                <div
+                  id="intakeq-hangover"
+                  style="max-width: 720px; width: 100%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2F53b96c765a114d0682a9902ab397efc0?format=webp&width=800"
+              alt="Platinum Ultimate Hydration & Recovery"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-crown"></i> The "Platinum" Ultimate Hydration &
+                Recovery
+              </h3>
+              <div class="price">$355</div>
+              <div class="description">
+                Maximum hydration, advanced vitamins, minerals, and antioxidants
+                for peak performance and cellular health.
+              </div>
+              <ul class="benefits">
+                <li>Lactated Ringers IV Solution</li>
+                <li>Vitamin C</li>
+                <li>Vitamin B Complex</li>
+                <li>Zinc Sulfate</li>
+                <li>Glutathione</li>
+                <li>Vitamin B-12</li>
+                <li>Magnesium Chloride</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2F53b96c765a114d0682a9902ab397efc0?format=webp&width=800"
+              alt="D-Book Athletic Performance Booster"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-dumbbell"></i> The "D-Book" Athletic
+                Performance Booster
+              </h3>
+              <div class="price">$215</div>
+              <div class="description">
+                Fuel your body like a pro with hydration, amino acids, and
+                antioxidants to boost athletic output.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% IV Solution</li>
+                <li>Vitamin C</li>
+                <li>
+                  Amino Blend (Proline 50mg, Arginine 100mg, Lysine 50mg,
+                  Citrulline 50mg)
+                </li>
+                <li>Magnesium Chloride</li>
+                <li>Glutathione</li>
+                <li>L-Carnitine</li>
+                <li>Vitamin B Complex</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2Fdcf67a4833054b048c22676c6830729f?format=webp&width=800"
+              alt="Diamondback Immune System Booster"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-shield-alt"></i> The "Diamondback" Immune
+                System Booster
+              </h3>
+              <div class="price">$225</div>
+              <div class="description">
+                Strengthen your immune defenses with a potent blend of Vitamin
+                C, Zinc, and hydration support.
+              </div>
+              <ul class="benefits">
+                <li>Lactated Ringers IV Solution</li>
+                <li>Vitamin C</li>
+                <li>Zinc Sulfate</li>
+                <li>
+                  Amino Blend (Proline 50mg, Arginine 100mg, Lysine 50mg,
+                  Citrulline 50mg)
+                </li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2F53b96c765a114d0682a9902ab397efc0?format=webp&width=800"
+              alt="Scottsdale 10 Beauty IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-gem"></i> The "Scottsdale 10" Beauty IV Bag
+              </h3>
+              <div class="price">$245</div>
+              <div class="description">
+                Glow from within. Deep hydration, biotin, glutathione, and
+                Vitamin C to nourish hair, skin, and nails.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% IV Solution</li>
+                <li>Vitamin C</li>
+                <li>Vitamin B Complex</li>
+                <li>Biotin</li>
+                <li>Zinc Sulfate</li>
+                <li>Glutathione</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2Ff5958fd15db54ea28489076f16976d01?format=webp&width=800"
+              alt="Sun Devil Energy Boost IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-fire"></i> The "Sun Devil" Energy Boost IV Bag
+              </h3>
+              <div class="price">$225</div>
+              <div class="description">
+                Boost energy levels naturally with B vitamins, amino acids, and
+                essential nutrients for sustained vitality.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% IV Solution</li>
+                <li>Vitamin B-12</li>
+                <li>Vitamin B Complex</li>
+                <li>Alpha Lipoic Acid</li>
+                <li>L-Taurine</li>
+                <li>Pyridoxine</li>
+                <li>Vitamin C</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2Fdcf67a4833054b048c22676c6830729f?format=webp&width=800"
+              alt="Arizona Detox and Cleanse IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-leaf"></i> The "Arizona" Detox and Cleanse IV
+                Bag
+              </h3>
+              <div class="price">$265</div>
+              <div class="description">
+                Flush out toxins, support liver and kidney function, and reset
+                your system with a powerful detox blend.
+              </div>
+              <ul class="benefits">
+                <li>Lactated Ringers IV Solution</li>
+                <li>Vitamin C</li>
+                <li>Vitamin B Complex</li>
+                <li>Zinc Sulfate</li>
+                <li>Glutathione</li>
+                <li>Vitamin B-12</li>
+                <li>Magnesium Chloride</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2F53b96c765a114d0682a9902ab397efc0?format=webp&width=800"
+              alt="Gold Ultimate Hydration & Recovery IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-gold"></i> The "Gold" Ultimate Hydration &
+                Recovery IV Bag
+              </h3>
+              <div class="price">$325</div>
+              <div class="description">
+                Enhanced version of Platinum with double-dose antioxidants for
+                elite-level recovery and performance.
+              </div>
+              <ul class="benefits">
+                <li>Lactated Ringers IV Solution</li>
+                <li>Vitamin C - 2x Dose</li>
+                <li>Vitamin B Complex</li>
+                <li>Zinc Sulfate</li>
+                <li>Glutathione - 2x Dose</li>
+                <li>Vitamin B-12</li>
+                <li>Magnesium Chloride</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2F53b96c765a114d0682a9902ab397efc0?format=webp&width=800"
+              alt="Stay Dripped Special IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-star"></i> The Stay Dripped Special IV Bag
+              </h3>
+              <div class="price">$345</div>
+              <div class="description">
+                Our flagship IV bag — ultimate hydration, energy, immunity, and
+                full-body optimization blend.
+              </div>
+              <ul class="benefits">
+                <li>Lactated Ringers IV Solution</li>
+                <li>Vitamin C - 2x Dose</li>
+                <li>Glutathione - 2x Dose</li>
+                <li>Vitamin B Complex</li>
+                <li>
+                  Amino Blend (Proline 50mg, Arginine 100mg, Lysine 50mg,
+                  Citrulline 50mg)
+                </li>
+                <li>L-Carnitine</li>
+                <li>Alpha Lipoic Acid</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2Fdcf67a4833054b048c22676c6830729f?format=webp&width=800"
+              alt="Fountain Of Youth IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-fountain"></i> The "Fountain Of Youth" IV Bag
+              </h3>
+              <div class="price">$425</div>
+              <div class="description">
+                Unlock vitality, boost longevity, and rejuvenate skin and brain
+                function with our advanced anti-aging NAD+ blend.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% IV Solution</li>
+                <li>NAD+ 50mg</li>
+                <li>Vitamin C</li>
+                <li>Glutathione</li>
+                <li>Zinc Sulfate</li>
+                <li>Biotin</li>
+                <li>Vitamin B Complex</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2Ff5958fd15db54ea28489076f16976d01?format=webp&width=800"
+              alt="NAD+ Therapy IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3><i class="fas fa-dna"></i> NAD+ Therapy IV Bag</h3>
+              <div class="price">$400</div>
+              <div class="description">
+                Basic NAD+ therapy for cellular repair, energy production, and
+                anti-aging benefits.
+              </div>
+              <ul class="benefits">
+                <li>NAD+ 50mg</li>
+                <li>Sodium Chloride 0.9% IV Solution</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <h3>
+              <i class="fas fa-crown"></i> The Platinum NAD+ Therapy IV Bag
+            </h3>
+            <div class="price">$475</div>
+            <div class="description">
+              Enhanced NAD+ therapy with vitamins for comprehensive cellular
+              rejuvenation and mental clarity.
+            </div>
+            <ul class="benefits">
+              <li>Sodium Chloride 0.9% IV Solution</li>
+              <li>NAD+ 50mg</li>
+              <li>Vitamin B Complex</li>
+              <li>Vitamin C</li>
+            </ul>
+            <div class="action-buttons">
+              <a href="tel:+16026889825" class="btn btn-primary">
+                <i class="fas fa-phone"></i>
+                Call to Book
+              </a>
+              <a
+                href="https://Staydripped.intakeq.com/booking"
+                class="btn btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-calendar"></i>
+                Book Online
+              </a>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3><i class="fas fa-gem"></i> The Diamond NAD+ Therapy IV Bag</h3>
+            <div class="price">$525</div>
+            <div class="description">
+              The ultimate NAD+ experience with maximum dose for elite-level
+              longevity and brain optimization.
+            </div>
+            <ul class="benefits">
+              <li>Sodium Chloride 0.9% IV Solution</li>
+              <li>NAD+ 100mg</li>
+              <li>Vitamin B Complex</li>
+              <li>Vitamin C - 2x Dose</li>
+            </ul>
+            <div class="action-buttons">
+              <a href="tel:+16026889825" class="btn btn-primary">
+                <i class="fas fa-phone"></i>
+                Call to Book
+              </a>
+              <a
+                href="https://Staydripped.intakeq.com/booking"
+                class="btn btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-calendar"></i>
+                Book Online
+              </a>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2Fdcf67a4833054b048c22676c6830729f?format=webp&width=800"
+              alt="Jr Myers' Cocktail IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3><i class="fas fa-feather"></i> Jr Myers' Cocktail IV Bag</h3>
+              <div class="price">$185</div>
+              <div class="description">
+                A lighter version of the Myers' Cocktail IV for quick recovery
+                and gentle hydration support.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% IV Solution</li>
+                <li>Vitamin C</li>
+                <li>Vitamin B-Complex</li>
+                <li>Glutathione</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking?serviceId=065ab682-3334-403a-9635-ea461e520a6d"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+              <div class="intakeq-widget" style="margin-top: 1rem">
+                <div
+                  id="intakeq-jr-myers"
+                  style="max-width: 720px; width: 100%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3><i class="fas fa-leaf"></i> Stress Relief IV Bag</h3>
+            <div class="price">$215</div>
+            <div class="description">
+              Calm your mind and body with a powerful hydration blend designed
+              to ease tension and promote relaxation.
+            </div>
+            <ul class="benefits">
+              <li>Sodium Chloride 0.9% IV Solution</li>
+              <li>Magnesium Chloride</li>
+              <li>Vitamin B-12</li>
+              <li>Vitamin C</li>
+              <li>THIAMINE HCL</li>
+              <li>Vitamin D3</li>
+            </ul>
+            <div class="action-buttons">
+              <a href="tel:+16026889825" class="btn btn-primary">
+                <i class="fas fa-phone"></i>
+                Call to Book
+              </a>
+              <a
+                href="https://Staydripped.intakeq.com/booking"
+                class="btn btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-calendar"></i>
+                Book Online
+              </a>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3><i class="fas fa-brain"></i> Mental Clarity IV Bag</h3>
+            <div class="price">$225</div>
+            <div class="description">
+              Sharpen focus, improve memory, and enhance mental performance with
+              a targeted IV blend.
+            </div>
+            <ul class="benefits">
+              <li>Sodium Chloride 0.9% IV Solution</li>
+              <li>Vitamin C</li>
+              <li>Vitamin B Complex</li>
+              <li>Zinc Sulfate</li>
+              <li>Glutathione</li>
+              <li>Magnesium Chloride</li>
+              <li>THIAMINE HCL</li>
+              <li>Vitamin B-12</li>
+            </ul>
+            <div class="action-buttons">
+              <a href="tel:+16026889825" class="btn btn-primary">
+                <i class="fas fa-phone"></i>
+                Call to Book
+              </a>
+              <a
+                href="https://Staydripped.intakeq.com/booking"
+                class="btn btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-calendar"></i>
+                Book Online
+              </a>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3><i class="fas fa-fire-alt"></i> Anti-Inflammatory IV Bag</h3>
+            <div class="price">$235</div>
+            <div class="description">
+              Fight inflammation naturally with a blend of antioxidants and
+              anti-inflammatory compounds.
+            </div>
+            <ul class="benefits">
+              <li>Lactated Ringers IV Solution</li>
+              <li>Calcium Gluconate</li>
+              <li>Vitamin B Complex</li>
+              <li>Glutathione</li>
+              <li>Ketorolac Tromethamine</li>
+              <li>Vitamin C</li>
+            </ul>
+            <div class="action-buttons">
+              <a href="tel:+16026889825" class="btn btn-primary">
+                <i class="fas fa-phone"></i>
+                Call to Book
+              </a>
+              <a
+                href="https://Staydripped.intakeq.com/booking"
+                class="btn btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-calendar"></i>
+                Book Online
+              </a>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>
+              <i class="fas fa-weight"></i> Weight Management Support IV Bag
+            </h3>
+            <div class="price">$245</div>
+            <div class="description">
+              Boost your metabolism naturally with MIC injections, carnitine,
+              and hydration support.
+            </div>
+            <ul class="benefits">
+              <li>MIC (Methionine, Inositol, Choline)</li>
+              <li>Vitamin B Complex</li>
+              <li>L-Carnitine</li>
+            </ul>
+            <div class="action-buttons">
+              <a href="tel:+16026889825" class="btn btn-primary">
+                <i class="fas fa-phone"></i>
+                Call to Book
+              </a>
+              <a
+                href="https://Staydripped.intakeq.com/booking"
+                class="btn btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-calendar"></i>
+                Book Online
+              </a>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3><i class="fas fa-tools"></i> Build Your Own IV Bag</h3>
+            <div class="price">$230</div>
+            <div class="description">
+              Customize your IV therapy with base solution plus 3 add-ins of
+              your choice.
+            </div>
+            <ul class="benefits">
+              <li>Saline Or Lactated Ringer IV Solution (+$125)</li>
+              <li>Add In #1 ($35 Each)</li>
+              <li>Add In #2 ($35 Each)</li>
+              <li>Add In #3 ($35 Each)</li>
+            </ul>
+            <div class="action-buttons">
+              <a href="tel:+16026889825" class="btn btn-primary">
+                <i class="fas fa-phone"></i>
+                Call to Book
+              </a>
+              <a
+                href="https://Staydripped.intakeq.com/booking"
+                class="btn btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-calendar"></i>
+                Book Online
+              </a>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2Ff5958fd15db54ea28489076f16976d01?format=webp&width=800"
+              alt="Basic Rehydrate IV Bag"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-tint"></i> Basic Rehydrate IV Bag (500mL)
+              </h3>
+              <div class="price">$145</div>
+              <div class="description">
+                Quick hydration paired with essential vitamins. Ideal after
+                travel, workouts, or heat exposure.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% (Saline) 500mL</li>
+                <li>Vitamin B Complex</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking?serviceId=73e00621-4069-486a-9fa8-a5a94a089618"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+              <div class="intakeq-widget" style="margin-top: 1rem">
+                <div
+                  id="intakeq-basic-rehydrate"
+                  style="max-width: 720px; width: 100%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2F53b96c765a114d0682a9902ab397efc0?format=webp&width=800"
+              alt="Basic Rehydrate IV Bag 2.0"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3>
+                <i class="fas fa-tint"></i> Basic Rehydrate IV Bag 2.0 (1000mL)
+              </h3>
+              <div class="price">$155</div>
+              <div class="description">
+                Full liter of hydration plus vitamins for enhanced recovery and
+                energy support.
+              </div>
+              <ul class="benefits">
+                <li>Sodium Chloride 0.9% (Saline) 1000mL</li>
+                <li>Vitamin B Complex</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F8b73c477407048d0945425bdc93ba34d%2F53b96c765a114d0682a9902ab397efc0?format=webp&width=800"
+              alt="Basic Rehydrate IV Bag 3.0"
+              class="menu-card-image"
+            />
+            <div class="menu-card-content">
+              <h3><i class="fas fa-tint"></i> Basic Rehydrate IV Bag 3.0</h3>
+              <div class="price">$165</div>
+              <div class="description">
+                Advanced hydration with Lactated Ringer's solution plus
+                essential vitamins.
+              </div>
+              <ul class="benefits">
+                <li>Lactated Ringer 1000mL IV Solution</li>
+                <li>Vitamin B Complex</li>
+              </ul>
+              <div class="action-buttons">
+                <a href="tel:+16026889825" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call to Book
+                </a>
+                <a
+                  href="https://Staydripped.intakeq.com/booking"
+                  class="btn btn-outline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fas fa-calendar"></i>
+                  Book Online
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3><i class="fas fa-droplet"></i> Plain IV Solutions</h3>
+            <div class="price">$99 - $135</div>
+            <div class="description">
+              Basic hydration solutions for fundamental fluid replenishment
+              needs.
+            </div>
+            <ul class="benefits">
+              <li>Plain Saline 500mL - $99</li>
+              <li>Plain Saline 1000mL - $125</li>
+              <li>Lactated Ringers 1000mL - $135</li>
+            </ul>
+            <div class="action-buttons">
+              <a href="tel:+16026889825" class="btn btn-primary">
+                <i class="fas fa-phone"></i>
+                Call to Book
+              </a>
+              <a
+                href="https://Staydripped.intakeq.com/booking"
+                class="btn btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-calendar"></i>
+                Book Online
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Quick Actions Section -->
+      <section class="quick-actions-section">
+        <div class="container">
+          <h2 class="section-title">Ready to Book Your IV Therapy?</h2>
+
+          <div class="quick-actions">
+            <a href="tel:+16026889825" class="quick-action-btn">
+              <i class="fas fa-phone"></i>
+              Call (602) 688-9825
+            </a>
+            <a
+              href="https://Staydripped.intakeq.com/booking"
+              class="quick-action-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-calendar"></i>
+              Book Online Now
+            </a>
+            <div
+              id="loadFormButton"
+              style="
+                width: 180px;
+                height: 50px;
+                cursor: pointer;
+                background-color: #cfc9ff;
+                color: #0a005b;
+                border: none;
+                border-radius: 12px;
+                font-weight: 600;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+              "
+              onmouseover="this.style.backgroundColor='#8058fa'; this.style.color='white'"
+              onmouseout="this.style.backgroundColor='#CFC9FF'; this.style.color='#0A005B'"
+              onclick="showDisclosureModal()"
+            >
+              <i class="fas fa-user-md"></i>
+              Good Faith Exam
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">Stay Dripped Mobile IV</div>
+
+        <div class="footer-info">
+          <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>Phone: (602) 688-9825</p>
+            <p>Email: info@staydrippedmobileiv.com</p>
+            <p>Service Area: Phoenix Metropolitan Area</p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Hours</h3>
+            <p>Monday - Sunday: 7:00 AM - 10:00 PM</p>
+            <p>Emergency Services Available</p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <p><a href="../index.html">Home</a></p>
+            <p><a href="services.html">Services</a></p>
+            <p><a href="membership.html">Membership</a></p>
+            <p>
+              <a
+                href="https://Staydripped.intakeq.com/booking"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Book Online</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Stay Dripped Mobile IV LLC. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Qualiphy Scripts -->
+    <script src="https://qualiphy.com/api/integration/loader.js"></script>
+    <script src="../assets/js/gfe-utility.js"></script>
+    <script src="../assets/js/intakeq-manager.js"></script>
+    <script>
+      // Initialize Qualiphy widget
+      const qualiphyConfig = {
+        clinicId: "3454",
+        examIds:
+          "918,2095,2097,2246,2316,2120,2315,2129,1620,2130,1623,2248,1148,1693,2122,1287,1694,2207",
+        timezone: "-6",
+        availabilityStartTime: "00:00",
+        availabilityEndTime: "23:59",
+        availabilityDays: "1,2,3,4,5,6,7",
+      };
+
+      // Load Qualiphy scripts and initialize
+      function loadQualiphy() {
+        if (typeof window.QualiphyLoader !== "undefined") {
+          window.QualiphyLoader.init(qualiphyConfig);
+        } else {
+          setTimeout(loadQualiphy, 100);
+        }
+      }
+
+      // Start loading when DOM is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadQualiphy);
+      } else {
+        loadQualiphy();
+      }
+
+      // Mobile menu functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileToggle = document.querySelector(".mobile-menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (mobileToggle && navLinks) {
+          mobileToggle.addEventListener("click", function () {
+            navLinks.style.display =
+              navLinks.style.display === "flex" ? "none" : "flex";
+          });
+
+          cartSummary.innerHTML = html;
+          cartTotal.innerHTML = `<strong>Total: $${sum.toFixed(2)}</strong>`;
+        } catch (error) {
+          // Error handled silently
+        }
+      }
+
+      function showInfo(title, description) {
+        try {
+          alert(
+            `${title}\n\n${description}\n\nFor detailed ingredients, contraindications, and medical information, please consult with our licensed medical team during your consultation.`,
+          );
+        } catch (error) {
+          // Error handled silently
+        }
+      });
+    </script>
+  </body>
+</html>

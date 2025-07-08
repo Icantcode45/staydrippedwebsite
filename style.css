@@ -1,0 +1,1184 @@
+/* ==============================================
+   STAY DRIPPED MOBILE IV - ENHANCED STYLESHEET
+   Copyright © 2025 Stay Dripped Mobile IV LLC
+   Enhanced with Vibrant Colors & Typography
+   ============================================== */
+
+/* Enhanced CSS Variables with Metallic/Industrial Design + Premium Color Palette */
+:root {
+  /* Premium Cyan Brand Colors - Enhanced Stay Dripped Palette */
+  --primary: #00d4ff; /* Vibrant cyan */
+  --primary-dark: #09c; /* Deep cyan */
+  --primary-light: #66e0ff; /* Light cyan */
+  --secondary: #1a1a1a; /* Dark steel */
+  --accent: #0fc; /* Neon mint */
+  --accent-warm: #ff6b35; /* Energetic orange */
+  --accent-purple: #8b5cf6; /* Modern purple */
+  /* Metallic Brand Colors - Steel, Chrome, Silver Tones */
+  --chrome: #e2e8f0; /* Chrome finish */
+  --silver: #cbd5e1; /* Polished silver */
+  --platinum: #f7fafc; /* Platinum white */
+  --steel: #2d3748; /* Steel blue-gray */
+  --iron: #4a5568; /* Iron gray */
+  --titanium: #a0aec0; /* Titanium light */
+  /* Enhanced Text Colors with Better Hierarchy */
+  --text-dark: #0f172a; /* Rich dark blue */
+  --text-medium: #334155; /* Slate gray */
+  --text-light: #64748b; /* Cool gray */
+  --text-muted: #94a3b8; /* Light slate */
+  --text-white: #fff;
+  --text-chrome: #e2e8f0; /* Chrome text */
+  --text-cyan: #06b6d4; /* Cyan text accent */
+  /* Modern Background Colors */
+  --bg-dark: #0f172a; /* Rich dark */
+  --bg-medium: #1e293b; /* Dark slate */
+  --bg-light: #f8fafc; /* Soft white */
+  --bg-chrome: #f1f5f9; /* Light chrome */
+  --bg-gradient-primary: linear-gradient(
+    135deg,
+    #00d4ff 0%,
+    #09c 50%,
+    #069 100%
+  );
+  --bg-gradient-surface: linear-gradient(145deg, #fff 0%, #f8fafc 100%);
+  --white: #fff;
+  /* Premium Shadows and Effects */
+  --shadow: 0 4px 20px rgb(0 212 255 / 8%);
+  --shadow-hover: 0 12px 40px rgb(0 212 255 / 15%);
+  --shadow-lg: 0 20px 64px rgb(0 212 255 / 12%);
+  --shadow-xl: 0 32px 80px rgb(0 0 0 / 15%);
+  --shadow-inset: inset 0 2px 4px rgb(0 0 0 / 6%);
+  --shadow-metal:
+    0 8px 32px rgb(0 0 0 / 12%), 0 4px 16px rgb(0 212 255 / 10%),
+    inset 0 1px 0 rgb(255 255 255 / 20%);
+  --shadow-chrome:
+    0 4px 16px rgb(0 0 0 / 6%), inset 0 1px 0 rgb(255 255 255 / 40%);
+  --shadow-cyan: 0 0 40px rgb(0 212 255 / 30%);
+  --shadow-glow: 0 0 60px rgb(0 212 255 / 40%);
+  /* Modern Border Radius */
+  --br: 12px; /* Modern rounded edges */
+  --br-sm: 8px;
+  --br-lg: 16px;
+  --br-xl: 24px;
+  --br-full: 9999px;
+  /* Smooth Transitions */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s ease;
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Premium Gradients */
+  --gradient-chrome: linear-gradient(
+    145deg,
+    #fff 0%,
+    #f8fafc 50%,
+    #f1f5f9 100%
+  --gradient-cyan: linear-gradient(
+  --gradient-mint: linear-gradient(
+    #0fc 0%,
+    #0c9 50%,
+    #096 100%
+  --gradient-surface: linear-gradient(
+    #f8fafc 30%,
+  --gradient-steel: linear-gradient(
+    #334155 0%,
+    #475569 50%,
+    #64748b 100%
+  --gradient-dark: linear-gradient(
+    #0f172a 0%,
+    #1e293b 50%,
+    #334155 100%
+  --gradient-shine: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 30%),
+    transparent
+  --gradient-glow: radial-gradient(
+    circle at center,
+    rgb(0 212 255 / 15%) 0%,
+    transparent 70%
+  /* Enhanced Typography Scale */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem; /* 48px */
+  --font-size-6xl: 4rem; /* 64px */
+  --font-size-7xl: 5rem; /* 80px */
+  /* Enhanced Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  /* Enhanced Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+  /* Spacing */
+  --container-max-width: 1400px;
+  --section-padding: 8rem 2rem; /* Increased for more breathing room */
+  --section-padding-mobile: 5rem 1rem;
+}
+/* =============================================
+   SHARED METALLIC BUTTON BASE CLASS
+   ============================================= */
+/* Premium Button Base Styling */
+.premium-btn,
+.metallic-btn {
+  background: var(--gradient-cyan);
+  color: var(--text-white);
+  border: 2px solid rgb(0 212 255 / 30%);
+  box-shadow: var(--shadow-metal);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+  border-radius: var(--br);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  backdrop-filter: blur(10px);
+.premium-btn::before,
+.metallic-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-shine);
+  transition: left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+.premium-btn::after,
+.metallic-btn::after {
+  inset: 2px;
+  background: inherit;
+  border-radius: calc(var(--br) - 2px);
+  z-index: 0;
+.premium-btn:hover::before,
+.metallic-btn:hover::before {
+  left: 100%;
+.premium-btn:hover,
+.metallic-btn:hover {
+  background: var(--gradient-mint);
+  color: var(--text-dark);
+  box-shadow:
+    var(--shadow-glow),
+    inset 0 1px 0 rgb(255 255 255 / 40%);
+  text-shadow: none;
+  border-color: rgb(0 255 204 / 50%);
+  transform: translateY(-3px) scale(1.02);
+.premium-btn:active,
+.metallic-btn:active {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: var(--shadow-cyan);
+/* Enhanced Service Cards */
+.service-card,
+.card {
+  background: var(--gradient-surface);
+  border: 1px solid rgb(255 255 255 / 60%);
+  border-radius: var(--br-lg);
+  box-shadow: var(--shadow-chrome);
+.service-card::before,
+.card::before {
+  left: 0;
+  right: 0;
+  height: 1px;
+  opacity: 0.8;
+.service-card::after,
+.card::after {
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--gradient-glow);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+.service-card:hover,
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+    var(--shadow-xl),
+    0 0 40px rgb(0 212 255 / 20%);
+  border-color: rgb(0 212 255 / 30%);
+.service-card:hover::after,
+.card:hover::after {
+  opacity: 1;
+.service-card > *,
+.card > * {
+  z-index: 2;
+   GLOBAL BACK BUTTON COMPONENT
+/* Back Button Container */
+.back-button-container {
+  padding: 1.5rem 2rem 1rem;
+  position: fixed;
+  top: 80px;
+  z-index: 999;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: rgb(247 250 252 / 95%);
+  border-bottom: 1px solid var(--silver);
+/* Back Button */
+.back-button {
+  display: inline-flex;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--gradient-chrome);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  border: 2px solid var(--chrome);
+  min-width: 140px;
+  justify-content: center;
+.back-button::before {
+  background: var(--gradient-metal-shine);
+  transition: left 0.6s ease;
+.back-button::after {
+  inset: 1px;
+  border-radius: calc(var(--br) - 1px);
+.back-button:hover::before {
+.back-button:hover {
+  background: var(--gradient-titanium);
+  transform: translateY(-3px) translateX(-3px);
+    var(--shadow-metal),
+    3px 3px 0 var(--steel);
+  border-color: var(--titanium);
+  scale: 1.05;
+.back-button:hover i {
+  transform: translateX(-3px);
+.back-button:active {
+  transform: translateY(-1px) translateX(-1px);
+    var(--shadow-inset),
+    1px 1px 0 var(--steel);
+  scale: 1.02;
+.back-button i {
+  font-size: var(--font-size-lg);
+.back-button span {
+/* Responsive Back Button */
+@media (width <= 768px) {
+  body.has-back-button {
+    padding-top: 140px;
+  }
+  .back-button-container {
+    padding: 1rem 1rem 0.75rem;
+    top: 70px;
+    position: fixed;
+    margin-bottom: 1rem;
+  .back-button {
+    padding: 0.875rem 1.5rem;
+    font-size: var(--font-size-sm);
+    min-width: 120px;
+    gap: 0.5rem;
+  .back-button i {
+    font-size: var(--font-size-base);
+  .back-button:hover {
+    transform: translateY(-2px);
+    scale: 1.03;
+@media (width <= 480px) {
+    padding-top: 130px;
+    padding: 0.75rem 1rem 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: var(--font-size-xs);
+    min-width: 100px;
+/* Cart Actions */
+.cart-actions {
+  text-align: center;
+  margin-top: 2rem;
+/* Common utility classes to replace inline styles */
+.text-center {
+.section-spacing {
+  padding: 4rem 0;
+.section-heading {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+.hero-buttons-container {
+  gap: 1rem;
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+.faq-item {
+  margin-bottom: 1rem;
+  background: var(--bg-light);
+  padding: 1rem;
+  border-radius: 0.5rem;
+.faq-summary {
+  cursor: pointer;
+.faq-answer {
+  margin-top: 1rem;
+.logo-height {
+  height: 40px;
+  width: auto;
+.services-section {
+  margin-top: -4px;
+  padding: 64px 0;
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+.how-it-works-step {
+.step-number {
+  font-size: 3rem;
+  color: var(--primary-color);
+.btn-large {
+  font-size: 1.125rem;
+/* Cart Item Details */
+.cart-item-details {
+  color: var(--text-light);
+  font-size: 0.9em;
+.cart-item-controls {
+.cart-item-price {
+  color: var(--secondary);
+/* Font imports handled in individual font files */
+/* ===============================================
+   FIRST TIME PATIENT EXAM BUTTON & MODAL STYLES
+   =============================================== */
+/* Enhanced Header Exam Button Integration */
+.header-buttons {
+  gap: 1.25rem;
+  flex-wrap: wrap;
+/* Enhanced Exam Button Styles for Header */
+.exam-btn {
+  min-width: 200px;
+  height: 50px;
+  padding: 0.875rem 1.25rem;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #e0d4ff, #f0e6ff);
+  color: #2d1b69;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 16px rgb(207 201 255 / 40%);
+  gap: 0.5rem;
+  user-select: none;
+  transition: var(--transition-bounce);
+  outline: none;
+.exam-btn::before {
+  background: linear-gradient(
+    rgb(255 255 255 / 50%),
+.exam-btn:hover::before {
+.exam-btn:hover {
+  background: linear-gradient(135deg, #9333ea, #a855f7);
+  color: white;
+  box-shadow: var(--shadow-glow);
+  border-color: #9333ea;
+.exam-btn:focus {
+  outline: 3px solid rgb(147 51 234 / 50%);
+  outline-offset: 3px;
+.exam-btn:active {
+  box-shadow: 0 4px 20px rgb(147 51 234 / 40%);
+.exam-btn:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+.exam-btn.loading {
+.exam-btn.loading .exam-btn-text {
+.exam-btn.loading::after {
+  width: 18px;
+  height: 18px;
+  border: 3px solid transparent;
+  border-top: 3px solid currentcolor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+.exam-btn-icon {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+.exam-btn:hover .exam-btn-icon {
+  transform: scale(1.2) rotate(5deg);
+.exam-btn-text {
+  transition: opacity 0.3s ease;
+/* Enhanced Modal Styles */
+.exam-modal-overlay {
+  background: rgb(15 23 42 / 80%);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  padding: 1.5rem;
+.exam-modal-overlay.active {
+  visibility: visible;
+.exam-modal {
+  background: white;
+  border-radius: var(--br-xl);
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.9) translateY(30px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+.exam-modal-overlay.active .exam-modal {
+  transform: scale(1) translateY(0);
+.exam-modal-header {
+  justify-content: space-between;
+  padding: 2.5rem 2.5rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: var(--bg-gradient);
+  border-radius: var(--br-xl) var(--br-xl) 0 0;
+.exam-modal-header h3 {
+  margin: 0;
+  color: var(--primary);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+.exam-modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  padding: 0.75rem;
+  transition: var(--transition);
+  width: 48px;
+  height: 48px;
+.exam-modal-close:hover {
+  background: rgb(239 68 68 / 10%);
+  color: #ef4444;
+  transform: scale(1.1) rotate(90deg);
+.exam-modal-body {
+  padding: 2.5rem;
+.exam-modal-body > p {
+  color: var(--text-medium);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 2rem;
+.exam-process {
+  margin: 2.5rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-left: 4px solid var(--secondary);
+  box-shadow: var(--shadow);
+.exam-process h4 {
+  margin: 0 0 1.5rem;
+  font-size: var(--font-size-xl);
+.exam-process ul {
+  list-style: none;
+  padding: 0;
+.exam-process li {
+  font-weight: var(--font-weight-medium);
+.exam-process li:last-child {
+  margin-bottom: 0;
+.exam-process li i {
+  color: var(--success);
+  min-width: 18px;
+.exam-benefits {
+  background: linear-gradient(135deg, #fefce8, #fef3c7);
+  border: 1px solid #fed7aa;
+.exam-benefits h4 {
+.benefits-list {
+  flex-direction: column;
+.benefit-point {
+  box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+.benefit-point:hover {
+  transform: translateX(8px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+.benefit-point i {
+  font-size: 1.4rem;
+  min-width: 24px;
+.benefit-point span {
+  line-height: var(--line-height-normal);
+.exam-actions {
+  margin: 3rem 0 1.5rem;
+.exam-proceed-btn,
+.exam-call-btn {
+  flex: 1;
+  padding: 1.25rem 2rem;
+.exam-proceed-btn {
+  background: var(--gradient-primary);
+  box-shadow: 0 8px 25px rgb(0 212 255 / 40%);
+.exam-proceed-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: linear-gradient(135deg, #00c851, #4caf50);
+  box-shadow: 0 8px 25px rgb(0 200 81 / 40%);
+.exam-call-btn:hover {
+  box-shadow: 0 12px 35px rgb(0 200 81 / 50%);
+.exam-disclaimer {
+  background: #f8fafc;
+  border-left: 3px solid var(--warning);
+.exam-disclaimer p {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+.exam-disclaimer i {
+  color: var(--warning);
+  margin-right: 0.75rem;
+/* Screen Reader Enhancements */
+.sr-only {
+  width: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+/* Focus Management */
+.exam-modal-overlay:focus-within .exam-modal {
+  outline: 3px solid var(--secondary);
+  outline-offset: -3px;
+/* Skip link for accessibility */
+.skip-link {
+  left: -999px;
+  top: auto;
+.skip-link:focus {
+  height: auto;
+  background: var(--secondary);
+/* Enhanced CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+body {
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+  background: #fafbfc;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+img,
+iframe,
+svg {
+  max-width: 100%;
+  display: block;
+  image-rendering: optimize-contrast;
+  image-rendering: crisp-edges;
+a {
+  color: inherit;
+button {
+  font-family: inherit;
+ul {
+/* Enhanced Scroll Progress Indicator */
+.scroll-indicator {
+  width: 0%;
+  height: 4px;
+  z-index: 9999;
+  transition: width 0.1s ease;
+/* Enhanced Container */
+.container {
+  max-width: var(--container-max-width);
+  padding: 0 2rem;
+/* Enhanced Section Styles */
+.section {
+  padding: var(--section-padding);
+.section-light {
+.section-title {
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+  font-weight: var(--font-weight-extrabold);
+  display: inline-block;
+  line-height: var(--line-height-tight);
+.section-title::after {
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  border-radius: 3px;
+.section-subtitle {
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+/* Enhanced Header Styles */
+.header {
+  z-index: 1000;
+  background: rgb(10 40 71 / 95%);
+.header-container {
+.logo-section {
+.logo-section:hover {
+  transform: scale(1.05);
+.logo-image {
+  height: 45px;
+  filter: brightness(1.1);
+.brand-name {
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+.mobile-menu-toggle {
+  display: none;
+  gap: 5px;
+  padding: 10px;
+  background: rgb(255 255 255 / 15%);
+.mobile-menu-toggle span {
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+.mobile-menu-toggle:hover {
+  background: rgb(255 255 255 / 25%);
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+.mobile-menu-toggle.active span:nth-child(2) {
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+.nav-menu {
+.nav-link {
+  color: var(--text-chrome);
+  padding: 0.875rem 1.5rem;
+  background: var(--gradient-steel);
+  border: 1px solid rgb(255 255 255 / 10%);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 30%);
+.nav-link::after {
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+.nav-link:hover::after {
+  width: 80%;
+.nav-link:hover {
+  transform: translateY(-2px);
+    var(--shadow-hover),
+    inset 0 1px 0 rgb(255 255 255 / 30%);
+.nav-link.active {
+    var(--shadow-chrome),
+    inset 0 2px 4px rgb(0 0 0 / 10%);
+.emergency-call-btn {
+  min-width: 160px;
+  padding: 0 1.25rem;
+  box-shadow: 0 4px 15px rgb(0 200 81 / 30%);
+.emergency-call-btn:hover {
+.header-book-btn {
+  box-shadow: 0 4px 15px rgb(0 212 255 / 30%);
+.header-book-btn:hover {
+/* Enhanced Qualiphy widget styles */
+.qualiphy-widget {
+  margin-left: 0.75rem;
+.qualiphy-button {
+  width: 160px;
+  box-shadow: 0 4px 15px rgb(207 201 255 / 40%);
+.qualiphy-button:hover {
+.qualiphy-button:focus {
+  outline-offset: 2px;
+/* Enhanced Hero Section */
+.hero {
+  min-height: 100vh;
+  background:
+    var(--gradient-hero),
+    url("https://images.unsplash.com/photo-1588776814546-ec7ddc888d2b?auto=format&fit=crop&w=1600&q=80")
+      center/cover no-repeat;
+.hero-background {
+  inset: 0;
+.hero-bg-image {
+  object-fit: cover;
+.hero-overlay {
+    45deg,
+    rgb(0 212 255 / 15%),
+  animation: shimmer 6s ease-in-out infinite alternate;
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  to {
+    transform: translateX(100%);
+.hero-content {
+  max-width: 1000px;
+.hero-title {
+  font-size: clamp(var(--font-size-4xl), 8vw, var(--font-size-7xl));
+  font-weight: var(--font-weight-black);
+  background: linear-gradient(135deg, #fff, #4dd0ff, #fff);
+  text-shadow: 0 4px 8px rgb(0 0 0 / 30%);
+.hero-subtitle {
+  font-size: clamp(var(--font-size-lg), 3vw, var(--font-size-2xl));
+  opacity: 0.95;
+.hero-buttons {
+  gap: 1.5rem;
+.cta,
+.cta-button {
+  padding: 1.25rem 2.5rem;
+.cta.primary,
+.cta.secondary {
+  background: rgb(255 255 255 / 20%);
+  border: 2px solid rgb(255 255 255 / 60%);
+.cta::before,
+  transform: translateX(-2px);
+  transform: translateX(-1px);
+  box-shadow: var(--shadow-inset);
+.feature-item:hover {
+.feature-icon {
+.hero-contact {
+.contact-item {
+.contact-item:hover {
+  background: rgb(255 255 255 / 30%);
+  transform: translateY(-3px);
+.contact-item a {
+/* Enhanced Services Section */
+.services {
+.services h2 {
+.services h2::after {
+.service-cards {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+  border: 1px solid rgb(0 212 255 / 15%);
+  height: 6px;
+.card h3 {
+.card p {
+  font-weight: var(--font-weight-normal);
+/* Enhanced Booking Section */
+.booking-section {
+.booking-section h2 {
+.booking-section h2::after {
+/* Enhanced Booking Tabs */
+.booking-tabs {
+  margin-bottom: 5rem;
+.tab-buttons {
+.tab-link {
+  border: 2px solid #e2e8f0;
+.tab-link::before {
+.tab-link:hover::before {
+.tab-link:hover {
+  border-color: var(--secondary);
+.tab-link.active {
+.tab-content {
+  min-height: 600px;
+.tab-content.active {
+.tab-content iframe {
+  height: 70vh;
+  min-height: 500px;
+/* Enhanced Quiz Wrapper */
+.quiz-wrapper {
+  padding: 4rem;
+.quiz-wrapper::before {
+.quiz-wrapper h3 {
+  margin-bottom: 2.5rem;
+.quiz-progress {
+  background: #e2e8f0;
+  height: 10px;
+  border-radius: 5px;
+.quiz-progress-bar {
+  transition: width 0.4s ease;
+  width: 33%;
+.quiz-progress-text {
+  margin-top: 0.75rem;
+.quiz-form {
+  max-width: 600px;
+.quiz-step {
+.quiz-step.active {
+.quiz-step label {
+.quiz-step select {
+  padding: 1.25rem;
+.quiz-step select:focus {
+  box-shadow: 0 0 0 3px rgb(0 212 255 / 15%);
+.quiz-controls {
+  margin-top: 3rem;
+.quiz-controls button {
+.header.scrolled {
+  background: rgb(10 40 71 / 98%);
+.quiz-controls button:hover {
+.quiz-result {
+  padding: 3rem;
+.quiz-result h4 {
+.quiz-result p {
+.result-description {
+.result-icon {
+  font-size: 4rem;
+/* Enhanced Membership CTA */
+.membership-cta {
+  background: var(--primary);
+.membership-cta::before {
+  animation: shimmer 8s ease-in-out infinite;
+.membership-cta h3 {
+  font-size: var(--font-size-3xl);
+.membership-cta > p {
+.lead-capture {
+  margin: 0 auto 1.5rem;
+.lead-capture input,
+.lead-capture select {
+  min-width: 250px;
+.lead-capture button {
+.lead-capture button:hover {
+.disclaimer {
+  opacity: 0.85;
+  margin-top: 1.5rem;
+.membership-benefits {
+.benefit-item {
+  padding: 1rem 1.5rem;
+/* Enhanced How It Works Section */
+.how-it-works {
+.steps-container {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+.step {
+.step:hover {
+  transform: translateY(-5px);
+.step-icon {
+.step-icon i {
+  top: -15px;
+  right: -15px;
+  width: 40px;
+.step h3 {
+.step p {
+.process-features {
+  margin-top: 5rem;
+.feature-grid {
+.process-feature {
+.process-feature:hover {
+.process-feature i {
+  font-size: 3.5rem;
+.process-feature h4 {
+.process-feature p {
+.cta-section {
+.cta-section h3 {
+/* Enhanced Testimonials Section */
+.testimonials {
+.testimonials h2 {
+.testimonials h2::after {
+.testimonial-slider {
+  max-width: 900px;
+  margin: 4rem auto 0;
+  min-height: 300px;
+.testimonial-slider blockquote {
+  font-style: italic;
+  transition: opacity 0.6s ease-in-out;
+.testimonial-slider blockquote.active {
+.testimonial-slider blockquote strong {
+.rating {
+  color: var(--gold);
+.rating i {
+  margin-right: 0.25rem;
+.testimonial-controls {
+  gap: 3rem;
+.testimonial-prev,
+.testimonial-next {
+  width: 60px;
+  height: 60px;
+.testimonial-prev:hover,
+.testimonial-next:hover {
+  transform: scale(1.1);
+.testimonial-dots {
+.testimonial-dot {
+  width: 15px;
+  height: 15px;
+  background: #cbd5e1;
+.testimonial-dot.active {
+  transform: scale(1.2);
+.social-proof {
+.proof-stats {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.stat {
+.stat-number {
+  font-size: var(--font-size-4xl);
+  margin-bottom: 0.75rem;
+.stat-label {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+/* Enhanced Memberships Section */
+.memberships {
+.membership-grid {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+.membership-card {
+.membership-card:hover {
+.membership-card.featured {
+  border: 3px solid var(--secondary);
+.popular-badge {
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.75rem 1.5rem;
+.membership-header {
+  padding: 3rem 3rem 2rem;
+.membership-header h3 {
+.membership-price {
+.membership-price .price {
+.membership-price .period {
+.membership-tagline {
+.membership-features {
+.membership-features ul {
+.membership-features li {
+.membership-features i {
+.membership-savings {
+.savings-badge {
+.membership-btn {
+  width: calc(100% - 6rem);
+  margin: 0 3rem 3rem;
+.membership-btn:hover {
+.membership-btn.premium {
+  background: var(--gradient-gold);
+.membership-btn.premium:hover {
+  box-shadow: 0 8px 25px rgb(255 177 0 / 40%);
+.membership-benefits-section {
+.membership-benefits-section h3 {
+.benefits-grid {
+.benefit {
+.benefit:hover {
+.benefit i {
+.benefit h4 {
+.benefit p {
+.membership-faq {
+.membership-faq h3 {
+.faq-grid {
+  text-align: left;
+.faq-item:hover {
+.faq-item h4 {
+.faq-item p {
+.membership-cta-section {
+.membership-cta-section h3 {
+.membership-cta-section > p {
+.membership-email-capture {
+  max-width: 500px;
+.membership-email-input {
+/* Enhanced Widget and Image Styles */
+.logo-image,
+.footer-logo-img {
+  max-height: 70px;
+  object-fit: contain;
+  filter: brightness(1.1) contrast(1.05);
+.treatment-image img,
+/* Enhanced Membership Section */
+/* Enhanced Generic Button Styles */
+.service-btn,
+.newsletter-btn,
+.service-btn:hover,
+.newsletter-btn:hover,
+.service-btn:focus,
+.newsletter-btn:focus,
+.testimonial-prev:focus,
+.testimonial-next:focus {
+  outline: 3px solid rgb(0 212 255 / 50%);
+/* Enhanced Newsletter Form */
+.newsletter-input-group {
+  max-width: 400px;
+.newsletter-input-group input {
+  padding: 1rem 1.25rem;
+.newsletter-btn {
+  padding: 0 1.5rem;
+/* Enhanced Accessible button focus */
+button:focus,
+.cta:focus,
+.cta-button:focus,
+.tab-link:focus,
+.membership-btn:focus {
+.quiz-nav-btn.primary {
+.quiz-nav-btn.secondary {
+.quiz-nav-btn:hover {
+.quiz-nav-btn.primary:hover {
+.quiz-nav-btn.secondary:hover {
+.quiz-results {
+.results-header {
+.results-header i {
+.results-header h3 {
+.recommended-treatment {
+.treatment-image img {
+  width: 120px;
+  height: 120px;
+.treatment-details {
+.treatment-details h4 {
+.treatment-details p {
+.treatment-benefits {
+.treatment-price {
+.results-actions {
+.alternative-treatments h5 {
+.alternative-list {
+.quiz-benefits {
+.quiz-benefits h3 {
+.benefit-item:hover {
+.benefit-item i {
+.benefit-item h4 {
+.benefit-item p {
+/* Enhanced Footer */
+.site-footer {
+  padding: 4rem 2rem 2rem;
+.footer-content {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.footer-section h3 {
+.footer-logo {
+  height: 35px;
+.footer-brand-name {
+.footer-social {
+.social-link {
+  width: 50px;
+.social-link:hover {
+  transform: scale(1.15) rotate(5deg);
+.footer-links {
+.footer-links li {
+.footer-links a {
+  color: rgb(255 255 255 / 85%);
+.footer-links a:hover {
+  transform: translateX(5px);
+.contact-info {
+.contact-info .contact-item {
+  align-items: flex-start;
+.contact-info .contact-item i {
+  margin-top: 0.25rem;
+.contact-info .contact-item strong {
+  margin-bottom: 0.5rem;
+.contact-info .contact-item p {
+.contact-info .contact-item a {
+.contact-info .contact-item a:hover {
+.newsletter-form {
+.newsletter-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+.newsletter-disclaimer {
+  color: rgb(255 255 255 / 70%);
+.footer-certifications {
+.certification {
+.certification i {
+.footer-bottom {
+  border-top: 1px solid rgb(255 255 255 / 15%);
+  padding-top: 3rem;
+.footer-bottom-content {
+.footer-legal {
+.footer-legal a {
+.footer-legal a:hover {
+.footer-attribution {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(255 255 255 / 10%);
+/* Enhanced Exam Button Styles */
+  height: 52px;
+/* Enhanced Utility Classes */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+.fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+.loading {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgb(255 255 255 / 30%);
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+/* Enhanced Animations */
+@keyframes fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    opacity: 1;
+    transform: translateY(0);
+@keyframes spin {
+    transform: rotate(360deg);
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  50% {
+    transform: scale(1.08);
+@keyframes glow {
+    box-shadow: 0 0 20px rgb(0 212 255 / 30%);
+    box-shadow: 0 0 40px rgb(0 212 255 / 60%);
+/* Enhanced Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb:hover {
+/* Enhanced Focus Visible for better accessibility */
+:focus-visible {
+/* Enhanced Print Styles */
+@media print {
+  .header,
+  .footer,
+  .scroll-indicator,
+  .cta,
+  .cta-button,
+  .exam-btn {
+    display: none !important;
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000;
+    background: #fff;
+  .container {
+    max-width: 100%;
+    padding: 0;
+  .section {
+    page-break-inside: avoid;
+  .card,
+  .membership-card,
+  .testimonial-slider blockquote {
+    box-shadow: none;
+    border: 1px solid #ddd;
+/* Enhanced Booking Modal */
+.modal {
+  overflow: auto;
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+.modal .close {
+  top: 1rem;
+  right: 1.25rem;
+.modal .close:hover {
+/* Enhanced Responsive Design */
+  :root {
+    --section-padding: var(--section-padding-mobile);
+  .hero-title {
+    font-size: clamp(var(--font-size-3xl), 10vw, var(--font-size-5xl));
+  .hero-subtitle {
+    font-size: clamp(var(--font-size-base), 4vw, var(--font-size-lg));
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+  .hero-features,
+  .hero-contact {
+  .header-container {
+    padding: 1rem;
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    gap: 1rem;
+  .nav-menu.active {
+    display: flex;
+  .mobile-menu-toggle {
+  .header-buttons {
+    gap: 0.75rem;
+  .emergency-call-btn,
+  .header-book-btn,
+  .qualiphy-button {
+    height: 44px;
+    padding: 0 0.75rem;
+    min-width: 160px;
+  .service-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  .membership-grid {
+  .steps-container {
+    gap: 3rem;
+  .feature-grid,
+  .benefits-grid {
+  .footer-content {
+  .footer-bottom-content {
+    text-align: center;
+  .footer-legal {
+    justify-content: center;
+    gap: 1.5rem;
+  .exam-modal {
+    margin: 2rem;
+    max-width: calc(100vw - 4rem);
+  .exam-modal-header,
+  .exam-modal-body {
+    padding: 2rem;
+  .exam-actions {
+  .lead-capture {
+  .membership-email-capture {
+  .newsletter-input-group {
+  .recommended-treatment {
+  .testimonial-controls {
+  .proof-stats {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1rem;
+  .hero-content {
+  .process-feature,
+  .benefit {
+  .quiz-wrapper {
+    padding: 1.5rem;
+  .membership-cta,
+  .cta-section,
+  .membership-cta-section {
+    padding: 2.5rem;
+  .section-title {
+    font-size: clamp(var(--font-size-2xl), 8vw, var(--font-size-3xl));
+  .section-subtitle {
