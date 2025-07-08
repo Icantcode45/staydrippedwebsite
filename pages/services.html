@@ -1,28 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Services - Stay Dripped Mobile IV</title>
     <meta
       name="description"
-      content="Comprehensive mobile wellness services including IV therapy, NAD+ therapy, peptide treatments, aesthetic services, and more delivered to your location."
+      content="Premium mobile IV therapy and wellness services delivered to you. Professional hydration, NAD+, hormone replacement, and wellness services in Scottsdale & Phoenix."
     />
 
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <!-- Enhanced CSS from modern build system -->
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <!-- Favicon and manifest -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/icons/apple-touch-icon.png"
+    />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="assets/images/favicon-32x32.png"
+      href="../assets/icons/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/images/favicon-16x16.png"
+      href="../assets/icons/favicon-16x16.png"
     />
+    <link rel="manifest" href="../manifest.json" />
+    <meta name="theme-color" content="#1a2a47" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="../dist/css/styles.css" />
@@ -32,154 +40,19 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
+    <meta
+      property="og:description"
+      content="Professional IV therapy, hormone replacement, aesthetic services, and wellness treatments delivered to your location in Scottsdale & Phoenix."
+    />
+    <meta property="og:image" content="../assets/images/logo.png" />
+    <meta
+      property="og:url"
+      content="https://staydrippedmobileiv.com/pages/services-enhanced.html"
     />
 
-    <style>
-      .back-button {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-        background: rgb(255 255 255 / 90%);
-        border: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .back-button:hover {
-        background: white;
-        transform: scale(1.1);
-      }
-
-      .services-hero {
-        background: linear-gradient(135deg, #00e5ff 0%, #09c 100%);
-        color: white;
-        padding: 120px 0 80px;
-        text-align: center;
-      }
-
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-
-      .service-card {
-        background: white;
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
-        transition: all 0.3s ease;
-        border: 1px solid rgb(0 229 255 / 10%);
-      }
-
-      .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 16px 48px rgb(0 229 255 / 20%);
-        border-color: rgb(0 229 255 / 30%);
-      }
-
-      .service-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, #00e5ff, #09c);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .service-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--neutral-800);
-      }
-
-      .service-description {
-        color: var(--neutral-600);
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-      }
-
-      .service-price {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #00e5ff;
-        margin-bottom: 1.5rem;
-      }
-
-      .service-features {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 1.5rem;
-      }
-
-      .service-features li {
-        padding: 0.5rem 0;
-        color: var(--neutral-600);
-      }
-
-      .service-features li::before {
-        content: "✓";
-        color: #4caf50;
-        font-weight: bold;
-        margin-right: 0.5rem;
-      }
-
-      .service-button {
-        width: 100%;
-        padding: 12px 24px;
-        background: linear-gradient(135deg, #00e5ff, #09c);
-        color: white;
-        border: none;
-        border-radius: 30px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-        text-align: center;
-      }
-
-      .service-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgb(0 229 255 / 30%);
-        color: white;
-        text-decoration: none;
-      }
-
-      .category-section {
-        margin-bottom: 4rem;
-      }
-
-      .category-title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        text-align: center;
-        margin-bottom: 1rem;
-        color: var(--neutral-800);
-      }
-
-      .category-description {
-        text-align: center;
-        color: var(--neutral-600);
-        font-size: 1.1rem;
-        margin-bottom: 3rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    </style>
+    <title>
+      Premium Mobile IV & Wellness Services | Stay Dripped Mobile IV
+    </title>
   </head>
   <body>
     <!-- Back Button -->
@@ -190,20 +63,52 @@
     >
       <i class="fas fa-home"></i>
     </a>
+    <!-- Header -->
+    <header class="site-header" role="banner">
+      <div class="container">
+        <a href="../index.html" class="site-logo">
+          <img
+            src="../assets/images/logo.png"
+            alt="Stay Dripped Mobile IV"
+            width="200"
+            height="40"
+          />
+        </a>
+
+        <nav class="main-nav">
+          <ul class="main-nav__list">
+            <li><a href="../index.html" class="main-nav__link">Home</a></li>
+            <li>
+              <a href="services-enhanced.html" class="main-nav__link active"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="how-it-works.html" class="main-nav__link"
+                >How It Works</a
+              >
+            </li>
+            <li>
+              <a href="membership.html" class="main-nav__link">Memberships</a>
+            </li>
+            <li>
+              <a href="testimonials.html" class="main-nav__link">Reviews</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button id="dark-mode-toggle" class="dark-mode-toggle">☀️</button>
+          <a href="tel:+16026889825" class="btn btn--primary">Call Now</a>
+        </div>
+      </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="services-hero">
-      <div class="container">
-        <h1 class="display-1 mb-4">Our Complete Services</h1>
-        <p class="lead">
-          Comprehensive mobile wellness services delivered to your location in
-          the Phoenix Valley
-        </p>
+    <section class="hero hero--services">
+      <div class="hero__background">
+        <div class="hero__overlay"></div>
       </div>
-    </section>
-
-    <!-- Main Services Section -->
-    <section class="section py-5">
       <div class="container">
         <!-- IV Therapy Category -->
         <div class="category-section">
@@ -253,13 +158,21 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Advanced Therapies Category -->
-        <div class="category-section">
-          <h2 class="category-title">Advanced Therapies</h2>
-          <p class="category-description">
-            Cutting-edge treatments for performance, recovery, and optimization
-          </p>
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+      <!-- Services Overview -->
+      <section id="services" class="service-programs">
+        <div class="container">
+          <div class="section-header">
+            <h2>Comprehensive Wellness Solutions</h2>
+            <p>
+              Professional healthcare services delivered with convenience and
+              excellence
+            </p>
+          </div>
 
           <div class="services-grid">
             <div class="service-card">
@@ -318,16 +231,6 @@
                 >Learn More & Book</a
               >
             </div>
-          </div>
-        </div>
-
-        <!-- Quick Treatments Category -->
-        <div class="category-section">
-          <h2 class="category-title">Quick Treatments</h2>
-          <p class="category-description">
-            Fast and effective treatments for energy, weight management, and
-            beauty
-          </p>
 
           <div class="services-grid">
             <div class="service-card">
@@ -387,15 +290,6 @@
               >
             </div>
           </div>
-        </div>
-
-        <!-- Testing & Diagnostics Category -->
-        <div class="category-section">
-          <h2 class="category-title">Testing & Diagnostics</h2>
-          <p class="category-description">
-            Comprehensive health testing and analysis for optimal wellness
-            planning
-          </p>
 
           <div class="services-grid">
             <div class="service-card">
@@ -416,6 +310,7 @@
                 >Learn More & Book</a
               >
             </div>
+          </div>
 
             <div class="service-card">
               <div class="service-icon">🧪</div>
@@ -437,51 +332,161 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CTA Section -->
-    <section
-      class="section py-5"
-      style="
-        background: linear-gradient(135deg, #00e5ff 0%, #09c 100%);
-        color: white;
-      "
-    >
-      <div class="container text-center">
-        <h2 class="display-4 mb-4">Ready to Start Your Wellness Journey?</h2>
-        <p class="lead mb-4">
-          Contact us to discuss your needs and create a personalized treatment
-          plan
-        </p>
-
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <a href="tel:+16026889825" class="btn btn-light btn-lg me-3 mb-3">
-              <i class="fas fa-phone me-2"></i>(602) 688-9825
-            </a>
-            <a
-              href="https://staydripped.intakeq.com/booking"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-outline-light btn-lg mb-3"
+      <!-- CTA Section -->
+      <section class="service-cta">
+        <div class="container">
+          <h3>Ready to Feel Your Best?</h3>
+          <p>
+            Experience the convenience and luxury of premium mobile wellness
+            services delivered to your location
+          </p>
+          <div class="cta-buttons">
+            <a href="tel:+16026889825" class="btn btn--secondary btn--lg"
+              >Call Now: (602) 688-9825</a
             >
-              <i class="fas fa-calendar-plus me-2"></i>Book Online
+            <a href="../index.html#booking" class="btn btn--outline btn--lg"
+              >Book Online</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-section footer-section--brand">
+            <a href="../index.html" class="footer-logo">
+              <img
+                src="../assets/images/logo-stacked.png"
+                alt="Stay Dripped Mobile IV"
+                width="120"
+                height="60"
+              />
             </a>
+            <p class="footer-description">
+              Premium mobile IV therapy and wellness services delivered to you
+              in Scottsdale & Phoenix.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h3 class="footer-section__title">Services</h3>
+            <ul class="footer-nav">
+              <li>
+                <a href="iv-therapy.html" class="footer-nav__link"
+                  >IV Therapy</a
+                >
+              </li>
+              <li>
+                <a href="nad-therapy.html" class="footer-nav__link"
+                  >NAD+ Therapy</a
+                >
+              </li>
+              <li>
+                <a href="hormone-replacement.html" class="footer-nav__link"
+                  >Hormone Replacement</a
+                >
+              </li>
+              <li>
+                <a href="aesthetic.html" class="footer-nav__link"
+                  >Aesthetic Services</a
+                >
+              </li>
+              <li>
+                <a href="blood-testing.html" class="footer-nav__link"
+                  >Blood Testing</a
+                >
+              </li>
+              <li>
+                <a href="injection-shots.html" class="footer-nav__link"
+                  >Vitamin Injections</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3 class="footer-section__title">Company</h3>
+            <ul class="footer-nav">
+              <li>
+                <a href="corporate-events.html" class="footer-nav__link"
+                  >Corporate Events</a
+                >
+              </li>
+              <li>
+                <a href="franchise.html" class="footer-nav__link">Franchise</a>
+              </li>
+              <li>
+                <a href="partnerships.html" class="footer-nav__link"
+                  >Partnerships</a
+                >
+              </li>
+              <li>
+                <a href="membership.html" class="footer-nav__link"
+                  >Memberships</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3 class="footer-section__title">Contact</h3>
+            <div class="footer-contact">
+              <a href="tel:+16026889825" class="footer-contact__item">
+                <span class="footer-contact__icon">📞</span>
+                <span>(602) 688-9825</span>
+              </a>
+              <div class="footer-contact__item">
+                <span class="footer-contact__icon">📍</span>
+                <span>Serving Scottsdale & Phoenix, AZ</span>
+              </div>
+              <div class="footer-contact__item">
+                <span class="footer-contact__icon">⏰</span>
+                <span>Daily 7AM - 9PM</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="mt-4">
-          <p>
-            <strong>Service Areas:</strong> Phoenix, Scottsdale, Tempe, Mesa,
-            Chandler, Gilbert, Glendale, Peoria
-          </p>
+        <div class="footer-bottom">
+          <div class="footer-bottom__content">
+            <div class="footer-copyright">
+              <p>&copy; 2024 Stay Dripped Mobile IV. All rights reserved.</p>
+            </div>
+            <nav class="footer-legal">
+              <ul class="footer-legal__list">
+                <li>
+                  <a href="../privacy-policy.html" class="footer-legal__link"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li>
+                  <a href="../terms-of-service.html" class="footer-legal__link"
+                    >Terms of Service</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../medical-disclaimer.html"
+                    class="footer-legal__link"
+                    >Medical Disclaimer</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
-    </section>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/booking.js"></script>
+    <!-- Back to Top -->
+    <button id="back-to-top" class="fab" style="display: none">↑</button>
+
+    <!-- Enhanced JavaScript -->
+    <script src="../js/main.js" defer></script>
   </body>
 </html>
