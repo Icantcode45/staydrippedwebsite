@@ -2000,11 +2000,24 @@
         });
       });
 
-      // Toggle booking widgets
+      // Toggle booking widgets with input validation
       function toggleWidget(widgetId) {
-        const widget = document.getElementById(widgetId);
-        if (widget) {
-          widget.classList.toggle("hidden");
+        try {
+          // Validate input
+          if (!widgetId || typeof widgetId !== "string") {
+            console.warn("Invalid widget ID provided");
+            return;
+          }
+
+          // Sanitize widget ID to prevent XSS
+          const sanitizedId = widgetId.replace(/[^a-zA-Z0-9-_]/g, "");
+          const widget = document.getElementById(sanitizedId);
+
+          if (widget && widget.classList.contains("booking-widget")) {
+            widget.classList.toggle("hidden");
+          }
+        } catch (error) {
+          console.error("Error toggling widget:", error);
         }
       }
 
