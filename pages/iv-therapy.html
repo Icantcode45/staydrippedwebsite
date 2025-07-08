@@ -1951,25 +1951,32 @@
         }
       }
 
-      // Update active tab on scroll
+      // Update active tab on scroll with throttling for performance
+      let scrollTimeout;
       window.addEventListener("scroll", function () {
-        const sections = document.querySelectorAll(".category-section");
-        const navTabs = document.querySelectorAll(".nav-tab");
+        if (scrollTimeout) return;
 
-        let current = "";
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 100;
-          if (window.pageYOffset >= sectionTop) {
-            current = section.getAttribute("id");
-          }
-        });
+        scrollTimeout = setTimeout(function () {
+          const sections = document.querySelectorAll(".category-section");
+          const navTabs = document.querySelectorAll(".nav-tab");
 
-        navTabs.forEach((tab) => {
-          tab.classList.remove("active");
-          if (tab.getAttribute("href") === "#" + current) {
-            tab.classList.add("active");
-          }
-        });
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.pageYOffset >= sectionTop) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navTabs.forEach((tab) => {
+            tab.classList.remove("active");
+            if (tab.getAttribute("href") === "#" + current) {
+              tab.classList.add("active");
+            }
+          });
+
+          scrollTimeout = null;
+        }, 100);
       });
     </script>
 
