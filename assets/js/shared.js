@@ -2,16 +2,22 @@
 
 // Header scroll effect
 function initHeaderScroll() {
-  window.addEventListener("scroll", () => {
-    const header = document.getElementById("header");
-    if (header) {
-      if (window.scrollY > 100) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
+  const header = document.getElementById("header");
+  if (!header) {
+    console.warn("Header element not found");
+    return;
+  }
+
+  const handleScroll = () => {
+    try {
+      const shouldAddScrollClass = window.scrollY > 100;
+      header.classList.toggle("scrolled", shouldAddScrollClass);
+    } catch (error) {
+      console.error("Error in scroll handler:", error);
     }
-  });
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
 }
 
 // Fade in animation on scroll
