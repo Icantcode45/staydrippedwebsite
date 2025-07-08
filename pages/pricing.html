@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IV Therapy Pricing - Stay Dripped Mobile IV</title>
+    <meta
+      name="description"
+      content="Transparent pricing for all IV therapy services from $99-$525. Professional mobile IV treatments with no hidden fees. Book your treatment today."
+    />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/favicon-32x32.png"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #007aff;
+        --secondary: #5ac8fa;
+        --accent: #34c759;
+        --gold: #ffd700;
+        --white: #fff;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-600: #4b5563;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        --shadow-lg:
+          0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+        --shadow-xl:
+          0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+        --border-radius-xl: 16px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: var(--gray-800);
+        background: var(--white);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: rgb(255 255 255 / 90%);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-lg);
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+        color: var(--gray-600);
+      }
+
+      .back-button:hover {
+        background: white;
+        transform: scale(1.1);
+        text-decoration: none;
+        color: var(--primary);
+      }
+
+      .hero {
+        background: var(--gradient-primary);
+        color: var(--white);
+        padding: 120px 0 80px;
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        opacity: 0.95;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .pricing-section {
+        padding: 80px 0;
+        background: var(--gray-50);
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: var(--gray-900);
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+        max-width: 600px;
+        margin: 0 auto 4rem;
+        text-align: center;
+      }
+
+      .category-section {
+        margin-bottom: 4rem;
+      }
+
+      .category-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 2rem;
+        background: var(--white);
+        border-radius: var(--border-radius-xl);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .category-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+      }
+
+      .category-description {
+        color: var(--gray-600);
+        font-size: 1.125rem;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .pricing-card {
+        background: var(--white);
+        border-radius: var(--border-radius-xl);
+        padding: 2rem;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        border: 1px solid var(--gray-100);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .pricing-card.featured {
+        border: 2px solid var(--primary);
+      }
+
+      .pricing-card.featured::before {
+        content: "POPULAR";
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--primary);
+        color: var(--white);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .service-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .service-info {
+        flex: 1;
+      }
+
+      .service-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+      }
+
+      .service-description {
+        color: var(--gray-600);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .service-price {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary);
+        white-space: nowrap;
+      }
+
+      .service-sku {
+        font-size: 0.75rem;
+        color: var(--gray-500);
+        margin-bottom: 1.5rem;
+      }
+
+      .book-btn {
+        width: 100%;
+        padding: 1rem 2rem;
+        background: var(--gradient-primary);
+        color: var(--white);
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .book-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        text-decoration: none;
+        color: var(--white);
+      }
+
+      .cta-section {
+        background: var(--gradient-primary);
+        color: var(--white);
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .btn-secondary {
+        background: var(--white);
+        color: var(--primary);
+        border: 2px solid var(--white);
+      }
+
+      .btn-secondary:hover {
+        background: transparent;
+        color: var(--white);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+
+      .price-note {
+        background: var(--white);
+        border: 1px solid var(--gray-200);
+        border-radius: var(--border-radius-xl);
+        padding: 2rem;
+        margin: 3rem 0;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+
+        .service-price {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <a
+      href="../index.html"
+      class="back-button"
+      aria-label="Go back to homepage"
+    >
+      <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Transparent Pricing</h1>
+        <p class="hero-subtitle">
+          Professional mobile IV therapy with upfront pricing. No hidden fees,
+          no surprises. All treatments include licensed medical professional
+          administration.
+        </p>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+      <div class="container">
+        <!-- Basic Hydration Category -->
+        <div class="category-section">
+          <div class="category-header">
+            <h2 class="category-title">💧 Basic Hydration Solutions</h2>
+            <p class="category-description">
+              Essential hydration and electrolyte replenishment
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">Plain Saline 500mL IV</h3>
+                  <p class="service-description">
+                    Basic 500mL saline IV solution for essential hydration
+                  </p>
+                </div>
+                <div class="service-price">$99</div>
+              </div>
+              <p class="service-sku">SKU: 22.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">Plain Saline 1000mL IV</h3>
+                  <p class="service-description">
+                    1000mL saline IV solution for extended hydration
+                  </p>
+                </div>
+                <div class="service-price">$125</div>
+              </div>
+              <p class="service-sku">SKU: 24.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">Lactated Ringers 1000mL IV</h3>
+                  <p class="service-description">
+                    1000mL Lactated Ringers IV solution with balanced
+                    electrolytes
+                  </p>
+                </div>
+                <div class="service-price">$135</div>
+              </div>
+              <p class="service-sku">SKU: 23.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enhanced Hydration Category -->
+        <div class="category-section">
+          <div class="category-header">
+            <h2 class="category-title">🌟 Enhanced Hydration & Recovery</h2>
+            <p class="category-description">
+              Hydration plus essential vitamins for optimal recovery
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">Basic Rehydrate IV Bag</h3>
+                  <p class="service-description">
+                    500mL saline IV solution with Vitamin B Complex
+                  </p>
+                </div>
+                <div class="service-price">$155</div>
+              </div>
+              <p class="service-sku">SKU: 25.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card featured">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">Basic Rehydrate IV Bag 2.0</h3>
+                  <p class="service-description">
+                    1000mL saline IV solution with Vitamin B Complex
+                  </p>
+                </div>
+                <div class="service-price">$165</div>
+              </div>
+              <p class="service-sku">SKU: 26.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">Basic Rehydrate IV Bag 3.0</h3>
+                  <p class="service-description">
+                    Lactated Ringer IV solution with Vitamin B Complex
+                  </p>
+                </div>
+                <div class="service-price">$175</div>
+              </div>
+              <p class="service-sku">SKU: 27.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Myers' Cocktail Family -->
+        <div class="category-section">
+          <div class="category-header">
+            <h2 class="category-title">⚡ Myers' Cocktail Family</h2>
+            <p class="category-description">
+              Classic vitamin and mineral IV therapy in various strengths
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">Jr Myers' Cocktail IV Bag</h3>
+                  <p class="service-description">
+                    Lighter IV solution with Vitamin C, B-Complex and
+                    Glutathione
+                  </p>
+                </div>
+                <div class="service-price">$185</div>
+              </div>
+              <p class="service-sku">SKU: 3.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card featured">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">Myers' Cocktail IV Bag</h3>
+                  <p class="service-description">
+                    IV solution with Vitamin B-12, Zinc, Magnesium, Glutathione,
+                    Vitamin C and B-Complex
+                  </p>
+                </div>
+                <div class="service-price">$205</div>
+              </div>
+              <p class="service-sku">SKU: 1.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">Mega Myers' Cocktail IV Bag</h3>
+                  <p class="service-description">
+                    Enhanced IV solution with double doses of Glutathione and
+                    Vitamin C
+                  </p>
+                </div>
+                <div class="service-price">$235</div>
+              </div>
+              <p class="service-sku">SKU: 2.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specialty Treatments -->
+        <div class="category-section">
+          <div class="category-header">
+            <h2 class="category-title">🎯 Specialty Treatments</h2>
+            <p class="category-description">
+              Targeted treatments for specific wellness goals
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">
+                    The "Day After The Dale" Hangover Relief
+                  </h3>
+                  <p class="service-description">
+                    IV solution for hangover relief with B-Complex, B12 and
+                    anti-nausea medication
+                  </p>
+                </div>
+                <div class="service-price">$195</div>
+              </div>
+              <p class="service-sku">SKU: 4.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">
+                    The "D-Book" Athletic Performance
+                  </h3>
+                  <p class="service-description">
+                    IV solution designed to boost athletic performance
+                  </p>
+                </div>
+                <div class="service-price">$215</div>
+              </div>
+              <p class="service-sku">SKU: 7.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">The "Scottsdale 10" Beauty IV</h3>
+                  <p class="service-description">
+                    IV solution designed to enhance beauty and skin health
+                  </p>
+                </div>
+                <div class="service-price">$245</div>
+              </div>
+              <p class="service-sku">SKU: 10.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">The "Arizona" Detox & Cleanse</h3>
+                  <p class="service-description">
+                    IV solution for detoxification and cleansing
+                  </p>
+                </div>
+                <div class="service-price">$265</div>
+              </div>
+              <p class="service-sku">SKU: 9.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Premium Treatments -->
+        <div class="category-section">
+          <div class="category-header">
+            <h2 class="category-title">👑 Premium & Ultimate Recovery</h2>
+            <p class="category-description">
+              Our most comprehensive treatments for ultimate wellness
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">
+                    The "Gold" Ultimate Hydration & Recovery
+                  </h3>
+                  <p class="service-description">
+                    Enhanced IV solution for hydration and recovery with double
+                    doses of Vitamin C and Glutathione
+                  </p>
+                </div>
+                <div class="service-price">$325</div>
+              </div>
+              <p class="service-sku">SKU: 6.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">The Stay Dripped Special</h3>
+                  <p class="service-description">
+                    Comprehensive IV solution for overall wellness
+                  </p>
+                </div>
+                <div class="service-price">$345</div>
+              </div>
+              <p class="service-sku">SKU: 15.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card featured">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">
+                    The "Platinum" Ultimate Hydration & Recovery
+                  </h3>
+                  <p class="service-description">
+                    Comprehensive IV solution for hydration and recovery
+                  </p>
+                </div>
+                <div class="service-price">$355</div>
+              </div>
+              <p class="service-sku">SKU: 5.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- NAD+ Therapy -->
+        <div class="category-section">
+          <div class="category-header">
+            <h2 class="category-title">🧬 NAD+ Anti-Aging Therapy</h2>
+            <p class="category-description">
+              Cutting-edge NAD+ therapy for cellular repair and longevity
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">NAD+ Therapy IV Bag</h3>
+                  <p class="service-description">
+                    IV therapy focused on NAD+ supplementation
+                  </p>
+                </div>
+                <div class="service-price">$400</div>
+              </div>
+              <p class="service-sku">SKU: 17.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">The "Fountain Of Youth" IV</h3>
+                  <p class="service-description">
+                    IV solution designed to promote youthfulness and vitality
+                  </p>
+                </div>
+                <div class="service-price">$425</div>
+              </div>
+              <p class="service-sku">SKU: 16.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">The Platinum NAD+ Therapy</h3>
+                  <p class="service-description">
+                    Enhanced NAD+ therapy with additional vitamins
+                  </p>
+                </div>
+                <div class="service-price">$475</div>
+              </div>
+              <p class="service-sku">SKU: 18.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+
+            <div class="pricing-card featured">
+              <div class="service-header">
+                <div class="service-info">
+                  <h3 class="service-name">The Diamond NAD+ Therapy</h3>
+                  <p class="service-description">
+                    Premium NAD+ therapy with double dose of Vitamin C
+                  </p>
+                </div>
+                <div class="service-price">$525</div>
+              </div>
+              <p class="service-sku">SKU: 19.00</p>
+              <a href="booking.html" class="book-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Important Note -->
+        <div class="price-note">
+          <h3 style="color: var(--gray-900); margin-bottom: 1rem">
+            <i class="fas fa-info-circle" style="color: var(--primary)"></i>
+            What's Included
+          </h3>
+          <p style="color: var(--gray-600); margin-bottom: 1rem">
+            All prices include licensed medical professional administration,
+            premium IV supplies, travel to your location within our service
+            area, and post-treatment consultation.
+          </p>
+          <p style="color: var(--gray-600); font-weight: 600">
+            No hidden fees • No surprise charges • Professional service
+            guaranteed
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2
+          style="
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+          "
+        >
+          Ready to Book Your Treatment?
+        </h2>
+        <p
+          style="
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Choose from our comprehensive menu of IV therapy treatments. Same-day
+          availability often available.
+        </p>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+          "
+        >
+          <a
+            href="booking.html"
+            class="book-btn btn-secondary"
+            style="width: auto"
+          >
+            <i class="fas fa-calendar-plus"></i>
+            Book Online Now
+          </a>
+          <a href="tel:+16026889825" class="book-btn" style="width: auto">
+            <i class="fas fa-phone"></i>
+            Call (602) 688-9825
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Analytics tracking
+      if (typeof gtag !== "undefined") {
+        gtag("event", "page_view", {
+          page_title: "Pricing Page",
+          page_location: window.location.href,
+        });
+      }
+    </script>
+  </body>
+</html>
