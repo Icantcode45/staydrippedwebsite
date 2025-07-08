@@ -72,15 +72,23 @@ function createWidgetElement(serviceId) {
 }
 
 function renderFallbackContent(container, service) {
-  container.innerHTML = `
-    <div class="widget-fallback">
-      <p>Widget temporarily unavailable</p>
-      <a href="https://Staydripped.intakeq.com/booking?serviceId=${service.serviceId}"
-         target="_blank" class="book-now-btn">
-        Book Now
-      </a>
-    </div>
-  `;
+  const fallback = document.createElement("div");
+  fallback.className = "widget-fallback";
+
+  const message = document.createElement("p");
+  message.textContent = "Widget temporarily unavailable";
+
+  const link = document.createElement("a");
+  link.href = `https://Staydripped.intakeq.com/booking?serviceId=${service.serviceId}`;
+  link.target = "_blank";
+  link.className = "book-now-btn";
+  link.textContent = "Book Now";
+
+  fallback.appendChild(message);
+  fallback.appendChild(link);
+
+  container.innerHTML = "";
+  container.appendChild(fallback);
 }
 
 // Initialize when DOM is ready
