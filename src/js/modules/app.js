@@ -304,7 +304,7 @@ class App {
     announcement.textContent = "Page loaded and ready for interaction";
 
     document.body.appendChild(announcement);
-    setTimeout(() => announcement.remove(), 1000);
+    setTimeout(() => announcement.remove(), this.ANNOUNCEMENT_CLEANUP_DELAY);
   }
 }
 
