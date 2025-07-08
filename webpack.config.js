@@ -128,10 +128,9 @@ module.exports = (env) => {
         ? [
             new PurgeCSSPlugin({
               paths: glob.sync([
-                path.join(__dirname, "**/*.html"),
+                path.join(__dirname, "public/**/*.html"),
                 path.join(__dirname, "components/**/*.html"),
-                path.join(__dirname, "pages/**/*.html"),
-                path.join(__dirname, "js/**/*.js"),
+                path.join(__dirname, "src/js/**/*.js"),
               ]),
               safelist: {
                 standard: [
