@@ -414,20 +414,56 @@ class IntakeQCategoryBooking {
   }
 
   createFallbackButton(container, service) {
-    const fallbackHtml = `
-      <div class="intakeq-fallback">
-        <div class="fallback-header">
-          <span class="fallback-icon">${service.icon}</span>
-          <h3>${service.name}</h3>
-          <p>${service.description}</p>
-        </div>
-        <button class="fallback-book-btn" onclick="window.IntakeQBooking.openDirectBookingUrl('${container.id.replace("intakeq-", "")}')">
-          <i class="fas fa-calendar-plus"></i>
-          Book Now
-        </button>
-      </div>
-    `;
-    container.innerHTML = fallbackHtml;
+    const fallback = document.createElement("div");
+    fallback.className = "intakeq-fallback";
+
+    const header = this.createFallbackHeader(service);
+    const button = this.createFallbackBookButton(container);
+
+    fallback.appendChild(header);
+    fallback.appendChild(button);
+
+    container.innerHTML = "";
+    container.appendChild(fallback);
+  }
+
+  createFallbackHeader(service) {
+    const header = document.createElement("div");
+    header.className = "fallback-header";
+
+    const icon = document.createElement("span");
+    icon.className = "fallback-icon";
+    icon.textContent = service.icon;
+
+    const title = document.createElement("h3");
+    title.textContent = service.name;
+
+    const description = document.createElement("p");
+    description.textContent = service.description;
+
+    header.appendChild(icon);
+    header.appendChild(title);
+    header.appendChild(description);
+
+    return header;
+  }
+
+  createFallbackBookButton(container) {
+    const button = document.createElement("button");
+    button.className = "fallback-book-btn";
+
+    const serviceKey = container.id.replace("intakeq-", "");
+    button.addEventListener("click", () => {
+      this.openDirectBookingUrl(serviceKey);
+    });
+
+    const icon = document.createElement("i");
+    icon.className = "fas fa-calendar-plus";
+
+    button.appendChild(icon);
+    button.appendChild(document.createTextNode(" Book Now"));
+
+    return button;
   }
 
   initializeFallbackButtons() {
