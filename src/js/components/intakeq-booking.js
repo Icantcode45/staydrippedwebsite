@@ -219,9 +219,16 @@ class IntakeQCategoryBooking {
   }
 
   setupWidget(container, widgetContainer, serviceKey, service) {
+    this.renderWidgetContainer(container, widgetContainer);
+    this.configureWidget(container, serviceKey, service);
+  }
+
+  renderWidgetContainer(container, widgetContainer) {
     container.innerHTML = "";
     container.appendChild(widgetContainer);
+  }
 
+  configureWidget(container, serviceKey, service) {
     this.initializeEmbeddedWidget(serviceKey);
     this.addBookingHandler(container, serviceKey);
     this.storeWidgetReference(serviceKey, container, service);
