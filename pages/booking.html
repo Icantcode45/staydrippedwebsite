@@ -6,7 +6,7 @@
     <title>Book Your Treatment - Stay Dripped Mobile IV</title>
     <meta
       name="description"
-      content="Book your mobile IV therapy, NAD+ therapy, peptide treatments, and wellness services. Same-day availability in Phoenix Valley."
+      content="Book your mobile IV therapy, NAD+ therapy, vitamin injections, and wellness services. Same-day availability in Phoenix Valley. Licensed medical professionals."
     />
 
     <!-- Favicons -->
@@ -17,49 +17,337 @@
       sizes="32x32"
       href="../assets/images/favicon-32x32.png"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../assets/images/favicon-16x16.png"
-    />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../dist/css/styles.css" />
 
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
 
     <style>
-      .booking-hero {
-        background: linear-gradient(135deg, #00e5ff 0%, #09c 100%);
-        color: white;
-        padding: 120px 0 80px;
+      :root {
+        --primary: #007aff;
+        --primary-dark: #0056b3;
+        --secondary: #5ac8fa;
+        --accent: #34c759;
+        --gold: #ffd700;
+        --white: #fff;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        --gradient-hero: linear-gradient(
+          135deg,
+          rgba(0, 122, 255, 0.95) 0%,
+          rgba(90, 200, 250, 0.95) 100%
+        );
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+        --shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+        --shadow-md:
+          0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+        --shadow-lg:
+          0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+        --shadow-xl:
+          0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+        --border-radius: 8px;
+        --border-radius-lg: 12px;
+        --border-radius-xl: 16px;
+        --border-radius-2xl: 24px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: var(--gray-800);
+        background: var(--white);
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--gray-200);
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 45px;
+        width: auto;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-link {
+        color: var(--gray-700);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary);
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 1px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: var(--border-radius-2xl);
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        cursor: pointer;
+        transition: var(--transition);
+        white-space: nowrap;
+      }
+
+      .btn-primary {
+        background: var(--gradient-primary);
+        color: var(--white);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      .btn-secondary {
+        background: var(--white);
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        box-shadow: var(--shadow);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        text-decoration: none;
+      }
+
+      .btn-lg {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.125rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: var(--gradient-primary);
+        color: var(--white);
+        padding: 140px 0 100px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        opacity: 0.95;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 100px 0;
+        background: var(--gray-50);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: var(--gray-900);
+        margin-bottom: 1rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .service-widget-card {
+        background: var(--white);
+        border-radius: var(--border-radius-xl);
+        padding: 0;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        overflow: hidden;
+        border: 1px solid var(--gray-100);
+      }
+
+      .service-widget-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .service-header {
+        background: var(--gradient-primary);
+        color: var(--white);
+        padding: 2rem;
         text-align: center;
       }
 
-      .service-categories {
-        padding: 80px 0;
-        background: #f8fafc;
+      .service-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        display: block;
       }
 
-      .category-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
+      .service-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 0.5rem 0;
       }
 
+      .service-description {
+        margin: 0;
+        opacity: 0.95;
+        font-size: 1rem;
+      }
+
+      .service-content {
+        padding: 2rem;
+      }
+
+      .intakeq-service-widget {
+        min-height: 400px;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        background: var(--gray-50);
+        border: 2px solid var(--gray-100);
+      }
+
+      .widget-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+        color: var(--gray-600);
+        font-style: italic;
+      }
+
+      /* Quick Options */
       .quick-booking {
-        padding: 60px 0;
-        background: white;
+        padding: 80px 0;
+        background: var(--white);
       }
 
       .quick-options {
@@ -70,36 +358,36 @@
       }
 
       .quick-card {
-        background: white;
-        border-radius: 16px;
+        background: var(--white);
+        border-radius: var(--border-radius-xl);
         padding: 2rem;
-        box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+        box-shadow: var(--shadow);
         text-align: center;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
+        transition: var(--transition);
+        border: 2px solid var(--gray-100);
       }
 
       .quick-card:hover {
         transform: translateY(-8px);
-        border-color: #00e5ff;
-        box-shadow: 0 16px 48px rgb(0 229 255 / 20%);
+        border-color: var(--primary);
+        box-shadow: var(--shadow-xl);
       }
 
       .quick-icon {
         font-size: 3rem;
         margin-bottom: 1rem;
-        color: #00e5ff;
+        color: var(--primary);
       }
 
       .quick-title {
         font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 1rem;
-        color: #333;
+        color: var(--gray-900);
       }
 
       .quick-description {
-        color: #666;
+        color: var(--gray-600);
         margin-bottom: 2rem;
         line-height: 1.6;
       }
@@ -107,28 +395,29 @@
       .quick-button {
         width: 100%;
         padding: 16px 24px;
-        background: linear-gradient(135deg, #00e5ff, #09c);
-        color: white;
+        background: var(--gradient-primary);
+        color: var(--white);
         border: none;
-        border-radius: 30px;
+        border-radius: 50px;
         font-weight: 600;
         font-size: 1.1rem;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: var(--transition);
         text-decoration: none;
         display: inline-block;
       }
 
       .quick-button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgb(0 229 255 / 30%);
-        color: white;
+        box-shadow: var(--shadow-lg);
+        color: var(--white);
         text-decoration: none;
       }
 
+      /* Contact Section */
       .contact-section {
-        background: #1a2a47;
-        color: white;
+        background: var(--gray-900);
+        color: var(--white);
         padding: 80px 0;
       }
 
@@ -141,113 +430,241 @@
 
       .contact-card {
         background: rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
+        border-radius: var(--border-radius-lg);
         padding: 2rem;
         text-align: center;
         backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .contact-icon {
         font-size: 2rem;
-        color: #00e5ff;
+        color: var(--secondary);
         margin-bottom: 1rem;
       }
 
-      .back-button {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-        background: rgb(255 255 255 / 90%);
-        border: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-        cursor: pointer;
-        transition: all 0.3s ease;
+      /* Footer */
+      .footer {
+        background: var(--gray-900);
+        color: var(--gray-300);
+        padding: 60px 0 30px;
       }
 
-      .back-button:hover {
-        background: white;
-        transform: scale(1.1);
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
       }
 
+      .footer-section h3 {
+        color: var(--white);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: var(--gray-400);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--gray-700);
+        padding-top: 2rem;
+        text-align: center;
+        color: var(--gray-500);
+      }
+
+      /* Responsive */
       @media (max-width: 768px) {
-        .category-grid {
+        .nav-links {
+          display: none;
+        }
+
+        .services-grid {
           grid-template-columns: 1fr;
-          gap: 1.5rem;
         }
 
         .quick-options {
           grid-template-columns: 1fr;
-          gap: 1.5rem;
         }
+
+        .service-widget-card {
+          min-width: 0;
+        }
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
   </head>
   <body>
-    <!-- Back Button -->
-    <a
-      href="../index.html"
-      class="back-button"
-      aria-label="Go back to homepage"
-    >
-      <i class="fas fa-home"></i>
-    </a>
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="header-container">
+        <a href="../index.html" class="logo">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2F3a39d60c58cd46b6ae649aefdca6db7f?format=webp&width=800"
+            alt="Stay Dripped Mobile IV Service"
+          />
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-links">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+            <li><a href="booking.html" class="nav-link active">Book Now</a></li>
+            <li><a href="membership.html" class="nav-link">Membership</a></li>
+            <li><a href="client-portal.html" class="nav-link">Portal</a></li>
+          </ul>
+
+          <div class="header-actions">
+            <a href="tel:+16026889825" class="btn btn-primary">
+              <i class="fas fa-phone"></i>
+              (602) 688-9825
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="booking-hero">
+    <section class="hero">
       <div class="container">
-        <h1 class="display-1 mb-4">Book Your Treatment</h1>
-        <p class="lead">
-          Choose your service category and book instantly with our advanced
-          booking system
-        </p>
+        <div class="hero-content fade-in">
+          <h1 class="hero-title">Book Your Treatment</h1>
+          <p class="hero-subtitle">
+            Choose your service and book instantly with our professional booking
+            system. Licensed medical professionals deliver premium care to your
+            location.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- Service Categories Section -->
-    <section class="service-categories">
+    <section class="services-section">
       <div class="container">
-        <h2
-          class="text-center mb-4"
-          style="font-size: 2.5rem; font-weight: 700; color: #333"
-        >
-          Select Your Service Category
-        </h2>
-        <p class="text-center text-muted mb-5">
-          Each category has specialized booking for your specific needs
-        </p>
+        <div class="section-header fade-in">
+          <h2 class="section-title">Select Your Service</h2>
+          <p class="section-subtitle">
+            Each service has specialized booking for your specific wellness
+            needs
+          </p>
+        </div>
 
-        <div class="category-grid">
+        <div class="services-grid">
           <!-- IV Therapy Services -->
-          <div id="intakeq-rehydrate-iv"></div>
-          <div id="intakeq-rehydrate-plus-iv"></div>
-          <div id="intakeq-jr-myers-iv"></div>
-          <div id="intakeq-myers-iv"></div>
-          <div id="intakeq-mega-myers-iv"></div>
-          <div id="intakeq-hangover-iv"></div>
-          <div id="intakeq-gold-hydration-iv"></div>
-          <div id="intakeq-platinum-hydration-iv"></div>
-          <div id="intakeq-arizona-detox-iv"></div>
-          <div id="intakeq-basic-nad-iv"></div>
+          <div class="service-widget-card fade-in">
+            <div class="service-header">
+              <div class="service-icon">💧</div>
+              <h3 class="service-title">IV Hydration Therapy</h3>
+              <p class="service-description">
+                Essential hydration and recovery treatments
+              </p>
+            </div>
+            <div class="service-content">
+              <div
+                id="intakeq-rehydrate-iv"
+                class="intakeq-service-widget"
+              ></div>
+            </div>
+          </div>
 
-          <!-- Membership Services -->
-          <div id="intakeq-shot-pass-membership"></div>
-          <div id="intakeq-wellness-explorer-membership"></div>
-          <div id="intakeq-wellness-elite-membership"></div>
-          <div id="intakeq-wellness-platinum-membership"></div>
+          <div class="service-widget-card fade-in">
+            <div class="service-header">
+              <div class="service-icon">⚡</div>
+              <h3 class="service-title">Myers' Cocktail IV Drip</h3>
+              <p class="service-description">
+                Classic vitamin and mineral IV therapy
+              </p>
+            </div>
+            <div class="service-content">
+              <div id="intakeq-myers-iv" class="intakeq-service-widget"></div>
+            </div>
+          </div>
 
-          <!-- Bundle Packages -->
-          <div id="intakeq-b12-power-pack"></div>
-          <div id="intakeq-wellness-shot-bundle"></div>
+          <div class="service-widget-card fade-in">
+            <div class="service-header">
+              <div class="service-icon">🧬</div>
+              <h3 class="service-title">NAD+ Anti-Aging Therapy</h3>
+              <p class="service-description">
+                Cellular repair and longevity treatment
+              </p>
+            </div>
+            <div class="service-content">
+              <div
+                id="intakeq-basic-nad-iv"
+                class="intakeq-service-widget"
+              ></div>
+            </div>
+          </div>
 
-          <!-- Individual Shots -->
-          <div id="intakeq-b12-shot"></div>
+          <div class="service-widget-card fade-in">
+            <div class="service-header">
+              <div class="service-icon">💉</div>
+              <h3 class="service-title">B12 Energy Shot</h3>
+              <p class="service-description">Quick energy boost injection</p>
+            </div>
+            <div class="service-content">
+              <div id="intakeq-b12-shot" class="intakeq-service-widget"></div>
+            </div>
+          </div>
+
+          <div class="service-widget-card fade-in">
+            <div class="service-header">
+              <div class="service-icon">🎫</div>
+              <h3 class="service-title">Monthly Shot Pass</h3>
+              <p class="service-description">
+                Monthly vitamin shot subscription
+              </p>
+            </div>
+            <div class="service-content">
+              <div
+                id="intakeq-shot-pass-membership"
+                class="intakeq-service-widget"
+              ></div>
+            </div>
+          </div>
+
+          <div class="service-widget-card fade-in">
+            <div class="service-header">
+              <div class="service-icon">👑</div>
+              <h3 class="service-title">Platinum Recovery IV</h3>
+              <p class="service-description">
+                Ultimate luxury hydration experience
+              </p>
+            </div>
+            <div class="service-content">
+              <div
+                id="intakeq-platinum-hydration-iv"
+                class="intakeq-service-widget"
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -255,19 +672,16 @@
     <!-- Quick Booking Options -->
     <section class="quick-booking">
       <div class="container">
-        <h2
-          class="text-center mb-4"
-          style="font-size: 2.5rem; font-weight: 700"
-        >
-          Alternative Booking Methods
-        </h2>
-        <p class="text-center text-muted mb-5">
-          Prefer a different way to book? We've got you covered
-        </p>
+        <div class="section-header fade-in">
+          <h2 class="section-title">Alternative Booking Methods</h2>
+          <p class="section-subtitle">
+            Prefer a different way to book? We've got you covered
+          </p>
+        </div>
 
         <div class="quick-options">
           <!-- Phone Booking -->
-          <div class="quick-card">
+          <div class="quick-card fade-in">
             <div class="quick-icon">
               <i class="fas fa-phone"></i>
             </div>
@@ -280,7 +694,7 @@
           </div>
 
           <!-- Same Day Service -->
-          <div class="quick-card">
+          <div class="quick-card fade-in">
             <div class="quick-icon">
               <i class="fas fa-bolt"></i>
             </div>
@@ -293,7 +707,7 @@
           </div>
 
           <!-- Corporate Booking -->
-          <div class="quick-card">
+          <div class="quick-card fade-in">
             <div class="quick-icon">
               <i class="fas fa-building"></i>
             </div>
@@ -306,7 +720,7 @@
           </div>
 
           <!-- Client Portal -->
-          <div class="quick-card">
+          <div class="quick-card fade-in">
             <div class="quick-icon">
               <i class="fas fa-user-circle"></i>
             </div>
@@ -326,18 +740,15 @@
     <!-- Contact Section -->
     <section class="contact-section">
       <div class="container">
-        <h2
-          class="text-center mb-4"
-          style="font-size: 2.5rem; font-weight: 700"
-        >
-          Contact Information
-        </h2>
-        <p class="text-center mb-5" style="opacity: 0.9">
-          Multiple ways to reach us for your convenience
-        </p>
+        <div class="section-header fade-in">
+          <h2 class="section-title">Contact Information</h2>
+          <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9)">
+            Multiple ways to reach us for your convenience
+          </p>
+        </div>
 
         <div class="contact-methods">
-          <div class="contact-card">
+          <div class="contact-card fade-in">
             <div class="contact-icon">
               <i class="fas fa-phone"></i>
             </div>
@@ -346,7 +757,7 @@
             <p style="opacity: 0.8">Available 7 days a week</p>
           </div>
 
-          <div class="contact-card">
+          <div class="contact-card fade-in">
             <div class="contact-icon">
               <i class="fas fa-envelope"></i>
             </div>
@@ -355,7 +766,7 @@
             <p style="opacity: 0.8">24-hour response</p>
           </div>
 
-          <div class="contact-card">
+          <div class="contact-card fade-in">
             <div class="contact-icon">
               <i class="fas fa-map-marker-alt"></i>
             </div>
@@ -367,7 +778,7 @@
             </p>
           </div>
 
-          <div class="contact-card">
+          <div class="contact-card fade-in">
             <div class="contact-icon">
               <i class="fas fa-clock"></i>
             </div>
@@ -379,37 +790,96 @@
       </div>
     </section>
 
-    <!-- Scripts -->
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Stay Dripped Mobile IV</h3>
+            <p>
+              Premium mobile IV therapy and wellness services delivered to your
+              location in Phoenix Valley.
+            </p>
+            <div style="margin-top: 1rem">
+              <a
+                href="tel:+16026889825"
+                style="color: var(--primary); text-decoration: none"
+              >
+                <i class="fas fa-phone"></i> (602) 688-9825
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="services.html">All Services</a></li>
+              <li><a href="pricing.html">View Pricing</a></li>
+              <li><a href="membership.html">Membership Plans</a></li>
+              <li><a href="client-portal.html">Client Portal</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Service Areas</h3>
+            <ul class="footer-links">
+              <li>Phoenix</li>
+              <li>Scottsdale</li>
+              <li>Tempe</li>
+              <li>Mesa</li>
+              <li>Chandler</li>
+              <li>Gilbert</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Stay Dripped Mobile IV. All rights reserved. Licensed
+            medical professionals.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- IntakeQ Scripts for Individual Services -->
     <script src="../src/js/components/intakeq-booking.js"></script>
     <script>
-      // Track booking page visits
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Fade in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Analytics tracking
       if (typeof gtag !== "undefined") {
         gtag("event", "page_view", {
           page_title: "Booking Page",
           page_location: window.location.href,
         });
       }
-
-      // Analytics for category selections
-      document.addEventListener("DOMContentLoaded", () => {
-        const bookingButtons = document.querySelectorAll(
-          ".book-now-btn, .fallback-book-btn",
-        );
-        bookingButtons.forEach((button) => {
-          button.addEventListener("click", (e) => {
-            const category =
-              e.target.closest("[data-category]")?.dataset.category ||
-              e.target.textContent.toLowerCase();
-
-            if (typeof gtag !== "undefined") {
-              gtag("event", "booking_category_selected", {
-                category: category,
-                method: "widget_button",
-              });
-            }
-          });
-        });
-      });
     </script>
   </body>
 </html>
