@@ -1,19 +1,22 @@
 /**
- * IntakeQ Widget Manager for Stay Dripped Mobile IV
- * Handles multiple IntakeQ widgets on the same page without conflicts
+ * IntakeQ Category-Based Widget Manager for Stay Dripped Mobile IV
+ * Handles category-specific IntakeQ widgets without conflicts
+ * LEGACY VERSION - Use intakeq-booking.js for new implementations
  */
 
 class IntakeQManager {
   constructor() {
     this.widgets = new Map();
     this.scriptLoaded = false;
+    this.accountId = "68460f36bc104b6aa9da43e0";
     this.init();
   }
 
   init() {
     // Load IntakeQ script once
     this.loadIntakeQScript().then(() => {
-      this.initializeWidgets();
+      this.initializeLegacyWidgets();
+      this.initializeCategoryWidgets();
     });
   }
 
@@ -28,6 +31,8 @@ class IntakeQManager {
       script.async = true;
       script.onload = () => {
         this.scriptLoaded = true;
+        // Set global configuration
+        window.intakeq = this.accountId;
         resolve();
       };
       script.onerror = reject;
@@ -35,8 +40,54 @@ class IntakeQManager {
     });
   }
 
-  initializeWidgets() {
-    // Service mapping with their specific container IDs and service IDs
+  initializeCategoryWidgets() {
+    // New category-based configurations
+    const categoryConfigs = [
+      {
+        containerId: "intakeq-basic-iv",
+        categoryId: "17d0bbca-0d95-4e32-8a8b-3ae8ae2c1152",
+        name: "Basic IV Therapy Treatments",
+      },
+      {
+        containerId: "intakeq-standard-iv",
+        categoryId: "2f8be24a-d5ad-40c7-aa8c-5172eed7df3e",
+        name: "Standard IV Therapy Treatments",
+      },
+      {
+        containerId: "intakeq-specialty-iv",
+        categoryId: "db6a4c57-2e06-4530-a598-899f20c96a04",
+        name: "Specialty IV Therapy Treatments",
+      },
+      {
+        containerId: "intakeq-premium-iv",
+        categoryId: "50438982-ce89-47d1-a5f9-453ea9de5e49",
+        name: "Premium IV Therapy Treatments",
+      },
+      {
+        containerId: "intakeq-nad-iv",
+        categoryId: "ddf30134-b441-4226-bfe9-27eed5368949",
+        name: "NAD+ IV Therapy Treatments",
+      },
+      {
+        containerId: "intakeq-membership",
+        categoryId: "55411eac-3c23-47e3-bd15-b5357d784a85",
+        name: "Membership Plans",
+      },
+      {
+        containerId: "intakeq-vitamin-shots",
+        categoryId: "abff01b9-9274-4984-b601-8e188086ef2f",
+        name: "Vitamin Injection Shots",
+      },
+    ];
+
+    // Initialize each category widget
+    categoryConfigs.forEach((config) => {
+      this.createCategoryWidget(config);
+    });
+  }
+
+  initializeLegacyWidgets() {
+    // Legacy service mapping for backward compatibility
     const serviceConfigs = [
       {
         containerId: "intakeq-myers-cocktail",
@@ -100,10 +151,57 @@ class IntakeQManager {
       },
     ];
 
-    // Initialize each widget
+    // Initialize legacy widgets
     serviceConfigs.forEach((config) => {
       this.createWidget(config);
     });
+  }
+
+  createCategoryWidget(config) {
+    const container = document.getElementById(config.containerId);
+    if (!container) {
+      return; // Container not found on this page
+    }
+
+    try {
+      // Create button that opens IntakeQ booking with category
+      const bookingButton = document.createElement("button");
+      bookingButton.className = "intakeq-booking-btn btn btn-primary";
+      bookingButton.innerHTML = `
+        <i class="fas fa-calendar-plus"></i>
+        Book ${config.name}
+      `;
+
+      bookingButton.addEventListener("click", () => {
+        this.openCategoryBooking(config.categoryId);
+      });
+
+      // Clear container and add button
+      container.innerHTML = "";
+      container.appendChild(bookingButton);
+
+      // Store widget config
+      this.widgets.set(`category-${config.containerId}`, config);
+    } catch (error) {
+      console.error(
+        `Error creating IntakeQ category widget for ${config.name}:`,
+        error,
+      );
+
+      // Fallback: create a direct link
+      const fallbackLink = document.createElement("a");
+      fallbackLink.href = `https://Staydripped.intakeq.com/booking?categoryId=${config.categoryId}`;
+      fallbackLink.target = "_blank";
+      fallbackLink.rel = "noopener noreferrer";
+      fallbackLink.className = "intakeq-fallback-link btn btn-outline";
+      fallbackLink.innerHTML = `
+        <i class="fas fa-external-link-alt"></i>
+        Book ${config.name}
+      `;
+
+      container.innerHTML = "";
+      container.appendChild(fallbackLink);
+    }
   }
 
   createWidget(config) {
@@ -150,6 +248,31 @@ class IntakeQManager {
 
       container.innerHTML = "";
       container.appendChild(fallbackLink);
+    }
+  }
+
+  openCategoryBooking(categoryId) {
+    try {
+      // Set the global category ID
+      window.intakeqCategoryId = categoryId;
+
+      // Try to use the IntakeQ widget API
+      if (window.IntakeQ && typeof window.IntakeQ.open === "function") {
+        window.IntakeQ.open();
+      } else {
+        // Fallback to direct URL
+        window.open(
+          `https://Staydripped.intakeq.com/booking?categoryId=${categoryId}`,
+          "_blank",
+        );
+      }
+    } catch (error) {
+      console.error("Error opening IntakeQ category widget:", error);
+      // Final fallback
+      window.open(
+        `https://Staydripped.intakeq.com/booking?categoryId=${categoryId}`,
+        "_blank",
+      );
     }
   }
 
@@ -206,17 +329,17 @@ style.textContent = `
     gap: 0.5rem;
     box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
   }
-  
+
   .intakeq-booking-btn:hover {
     background: var(--gradient-secondary, linear-gradient(135deg, #00ffa6 0%, #00cc99 100%));
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4);
   }
-  
+
   .intakeq-booking-btn:active {
     transform: translateY(0);
   }
-  
+
   .intakeq-fallback-link {
     width: 100%;
     padding: 1rem 1.5rem;
@@ -227,7 +350,7 @@ style.textContent = `
     gap: 0.5rem;
     transition: all 0.3s ease;
   }
-  
+
   .intakeq-fallback-link:hover {
     text-decoration: none;
     transform: translateY(-2px);

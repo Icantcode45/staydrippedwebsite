@@ -10,18 +10,18 @@
     />
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="assets/images/favicon-32x32.png"
+      href="../assets/images/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/images/favicon-16x16.png"
+      href="../assets/images/favicon-16x16.png"
     />
 
     <!-- CSS -->
@@ -45,14 +45,31 @@
         text-align: center;
       }
 
-      .booking-options {
+      .service-categories {
+        padding: 80px 0;
+        background: #f8fafc;
+      }
+
+      .category-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
       }
 
-      .booking-card {
+      .quick-booking {
+        padding: 60px 0;
+        background: white;
+      }
+
+      .quick-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .quick-card {
         background: white;
         border-radius: 16px;
         padding: 2rem;
@@ -62,32 +79,32 @@
         border: 2px solid transparent;
       }
 
-      .booking-card:hover {
+      .quick-card:hover {
         transform: translateY(-8px);
         border-color: #00e5ff;
         box-shadow: 0 16px 48px rgb(0 229 255 / 20%);
       }
 
-      .booking-icon {
+      .quick-icon {
         font-size: 3rem;
         margin-bottom: 1rem;
         color: #00e5ff;
       }
 
-      .booking-title {
+      .quick-title {
         font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 1rem;
         color: #333;
       }
 
-      .booking-description {
+      .quick-description {
         color: #666;
         margin-bottom: 2rem;
         line-height: 1.6;
       }
 
-      .booking-button {
+      .quick-button {
         width: 100%;
         padding: 16px 24px;
         background: linear-gradient(135deg, #00e5ff, #09c);
@@ -102,7 +119,7 @@
         display: inline-block;
       }
 
-      .booking-button:hover {
+      .quick-button:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgb(0 229 255 / 30%);
         color: white;
@@ -110,7 +127,8 @@
       }
 
       .contact-section {
-        background: #f8fafc;
+        background: #1a2a47;
+        color: white;
         padding: 80px 0;
       }
 
@@ -122,11 +140,11 @@
       }
 
       .contact-card {
-        background: white;
+        background: rgba(255, 255, 255, 0.1);
         border-radius: 12px;
         padding: 2rem;
         text-align: center;
-        box-shadow: 0 4px 16px rgb(0 0 0 / 8%);
+        backdrop-filter: blur(10px);
       }
 
       .contact-icon {
@@ -157,6 +175,18 @@
         background: white;
         transform: scale(1.1);
       }
+
+      @media (max-width: 768px) {
+        .category-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .quick-options {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -174,142 +204,127 @@
       <div class="container">
         <h1 class="display-1 mb-4">Book Your Treatment</h1>
         <p class="lead">
-          Choose your preferred booking method and get started with premium
-          mobile wellness services
+          Choose your service category and book instantly with our advanced
+          booking system
         </p>
       </div>
     </section>
 
-    <!-- Booking Options -->
-    <section class="section py-5">
+    <!-- Service Categories Section -->
+    <section class="service-categories">
       <div class="container">
-        <div class="booking-options">
-          <!-- Online Booking -->
-          <div class="booking-card">
-            <div class="booking-icon">
-              <i class="fas fa-calendar-plus"></i>
-            </div>
-            <h3 class="booking-title">Book Online</h3>
-            <p class="booking-description">
-              Schedule your appointment instantly with our online booking
-              system. Choose your service, time, and location.
-            </p>
-            <a
-              href="https://staydripped.intakeq.com/booking"
-              target="_blank"
-              rel="noopener"
-              class="booking-button"
-            >
-              Book Online Now
-            </a>
-          </div>
+        <h2
+          class="text-center mb-4"
+          style="font-size: 2.5rem; font-weight: 700; color: #333"
+        >
+          Select Your Service Category
+        </h2>
+        <p class="text-center text-muted mb-5">
+          Each category has specialized booking for your specific needs
+        </p>
 
-          <!-- Phone Booking -->
-          <div class="booking-card">
-            <div class="booking-icon">
-              <i class="fas fa-phone"></i>
-            </div>
-            <h3 class="booking-title">Call to Book</h3>
-            <p class="booking-description">
-              Speak with our team to customize your treatment and schedule your
-              appointment. Available 7 days a week.
-            </p>
-            <a href="tel:+16026889825" class="booking-button">
-              Call (602) 688-9825
-            </a>
-          </div>
+        <div class="category-grid">
+          <!-- Basic IV Therapy -->
+          <div id="intakeq-basic-iv"></div>
 
-          <!-- Membership Booking -->
-          <div class="booking-card">
-            <div class="booking-icon">
-              <i class="fas fa-star"></i>
-            </div>
-            <h3 class="booking-title">Join Membership</h3>
-            <p class="booking-description">
-              Sign up for monthly membership plans with exclusive pricing and
-              priority booking for regular treatments.
-            </p>
-            <a href="#memberships" class="booking-button"> View Memberships </a>
-          </div>
+          <!-- Standard IV Therapy -->
+          <div id="intakeq-standard-iv"></div>
 
-          <!-- Emergency/Same Day -->
-          <div class="booking-card">
-            <div class="booking-icon">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <h3 class="booking-title">Same-Day Service</h3>
-            <p class="booking-description">
-              Need treatment today? Call us for same-day availability and
-              emergency wellness services.
-            </p>
-            <a href="tel:+16026889825" class="booking-button">
-              Call for Same-Day
-            </a>
-          </div>
+          <!-- Specialty IV Therapy -->
+          <div id="intakeq-specialty-iv"></div>
+
+          <!-- Premium IV Therapy -->
+          <div id="intakeq-premium-iv"></div>
+
+          <!-- NAD+ IV Therapy -->
+          <div id="intakeq-nad-iv"></div>
+
+          <!-- Membership Plans -->
+          <div id="intakeq-membership"></div>
+
+          <!-- Vitamin Injection Shots -->
+          <div id="intakeq-vitamin-shots"></div>
         </div>
       </div>
     </section>
 
-    <!-- Service Categories -->
-    <section class="section py-5" style="background: #f8fafc">
+    <!-- Quick Booking Options -->
+    <section class="quick-booking">
       <div class="container">
         <h2
-          class="text-center mb-5"
+          class="text-center mb-4"
           style="font-size: 2.5rem; font-weight: 700"
         >
-          Popular Services
+          Alternative Booking Methods
         </h2>
+        <p class="text-center text-muted mb-5">
+          Prefer a different way to book? We've got you covered
+        </p>
 
-        <div class="booking-options">
-          <div class="booking-card">
-            <div class="booking-icon">💧</div>
-            <h3 class="booking-title">IV Therapy</h3>
-            <p class="booking-description">
-              Myers Cocktail, hydration, and custom vitamin infusions
+        <div class="quick-options">
+          <!-- Phone Booking -->
+          <div class="quick-card">
+            <div class="quick-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3 class="quick-title">Call to Book</h3>
+            <p class="quick-description">
+              Speak with our team to customize your treatment and schedule your
+              appointment. Available 7 days a week.
             </p>
-            <a
-              href="https://staydripped.intakeq.com/booking"
-              target="_blank"
-              class="booking-button"
-              >Book IV Therapy</a
-            >
+            <a href="tel:+16026889825" class="quick-button">
+              Call (602) 688-9825
+            </a>
           </div>
 
-          <div class="booking-card">
-            <div class="booking-icon">🧬</div>
-            <h3 class="booking-title">NAD+ Therapy</h3>
-            <p class="booking-description">
-              Anti-aging and cellular repair treatments
+          <!-- General Online Booking -->
+          <div class="quick-card">
+            <div class="quick-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3 class="quick-title">General Booking Portal</h3>
+            <p class="quick-description">
+              Access our main booking portal to browse all services and
+              availability in one place.
             </p>
             <a
-              href="https://staydripped.intakeq.com/booking"
+              href="https://Staydripped.intakeq.com/booking"
               target="_blank"
-              class="booking-button"
-              >Book NAD+ Therapy</a
+              rel="noopener"
+              class="quick-button"
             >
+              Open General Portal
+            </a>
           </div>
 
-          <div class="booking-card">
-            <div class="booking-icon">💉</div>
-            <h3 class="booking-title">Vitamin Shots</h3>
-            <p class="booking-description">
-              B12, Lipo, and custom vitamin injections
+          <!-- Same Day Service -->
+          <div class="quick-card">
+            <div class="quick-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3 class="quick-title">Same-Day Service</h3>
+            <p class="quick-description">
+              Need treatment today? Call us for same-day availability and
+              emergency wellness services.
             </p>
-            <a
-              href="https://staydripped.intakeq.com/booking"
-              target="_blank"
-              class="booking-button"
-              >Book Vitamin Shots</a
-            >
+            <a href="tel:+16026889825" class="quick-button">
+              Call for Same-Day
+            </a>
           </div>
 
-          <div class="booking-card">
-            <div class="booking-icon">✨</div>
-            <h3 class="booking-title">Aesthetic Services</h3>
-            <p class="booking-description">
-              Botox, fillers, and beauty treatments
+          <!-- Corporate Booking -->
+          <div class="quick-card">
+            <div class="quick-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3 class="quick-title">Corporate Events</h3>
+            <p class="quick-description">
+              Book group services for corporate wellness events, team building,
+              and employee health programs.
             </p>
-            <a href="aesthetic.html" class="booking-button">Book Aesthetic</a>
+            <a href="corporate-events.html" class="quick-button">
+              Corporate Booking
+            </a>
           </div>
         </div>
       </div>
@@ -324,7 +339,7 @@
         >
           Contact Information
         </h2>
-        <p class="text-center text-muted mb-5">
+        <p class="text-center mb-5" style="opacity: 0.9">
           Multiple ways to reach us for your convenience
         </p>
 
@@ -335,7 +350,7 @@
             </div>
             <h4>Phone</h4>
             <p>(602) 688-9825</p>
-            <p class="text-muted">Available 7 days a week</p>
+            <p style="opacity: 0.8">Available 7 days a week</p>
           </div>
 
           <div class="contact-card">
@@ -344,7 +359,7 @@
             </div>
             <h4>Email</h4>
             <p>info@staydrippedmobileiv.com</p>
-            <p class="text-muted">24-hour response</p>
+            <p style="opacity: 0.8">24-hour response</p>
           </div>
 
           <div class="contact-card">
@@ -353,7 +368,7 @@
             </div>
             <h4>Service Areas</h4>
             <p>Phoenix Valley</p>
-            <p class="text-muted">
+            <p style="opacity: 0.8">
               Scottsdale, Phoenix, Tempe, Mesa, Chandler, Gilbert, Glendale,
               Peoria
             </p>
@@ -365,15 +380,14 @@
             </div>
             <h4>Hours</h4>
             <p>7 AM - 9 PM</p>
-            <p class="text-muted">7 days a week</p>
+            <p style="opacity: 0.8">7 days a week</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/booking.js"></script>
+    <script src="../src/js/components/intakeq-booking.js"></script>
     <script>
       // Track booking page visits
       if (typeof gtag !== "undefined") {
@@ -382,6 +396,27 @@
           page_location: window.location.href,
         });
       }
+
+      // Analytics for category selections
+      document.addEventListener("DOMContentLoaded", () => {
+        const bookingButtons = document.querySelectorAll(
+          ".book-now-btn, .fallback-book-btn",
+        );
+        bookingButtons.forEach((button) => {
+          button.addEventListener("click", (e) => {
+            const category =
+              e.target.closest("[data-category]")?.dataset.category ||
+              e.target.textContent.toLowerCase();
+
+            if (typeof gtag !== "undefined") {
+              gtag("event", "booking_category_selected", {
+                category: category,
+                method: "widget_button",
+              });
+            }
+          });
+        });
+      });
     </script>
   </body>
 </html>

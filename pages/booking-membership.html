@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Membership - Stay Dripped Mobile IV</title>
+    <meta
+      name="description"
+      content="Join Stay Dripped membership plans for exclusive discounts and priority booking. Monthly plans available."
+    />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/favicon-32x32.png"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .membership-hero {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+        padding: 120px 0 80px;
+        text-align: center;
+      }
+
+      .membership-booking {
+        padding: 80px 0;
+        background: #f8fafc;
+      }
+
+      .membership-widget {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .benefits-section {
+        padding: 60px 0;
+        background: white;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .benefit-card {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 12px;
+        background: #f8fafc;
+      }
+
+      .benefit-icon {
+        font-size: 3rem;
+        color: #6366f1;
+        margin-bottom: 1rem;
+      }
+
+      .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: rgb(255 255 255 / 90%);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .back-button:hover {
+        background: white;
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <a href="booking.html" class="back-button" aria-label="Go back to booking">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="membership-hero">
+      <div class="container">
+        <h1 class="display-1 mb-4">Join Our Membership</h1>
+        <p class="lead">
+          Save up to 30% on all treatments with exclusive member benefits
+        </p>
+      </div>
+    </section>
+
+    <!-- Membership Booking Section -->
+    <section class="membership-booking">
+      <div class="container">
+        <h2
+          class="text-center mb-4"
+          style="font-size: 2.5rem; font-weight: 700; color: #333"
+        >
+          Select Your Membership Plan
+        </h2>
+        <p class="text-center text-muted mb-5">
+          Choose the plan that fits your wellness goals
+        </p>
+
+        <div class="membership-widget">
+          <!-- Membership Plans -->
+          <div id="intakeq-membership"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="container">
+        <h2
+          class="text-center mb-4"
+          style="font-size: 2.5rem; font-weight: 700"
+        >
+          Membership Benefits
+        </h2>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">💰</div>
+            <h4>Significant Savings</h4>
+            <p>Save 15-30% on all treatments with member pricing</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">⏰</div>
+            <h4>Priority Booking</h4>
+            <p>
+              Skip the wait with priority scheduling and same-day availability
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🎁</div>
+            <h4>Exclusive Access</h4>
+            <p>First access to new treatments and member-only services</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">📱</div>
+            <h4>VIP Support</h4>
+            <p>Dedicated customer service and personalized care</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="../src/js/components/intakeq-booking.js"></script>
+    <script>
+      // Track membership page visits
+      if (typeof gtag !== "undefined") {
+        gtag("event", "page_view", {
+          page_title: "Membership Booking",
+          page_location: window.location.href,
+        });
+      }
+    </script>
+  </body>
+</html>
