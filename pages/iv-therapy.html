@@ -630,7 +630,7 @@
             <div
               id="loadFormButton"
               class="medical-consultation-btn"
-              onclick="showDisclosureModal()"
+              onclick="typeof showDisclosureModal === 'function' ? showDisclosureModal() : console.warn('Qualiphy not loaded')"
             >
               <i class="fas fa-stethoscope icon-spacing"></i>
               Medical Consultation
