@@ -321,11 +321,55 @@ const IVMenuRenderer = {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    const menuHTML = IVMenuData.categories
-      .map((category) => this.generateCategoryHTML(category))
-      .join("");
+    container.innerHTML = "";
 
-    container.innerHTML = menuHTML;
+    IVMenuData.categories.forEach((category) => {
+      const categoryElement = this.createCategoryElement(category);
+      container.appendChild(categoryElement);
+    });
+  },
+
+  createCategoryElement(category) {
+    const wrapper = document.createElement("div");
+
+    const header = this.createCategoryHeader(category);
+    const grid = this.createServiceGrid(category.services);
+
+    wrapper.appendChild(header);
+    wrapper.appendChild(grid);
+
+    return wrapper;
+  },
+
+  createCategoryHeader(category) {
+    const header = document.createElement("div");
+    header.className = "category-header fade-in";
+
+    const title = document.createElement("h3");
+    title.className = "category-title";
+    title.textContent = category.title;
+
+    const description = document.createElement("p");
+    description.className = "category-description";
+    description.textContent = category.description;
+
+    header.appendChild(title);
+    header.appendChild(description);
+
+    return header;
+  },
+
+  createServiceGrid(services) {
+    const grid = document.createElement("div");
+    grid.className = "menu-grid";
+
+    services.forEach((service) => {
+      const serviceElement = document.createElement("div");
+      serviceElement.innerHTML = this.generateServiceHTML(service);
+      grid.appendChild(serviceElement.firstElementChild);
+    });
+
+    return grid;
   },
 };
 
