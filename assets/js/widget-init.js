@@ -1,8 +1,11 @@
 // Widget initialization for IV Menu page
+const WIDGET_INIT_DELAY = 500; // milliseconds
+const WIDGET_INIT_TIMEOUT = 1000; // milliseconds
+
 function initializeWidgets() {
   const services = getServiceConfigs();
   services.forEach((service, index) => {
-    setTimeout(() => createWidget(service), index * 500);
+    setTimeout(() => createWidget(service), index * WIDGET_INIT_DELAY);
   });
 }
 
