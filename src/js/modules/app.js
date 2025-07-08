@@ -260,7 +260,7 @@ class App {
         submitButton.disabled = false;
       }
       this.showToast("Form submitted successfully!", "success");
-    }, 2000);
+    }, this.FORM_SUBMIT_TIMEOUT);
   }
 
   setupCustomEvents() {
