@@ -10,56 +10,126 @@ class IntakeQCategoryBooking {
     this.scriptLoaded = false;
     this.widgets = new Map();
 
-    // Service category configurations
-    this.categories = {
-      "basic-iv": {
-        id: "17d0bbca-0d95-4e32-8a8b-3ae8ae2c1152",
-        name: "Basic IV Therapy Treatments",
-        containerId: "intakeq-basic-iv",
+    // Individual service configurations
+    this.services = {
+      "rehydrate-iv": {
+        id: "73e00621-4069-486a-9fa8-a5a94a089618",
+        name: "Rehydrate IV Drip",
+        containerId: "intakeq-rehydrate-iv",
         icon: "💧",
-        description: "Essential hydration and wellness IV treatments",
+        description: "Basic hydration and electrolyte replenishment",
       },
-      "standard-iv": {
-        id: "2f8be24a-d5ad-40c7-aa8c-5172eed7df3e",
-        name: "Standard IV Therapy Treatments",
-        containerId: "intakeq-standard-iv",
+      "rehydrate-plus-iv": {
+        id: "ae66ce7c-fa68-408c-9ab0-a04b287f6b31",
+        name: "Rehydrate Plus IV Drip",
+        containerId: "intakeq-rehydrate-plus-iv",
+        icon: "💧",
+        description: "Enhanced hydration with added vitamins",
+      },
+      "jr-myers-iv": {
+        id: "065ab682-3334-403a-9635-ea461e520a6d",
+        name: "Jr. Myers' Cocktail IV Drip",
+        containerId: "intakeq-jr-myers-iv",
         icon: "🌟",
-        description: "Popular therapeutic IV infusions",
+        description: "Gentle vitamin and mineral infusion",
       },
-      "specialty-iv": {
-        id: "db6a4c57-2e06-4530-a598-899f20c96a04",
-        name: "Specialty IV Therapy Treatments",
-        containerId: "intakeq-specialty-iv",
+      "myers-iv": {
+        id: "c13f904a-a8d0-43b1-bd5f-570387ee77d6",
+        name: "Myers' Cocktail IV Drip",
+        containerId: "intakeq-myers-iv",
+        icon: "🌟",
+        description: "Classic vitamin and mineral IV therapy",
+      },
+      "mega-myers-iv": {
+        id: "e14cdb17-a9d1-47cb-90e1-d3050059bcf3",
+        name: "Mega Myers' Cocktail IV Drip",
+        containerId: "intakeq-mega-myers-iv",
         icon: "⚡",
-        description: "Advanced and targeted therapy treatments",
+        description: "High-dose vitamin and mineral infusion",
       },
-      "premium-iv": {
-        id: "50438982-ce89-47d1-a5f9-453ea9de5e49",
-        name: "Premium IV Therapy Treatments",
-        containerId: "intakeq-premium-iv",
+      "hangover-iv": {
+        id: "a7d83ea1-cf5e-4865-923e-bfe2232de898",
+        name: "The Day After Hangover Relief IV Drip",
+        containerId: "intakeq-hangover-iv",
+        icon: "🍃",
+        description: "Fast hangover relief and recovery",
+      },
+      "gold-hydration-iv": {
+        id: "3519d39a-31ac-4944-80c9-4eb667a13df4",
+        name: 'The "Gold" Ultimate Hydration & Recovery IV Drip',
+        containerId: "intakeq-gold-hydration-iv",
+        icon: "🥇",
+        description: "Premium hydration and recovery formula",
+      },
+      "platinum-hydration-iv": {
+        id: "0c0c56b7-85a4-4e01-9b9c-180bc714fa94",
+        name: 'The "Platinum" Ultimate Hydration & Recovery IV Drip',
+        containerId: "intakeq-platinum-hydration-iv",
         icon: "👑",
-        description: "Luxury wellness and anti-aging treatments",
+        description: "Ultimate luxury hydration experience",
       },
-      "nad-iv": {
-        id: "ddf30134-b441-4226-bfe9-27eed5368949",
-        name: "NAD+ IV Therapy Treatments",
-        containerId: "intakeq-nad-iv",
+      "arizona-detox-iv": {
+        id: "3fb4cbbb-5e12-447c-a236-869573ef730f",
+        name: 'The "Arizona" Detox & Cleanse IV Drip',
+        containerId: "intakeq-arizona-detox-iv",
+        icon: "🌵",
+        description: "Comprehensive detox and cleanse therapy",
+      },
+      "basic-nad-iv": {
+        id: "7c8dcca4-35b4-44bd-a242-d1fdc722ddb5",
+        name: "The Basic NAD+ IV Drip",
+        containerId: "intakeq-basic-nad-iv",
         icon: "🧬",
         description: "Anti-aging and cellular repair therapy",
       },
-      membership: {
-        id: "55411eac-3c23-47e3-bd15-b5357d784a85",
-        name: "Membership Plans",
-        containerId: "intakeq-membership",
-        icon: "🎖️",
-        description: "Monthly membership and subscription plans",
+      "shot-pass-membership": {
+        id: "08549cfc-d53e-4841-9366-d63b9c22251a",
+        name: "Monthly Membership: Shot Pass",
+        containerId: "intakeq-shot-pass-membership",
+        icon: "🎫",
+        description: "Monthly vitamin shot subscription",
       },
-      "vitamin-shots": {
-        id: "abff01b9-9274-4984-b601-8e188086ef2f",
-        name: "Vitamin Injection Shots",
-        containerId: "intakeq-vitamin-shots",
+      "wellness-explorer-membership": {
+        id: "d7b705fd-04b7-4b2e-bda7-950417d6007d",
+        name: "Monthly Membership: Wellness Explorer",
+        containerId: "intakeq-wellness-explorer-membership",
+        icon: "🌟",
+        description: "Entry-level wellness membership",
+      },
+      "wellness-elite-membership": {
+        id: "1421a50e-d0d0-475f-8713-74b0245bc83f",
+        name: "Monthly Membership: Wellness Elite",
+        containerId: "intakeq-wellness-elite-membership",
+        icon: "⭐",
+        description: "Premium wellness membership",
+      },
+      "wellness-platinum-membership": {
+        id: "23cd9dbe-9135-42eb-9d37-9281cffda0f8",
+        name: "Monthly Membership: Wellness Platinum",
+        containerId: "intakeq-wellness-platinum-membership",
+        icon: "👑",
+        description: "Luxury platinum membership",
+      },
+      "b12-power-pack": {
+        id: "e7c6a722-e621-46d7-8f96-af2f96848dc4",
+        name: "Bundle Package: B12 Power Pack",
+        containerId: "intakeq-b12-power-pack",
+        icon: "⚡",
+        description: "Multi-session B12 energy bundle",
+      },
+      "wellness-shot-bundle": {
+        id: "1b14cb7a-8e18-44b3-99a1-ecd3b516e8a6",
+        name: "Bundle Package: Wellness Shot Bundle",
+        containerId: "intakeq-wellness-shot-bundle",
         icon: "💉",
-        description: "Quick vitamin and nutrient injections",
+        description: "Comprehensive vitamin shot package",
+      },
+      "b12-shot": {
+        id: "c14d40af-977b-4f6e-9db8-d24c9ad3a35d",
+        name: "B12 Energy Shot",
+        containerId: "intakeq-b12-shot",
+        icon: "🚀",
+        description: "Quick B12 energy boost injection",
       },
     };
 
@@ -98,14 +168,14 @@ class IntakeQCategoryBooking {
   }
 
   initializeWidgets() {
-    Object.keys(this.categories).forEach((categoryKey) => {
-      this.createCategoryWidget(categoryKey);
+    Object.keys(this.services).forEach((serviceKey) => {
+      this.createServiceWidget(serviceKey);
     });
   }
 
-  createCategoryWidget(categoryKey) {
-    const category = this.categories[categoryKey];
-    const container = document.getElementById(category.containerId);
+  createServiceWidget(serviceKey) {
+    const service = this.services[serviceKey];
+    const container = document.getElementById(service.containerId);
 
     if (!container) {
       return; // Container not found on this page
@@ -114,28 +184,21 @@ class IntakeQCategoryBooking {
     try {
       // Create widget container
       const widgetContainer = document.createElement("div");
-      widgetContainer.className = "intakeq-category-widget";
+      widgetContainer.className = "intakeq-service-widget";
       widgetContainer.innerHTML = `
         <div class="widget-header">
-          <span class="widget-icon">${category.icon}</span>
-          <h3 class="widget-title">${category.name}</h3>
-          <p class="widget-description">${category.description}</p>
+          <span class="widget-icon">${service.icon}</span>
+          <h3 class="widget-title">${service.name}</h3>
+          <p class="widget-description">${service.description}</p>
         </div>
         <div class="widget-content">
-          <div id="intakeq-widget-${categoryKey}" class="intakeq-embed"></div>
+          <div id="intakeq-widget-${serviceKey}" class="intakeq-embed"></div>
         </div>
         <div class="widget-fallback">
-          <button class="book-now-btn" data-category="${categoryKey}">
+          <button class="book-now-btn" data-service="${serviceKey}">
             <i class="fas fa-calendar-plus"></i>
-            Book ${category.name}
+            Book Now
           </button>
-          <a href="${this.baseUrl}?categoryId=${category.id}" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             class="fallback-link">
-            Open in New Window
-            <i class="fas fa-external-link-alt"></i>
-          </a>
         </div>
       `;
 
@@ -144,51 +207,51 @@ class IntakeQCategoryBooking {
       container.appendChild(widgetContainer);
 
       // Initialize embedded widget
-      this.initializeEmbeddedWidget(categoryKey);
+      this.initializeEmbeddedWidget(serviceKey);
 
       // Add click handler for booking button
       const bookButton = container.querySelector(".book-now-btn");
       if (bookButton) {
         bookButton.addEventListener("click", () => {
-          this.openBookingForCategory(categoryKey);
+          this.openBookingForService(serviceKey);
         });
       }
 
       // Store widget reference
-      this.widgets.set(categoryKey, {
+      this.widgets.set(serviceKey, {
         container: container,
-        category: category,
+        service: service,
         initialized: true,
       });
     } catch (error) {
-      console.error(`Error creating widget for ${category.name}:`, error);
-      this.createFallbackButton(container, category);
+      console.error(`Error creating widget for ${service.name}:`, error);
+      this.createFallbackButton(container, service);
     }
   }
 
-  initializeEmbeddedWidget(categoryKey) {
-    const category = this.categories[categoryKey];
+  initializeEmbeddedWidget(serviceKey) {
+    const service = this.services[serviceKey];
     const embedContainer = document.getElementById(
-      `intakeq-widget-${categoryKey}`,
+      `intakeq-widget-${serviceKey}`,
     );
 
     if (!embedContainer) return;
 
     try {
-      // Set category-specific configuration
-      window.intakeqCategoryId = category.id;
+      // Set service-specific configuration
+      window.intakeqServiceId = service.id;
 
       // Create embedded widget script
       const widgetScript = document.createElement("script");
       widgetScript.innerHTML = `
         (function(c) {
-          var containerId = 'intakeq-widget-${categoryKey}';
+          var containerId = 'intakeq-widget-${serviceKey}';
           var container = document.getElementById(containerId);
           if (container && window.intakeq) {
-            window.intakeqCategoryId = '${category.id}';
+            window.intakeqServiceId = '${service.id}';
             // Create the widget div
             var widgetDiv = document.createElement('div');
-            widgetDiv.id = 'intakeq';
+            widgetDiv.id = 'intakeq-${serviceKey}';
             widgetDiv.style.maxWidth = '100%';
             widgetDiv.style.width = '100%';
             widgetDiv.style.minHeight = '400px';
@@ -201,80 +264,77 @@ class IntakeQCategoryBooking {
       document.head.appendChild(widgetScript);
     } catch (error) {
       console.error(
-        `Error initializing embedded widget for ${categoryKey}:`,
+        `Error initializing embedded widget for ${serviceKey}:`,
         error,
       );
       embedContainer.innerHTML = `
         <div class="widget-error">
           <p>Widget temporarily unavailable</p>
-          <button class="book-now-btn" data-category="${categoryKey}">
-            Book ${category.name}
+          <button class="book-now-btn" data-service="${serviceKey}">
+            Book Now
           </button>
         </div>
       `;
     }
   }
 
-  openBookingForCategory(categoryKey) {
-    const category = this.categories[categoryKey];
-    if (!category) return;
+  openBookingForService(serviceKey) {
+    const service = this.services[serviceKey];
+    if (!service) return;
 
     try {
-      // Set the global category ID
-      window.intakeqCategoryId = category.id;
+      // Set the global service ID
+      window.intakeqServiceId = service.id;
 
       // Try to use the IntakeQ widget API
       if (window.IntakeQ && typeof window.IntakeQ.open === "function") {
         window.IntakeQ.open();
       } else {
         // Fallback to direct URL
-        this.openDirectBookingUrl(categoryKey);
+        this.openDirectBookingUrl(serviceKey);
       }
     } catch (error) {
       console.error("Error opening IntakeQ widget:", error);
-      this.openDirectBookingUrl(categoryKey);
+      this.openDirectBookingUrl(serviceKey);
     }
   }
 
-  openDirectBookingUrl(categoryKey) {
-    const category = this.categories[categoryKey];
-    const url = `${this.baseUrl}?categoryId=${category.id}`;
+  openDirectBookingUrl(serviceKey) {
+    const service = this.services[serviceKey];
+    const url = `${this.baseUrl}?serviceId=${service.id}`;
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
-  createFallbackButton(container, category) {
+  createFallbackButton(container, service) {
     const fallbackHtml = `
       <div class="intakeq-fallback">
         <div class="fallback-header">
-          <span class="fallback-icon">${category.icon}</span>
-          <h3>${category.name}</h3>
-          <p>${category.description}</p>
+          <span class="fallback-icon">${service.icon}</span>
+          <h3>${service.name}</h3>
+          <p>${service.description}</p>
         </div>
-        <a href="${this.baseUrl}?categoryId=${category.id}" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="fallback-book-btn">
+        <button class="fallback-book-btn" onclick="window.IntakeQBooking.openDirectBookingUrl('${container.id.replace("intakeq-", "")}')">
           <i class="fas fa-calendar-plus"></i>
-          Book ${category.name}
-        </a>
+          Book Now
+        </button>
       </div>
     `;
     container.innerHTML = fallbackHtml;
   }
 
   initializeFallbackButtons() {
-    Object.keys(this.categories).forEach((categoryKey) => {
-      const category = this.categories[categoryKey];
-      const container = document.getElementById(category.containerId);
+    Object.keys(this.services).forEach((serviceKey) => {
+      const service = this.services[serviceKey];
+      const container = document.getElementById(service.containerId);
       if (container) {
-        this.createFallbackButton(container, category);
+        this.createFallbackButton(container, service);
       }
     });
   }
 
   addStyles() {
     const styles = `
-      .intakeq-category-widget {
+      .intakeq-service-widget {
         background: #fff;
         border-radius: 16px;
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
@@ -438,26 +498,26 @@ class IntakeQCategoryBooking {
   }
 
   // Public methods for manual widget creation
-  createBookingWidget(categoryKey, containerId) {
-    if (!this.categories[categoryKey]) {
-      console.error(`Category ${categoryKey} not found`);
+  createBookingWidget(serviceKey, containerId) {
+    if (!this.services[serviceKey]) {
+      console.error(`Service ${serviceKey} not found`);
       return;
     }
 
-    const category = this.categories[categoryKey];
-    category.containerId = containerId;
-    this.createCategoryWidget(categoryKey);
+    const service = this.services[serviceKey];
+    service.containerId = containerId;
+    this.createServiceWidget(serviceKey);
   }
 
-  getBookingUrl(categoryKey) {
-    const category = this.categories[categoryKey];
-    return category ? `${this.baseUrl}?categoryId=${category.id}` : null;
+  getBookingUrl(serviceKey) {
+    const service = this.services[serviceKey];
+    return service ? `${this.baseUrl}?serviceId=${service.id}` : null;
   }
 
-  getAllCategories() {
-    return Object.keys(this.categories).map((key) => ({
+  getAllServices() {
+    return Object.keys(this.services).map((key) => ({
       key,
-      ...this.categories[key],
+      ...this.services[key],
     }));
   }
 }
