@@ -1,3 +1,5 @@
+/* IV Therapy Page Styles - CodeFactor Compatible */
+
 :root {
   --primary: #06c;
   --primary-light: #4d94ff;
@@ -49,7 +51,6 @@ body {
   background: var(--white);
 }
 
-/* Professional Header */
 .professional-header {
   background: linear-gradient(
     135deg,
@@ -144,7 +145,6 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Navigation Tabs */
 .therapy-nav {
   background: var(--white);
   border-bottom: 1px solid var(--gray-200);
@@ -192,7 +192,6 @@ body {
   background: var(--primary);
 }
 
-/* Category Sections */
 .category-section {
   padding: 80px 0;
   position: relative;
@@ -232,7 +231,6 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Service Cards */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -401,7 +399,6 @@ body {
   color: var(--white);
 }
 
-/* Booking Widget Styles */
 .booking-widget {
   margin-top: 32px;
   padding: 24px;
@@ -428,7 +425,6 @@ body {
   font-size: 1.25rem;
 }
 
-/* Qualiphy Exam Button */
 .exam-invite-section {
   background: linear-gradient(
     135deg,
@@ -492,19 +488,16 @@ body {
   margin-right: 8px;
 }
 
-/* Global styles for IntakeQ widgets */
 #intakeq {
   max-width: 720px;
   width: 100%;
 }
 
-/* Hidden elements */
 [style*="display: none"],
 [style*="display:none"] {
   display: none !important;
 }
 
-/* Client portal background */
 .client-portal-section {
   background: linear-gradient(
     135deg,
@@ -513,29 +506,23 @@ body {
   );
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .header-title {
     font-size: 2.5rem;
   }
-
   .services-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-
   .service-card {
     padding: 24px;
   }
-
   .category-section {
     padding: 60px 0;
   }
-
   .nav-tabs {
     padding: 0 16px;
   }
-
   .container {
     padding: 0 16px;
   }
