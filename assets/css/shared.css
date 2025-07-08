@@ -339,7 +339,7 @@ body {
 
 .widget-error p {
   color: #dc2626;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
 }
 
 .book-now-btn {
@@ -361,9 +361,9 @@ body {
 }
 
 .book-now-btn:hover {
-  background: linear-gradient(135deg, #00ffa6 0%, #00cc99 100%);
+  background: linear-gradient(135deg, #00ffa6 0%, #0c9 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4);
+  box-shadow: 0 8px 25px rgb(0 229 255 / 40%);
   text-decoration: none;
   color: var(--white);
 }
