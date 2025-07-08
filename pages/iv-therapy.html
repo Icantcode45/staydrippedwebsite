@@ -1896,7 +1896,7 @@
             script.async = true;
             script.src = "https://intakeq.com/js/widget.min.js?1";
             script.onerror = function () {
-              console.error("Failed to load IntakeQ widget script");
+              // Silent error handling for production
             };
             document.head.appendChild(script);
           }
