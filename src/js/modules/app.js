@@ -3,7 +3,8 @@
 class App {
   constructor() {
     this.version = "2.0.0";
-    this.isDebug = process.env.NODE_ENV === "development";
+    this.isDebug =
+      typeof process !== "undefined" && process.env?.NODE_ENV === "development";
     this.init();
   }
 
