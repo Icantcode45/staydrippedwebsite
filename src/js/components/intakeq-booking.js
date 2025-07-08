@@ -177,56 +177,63 @@ class IntakeQCategoryBooking {
     const service = this.services[serviceKey];
     const container = document.getElementById(service.containerId);
 
-    if (!container) {
-      return; // Container not found on this page
-    }
+    if (!container) return;
 
     try {
-      // Create widget container
-      const widgetContainer = document.createElement("div");
-      widgetContainer.className = "intakeq-service-widget";
-      widgetContainer.innerHTML = `
-        <div class="widget-header">
-          <span class="widget-icon">${service.icon}</span>
-          <h3 class="widget-title">${service.name}</h3>
-          <p class="widget-description">${service.description}</p>
-        </div>
-        <div class="widget-content">
-          <div id="intakeq-widget-${serviceKey}" class="intakeq-embed"></div>
-        </div>
-        <div class="widget-fallback">
-          <button class="book-now-btn" data-service="${serviceKey}">
-            <i class="fas fa-calendar-plus"></i>
-            Book Now
-          </button>
-        </div>
-      `;
-
-      // Clear container and add widget
-      container.innerHTML = "";
-      container.appendChild(widgetContainer);
-
-      // Initialize embedded widget
-      this.initializeEmbeddedWidget(serviceKey);
-
-      // Add click handler for booking button
-      const bookButton = container.querySelector(".book-now-btn");
-      if (bookButton) {
-        bookButton.addEventListener("click", () => {
-          this.openBookingForService(serviceKey);
-        });
-      }
-
-      // Store widget reference
-      this.widgets.set(serviceKey, {
-        container: container,
-        service: service,
-        initialized: true,
-      });
+      const widgetContainer = this.buildWidgetContainer(service, serviceKey);
+      this.setupWidget(container, widgetContainer, serviceKey, service);
     } catch (error) {
       console.error(`Error creating widget for ${service.name}:`, error);
       this.createFallbackButton(container, service);
     }
+  }
+
+  buildWidgetContainer(service, serviceKey) {
+    const widgetContainer = document.createElement("div");
+    widgetContainer.className = "intakeq-service-widget";
+    widgetContainer.innerHTML = `
+      <div class="widget-header">
+        <span class="widget-icon">${service.icon}</span>
+        <h3 class="widget-title">${service.name}</h3>
+        <p class="widget-description">${service.description}</p>
+      </div>
+      <div class="widget-content">
+        <div id="intakeq-widget-${serviceKey}" class="intakeq-embed"></div>
+      </div>
+      <div class="widget-fallback">
+        <button class="book-now-btn" data-service="${serviceKey}">
+          <i class="fas fa-calendar-plus"></i>
+          Book Now
+        </button>
+      </div>
+    `;
+    return widgetContainer;
+  }
+
+  setupWidget(container, widgetContainer, serviceKey, service) {
+    container.innerHTML = "";
+    container.appendChild(widgetContainer);
+
+    this.initializeEmbeddedWidget(serviceKey);
+    this.addBookingHandler(container, serviceKey);
+    this.storeWidgetReference(serviceKey, container, service);
+  }
+
+  addBookingHandler(container, serviceKey) {
+    const bookButton = container.querySelector(".book-now-btn");
+    if (bookButton) {
+      bookButton.addEventListener("click", () => {
+        this.openBookingForService(serviceKey);
+      });
+    }
+  }
+
+  storeWidgetReference(serviceKey, container, service) {
+    this.widgets.set(serviceKey, {
+      container: container,
+      service: service,
+      initialized: true,
+    });
   }
 
   initializeEmbeddedWidget(serviceKey) {
