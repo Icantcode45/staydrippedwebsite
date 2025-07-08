@@ -38,16 +38,16 @@ export const ValidationUtils = {
    */
   sanitizeString(str) {
     if (typeof str !== "string") return "";
-    return str.replace(/[<>'"&]/g, (char) => {
-      const entities = {
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;",
-        "&": "&amp;",
-      };
-      return entities[char] || char;
-    });
+
+    const entityMap = new Map([
+      ["<", "&lt;"],
+      [">", "&gt;"],
+      ['"', "&quot;"],
+      ["'", "&#39;"],
+      ["&", "&amp;"],
+    ]);
+
+    return str.replace(/[<>'"&]/g, (char) => entityMap.get(char) || char);
   },
 
   /**
