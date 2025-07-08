@@ -1863,6 +1863,9 @@
 
     <!-- JavaScript -->
     <script>
+      // Constants
+      const INTAKEQ_WORKSPACE_ID = "68460f36bc104b6aa9da43e0";
+
       // Reusable IntakeQ widget loader to reduce code duplication
       function loadIntakeQWidget(config = {}) {
         try {
@@ -1874,7 +1877,7 @@
           }
 
           // Set window properties
-          window.intakeq = "68460f36bc104b6aa9da43e0";
+          window.intakeq = INTAKEQ_WORKSPACE_ID;
           if (serviceId && typeof serviceId === "string") {
             window.intakeqServiceId = serviceId;
           }
