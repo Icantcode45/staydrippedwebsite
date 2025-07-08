@@ -286,11 +286,14 @@ class App {
 
     document.body.appendChild(toast);
 
-    setTimeout(() => toast.classList.add("toast--visible"), 100);
+    setTimeout(
+      () => toast.classList.add("toast--visible"),
+      this.TOAST_SHOW_DELAY,
+    );
     setTimeout(() => {
       toast.classList.remove("toast--visible");
-      setTimeout(() => toast.remove(), 300);
-    }, 3000);
+      setTimeout(() => toast.remove(), this.TOAST_HIDE_DELAY);
+    }, this.TOAST_DURATION);
   }
 
   announcePageReady() {
