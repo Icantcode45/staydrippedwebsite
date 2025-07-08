@@ -1,0 +1,425 @@
+<!-- Professional Header -->
+<header class="site-header" role="banner">
+  <div class="container">
+    <!-- Logo -->
+    <a
+      href="/"
+      class="site-logo"
+      aria-label="Stay Dripped Mobile IV - Homepage"
+    >
+      <svg
+        width="200"
+        height="40"
+        viewBox="0 0 200 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color: #007aff" />
+            <stop offset="100%" style="stop-color: #5ac8fa" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M10 20 C10 20, 15 10, 25 15 C35 20, 30 30, 25 25 C20 20, 15 25, 10 20"
+          fill="url(#logoGradient)"
+        />
+        <text
+          x="40"
+          y="15"
+          font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+          font-size="14"
+          font-weight="700"
+          fill="#007AFF"
+        >
+          STAY DRIPPED
+        </text>
+        <text
+          x="40"
+          y="30"
+          font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+          font-size="10"
+          font-weight="500"
+          fill="#5AC8FA"
+        >
+          MOBILE IV
+        </text>
+      </svg>
+    </a>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <ul class="main-nav__list">
+        <li class="main-nav__item">
+          <a href="/services" class="main-nav__link">Services</a>
+          <div class="main-nav__dropdown">
+            <div class="main-nav__dropdown-content">
+              <a href="/iv-therapy" class="main-nav__dropdown-link">
+                <div class="main-nav__dropdown-icon">💧</div>
+                <div>
+                  <h4>IV Therapy</h4>
+                  <p>Hydration and vitamin infusions</p>
+                </div>
+              </a>
+              <a href="/nad-therapy" class="main-nav__dropdown-link">
+                <div class="main-nav__dropdown-icon">🧬</div>
+                <div>
+                  <h4>NAD+ Therapy</h4>
+                  <p>Cellular regeneration and anti-aging</p>
+                </div>
+              </a>
+              <a href="/aesthetic" class="main-nav__dropdown-link">
+                <div class="main-nav__dropdown-icon">✨</div>
+                <div>
+                  <h4>Aesthetic Services</h4>
+                  <p>Beauty and wellness treatments</p>
+                </div>
+              </a>
+              <a href="/injection-shots" class="main-nav__dropdown-link">
+                <div class="main-nav__dropdown-icon">💉</div>
+                <div>
+                  <h4>Injection Shots</h4>
+                  <p>Vitamin B12, Lipo, and more</p>
+                </div>
+              </a>
+              <a href="/blood-testing" class="main-nav__dropdown-link">
+                <div class="main-nav__dropdown-icon">🔬</div>
+                <div>
+                  <h4>Blood Testing</h4>
+                  <p>Comprehensive health panels</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="main-nav__item">
+          <a href="/how-it-works" class="main-nav__link">How It Works</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="/memberships" class="main-nav__link">Memberships</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="/testimonials" class="main-nav__link">Reviews</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="/faq" class="main-nav__link">FAQ</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <!-- Contact Phone -->
+      <a href="tel:+16026889825" class="header-phone" aria-label="Call us now">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 3C2 2.44772 2.44772 2 3 2H5.15287C5.64171 2 6.0589 2.35341 6.13927 2.8356L6.87858 7.27147C6.95075 7.70451 6.73206 8.13397 6.3394 8.3303L4.79126 9.10437C5.90756 11.8783 8.12168 14.0924 10.8956 15.2087L11.6697 13.6606C11.866 13.2679 12.2955 13.0492 12.7285 13.1214L17.1644 13.8607C17.6466 13.9411 18 14.3583 18 14.8471V17C18 17.5523 17.5523 18 17 18H15C7.8203 18 2 12.1797 2 5V3Z"
+            fill="currentColor"
+          />
+        </svg>
+        <span>(602) 688-9825</span>
+      </a>
+
+      <!-- Primary CTA -->
+      <a href="/booking" class="btn btn--primary" data-analytics="header-cta">
+        Book Treatment
+      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        class="mobile-menu-toggle"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div
+  class="mobile-menu"
+  id="mobile-menu"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobile navigation"
+>
+  <div class="mobile-menu__overlay"></div>
+  <div class="mobile-menu__content">
+    <div class="mobile-menu__header">
+      <a href="/" class="mobile-menu__logo">
+        <svg
+          width="150"
+          height="30"
+          viewBox="0 0 150 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient
+              id="mobileLogoGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" style="stop-color: #007aff" />
+              <stop offset="100%" style="stop-color: #5ac8fa" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M7.5 15 C7.5 15, 11.25 7.5, 18.75 11.25 C26.25 15, 22.5 22.5, 18.75 18.75 C15 15, 11.25 18.75, 7.5 15"
+            fill="url(#mobileLogoGradient)"
+          />
+          <text
+            x="30"
+            y="12"
+            font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+            font-size="10"
+            font-weight="700"
+            fill="#007AFF"
+          >
+            STAY DRIPPED
+          </text>
+          <text
+            x="30"
+            y="23"
+            font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+            font-size="8"
+            font-weight="500"
+            fill="#5AC8FA"
+          >
+            MOBILE IV
+          </text>
+        </svg>
+      </a>
+      <button class="mobile-menu__close" aria-label="Close mobile menu">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 6L6 18M6 6L18 18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <nav role="navigation" aria-label="Mobile navigation">
+      <ul class="mobile-menu__list">
+        <li class="mobile-menu__item">
+          <a href="/services" class="mobile-menu__link">
+            <div class="mobile-menu__link-content">
+              <span class="mobile-menu__link-icon">💧</span>
+              <div>
+                <span class="mobile-menu__link-title">Services</span>
+                <span class="mobile-menu__link-subtitle"
+                  >IV therapy & wellness treatments</span
+                >
+              </div>
+            </div>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="/how-it-works" class="mobile-menu__link">
+            <div class="mobile-menu__link-content">
+              <span class="mobile-menu__link-icon">📋</span>
+              <div>
+                <span class="mobile-menu__link-title">How It Works</span>
+                <span class="mobile-menu__link-subtitle"
+                  >Simple 3-step process</span
+                >
+              </div>
+            </div>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="/memberships" class="mobile-menu__link">
+            <div class="mobile-menu__link-content">
+              <span class="mobile-menu__link-icon">👑</span>
+              <div>
+                <span class="mobile-menu__link-title">Memberships</span>
+                <span class="mobile-menu__link-subtitle"
+                  >Save with monthly plans</span
+                >
+              </div>
+            </div>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="/testimonials" class="mobile-menu__link">
+            <div class="mobile-menu__link-content">
+              <span class="mobile-menu__link-icon">⭐</span>
+              <div>
+                <span class="mobile-menu__link-title">Reviews</span>
+                <span class="mobile-menu__link-subtitle"
+                  >What our clients say</span
+                >
+              </div>
+            </div>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="/faq" class="mobile-menu__link">
+            <div class="mobile-menu__link-content">
+              <span class="mobile-menu__link-icon">❓</span>
+              <div>
+                <span class="mobile-menu__link-title">FAQ</span>
+                <span class="mobile-menu__link-subtitle">Common questions</span>
+              </div>
+            </div>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mobile-menu__cta">
+      <a href="/booking" class="btn btn--primary btn--full btn--lg">
+        Book Your Treatment
+      </a>
+      <a href="tel:+16026889825" class="btn btn--outline btn--full">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 3C2 2.44772 2.44772 2 3 2H5.15287C5.64171 2 6.0589 2.35341 6.13927 2.8356L6.87858 7.27147C6.95075 7.70451 6.73206 8.13397 6.3394 8.3303L4.79126 9.10437C5.90756 11.8783 8.12168 14.0924 10.8956 15.2087L11.6697 13.6606C11.866 13.2679 12.2955 13.0492 12.7285 13.1214L17.1644 13.8607C17.6466 13.9411 18 14.3583 18 14.8471V17C18 17.5523 17.5523 18 17 18H15C7.8203 18 2 12.1797 2 5V3Z"
+            fill="currentColor"
+          />
+        </svg>
+        Call (602) 688-9825
+      </a>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="mobile-menu__contact">
+      <div class="mobile-menu__contact-item">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 0C5.24 0 3 2.24 3 5C3 8.5 8 16 8 16S13 8.5 13 5C13 2.24 10.76 0 8 0ZM8 6.5C7.17 6.5 6.5 5.83 6.5 5C6.5 4.17 7.17 3.5 8 3.5C8.83 3.5 9.5 4.17 9.5 5C9.5 5.83 8.83 6.5 8 6.5Z"
+            fill="currentColor"
+          />
+        </svg>
+        <span>Serving Scottsdale & Phoenix</span>
+      </div>
+      <div class="mobile-menu__contact-item">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 4C8.55228 4 9 4.44772 9 5V8C9 8.55228 8.55228 9 8 9C7.44772 9 7 8.55228 7 8V5C7 4.44772 7.44772 4 8 4ZM8 12C8.55228 12 9 11.5523 9 11C9 10.4477 8.55228 10 8 10C7.44772 10 7 10.4477 7 11C7 11.5523 7.44772 12 8 12Z"
+            fill="currentColor"
+          />
+        </svg>
+        <span>Available 7 days a week</span>
+      </div>
+    </div>
+  </div>
+</div>

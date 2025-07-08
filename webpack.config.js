@@ -13,8 +13,13 @@ module.exports = (env) => {
   return {
     mode: isProduction ? "production" : "development",
     entry: {
+<<<<<<< HEAD
       main: "./index.js",
       styles: "./main.scss",
+=======
+      main: "./js/index.js",
+      styles: "./assets/css/main.scss",
+>>>>>>> origin/main
     },
     output: {
       filename: isProduction ? "js/[name].[contenthash].js" : "js/[name].js",
@@ -29,9 +34,14 @@ module.exports = (env) => {
       },
       compress: true,
       port: 3000,
-      hot: true,
-      open: true,
+      hot: false,
+      liveReload: false,
+      open: false,
       historyApiFallback: true,
+      client: {
+        logging: "none",
+        overlay: false,
+      },
     },
     module: {
       rules: [
@@ -51,7 +61,7 @@ module.exports = (env) => {
           },
         },
         {
-          test: /\.scss$/,
+          test: /\.(scss|css)$/,
           use: [
             MiniCssExtractPlugin.loader,
             {
@@ -219,7 +229,7 @@ module.exports = (env) => {
       extensions: [".js", ".json"],
       alias: {
         "@": path.resolve(__dirname, "js"),
-        "@styles": path.resolve(__dirname, "scss"),
+        "@styles": path.resolve(__dirname, "assets/css"),
         "@assets": path.resolve(__dirname, "assets"),
       },
     },
