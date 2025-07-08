@@ -97,7 +97,7 @@ function renderFallbackContent(container, service) {
 // Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", function () {
   try {
-    setTimeout(initializeWidgets, 1000);
+    setTimeout(initializeWidgets, WIDGET_INIT_TIMEOUT);
   } catch (error) {
     console.error("Failed to initialize widgets:", error);
   }
