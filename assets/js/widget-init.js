@@ -49,16 +49,15 @@ function getServiceConfigs() {
 function createWidget(service) {
   const container = document.getElementById(service.id);
   if (!container) {
-    console.warn(`Container not found for service: ${service.id}`);
+    console.warn(`Container not found: ${service.id}`);
     return;
   }
 
   try {
     window.intakeqServiceId = service.serviceId;
-    const widgetDiv = createWidgetElement(service.id);
-    container.appendChild(widgetDiv);
+    container.appendChild(createWidgetElement(service.id));
   } catch (error) {
-    console.error(`Failed to create widget for ${service.id}:`, error);
+    console.error(`Widget creation failed for ${service.id}:`, error);
     renderFallbackContent(container, service);
   }
 }
