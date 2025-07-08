@@ -481,7 +481,7 @@ class IntakeQCategoryBooking {
   }
 
   addStyles() {
-    this.loadStylesheet("../../assets/css/intakeq-widgets.css");
+    this.loadStylesheet("/assets/css/intakeq-widgets.css");
   }
 
   loadStylesheet(href) {
