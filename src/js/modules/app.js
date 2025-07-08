@@ -96,17 +96,19 @@ class App {
   }
 
   initPerformanceMonitoring() {
-    // Monitor Core Web Vitals
-    if ("PerformanceObserver" in window) {
-      // Largest Contentful Paint
-      new PerformanceObserver((entryList) => {
-        const entries = entryList.getEntries();
-        const lastEntry = entries[entries.length - 1];
-        if (this.isDebug) {
-          console.log("LCP:", Math.round(lastEntry.startTime));
-        }
-      }).observe({ entryTypes: ["largest-contentful-paint"] });
-    }
+    if (!("PerformanceObserver" in window)) return;
+
+    this.observeLargestContentfulPaint();
+  }
+
+  observeLargestContentfulPaint() {
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      const lastEntry = entries[entries.length - 1];
+      if (this.isDebug) {
+        console.log("LCP:", Math.round(lastEntry.startTime));
+      }
+    }).observe({ entryTypes: ["largest-contentful-paint"] });
   }
 
   initAccessibilityEnhancements() {
