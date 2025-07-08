@@ -343,7 +343,17 @@ class IntakeQCategoryBooking {
 
   openDirectBookingUrl(serviceKey) {
     const service = this.services[serviceKey];
+    if (!service || !service.id) {
+      console.error(`Invalid service for booking: ${serviceKey}`);
+      return;
+    }
+
     const url = `${this.baseUrl}?serviceId=${service.id}`;
+    if (!ValidationUtils.isValidURL(url)) {
+      console.error(`Invalid booking URL generated: ${url}`);
+      return;
+    }
+
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
