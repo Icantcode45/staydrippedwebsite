@@ -252,14 +252,9 @@ class App {
   }
 
   showUpdateAvailable() {
-    const notification = document.createElement("div");
-    notification.className = "update-notification";
-    notification.innerHTML = `
-      <p>A new version is available!</p>
-      <button onclick="window.location.reload()">Update</button>
-      <button onclick="this.parentElement.remove()">Dismiss</button>
-    `;
-    document.body.appendChild(notification);
+    if (confirm("A new version is available! Would you like to update?")) {
+      window.location.reload();
+    }
   }
 
   showToast(message, type = "info") {
