@@ -383,10 +383,8 @@ class IntakeQCategoryBooking {
   }
 
   renderWidgetError(error, embedContainer, serviceKey) {
-    console.error(
-      `Error initializing embedded widget for ${serviceKey}:`,
-      error,
-    );
+    // Log sanitized error message to prevent information disclosure
+    console.error("Error initializing embedded widget");
 
     const errorDiv = document.createElement("div");
     errorDiv.className = "widget-error";
