@@ -403,7 +403,7 @@ class IntakeQCategoryBooking {
   }
 
   openBookingForService(serviceKey) {
-    const service = this.services[serviceKey];
+    const service = this.getService(serviceKey);
     if (!service) return;
 
     try {
