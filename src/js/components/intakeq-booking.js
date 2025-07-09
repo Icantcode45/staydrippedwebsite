@@ -312,8 +312,13 @@ class IntakeQCategoryBooking {
 
   initializeEmbeddedWidget(serviceKey) {
     const service = this.getService(serviceKey);
+
+    // Sanitize serviceKey to prevent DOM clobbering
+    const sanitizedKey = this.sanitizeScriptValue(serviceKey);
+    if (!sanitizedKey) return;
+
     const embedContainer = document.getElementById(
-      `intakeq-widget-${serviceKey}`,
+      `intakeq-widget-${sanitizedKey}`,
     );
 
     if (!embedContainer) return;
