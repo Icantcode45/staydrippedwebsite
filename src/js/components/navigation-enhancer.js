@@ -434,7 +434,9 @@ class NavigationEnhancer {
     const bookBtn = document.createElement("a");
     bookBtn.href = "pages/booking.html";
     bookBtn.className = "btn btn--primary btn--icon";
-    bookBtn.innerHTML = '<i class="fas fa-calendar-plus"></i>';
+    const bookIcon = document.createElement("i");
+    bookIcon.className = "fas fa-calendar-plus";
+    bookBtn.appendChild(bookIcon);
     bookBtn.setAttribute("aria-label", "Book appointment");
     bookBtn.style.cssText = `
       width: 3rem;
