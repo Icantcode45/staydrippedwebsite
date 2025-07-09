@@ -8,7 +8,18 @@ class ThemeManager {
 
   init() {
     // Check for saved theme preference or default to system preference
-    const savedTheme = localStorage.getItem("staydripped-theme");
+    let savedTheme = null;
+    try {
+      const stored = localStorage.getItem("staydripped-theme");
+      // Validate stored theme value
+      if (stored && (stored === "light" || stored === "dark")) {
+        savedTheme = stored;
+      }
+    } catch (error) {
+      // Handle localStorage access errors
+      console.warn("Unable to access theme preference:", error);
+    }
+
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
       .matches
       ? "dark"
