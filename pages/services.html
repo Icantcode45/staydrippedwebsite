@@ -1,492 +1,885 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Premium Mobile IV & Wellness Services | Stay Dripped Mobile IV
+    </title>
     <meta
       name="description"
-      content="Premium mobile IV therapy and wellness services delivered to you. Professional hydration, NAD+, hormone replacement, and wellness services in Scottsdale & Phoenix."
+      content="Professional mobile IV therapy and wellness services including hydration, NAD+, vitamin injections, and specialty treatments. Licensed medical professionals, same-day service."
     />
 
-    <!-- Enhanced CSS from modern build system -->
-    <link rel="stylesheet" href="../css/main.css" />
-
-    <!-- Favicon and manifest -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../assets/icons/apple-touch-icon.png"
-    />
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../assets/icons/favicon-32x32.png"
+      href="../assets/images/favicon-32x32.png"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../assets/icons/favicon-16x16.png"
-    />
-    <link rel="manifest" href="../manifest.json" />
-    <meta name="theme-color" content="#1a2a47" />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../dist/css/styles.css" />
 
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <meta
-      property="og:description"
-      content="Professional IV therapy, hormone replacement, aesthetic services, and wellness treatments delivered to your location in Scottsdale & Phoenix."
-    />
-    <meta property="og:image" content="../assets/images/logo.png" />
-    <meta
-      property="og:url"
-      content="https://staydrippedmobileiv.com/pages/services-enhanced.html"
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
     />
 
-    <title>
-      Premium Mobile IV & Wellness Services | Stay Dripped Mobile IV
-    </title>
+    <style>
+      :root {
+        --primary: #007aff;
+        --primary-dark: #0056b3;
+        --secondary: #5ac8fa;
+        --accent: #34c759;
+        --gold: #ffd700;
+        --white: #fff;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        --gradient-hero: linear-gradient(
+          135deg,
+          rgba(0, 122, 255, 0.95) 0%,
+          rgba(90, 200, 250, 0.95) 100%
+        );
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+        --shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+        --shadow-md:
+          0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+        --shadow-lg:
+          0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+        --shadow-xl:
+          0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+        --border-radius: 8px;
+        --border-radius-lg: 12px;
+        --border-radius-xl: 16px;
+        --border-radius-2xl: 24px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          Inter,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: var(--gray-800);
+        background: var(--white);
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--gray-200);
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      .header.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 45px;
+        width: auto;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-link {
+        color: var(--gray-700);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary);
+      }
+
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 1px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: var(--border-radius-2xl);
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        cursor: pointer;
+        transition: var(--transition);
+        white-space: nowrap;
+      }
+
+      .btn-primary {
+        background: var(--gradient-primary);
+        color: var(--white);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      .btn-secondary {
+        background: var(--white);
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        box-shadow: var(--shadow);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        text-decoration: none;
+      }
+
+      .btn-lg {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.125rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        background:
+          linear-gradient(var(--gradient-hero), var(--gradient-hero)),
+          url("https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2Fcbebee042f6941f68dabb26a8ecca733?format=webp&width=800");
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        padding: 140px 0 100px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--white) 0%,
+          rgba(255, 255, 255, 0.8) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        opacity: 0.95;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 100px 0;
+        background: var(--gray-50);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: var(--gray-900);
+        margin-bottom: 1rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-card {
+        background: var(--white);
+        border-radius: var(--border-radius-xl);
+        padding: 2.5rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+        transform: scaleX(0);
+        transition: var(--transition);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .service-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .service-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--gradient-primary);
+        border-radius: var(--border-radius-xl);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+      }
+
+      .service-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 1rem;
+      }
+
+      .service-description {
+        color: var(--gray-600);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .service-features {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+
+      .service-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--gray-700);
+        margin-bottom: 0.5rem;
+      }
+
+      .service-features li::before {
+        content: "✓";
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .pricing-highlight {
+        background: var(--gray-50);
+        border-radius: var(--border-radius-lg);
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .price-range {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      /* CTA Section */
+      .cta {
+        padding: 100px 0;
+        background: var(--gradient-primary);
+        color: var(--white);
+        text-align: center;
+      }
+
+      .cta-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .cta-subtitle {
+        font-size: 1.25rem;
+        opacity: 0.95;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--gray-900);
+        color: var(--gray-300);
+        padding: 60px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-section h3 {
+        color: var(--white);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: var(--gray-400);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--gray-700);
+        padding-top: 2rem;
+        text-align: center;
+        color: var(--gray-500);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          padding: 120px 0 80px;
+        }
+
+        .hero-cta {
+          flex-direction: column;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+        }
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
   </head>
+
   <body>
-    <!-- Back Button -->
-    <a
-      href="../index.html"
-      class="back-button"
-      aria-label="Go back to homepage"
-    >
-      <i class="fas fa-home"></i>
-    </a>
     <!-- Header -->
-    <header class="site-header" role="banner">
-      <div class="container">
-        <a href="../index.html" class="site-logo">
+    <header class="header" id="header">
+      <div class="header-container">
+        <a href="../index.html" class="logo">
           <img
-            src="../assets/images/logo.png"
-            alt="Stay Dripped Mobile IV"
-            width="200"
-            height="40"
+            src="https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2F3a39d60c58cd46b6ae649aefdca6db7f?format=webp&width=800"
+            alt="Stay Dripped Mobile IV Service"
           />
         </a>
 
-        <nav class="main-nav">
-          <ul class="main-nav__list">
-            <li><a href="../index.html" class="main-nav__link">Home</a></li>
+        <nav class="nav">
+          <ul class="nav-links">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
             <li>
-              <a href="services-enhanced.html" class="main-nav__link active"
-                >Services</a
-              >
+              <a href="services.html" class="nav-link active">Services</a>
             </li>
-            <li>
-              <a href="how-it-works.html" class="main-nav__link"
-                >How It Works</a
-              >
-            </li>
-            <li>
-              <a href="membership.html" class="main-nav__link">Memberships</a>
-            </li>
-            <li>
-              <a href="testimonials.html" class="main-nav__link">Reviews</a>
-            </li>
+            <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+            <li><a href="booking.html" class="nav-link">Book Now</a></li>
+            <li><a href="membership.html" class="nav-link">Membership</a></li>
+            <li><a href="client-portal.html" class="nav-link">Portal</a></li>
           </ul>
-        </nav>
 
-        <div class="header-actions">
-          <button id="dark-mode-toggle" class="dark-mode-toggle">☀️</button>
-          <a href="tel:+16026889825" class="btn btn--primary">Call Now</a>
-        </div>
+          <div class="header-actions">
+            <a href="tel:+16026889825" class="btn btn-primary">
+              <i class="fas fa-phone"></i>
+              (602) 688-9825
+            </a>
+          </div>
+        </nav>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero hero--services">
-      <div class="hero__background">
-        <div class="hero__overlay"></div>
-      </div>
+    <section class="hero">
       <div class="container">
-        <!-- IV Therapy Category -->
-        <div class="category-section">
-          <h2 class="category-title">IV Therapy Services</h2>
-          <p class="category-description">
-            Premium intravenous therapy treatments for hydration, wellness, and
-            recovery
+        <div class="hero-content fade-in">
+          <h1 class="hero-title">Premium Mobile IV & Wellness Services</h1>
+          <p class="hero-subtitle">
+            Professional IV therapy, NAD+ treatments, vitamin injections, and
+            specialty wellness services delivered by licensed medical
+            professionals to your location in Phoenix Valley.
           </p>
 
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon">💧</div>
-              <h3 class="service-title">IV Hydration Therapy</h3>
-              <p class="service-description">
-                Comprehensive IV hydration with vitamins, minerals, and
-                electrolytes for optimal wellness and energy.
-              </p>
-              <div class="service-price">Starting at $150</div>
-              <ul class="service-features">
-                <li>Myers Cocktail blends available</li>
-                <li>Customizable vitamin combinations</li>
-                <li>Rapid hydration and energy boost</li>
-                <li>Licensed medical professional administration</li>
-              </ul>
-              <a href="booking.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
-
-            <div class="service-card">
-              <div class="service-icon">🧬</div>
-              <h3 class="service-title">NAD+ Therapy</h3>
-              <p class="service-description">
-                Revolutionary cellular repair and anti-aging therapy for
-                enhanced mental clarity and longevity.
-              </p>
-              <div class="service-price">Starting at $300</div>
-              <ul class="service-features">
-                <li>Cellular regeneration and repair</li>
-                <li>Enhanced cognitive function</li>
-                <li>Anti-aging benefits</li>
-                <li>Addiction recovery support</li>
-              </ul>
-              <a href="booking.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
+          <div class="hero-cta">
+            <a href="booking.html" class="btn btn-primary btn-lg">
+              <i class="fas fa-calendar-plus"></i>
+              Book Service Now
+            </a>
+            <a href="pricing.html" class="btn btn-secondary btn-lg">
+              <i class="fas fa-list"></i>
+              View Pricing
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Main Content -->
-    <main id="main-content" role="main">
-      <!-- Services Overview -->
-      <section id="services" class="service-programs">
-        <div class="container">
-          <div class="section-header">
-            <h2>Comprehensive Wellness Solutions</h2>
-            <p>
-              Professional healthcare services delivered with convenience and
-              excellence
-            </p>
-          </div>
-
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon">🔬</div>
-              <h3 class="service-title">Peptide Therapy</h3>
-              <p class="service-description">
-                Advanced peptide treatments for enhanced recovery, performance,
-                and anti-aging benefits.
-              </p>
-              <div class="service-price">Starting at $250</div>
-              <ul class="service-features">
-                <li>Custom peptide protocols</li>
-                <li>Enhanced muscle recovery</li>
-                <li>Improved sleep quality</li>
-                <li>Anti-aging benefits</li>
-              </ul>
-              <a href="booking.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
-
-            <div class="service-card">
-              <div class="service-icon">❄️</div>
-              <h3 class="service-title">Mobile Cold Plunge</h3>
-              <p class="service-description">
-                Professional cold therapy sessions for enhanced recovery, mental
-                clarity, and wellness optimization.
-              </p>
-              <div class="service-price">Starting at $400</div>
-              <ul class="service-features">
-                <li>Professional portable setup</li>
-                <li>Supervised sessions</li>
-                <li>Inflammation reduction</li>
-                <li>Enhanced mental resilience</li>
-              </ul>
-              <a href="booking.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
-
-            <div class="service-card">
-              <div class="service-icon">⚡</div>
-              <h3 class="service-title">Hormone Replacement Therapy</h3>
-              <p class="service-description">
-                Comprehensive hormone optimization for enhanced vitality,
-                energy, and overall wellness.
-              </p>
-              <div class="service-price">Starting at $350</div>
-              <ul class="service-features">
-                <li>Comprehensive hormone testing</li>
-                <li>Personalized protocols</li>
-                <li>Regular monitoring</li>
-                <li>Enhanced vitality and energy</li>
-              </ul>
-              <a href="booking.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
-
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon">💉</div>
-              <h3 class="service-title">Vitamin Injections</h3>
-              <p class="service-description">
-                Quick vitamin shots including B12, Lipo, Vitamin D, and custom
-                blends for energy and wellness.
-              </p>
-              <div class="service-price">Starting at $50</div>
-              <ul class="service-features">
-                <li>B12 energy shots</li>
-                <li>Lipotropic fat burning injections</li>
-                <li>Vitamin D immune support</li>
-                <li>Custom vitamin combinations</li>
-              </ul>
-              <a href="booking.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
-
-            <div class="service-card">
-              <div class="service-icon">⚖️</div>
-              <h3 class="service-title">Weight Management</h3>
-              <p class="service-description">
-                Comprehensive weight management solutions including Semaglutide,
-                B12, and lipotropic treatments.
-              </p>
-              <div class="service-price">Starting at $200</div>
-              <ul class="service-features">
-                <li>Semaglutide weight loss therapy</li>
-                <li>Lipotropic fat burning shots</li>
-                <li>Metabolism boosting treatments</li>
-                <li>Personalized protocols</li>
-              </ul>
-              <a href="booking.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
-
-            <div class="service-card">
-              <div class="service-icon">✨</div>
-              <h3 class="service-title">Aesthetic Treatments</h3>
-              <p class="service-description">
-                Beauty and anti-aging treatments including Botox, dermal
-                fillers, and skin rejuvenation.
-              </p>
-              <div class="service-price">Starting at $300</div>
-              <ul class="service-features">
-                <li>Botox and neuromodulators</li>
-                <li>Dermal filler treatments</li>
-                <li>Skin rejuvenation therapy</li>
-                <li>Anti-aging protocols</li>
-              </ul>
-              <a href="aesthetic.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
-          </div>
-
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon">🩸</div>
-              <h3 class="service-title">Blood Testing & Analysis</h3>
-              <p class="service-description">
-                Comprehensive blood testing including micronutrient analysis,
-                hormone panels, and wellness markers.
-              </p>
-              <div class="service-price">Starting at $199</div>
-              <ul class="service-features">
-                <li>Comprehensive blood panels</li>
-                <li>Micronutrient analysis</li>
-                <li>Hormone level testing</li>
-                <li>Personalized recommendations</li>
-              </ul>
-              <a href="blood-testing.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
-          </div>
-
-            <div class="service-card">
-              <div class="service-icon">🧪</div>
-              <h3 class="service-title">Micronutrient Testing</h3>
-              <p class="service-description">
-                Detailed analysis of vitamin and mineral levels to optimize your
-                wellness protocols.
-              </p>
-              <div class="service-price">Starting at $299</div>
-              <ul class="service-features">
-                <li>35+ vitamin and mineral analysis</li>
-                <li>Cellular absorption testing</li>
-                <li>Personalized supplementation plan</li>
-                <li>Follow-up consultations</li>
-              </ul>
-              <a href="booking.html" class="service-button"
-                >Learn More & Book</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA Section -->
-      <section class="service-cta">
-        <div class="container">
-          <h3>Ready to Feel Your Best?</h3>
-          <p>
-            Experience the convenience and luxury of premium mobile wellness
-            services delivered to your location
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="section-title">Our Professional Services</h2>
+          <p class="section-subtitle">
+            Comprehensive mobile wellness treatments delivered by licensed
+            medical professionals using FDA-approved ingredients
           </p>
-          <div class="cta-buttons">
-            <a href="tel:+16026889825" class="btn btn--secondary btn--lg"
-              >Call Now: (602) 688-9825</a
-            >
-            <a href="../index.html#booking" class="btn btn--outline btn--lg"
-              >Book Online</a
-            >
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card fade-in">
+            <div class="service-icon">
+              <i class="fas fa-tint"></i>
+            </div>
+            <h3 class="service-title">IV Hydration Therapy</h3>
+            <p class="service-description">
+              Professional intravenous hydration and nutrient delivery with
+              customized vitamin blends for optimal wellness and recovery.
+            </p>
+            <div class="pricing-highlight">
+              <div class="price-range">$99 - $355</div>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
+                Starting from basic saline to platinum recovery
+              </p>
+            </div>
+            <ul class="service-features">
+              <li>Myers' Cocktail IV Drips</li>
+              <li>Hangover Relief Treatment</li>
+              <li>Athletic Recovery Infusions</li>
+              <li>Detox & Cleanse Therapy</li>
+              <li>Custom Vitamin Blends</li>
+            </ul>
+            <a href="iv-therapy.html" class="btn btn-primary">
+              <i class="fas fa-arrow-right"></i>
+              View IV Services
+            </a>
+          </div>
+
+          <div class="service-card fade-in">
+            <div class="service-icon">
+              <i class="fas fa-dna"></i>
+            </div>
+            <h3 class="service-title">NAD+ Anti-Aging Therapy</h3>
+            <p class="service-description">
+              Cutting-edge NAD+ therapy for cellular repair, mental clarity,
+              anti-aging benefits, and enhanced energy levels.
+            </p>
+            <div class="pricing-highlight">
+              <div class="price-range">$400 - $525</div>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
+                Basic to diamond NAD+ treatments
+              </p>
+            </div>
+            <ul class="service-features">
+              <li>Cellular Regeneration</li>
+              <li>Mental Clarity Enhancement</li>
+              <li>Energy Level Boost</li>
+              <li>Anti-Aging Benefits</li>
+              <li>Fountain of Youth IV</li>
+            </ul>
+            <a href="booking.html" class="btn btn-primary">
+              <i class="fas fa-calendar-plus"></i>
+              Book NAD+ Therapy
+            </a>
+          </div>
+
+          <div class="service-card fade-in">
+            <div class="service-icon">
+              <i class="fas fa-syringe"></i>
+            </div>
+            <h3 class="service-title">Vitamin Injections</h3>
+            <p class="service-description">
+              Quick and effective vitamin shots for energy, weight management,
+              immune support, and overall wellness enhancement.
+            </p>
+            <div class="pricing-highlight">
+              <div class="price-range">Starting at $35</div>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
+                Individual shots and bundle packages
+              </p>
+            </div>
+            <ul class="service-features">
+              <li>B12 Energy Shots</li>
+              <li>Lipo Weight Management</li>
+              <li>Vitamin D Injections</li>
+              <li>Immune Boosters</li>
+              <li>Custom Formulations</li>
+            </ul>
+            <a href="booking-vitamin-shots.html" class="btn btn-primary">
+              <i class="fas fa-calendar-plus"></i>
+              Book Vitamin Shots
+            </a>
+          </div>
+
+          <div class="service-card fade-in">
+            <div class="service-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3 class="service-title">Membership Plans</h3>
+            <p class="service-description">
+              Exclusive membership benefits with priority booking, significant
+              savings, and VIP treatment access.
+            </p>
+            <div class="pricing-highlight">
+              <div class="price-range">Save up to 30%</div>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
+                Monthly plans with exclusive benefits
+              </p>
+            </div>
+            <ul class="service-features">
+              <li>Up to 30% Savings</li>
+              <li>Priority Booking</li>
+              <li>Monthly Treatment Credits</li>
+              <li>VIP Customer Support</li>
+              <li>Exclusive Access</li>
+            </ul>
+            <a href="membership.html" class="btn btn-primary">
+              <i class="fas fa-crown"></i>
+              Join Membership
+            </a>
+          </div>
+
+          <div class="service-card fade-in">
+            <div class="service-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3 class="service-title">Corporate & Group Events</h3>
+            <p class="service-description">
+              Professional wellness services for corporate events, team
+              building, parties, and group gatherings.
+            </p>
+            <div class="pricing-highlight">
+              <div class="price-range">Group Discounts</div>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
+                Up to 40% off for groups
+              </p>
+            </div>
+            <ul class="service-features">
+              <li>On-Site Group Service</li>
+              <li>Corporate Wellness Events</li>
+              <li>Team Building Activities</li>
+              <li>Party & Event Packages</li>
+              <li>Mobile RV Service</li>
+            </ul>
+            <a href="corporate-events.html" class="btn btn-primary">
+              <i class="fas fa-users"></i>
+              Plan Event
+            </a>
+          </div>
+
+          <div class="service-card fade-in">
+            <div class="service-icon">
+              <i class="fas fa-sparkles"></i>
+            </div>
+            <h3 class="service-title">Specialty Treatments</h3>
+            <p class="service-description">
+              Targeted wellness treatments including beauty enhancement,
+              athletic performance, and stress relief therapies.
+            </p>
+            <div class="pricing-highlight">
+              <div class="price-range">$215 - $425</div>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
+                Specialized wellness formulations
+              </p>
+            </div>
+            <ul class="service-features">
+              <li>Beauty & Skin Health</li>
+              <li>Athletic Performance</li>
+              <li>Stress Relief Therapy</li>
+              <li>Mental Clarity Boost</li>
+              <li>Weight Management</li>
+            </ul>
+            <a href="booking.html" class="btn btn-primary">
+              <i class="fas fa-magic"></i>
+              Book Specialty
+            </a>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <div class="fade-in">
+          <h2 class="cta-title">Ready to Experience Premium Wellness?</h2>
+          <p class="cta-subtitle">
+            Book your professional mobile IV therapy service today and feel the
+            difference that licensed medical care makes.
+          </p>
+
+          <div class="cta-buttons">
+            <a href="booking.html" class="btn btn-secondary btn-lg">
+              <i class="fas fa-calendar-plus"></i>
+              Book Service Online
+            </a>
+            <a href="tel:+16026889825" class="btn btn-primary btn-lg">
+              <i class="fas fa-phone"></i>
+              Call (602) 688-9825
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
+    <footer class="footer">
       <div class="container">
-        <div class="footer-main">
-          <div class="footer-section footer-section--brand">
-            <a href="../index.html" class="footer-logo">
-              <img
-                src="../assets/images/logo-stacked.png"
-                alt="Stay Dripped Mobile IV"
-                width="120"
-                height="60"
-              />
-            </a>
-            <p class="footer-description">
-              Premium mobile IV therapy and wellness services delivered to you
-              in Scottsdale & Phoenix.
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Stay Dripped Mobile IV</h3>
+            <p>
+              Premium mobile IV therapy and wellness services delivered to your
+              location in Phoenix Valley by licensed medical professionals.
             </p>
-          </div>
-
-          <div class="footer-section">
-            <h3 class="footer-section__title">Services</h3>
-            <ul class="footer-nav">
-              <li>
-                <a href="iv-therapy.html" class="footer-nav__link"
-                  >IV Therapy</a
-                >
-              </li>
-              <li>
-                <a href="nad-therapy.html" class="footer-nav__link"
-                  >NAD+ Therapy</a
-                >
-              </li>
-              <li>
-                <a href="hormone-replacement.html" class="footer-nav__link"
-                  >Hormone Replacement</a
-                >
-              </li>
-              <li>
-                <a href="aesthetic.html" class="footer-nav__link"
-                  >Aesthetic Services</a
-                >
-              </li>
-              <li>
-                <a href="blood-testing.html" class="footer-nav__link"
-                  >Blood Testing</a
-                >
-              </li>
-              <li>
-                <a href="injection-shots.html" class="footer-nav__link"
-                  >Vitamin Injections</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h3 class="footer-section__title">Company</h3>
-            <ul class="footer-nav">
-              <li>
-                <a href="corporate-events.html" class="footer-nav__link"
-                  >Corporate Events</a
-                >
-              </li>
-              <li>
-                <a href="franchise.html" class="footer-nav__link">Franchise</a>
-              </li>
-              <li>
-                <a href="partnerships.html" class="footer-nav__link"
-                  >Partnerships</a
-                >
-              </li>
-              <li>
-                <a href="membership.html" class="footer-nav__link"
-                  >Memberships</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h3 class="footer-section__title">Contact</h3>
-            <div class="footer-contact">
-              <a href="tel:+16026889825" class="footer-contact__item">
-                <span class="footer-contact__icon">📞</span>
-                <span>(602) 688-9825</span>
+            <div style="margin-top: 1rem">
+              <a
+                href="tel:+16026889825"
+                style="color: var(--primary); text-decoration: none"
+              >
+                <i class="fas fa-phone"></i> (602) 688-9825
               </a>
-              <div class="footer-contact__item">
-                <span class="footer-contact__icon">📍</span>
-                <span>Serving Scottsdale & Phoenix, AZ</span>
-              </div>
-              <div class="footer-contact__item">
-                <span class="footer-contact__icon">⏰</span>
-                <span>Daily 7AM - 9PM</span>
-              </div>
             </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Services</h3>
+            <ul class="footer-links">
+              <li><a href="iv-therapy.html">IV Hydration Therapy</a></li>
+              <li><a href="booking.html">NAD+ Anti-Aging</a></li>
+              <li>
+                <a href="booking-vitamin-shots.html">Vitamin Injections</a>
+              </li>
+              <li><a href="corporate-events.html">Corporate Events</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="pricing.html">View Pricing</a></li>
+              <li><a href="booking.html">Book Treatment</a></li>
+              <li><a href="client-portal.html">Client Portal</a></li>
+              <li><a href="membership.html">Membership Plans</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Service Areas</h3>
+            <ul class="footer-links">
+              <li>Phoenix</li>
+              <li>Scottsdale</li>
+              <li>Tempe</li>
+              <li>Mesa</li>
+              <li>Chandler</li>
+              <li>Gilbert</li>
+              <li>Glendale</li>
+              <li>Peoria</li>
+            </ul>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <div class="footer-bottom__content">
-            <div class="footer-copyright">
-              <p>&copy; 2024 Stay Dripped Mobile IV. All rights reserved.</p>
-            </div>
-            <nav class="footer-legal">
-              <ul class="footer-legal__list">
-                <li>
-                  <a href="../privacy-policy.html" class="footer-legal__link"
-                    >Privacy Policy</a
-                  >
-                </li>
-                <li>
-                  <a href="../terms-of-service.html" class="footer-legal__link"
-                    >Terms of Service</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../medical-disclaimer.html"
-                    class="footer-legal__link"
-                    >Medical Disclaimer</a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
+          <p>
+            &copy; 2024 Stay Dripped Mobile IV. All rights reserved. Licensed
+            medical professionals.
+          </p>
         </div>
       </div>
     </footer>
 
-    <!-- Back to Top -->
-    <button id="back-to-top" class="fab" style="display: none">↑</button>
+    <!-- Scripts -->
+    <script>
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
 
-    <!-- Enhanced JavaScript -->
-    <script src="../js/main.js" defer></script>
+      // Fade in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Analytics tracking
+      if (typeof gtag !== "undefined") {
+        gtag("event", "page_view", {
+          page_title: "Services Page",
+          page_location: window.location.href,
+        });
+      }
+    </script>
   </body>
 </html>

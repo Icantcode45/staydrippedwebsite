@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book IV Therapy - Stay Dripped Mobile IV</title>
+    <meta
+      name="description"
+      content="Book your IV therapy treatment - Basic, Standard, Specialty, Premium, and NAD+ options available. Mobile service in Phoenix Valley."
+    />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/favicon-32x32.png"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .iv-hero {
+        background: linear-gradient(135deg, #00e5ff 0%, #09c 100%);
+        color: white;
+        padding: 120px 0 80px;
+        text-align: center;
+      }
+
+      .iv-categories {
+        padding: 80px 0;
+        background: #f8fafc;
+      }
+
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: rgb(255 255 255 / 90%);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .back-button:hover {
+        background: white;
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        .category-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <a href="booking.html" class="back-button" aria-label="Go back to booking">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="iv-hero">
+      <div class="container">
+        <h1 class="display-1 mb-4">Book IV Therapy</h1>
+        <p class="lead">
+          Choose from our complete range of IV therapy treatments
+        </p>
+      </div>
+    </section>
+
+    <!-- IV Categories Section -->
+    <section class="iv-categories">
+      <div class="container">
+        <h2
+          class="text-center mb-4"
+          style="font-size: 2.5rem; font-weight: 700; color: #333"
+        >
+          IV Therapy Categories
+        </h2>
+        <p class="text-center text-muted mb-5">
+          From basic hydration to premium anti-aging treatments
+        </p>
+
+        <div class="category-grid">
+          <!-- Basic IV Therapy -->
+          <div id="intakeq-basic-iv"></div>
+
+          <!-- Standard IV Therapy -->
+          <div id="intakeq-standard-iv"></div>
+
+          <!-- Specialty IV Therapy -->
+          <div id="intakeq-specialty-iv"></div>
+
+          <!-- Premium IV Therapy -->
+          <div id="intakeq-premium-iv"></div>
+
+          <!-- NAD+ IV Therapy -->
+          <div id="intakeq-nad-iv"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="../src/js/components/intakeq-booking.js"></script>
+    <script>
+      // Track IV therapy page visits
+      if (typeof gtag !== "undefined") {
+        gtag("event", "page_view", {
+          page_title: "IV Therapy Booking",
+          page_location: window.location.href,
+        });
+      }
+    </script>
+  </body>
+</html>

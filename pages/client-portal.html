@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Membership Plans - Exclusive Benefits | Stay Dripped Mobile IV
-    </title>
+    <title>Client Portal - Stay Dripped Mobile IV</title>
     <meta
       name="description"
-      content="Save up to 30% on premium mobile IV therapy with Stay Dripped membership plans. Exclusive benefits, priority booking, and significant discounts on all services."
+      content="Access your Stay Dripped client portal to manage appointments, view treatment history, and update your information. Secure login for existing clients."
     />
 
     <!-- Favicons -->
@@ -53,7 +51,6 @@
           var(--primary) 0%,
           var(--secondary) 100%
         );
-        --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
         --gradient-hero: linear-gradient(
           135deg,
           rgba(0, 122, 255, 0.95) 0%,
@@ -218,19 +215,6 @@
         text-decoration: none;
       }
 
-      .btn-gold {
-        background: var(--gradient-gold);
-        color: var(--gray-900);
-        box-shadow: var(--shadow-md);
-      }
-
-      .btn-gold:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-xl);
-        color: var(--gray-900);
-        text-decoration: none;
-      }
-
       .btn-lg {
         padding: 1.25rem 2.5rem;
         font-size: 1.125rem;
@@ -267,8 +251,8 @@
         margin-right: auto;
       }
 
-      /* Membership Plans */
-      .membership-plans {
+      /* Portal Section */
+      .portal-section {
         padding: 100px 0;
         background: var(--gray-50);
       }
@@ -292,172 +276,117 @@
         margin: 0 auto;
       }
 
-      .plans-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-        margin-bottom: 4rem;
+      .portal-container {
+        max-width: 900px;
+        margin: 0 auto;
       }
 
-      .plan-card {
+      .portal-widget {
         background: var(--white);
         border-radius: var(--border-radius-xl);
-        padding: 0;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-        border: 2px solid var(--gray-100);
-      }
-
-      .plan-card:hover {
-        transform: translateY(-8px);
         box-shadow: var(--shadow-xl);
+        overflow: hidden;
+        border: 1px solid var(--gray-200);
       }
 
-      .plan-card.featured {
-        border-color: var(--gold);
-        transform: scale(1.05);
-      }
-
-      .plan-card.featured::before {
-        content: "MOST POPULAR";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: var(--gradient-gold);
-        color: var(--gray-900);
-        padding: 0.5rem;
-        text-align: center;
-        font-weight: 700;
-        font-size: 0.875rem;
-        letter-spacing: 0.05em;
-      }
-
-      .plan-header {
+      .portal-header {
         background: var(--gradient-primary);
         color: var(--white);
         padding: 2rem;
         text-align: center;
       }
 
-      .plan-card.featured .plan-header {
-        background: var(--gradient-gold);
-        color: var(--gray-900);
-        padding-top: 3rem;
-      }
-
-      .plan-icon {
+      .portal-icon {
         font-size: 3rem;
         margin-bottom: 1rem;
         display: block;
       }
 
-      .plan-name {
+      .portal-title {
         font-size: 1.75rem;
-        font-weight: 800;
+        font-weight: 700;
         margin-bottom: 0.5rem;
       }
 
-      .plan-price {
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 0.5rem;
-      }
-
-      .plan-period {
-        opacity: 0.9;
-        font-size: 1rem;
-      }
-
-      .plan-content {
-        padding: 2rem;
-      }
-
-      .plan-description {
-        color: var(--gray-600);
-        margin-bottom: 2rem;
-        text-align: center;
+      .portal-description {
+        opacity: 0.95;
         font-size: 1.1rem;
       }
 
-      .plan-features {
-        list-style: none;
-        margin-bottom: 2rem;
+      .portal-content {
+        padding: 3rem;
       }
 
-      .plan-features li {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        color: var(--gray-700);
-        margin-bottom: 1rem;
-        padding: 0.5rem 0;
+      .client-portal-widget {
+        min-height: 500px;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        background: var(--gray-50);
+        border: 2px solid var(--gray-100);
       }
 
-      .plan-features li.included::before {
-        content: "✓";
-        color: var(--accent);
-        font-weight: 700;
-        font-size: 1.25rem;
-        width: 20px;
+      .fallback-link {
+        display: block;
         text-align: center;
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        background: var(--gradient-primary);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: var(--border-radius-lg);
+        font-weight: 600;
+        transition: var(--transition);
       }
 
-      .plan-features li.excluded {
-        opacity: 0.5;
+      .fallback-link:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        text-decoration: none;
+        color: var(--white);
       }
 
-      .plan-features li.excluded::before {
-        content: "✗";
-        color: var(--gray-400);
-        font-weight: 700;
-        font-size: 1.25rem;
-        width: 20px;
-        text-align: center;
-      }
-
-      /* Benefits Section */
-      .benefits-section {
+      /* Features Section */
+      .features-section {
         padding: 100px 0;
         background: var(--white);
       }
 
-      .benefits-grid {
+      .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
       }
 
-      .benefit-card {
+      .feature-card {
         text-align: center;
         padding: 2rem;
         border-radius: var(--border-radius-xl);
         background: var(--gray-50);
         transition: var(--transition);
+        border: 2px solid var(--gray-100);
       }
 
-      .benefit-card:hover {
+      .feature-card:hover {
         transform: translateY(-4px);
         box-shadow: var(--shadow-lg);
+        border-color: var(--primary);
       }
 
-      .benefit-icon {
+      .feature-icon {
         font-size: 3rem;
         color: var(--primary);
         margin-bottom: 1rem;
       }
 
-      .benefit-title {
+      .feature-title {
         font-size: 1.25rem;
         font-weight: 700;
         color: var(--gray-900);
         margin-bottom: 1rem;
       }
 
-      .benefit-description {
+      .feature-description {
         color: var(--gray-600);
         line-height: 1.6;
       }
@@ -544,15 +473,11 @@
           display: none;
         }
 
-        .plans-grid {
-          grid-template-columns: 1fr;
+        .portal-content {
+          padding: 2rem;
         }
 
-        .plan-card.featured {
-          transform: none;
-        }
-
-        .benefits-grid {
+        .features-grid {
           grid-template-columns: 1fr;
         }
 
@@ -592,10 +517,10 @@
             <li><a href="services.html" class="nav-link">Services</a></li>
             <li><a href="pricing.html" class="nav-link">Pricing</a></li>
             <li><a href="booking.html" class="nav-link">Book Now</a></li>
+            <li><a href="membership.html" class="nav-link">Membership</a></li>
             <li>
-              <a href="membership.html" class="nav-link active">Membership</a>
+              <a href="client-portal.html" class="nav-link active">Portal</a>
             </li>
-            <li><a href="client-portal.html" class="nav-link">Portal</a></li>
           </ul>
 
           <div class="header-actions">
@@ -612,109 +537,51 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content fade-in">
-          <h1 class="hero-title">Exclusive Membership Benefits</h1>
+          <h1 class="hero-title">Client Portal</h1>
           <p class="hero-subtitle">
-            Save up to 30% on all services with priority booking, exclusive
-            treatments, and VIP member benefits. Join thousands of satisfied
-            members.
+            Manage your appointments, view treatment history, and update your
+            information through our secure client portal.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Membership Plans -->
-    <section class="membership-plans">
+    <!-- Portal Section -->
+    <section class="portal-section">
       <div class="container">
         <div class="section-header fade-in">
-          <h2 class="section-title">Choose Your Membership Level</h2>
+          <h2 class="section-title">Access Your Account</h2>
           <p class="section-subtitle">
-            Exclusive benefits and savings designed for your wellness journey
+            Login to your patient portal to manage your wellness journey
           </p>
         </div>
 
-        <div class="plans-grid">
-          <!-- Essential Membership -->
-          <div class="plan-card fade-in">
-            <div class="plan-header">
-              <div class="plan-icon">💧</div>
-              <h3 class="plan-name">Essential</h3>
-              <div class="plan-price">$99</div>
-              <div class="plan-period">per month</div>
-            </div>
-            <div class="plan-content">
-              <p class="plan-description">
-                Perfect for occasional wellness treatments
+        <div class="portal-container">
+          <div class="portal-widget fade-in">
+            <div class="portal-header">
+              <div class="portal-icon">🔐</div>
+              <h3 class="portal-title">Secure Client Login</h3>
+              <p class="portal-description">
+                Access your personalized wellness dashboard
               </p>
-              <ul class="plan-features">
-                <li class="included">15% discount on all IV treatments</li>
-                <li class="included">Priority booking availability</li>
-                <li class="included">Free consultation session</li>
-                <li class="included">Birthday treatment discount</li>
-                <li class="included">Mobile app access</li>
-                <li class="excluded">Advanced treatments</li>
-                <li class="excluded">VIP concierge service</li>
-              </ul>
-              <a href="booking-membership.html" class="btn btn-primary">
-                <i class="fas fa-crown"></i>
-                Join Essential
-              </a>
             </div>
-          </div>
 
-          <!-- Premium Membership -->
-          <div class="plan-card featured fade-in">
-            <div class="plan-header">
-              <div class="plan-icon">⭐</div>
-              <h3 class="plan-name">Premium</h3>
-              <div class="plan-price">$199</div>
-              <div class="plan-period">per month</div>
-            </div>
-            <div class="plan-content">
-              <p class="plan-description">
-                Best value for regular wellness enthusiasts
-              </p>
-              <ul class="plan-features">
-                <li class="included">25% discount on all treatments</li>
-                <li class="included">
-                  Priority booking + same-day availability
-                </li>
-                <li class="included">Includes 1 IV treatment monthly</li>
-                <li class="included">Access to exclusive treatments</li>
-                <li class="included">Free vitamin shots (2/month)</li>
-                <li class="included">Complimentary lab work annually</li>
-                <li class="included">VIP customer support</li>
-              </ul>
-              <a href="booking-membership.html" class="btn btn-gold">
-                <i class="fas fa-star"></i>
-                Join Premium
-              </a>
-            </div>
-          </div>
+            <div class="portal-content">
+              <!-- IntakeQ Client Portal Widget -->
+              <div
+                id="intakeq-client-portal"
+                class="client-portal-widget"
+              ></div>
 
-          <!-- VIP Membership -->
-          <div class="plan-card fade-in">
-            <div class="plan-header">
-              <div class="plan-icon">👑</div>
-              <h3 class="plan-name">VIP Platinum</h3>
-              <div class="plan-price">$399</div>
-              <div class="plan-period">per month</div>
-            </div>
-            <div class="plan-content">
-              <p class="plan-description">
-                Ultimate luxury wellness experience
-              </p>
-              <ul class="plan-features">
-                <li class="included">30% discount on all services</li>
-                <li class="included">Unlimited priority booking</li>
-                <li class="included">Includes 2 premium treatments monthly</li>
-                <li class="included">Exclusive NAD+ and hormone access</li>
-                <li class="included">Quarterly comprehensive health panel</li>
-                <li class="included">24/7 concierge service</li>
-                <li class="included">Private client manager</li>
-              </ul>
-              <a href="booking-membership.html" class="btn btn-primary">
-                <i class="fas fa-diamond"></i>
-                Join VIP
+              <!-- Fallback Link -->
+              <a
+                href="https://Staydripped.intakeq.com/booking?clientArea=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="fallback-link"
+              >
+                <i class="fas fa-external-link-alt"></i>
+                Open Client Portal in New Window
               </a>
             </div>
           </div>
@@ -722,64 +589,62 @@
       </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
+    <!-- Features Section -->
+    <section class="features-section">
       <div class="container">
         <div class="section-header fade-in">
-          <h2 class="section-title">Exclusive Member Benefits</h2>
+          <h2 class="section-title">What You Can Do</h2>
           <p class="section-subtitle">
-            Experience the difference that membership makes
+            Comprehensive account management for your wellness journey
           </p>
         </div>
 
-        <div class="benefits-grid">
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">💰</div>
-            <h4 class="benefit-title">Significant Savings</h4>
-            <p class="benefit-description">
-              Save 15-30% on all treatments and services with exclusive member
-              pricing
+        <div class="features-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📅</div>
+            <h4 class="feature-title">Manage Appointments</h4>
+            <p class="feature-description">
+              View, reschedule, or cancel your upcoming appointments with ease
             </p>
           </div>
 
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">⏰</div>
-            <h4 class="benefit-title">Priority Booking</h4>
-            <p class="benefit-description">
-              Skip the wait with priority scheduling and same-day availability
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📋</div>
+            <h4 class="feature-title">Treatment History</h4>
+            <p class="feature-description">
+              Access your complete treatment history and medical records
             </p>
           </div>
 
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">🎁</div>
-            <h4 class="benefit-title">Exclusive Access</h4>
-            <p class="benefit-description">
-              First access to new treatments and member-only services
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📝</div>
+            <h4 class="feature-title">Update Information</h4>
+            <p class="feature-description">
+              Keep your contact details and medical information current
             </p>
           </div>
 
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">📱</div>
-            <h4 class="benefit-title">VIP Support</h4>
-            <p class="benefit-description">
-              Dedicated customer service and personalized care coordination
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💬</div>
+            <h4 class="feature-title">Message Your Provider</h4>
+            <p class="feature-description">
+              Communicate securely with your healthcare team
             </p>
           </div>
 
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">🏥</div>
-            <h4 class="benefit-title">Health Monitoring</h4>
-            <p class="benefit-description">
-              Regular health panels and wellness tracking included in higher
-              tiers
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📊</div>
+            <h4 class="feature-title">Wellness Tracking</h4>
+            <p class="feature-description">
+              Monitor your wellness progress and treatment outcomes
             </p>
           </div>
 
-          <div class="benefit-card fade-in">
-            <div class="benefit-icon">🎉</div>
-            <h4 class="benefit-title">Special Perks</h4>
-            <p class="benefit-description">
-              Birthday discounts, referral bonuses, and exclusive member events
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🔔</div>
+            <h4 class="feature-title">Appointment Reminders</h4>
+            <p class="feature-description">
+              Receive automated reminders and important notifications
             </p>
           </div>
         </div>
@@ -790,16 +655,16 @@
     <section class="cta">
       <div class="container">
         <div class="fade-in">
-          <h2 class="cta-title">Ready to Start Saving?</h2>
+          <h2 class="cta-title">Need to Schedule a New Appointment?</h2>
           <p class="cta-subtitle">
-            Join thousands of satisfied members who save money while
-            prioritizing their health and wellness
+            Book your next wellness treatment or speak with our team about your
+            needs
           </p>
 
           <div class="cta-buttons">
-            <a href="booking-membership.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-crown"></i>
-              Join Membership
+            <a href="booking.html" class="btn btn-secondary btn-lg">
+              <i class="fas fa-calendar-plus"></i>
+              Book New Appointment
             </a>
             <a href="tel:+16026889825" class="btn btn-primary btn-lg">
               <i class="fas fa-phone"></i>
@@ -817,8 +682,8 @@
           <div class="footer-section">
             <h3>Stay Dripped Mobile IV</h3>
             <p>
-              Premium mobile IV therapy and wellness services with exclusive
-              member benefits.
+              Premium mobile IV therapy and wellness services delivered to your
+              location in Phoenix Valley.
             </p>
             <div style="margin-top: 1rem">
               <a
@@ -831,12 +696,12 @@
           </div>
 
           <div class="footer-section">
-            <h3>Membership</h3>
+            <h3>Client Portal</h3>
             <ul class="footer-links">
-              <li><a href="membership.html">Plans & Pricing</a></li>
-              <li><a href="#benefits">Member Benefits</a></li>
-              <li><a href="corporate-events.html">Corporate Plans</a></li>
-              <li><a href="booking-membership.html">Join Now</a></li>
+              <li><a href="client-portal.html">Login to Portal</a></li>
+              <li><a href="booking.html">Book Appointment</a></li>
+              <li><a href="membership.html">Membership Benefits</a></li>
+              <li><a href="services.html">View Services</a></li>
             </ul>
           </div>
 
@@ -844,9 +709,8 @@
             <h3>Support</h3>
             <ul class="footer-links">
               <li><a href="tel:+16026889825">Call Support</a></li>
-              <li><a href="client-portal.html">Member Portal</a></li>
-              <li><a href="services.html">All Services</a></li>
               <li><a href="pricing.html">View Pricing</a></li>
+              <li><a href="../index.html">Back to Home</a></li>
             </ul>
           </div>
 
@@ -872,43 +736,69 @@
       </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- IntakeQ Client Area Script -->
     <script>
-      // Header scroll effect
-      window.addEventListener("scroll", () => {
-        const header = document.getElementById("header");
-        if (window.scrollY > 100) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
+      (function (c) {
+        window.intakeq = "68460f36bc104b6aa9da43e0";
+        window.intakeqClientArea = true;
+        var i = c.createElement("script");
+        i.type = "text/javascript";
+        i.async = true;
+        i.src = "https://intakeq.com/js/widget.min.js?1";
+        document.head.appendChild(i);
+      })(document);
+    </script>
+
+    <!-- Initialize widget in container -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById("intakeq-client-portal");
+        if (container) {
+          // Create the IntakeQ div for client area
+          const widgetDiv = document.createElement("div");
+          widgetDiv.id = "intakeq";
+          widgetDiv.style.maxWidth = "720px";
+          widgetDiv.style.width = "100%";
+          widgetDiv.style.minHeight = "500px";
+          container.appendChild(widgetDiv);
         }
-      });
 
-      // Fade in animation on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+        // Header scroll effect
+        window.addEventListener("scroll", () => {
+          const header = document.getElementById("header");
+          if (window.scrollY > 100) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
           }
         });
-      }, observerOptions);
 
-      document.querySelectorAll(".fade-in").forEach((el) => {
-        observer.observe(el);
-      });
+        // Fade in animation on scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
 
-      // Analytics tracking
-      if (typeof gtag !== "undefined") {
-        gtag("event", "page_view", {
-          page_title: "Membership Page",
-          page_location: window.location.href,
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".fade-in").forEach((el) => {
+          observer.observe(el);
         });
-      }
+
+        // Analytics tracking
+        if (typeof gtag !== "undefined") {
+          gtag("event", "page_view", {
+            page_title: "Client Portal",
+            page_location: window.location.href,
+          });
+        }
+      });
     </script>
   </body>
 </html>

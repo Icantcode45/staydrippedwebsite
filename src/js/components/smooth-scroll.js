@@ -152,7 +152,4 @@ document.addEventListener("DOMContentLoaded", () => {
   new SmoothScroll();
 });
 
-// Make it available globally
-window.SmoothScroll = SmoothScroll;
-
 export default SmoothScroll;

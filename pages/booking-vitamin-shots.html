@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Vitamin Shots - Stay Dripped Mobile IV</title>
+    <meta
+      name="description"
+      content="Book vitamin injection shots - B12, Lipo, and custom vitamin injections. Quick mobile service in Phoenix Valley."
+    />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/favicon-32x32.png"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .shots-hero {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+        padding: 120px 0 80px;
+        text-align: center;
+      }
+
+      .shots-booking {
+        padding: 80px 0;
+        background: #f8fafc;
+      }
+
+      .shots-widget {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .shots-info {
+        padding: 60px 0;
+        background: white;
+      }
+
+      .shots-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .shot-card {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 12px;
+        background: #fef3c7;
+        border: 2px solid #fbbf24;
+      }
+
+      .shot-icon {
+        font-size: 3rem;
+        color: #d97706;
+        margin-bottom: 1rem;
+      }
+
+      .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: rgb(255 255 255 / 90%);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .back-button:hover {
+        background: white;
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <a href="booking.html" class="back-button" aria-label="Go back to booking">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="shots-hero">
+      <div class="container">
+        <h1 class="display-1 mb-4">Book Vitamin Shots</h1>
+        <p class="lead">Quick, effective vitamin and nutrient injections</p>
+      </div>
+    </section>
+
+    <!-- Shots Booking Section -->
+    <section class="shots-booking">
+      <div class="container">
+        <h2
+          class="text-center mb-4"
+          style="font-size: 2.5rem; font-weight: 700; color: #333"
+        >
+          Choose Your Vitamin Shots
+        </h2>
+        <p class="text-center text-muted mb-5">
+          Fast-acting vitamin and nutrient injections for immediate benefits
+        </p>
+
+        <div class="shots-widget">
+          <!-- Vitamin Shots -->
+          <div id="intakeq-vitamin-shots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shots Info Section -->
+    <section class="shots-info">
+      <div class="container">
+        <h2
+          class="text-center mb-4"
+          style="font-size: 2.5rem; font-weight: 700"
+        >
+          Popular Vitamin Shots
+        </h2>
+
+        <div class="shots-grid">
+          <div class="shot-card">
+            <div class="shot-icon">🚀</div>
+            <h4>B12 Energy Shot</h4>
+            <p>Boost energy levels and support nervous system function</p>
+          </div>
+
+          <div class="shot-card">
+            <div class="shot-icon">🔥</div>
+            <h4>Lipo Shot</h4>
+            <p>Support metabolism and weight management goals</p>
+          </div>
+
+          <div class="shot-card">
+            <div class="shot-icon">💪</div>
+            <h4>Vitamin D</h4>
+            <p>Support bone health and immune system function</p>
+          </div>
+
+          <div class="shot-card">
+            <div class="shot-icon">✨</div>
+            <h4>Biotin Shot</h4>
+            <p>Support healthy hair, skin, and nails</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="../src/js/components/intakeq-booking.js"></script>
+    <script>
+      // Track vitamin shots page visits
+      if (typeof gtag !== "undefined") {
+        gtag("event", "page_view", {
+          page_title: "Vitamin Shots Booking",
+          page_location: window.location.href,
+        });
+      }
+    </script>
+  </body>
+</html>

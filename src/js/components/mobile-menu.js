@@ -247,10 +247,7 @@ class MobileMenu {
 
 // Initialize mobile menu when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  const mobileMenu = new MobileMenu();
-
-  // Make available globally for other scripts
-  window.mobileMenu = mobileMenu;
+  new MobileMenu();
 });
 
 export default MobileMenu;

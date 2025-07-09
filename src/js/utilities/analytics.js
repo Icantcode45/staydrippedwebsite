@@ -5,6 +5,8 @@ class AnalyticsManager {
     this.isEnabled = false;
     this.consentGiven = false;
     this.trackingQueue = [];
+    this.isDebug =
+      typeof process !== "undefined" && process.env?.NODE_ENV === "development";
 
     this.init();
   }
@@ -68,23 +70,62 @@ class AnalyticsManager {
   }
 
   showConsentBanner() {
-    // Check if banner is already shown
     if (document.querySelector(".consent-banner")) return;
 
+    const banner = this.createConsentBanner();
+    this.addConsentStyles();
+    document.body.appendChild(banner);
+    this.setupConsentHandlers(banner);
+  }
+
+  createConsentBanner() {
     const banner = document.createElement("div");
     banner.className = "consent-banner";
-    banner.innerHTML = `
-      <div class="consent-banner__content">
-        <p>We use cookies to improve your experience and analyze site usage. By continuing to browse, you consent to our use of cookies.</p>
-        <div class="consent-banner__actions">
-          <button class="btn btn--sm btn--secondary" data-consent="reject">Decline</button>
-          <button class="btn btn--sm btn--primary" data-consent="accept">Accept</button>
-        </div>
-      </div>
-    `;
 
-    // Add styles
-    const styles = `
+    const content = document.createElement("div");
+    content.className = "consent-banner__content";
+
+    const text = document.createElement("p");
+    text.textContent =
+      "We use cookies to improve your experience and analyze site usage. By continuing to browse, you consent to our use of cookies.";
+
+    const actions = document.createElement("div");
+    actions.className = "consent-banner__actions";
+
+    const rejectBtn = this.createConsentButton(
+      "reject",
+      "Decline",
+      "btn btn--sm btn--secondary",
+    );
+    const acceptBtn = this.createConsentButton(
+      "accept",
+      "Accept",
+      "btn btn--sm btn--primary",
+    );
+
+    actions.appendChild(rejectBtn);
+    actions.appendChild(acceptBtn);
+    content.appendChild(text);
+    content.appendChild(actions);
+    banner.appendChild(content);
+
+    return banner;
+  }
+
+  createConsentButton(consentValue, textContent, className) {
+    const button = document.createElement("button");
+    button.className = className;
+    button.textContent = textContent;
+    button.dataset.consent = consentValue;
+    return button;
+  }
+
+  addConsentStyles() {
+    if (document.querySelector("#consent-styles")) return;
+
+    const styleSheet = document.createElement("style");
+    styleSheet.id = "consent-styles";
+    styleSheet.textContent = `
       .consent-banner {
         position: fixed;
         bottom: 0;
@@ -115,22 +156,16 @@ class AnalyticsManager {
         }
       }
     `;
+    document.head.appendChild(styleSheet);
+  }
 
-    if (!document.querySelector("#consent-styles")) {
-      const styleSheet = document.createElement("style");
-      styleSheet.id = "consent-styles";
-      styleSheet.textContent = styles;
-      document.head.appendChild(styleSheet);
-    }
-
-    document.body.appendChild(banner);
-
-    // Add event listeners
+  setupConsentHandlers(banner) {
     banner.addEventListener("click", (e) => {
-      if (e.target.dataset.consent === "accept") {
+      const { consent } = e.target.dataset;
+      if (consent === "accept") {
         this.giveConsent();
         banner.remove();
-      } else if (e.target.dataset.consent === "reject") {
+      } else if (consent === "reject") {
         this.rejectConsent();
         banner.remove();
       }
@@ -171,15 +206,14 @@ class AnalyticsManager {
 
     // Track outbound links
     document.addEventListener("click", (e) => {
-      if (
-        e.target.matches(
-          'a[href^="http"]:not([href*="' + window.location.hostname + '"])',
-        )
-      ) {
-        this.trackEvent("click", "outbound_link", {
-          url: e.target.href,
-          text: e.target.textContent.trim(),
-        });
+      if (e.target.tagName === "A" && e.target.href) {
+        const isOutbound = !e.target.href.includes(window.location.hostname);
+        if (isOutbound && e.target.href.startsWith("http")) {
+          this.trackEvent("click", "outbound_link", {
+            url: e.target.href,
+            text: e.target.textContent.trim(),
+          });
+        }
       }
     });
 
@@ -220,43 +254,8 @@ class AnalyticsManager {
   }
 
   trackScrollDepth() {
-    let maxScroll = 0;
-    const thresholds = [25, 50, 75, 90];
-    const tracked = new Set();
-
-    const trackScroll = () => {
-      const scrollPercent = Math.round(
-        (window.scrollY /
-          (document.documentElement.scrollHeight - window.innerHeight)) *
-          100,
-      );
-
-      if (scrollPercent > maxScroll) {
-        maxScroll = scrollPercent;
-
-        thresholds.forEach((threshold) => {
-          if (scrollPercent >= threshold && !tracked.has(threshold)) {
-            tracked.add(threshold);
-            this.trackEvent("scroll", "scroll_depth", {
-              scroll_depth: threshold,
-            });
-          }
-        });
-      }
-    };
-
-    let ticking = false;
-    const scrollHandler = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          trackScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", scrollHandler, { passive: true });
+    const tracker = new ScrollDepthTracker(this);
+    tracker.init();
   }
 
   processQueue() {
@@ -265,11 +264,66 @@ class AnalyticsManager {
       this.trackEvent(event.action, event.category, event);
     }
   }
+}
+
+class ScrollDepthTracker {
+  constructor(analyticsManager) {
+    this.analytics = analyticsManager;
+    this.maxScroll = 0;
+    this.thresholds = [25, 50, 75, 90];
+    this.tracked = new Set();
+    this.ticking = false;
+  }
+
+  init() {
+    const scrollHandler = () => this.handleScroll();
+    window.addEventListener("scroll", scrollHandler, { passive: true });
+  }
+
+  handleScroll() {
+    if (!this.ticking) {
+      requestAnimationFrame(() => {
+        this.trackScroll();
+        this.ticking = false;
+      });
+      this.ticking = true;
+    }
+  }
+
+  trackScroll() {
+    const scrollPercent = this.calculateScrollPercent();
+
+    if (scrollPercent > this.maxScroll) {
+      this.maxScroll = scrollPercent;
+      this.checkThresholds(scrollPercent);
+    }
+  }
+
+  calculateScrollPercent() {
+    return Math.round(
+      (window.scrollY /
+        (document.documentElement.scrollHeight - window.innerHeight)) *
+        100,
+    );
+  }
+
+  checkThresholds(scrollPercent) {
+    this.thresholds.forEach((threshold) => {
+      if (scrollPercent >= threshold && !this.tracked.has(threshold)) {
+        this.tracked.add(threshold);
+        this.analytics.trackEvent("scroll", "scroll_depth", {
+          scroll_depth: threshold,
+        });
+      }
+    });
+  }
 
   sendToCustomAnalytics(eventData) {
     // Implement custom analytics endpoint if needed
     // This could be your own analytics server or third-party service
-    console.log("Analytics Event:", eventData);
+    if (this.isDebug) {
+      console.log("Analytics Event:", eventData);
+    }
   }
 
   // Public method to track custom events
