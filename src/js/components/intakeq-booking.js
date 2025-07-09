@@ -207,7 +207,8 @@ class IntakeQCategoryBooking {
   }
 
   handleWidgetError(error, container, service) {
-    console.error(`Error creating widget for ${service.name}:`, error);
+    // Log sanitized error message to prevent information disclosure
+    console.error("Error creating widget");
     this.createFallbackButton(container, service);
   }
 
