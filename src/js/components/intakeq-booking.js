@@ -169,7 +169,10 @@ class IntakeQCategoryBooking {
         window.intakeq = this.accountId;
         resolve();
       };
-      script.onerror = reject;
+      script.onerror = () => {
+        // Reject with sanitized error to prevent information disclosure
+        reject(new Error("Script loading failed"));
+      };
       document.head.appendChild(script);
     });
   }
