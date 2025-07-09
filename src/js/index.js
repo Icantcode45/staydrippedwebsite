@@ -10,6 +10,7 @@ import "./utilities/analytics.js";
 
 // Import components
 import "./components/mobile-menu.js";
+import "./components/navigation-enhancer.js";
 import "./components/smooth-scroll.js";
 import "./components/back-to-top.js";
 import "./components/intakeq-booking.js";
