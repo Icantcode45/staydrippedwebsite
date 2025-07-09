@@ -1,14 +1,18 @@
-// Enhanced Mobile Menu Functionality with Professional Interactions
+// Enhanced Mobile Menu Functionality with 3D Effects and Professional Interactions
 
 class MobileMenu {
   constructor() {
-    this.toggle = document.querySelector(".mobile-menu-toggle");
+    this.toggle = document.querySelector(
+      ".mobile-menu-btn, .mobile-menu-toggle",
+    );
     this.menu = document.querySelector(".mobile-menu");
     this.overlay = document.querySelector(".mobile-menu__overlay");
     this.closeBtn = document.querySelector(".mobile-menu__close");
     this.links = document.querySelectorAll(".mobile-menu__link");
     this.isOpen = false;
     this.isAnimating = false;
+    this.touchStartY = 0;
+    this.touchEndY = 0;
 
     this.init();
   }
