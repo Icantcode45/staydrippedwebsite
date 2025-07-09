@@ -76,7 +76,14 @@ class ThemeManager {
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
     this.setTheme(newTheme);
-    localStorage.setItem("staydripped-theme", newTheme);
+    try {
+      // Validate theme value before storing
+      if (newTheme === "light" || newTheme === "dark") {
+        localStorage.setItem("staydripped-theme", newTheme);
+      }
+    } catch (error) {
+      console.warn("Unable to store theme preference:", error);
+    }
   }
 
   setupThemeToggle() {
