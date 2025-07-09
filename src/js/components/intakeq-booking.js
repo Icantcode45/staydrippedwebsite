@@ -530,7 +530,7 @@ class IntakeQCategoryBooking {
   }
 
   getBookingUrl(serviceKey) {
-    const service = this.services[serviceKey];
+    const service = this.getService(serviceKey);
     return service ? `${this.baseUrl}?serviceId=${service.id}` : null;
   }
 
