@@ -27,7 +27,8 @@ export class EventManager {
       try {
         handler.call(element, event);
       } catch (error) {
-        console.error("Error in event handler:", error);
+        // Log sanitized error message to prevent information disclosure
+        console.error("Error in event handler");
       }
     };
 
