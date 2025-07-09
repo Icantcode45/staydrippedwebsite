@@ -167,7 +167,11 @@ class AnalyticsManager {
 
   setupConsentHandlers(banner) {
     banner.addEventListener("click", (e) => {
-      const { consent } = e.target.dataset;
+      // Safely access dataset with validation
+      const target = e.target;
+      if (!target || !target.dataset) return;
+
+      const consent = target.dataset.consent;
       if (consent === "accept") {
         this.giveConsent();
         banner.remove();
