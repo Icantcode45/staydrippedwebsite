@@ -364,6 +364,17 @@ class IntakeQCategoryBooking {
     return value.replace(/[^a-zA-Z0-9_-]/g, "");
   }
 
+  getService(serviceKey) {
+    // Safe object access to prevent prototype pollution
+    if (
+      typeof serviceKey !== "string" ||
+      !Object.prototype.hasOwnProperty.call(this.services, serviceKey)
+    ) {
+      return null;
+    }
+    return this.services[serviceKey];
+  }
+
   renderWidgetError(error, embedContainer, serviceKey) {
     console.error(
       `Error initializing embedded widget for ${serviceKey}:`,
