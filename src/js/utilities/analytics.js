@@ -64,7 +64,9 @@ class AnalyticsManager {
       // Initialize gtag
       window.dataLayer = window.dataLayer || [];
       window.gtag = function () {
-        dataLayer.push(arguments);
+        // Safely convert arguments to array to prevent manipulation
+        const args = Array.prototype.slice.call(arguments);
+        window.dataLayer.push(args);
       };
 
       gtag("js", new Date());
