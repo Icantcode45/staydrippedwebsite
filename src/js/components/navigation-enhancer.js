@@ -20,8 +20,22 @@ class NavigationEnhancer {
 
   getCurrentPage() {
     const path = window.location.pathname;
-    const filename = path.split("/").pop() || "index.html";
-    return filename.replace(".html", "") || "index";
+
+    // Validate and sanitize the path to prevent path traversal
+    if (typeof path !== "string" || path.length > 1000) {
+      return "index";
+    }
+
+    // Remove any potential path traversal attempts
+    const sanitizedPath = path.replace(/\.\./g, "").replace(/\/+/g, "/");
+    const filename = sanitizedPath.split("/").pop() || "index.html";
+
+    // Validate filename format
+    const validFilename = /^[a-zA-Z0-9_-]+(?:\.html)?$/.test(filename)
+      ? filename
+      : "index.html";
+
+    return validFilename.replace(".html", "") || "index";
   }
 
   createPageMap() {
