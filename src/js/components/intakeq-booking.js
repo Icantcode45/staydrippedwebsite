@@ -423,7 +423,8 @@ class IntakeQCategoryBooking {
         this.openDirectBookingUrl(serviceKey);
       }
     } catch (error) {
-      console.error("Error opening IntakeQ widget:", error);
+      // Log sanitized error message to prevent information disclosure
+      console.error("Error opening IntakeQ widget");
       this.openDirectBookingUrl(serviceKey);
     }
   }
