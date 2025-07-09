@@ -184,7 +184,7 @@ class IntakeQCategoryBooking {
     const service = this.getService(serviceKey);
 
     if (!ValidationUtils.isValidServiceConfig(service)) {
-      console.error(`Invalid service configuration for ${serviceKey}`);
+      console.error("Invalid service configuration");
       return;
     }
 
