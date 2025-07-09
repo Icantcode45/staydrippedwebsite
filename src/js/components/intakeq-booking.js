@@ -356,8 +356,11 @@ class IntakeQCategoryBooking {
     const container = document.getElementById(containerId);
 
     if (container && window.intakeq) {
-      // Set global service ID safely
-      window.intakeqServiceId = sanitizedServiceId;
+      // Store service ID safely without polluting global namespace
+      if (!window.intakeqConfig) {
+        window.intakeqConfig = {};
+      }
+      window.intakeqConfig.serviceId = sanitizedServiceId;
 
       // Create widget div using DOM methods instead of script injection
       const widgetDiv = document.createElement("div");
