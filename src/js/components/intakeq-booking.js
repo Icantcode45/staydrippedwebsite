@@ -428,7 +428,10 @@ class IntakeQCategoryBooking {
     fallback.appendChild(header);
     fallback.appendChild(button);
 
-    container.innerHTML = "";
+    // Clear container safely
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
     container.appendChild(fallback);
   }
 
