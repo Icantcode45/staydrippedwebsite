@@ -121,7 +121,11 @@ class NavigationEnhancer {
           window.location.pathname !== "/" &&
           window.location.pathname !== "/index.html"
         ) {
-          window.location.href = `/${link.getAttribute("href")}`;
+          const href = link.getAttribute("href");
+          // Validate the href to prevent XSS
+          if (href && href.startsWith("#") && /^#[a-zA-Z0-9_-]+$/.test(href)) {
+            window.location.href = `/${href}`;
+          }
         }
       }
     });
