@@ -148,7 +148,8 @@ class IntakeQCategoryBooking {
       this.initializeWidgets();
       this.addStyles();
     } catch (error) {
-      console.error("Error initializing IntakeQ booking system:", error);
+      // Log sanitized error message to prevent information disclosure
+      console.error("Error initializing IntakeQ booking system");
       this.initializeFallbackButtons();
     }
   }
