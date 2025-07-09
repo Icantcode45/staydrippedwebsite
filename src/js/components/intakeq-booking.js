@@ -311,7 +311,7 @@ class IntakeQCategoryBooking {
   }
 
   initializeEmbeddedWidget(serviceKey) {
-    const service = this.services[serviceKey];
+    const service = this.getService(serviceKey);
     const embedContainer = document.getElementById(
       `intakeq-widget-${serviceKey}`,
     );
