@@ -337,7 +337,11 @@ class IntakeQCategoryBooking {
   }
 
   setServiceConfiguration(serviceId) {
-    window.intakeqServiceId = serviceId;
+    // Store service ID safely without polluting global namespace
+    if (!window.intakeqConfig) {
+      window.intakeqConfig = {};
+    }
+    window.intakeqConfig.serviceId = serviceId;
   }
 
   createEmbeddedScript(serviceKey, serviceId) {
