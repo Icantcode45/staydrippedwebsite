@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize the application
     new App();
   } catch (error) {
-    console.error("Failed to initialize application:", error);
+    // Log sanitized error message to prevent information disclosure
+    console.error("Failed to initialize application");
   }
 });
