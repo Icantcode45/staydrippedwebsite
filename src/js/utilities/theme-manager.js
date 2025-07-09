@@ -164,13 +164,20 @@ if (document.readyState === "loading") {
     const themeManager = new ThemeManager();
     themeManager.initAccessibility();
 
-    // Make available globally for other scripts
-    window.themeManager = themeManager;
+    // Store theme manager safely without polluting global namespace
+    if (!window.stayDrippedApp) {
+      window.stayDrippedApp = {};
+    }
+    window.stayDrippedApp.themeManager = themeManager;
   });
 } else {
   const themeManager = new ThemeManager();
   themeManager.initAccessibility();
-  window.themeManager = themeManager;
+  // Store theme manager safely without polluting global namespace
+  if (!window.stayDrippedApp) {
+    window.stayDrippedApp = {};
+  }
+  window.stayDrippedApp.themeManager = themeManager;
 }
 
 export default ThemeManager;
