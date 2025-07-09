@@ -66,7 +66,8 @@ class App {
       const registration = await navigator.serviceWorker.register("/sw.js");
       this.handleServiceWorkerUpdate(registration);
     } catch (error) {
-      if (this.isDebug) console.log("SW registration failed: ", error);
+      // Log sanitized error message to prevent information disclosure
+      if (this.isDebug) console.log("SW registration failed");
     }
   }
 
