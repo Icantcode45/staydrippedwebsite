@@ -78,7 +78,8 @@ export const DOM = {
       try {
         handler(e);
       } catch (error) {
-        console.error("Error in event handler:", error);
+        // Log sanitized error message to prevent information disclosure
+        console.error("Error in event handler");
       }
     };
 
