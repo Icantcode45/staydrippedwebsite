@@ -8,7 +8,18 @@ class ThemeManager {
 
   init() {
     // Check for saved theme preference or default to system preference
-    const savedTheme = localStorage.getItem("staydripped-theme");
+    let savedTheme = null;
+    try {
+      const stored = localStorage.getItem("staydripped-theme");
+      // Validate stored theme value
+      if (stored && (stored === "light" || stored === "dark")) {
+        savedTheme = stored;
+      }
+    } catch (error) {
+      // Handle localStorage access errors
+      console.warn("Unable to access theme preference:", error);
+    }
+
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
       .matches
       ? "dark"
@@ -65,7 +76,14 @@ class ThemeManager {
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
     this.setTheme(newTheme);
-    localStorage.setItem("staydripped-theme", newTheme);
+    try {
+      // Validate theme value before storing
+      if (newTheme === "light" || newTheme === "dark") {
+        localStorage.setItem("staydripped-theme", newTheme);
+      }
+    } catch (error) {
+      console.warn("Unable to store theme preference:", error);
+    }
   }
 
   setupThemeToggle() {
@@ -146,13 +164,20 @@ if (document.readyState === "loading") {
     const themeManager = new ThemeManager();
     themeManager.initAccessibility();
 
-    // Make available globally for other scripts
-    window.themeManager = themeManager;
+    // Store theme manager safely without polluting global namespace
+    if (!window.stayDrippedApp) {
+      window.stayDrippedApp = {};
+    }
+    window.stayDrippedApp.themeManager = themeManager;
   });
 } else {
   const themeManager = new ThemeManager();
   themeManager.initAccessibility();
-  window.themeManager = themeManager;
+  // Store theme manager safely without polluting global namespace
+  if (!window.stayDrippedApp) {
+    window.stayDrippedApp = {};
+  }
+  window.stayDrippedApp.themeManager = themeManager;
 }
 
 export default ThemeManager;

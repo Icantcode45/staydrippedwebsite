@@ -27,8 +27,14 @@ class AnalyticsManager {
   }
 
   checkConsent() {
-    const consent = localStorage.getItem("analytics_consent");
-    this.consentGiven = consent === "true";
+    try {
+      const consent = localStorage.getItem("analytics_consent");
+      // Validate the stored value to prevent injection
+      this.consentGiven = consent === "true";
+    } catch (error) {
+      // Handle localStorage access errors (e.g., in private browsing)
+      this.consentGiven = false;
+    }
   }
 
   enableTracking() {
@@ -58,7 +64,9 @@ class AnalyticsManager {
       // Initialize gtag
       window.dataLayer = window.dataLayer || [];
       window.gtag = function () {
-        dataLayer.push(arguments);
+        // Safely convert arguments to array to prevent manipulation
+        const args = Array.prototype.slice.call(arguments);
+        window.dataLayer.push(args);
       };
 
       gtag("js", new Date());
@@ -161,7 +169,11 @@ class AnalyticsManager {
 
   setupConsentHandlers(banner) {
     banner.addEventListener("click", (e) => {
-      const { consent } = e.target.dataset;
+      // Safely access dataset with validation
+      const target = e.target;
+      if (!target || !target.dataset) return;
+
+      const consent = target.dataset.consent;
       if (consent === "accept") {
         this.giveConsent();
         banner.remove();
@@ -173,14 +185,24 @@ class AnalyticsManager {
   }
 
   giveConsent() {
-    localStorage.setItem("analytics_consent", "true");
-    this.consentGiven = true;
-    this.enableTracking();
+    try {
+      localStorage.setItem("analytics_consent", "true");
+      this.consentGiven = true;
+      this.enableTracking();
+    } catch (error) {
+      // Handle localStorage write errors
+      console.warn("Unable to store consent preference:", error);
+    }
   }
 
   rejectConsent() {
-    localStorage.setItem("analytics_consent", "false");
-    this.consentGiven = false;
+    try {
+      localStorage.setItem("analytics_consent", "false");
+      this.consentGiven = false;
+    } catch (error) {
+      // Handle localStorage write errors
+      console.warn("Unable to store consent preference:", error);
+    }
   }
 
   setupEventListeners() {
@@ -259,9 +281,23 @@ class AnalyticsManager {
   }
 
   processQueue() {
-    while (this.trackingQueue.length > 0) {
+    // Process queue with loop protection to prevent infinite loops
+    let attempts = 0;
+    const maxAttempts = 1000; // Prevent infinite loops
+    while (this.trackingQueue.length > 0 && attempts < maxAttempts) {
       const event = this.trackingQueue.shift();
-      this.trackEvent(event.action, event.category, event);
+      if (event && event.action && event.category) {
+        this.trackEvent(event.action, event.category, event);
+      }
+      attempts++;
+    }
+  }
+
+  sendToCustomAnalytics(eventData) {
+    // Implement custom analytics endpoint if needed
+    // This could be your own analytics server or third-party service
+    if (this.isDebug) {
+      console.log("Analytics Event:", eventData);
     }
   }
 }
@@ -318,24 +354,24 @@ class ScrollDepthTracker {
     });
   }
 
-  sendToCustomAnalytics(eventData) {
-    // Implement custom analytics endpoint if needed
-    // This could be your own analytics server or third-party service
-    if (this.isDebug) {
-      console.log("Analytics Event:", eventData);
-    }
-  }
-
   // Public method to track custom events
   static track(action, category, parameters = {}) {
-    if (window.analyticsManager) {
-      window.analyticsManager.trackEvent(action, category, parameters);
+    if (window.stayDrippedApp && window.stayDrippedApp.analyticsManager) {
+      window.stayDrippedApp.analyticsManager.trackEvent(
+        action,
+        category,
+        parameters,
+      );
     }
   }
 }
 
 // Initialize analytics manager
 const analyticsManager = new AnalyticsManager();
-window.analyticsManager = analyticsManager;
+// Store analytics manager safely without polluting global namespace
+if (!window.stayDrippedApp) {
+  window.stayDrippedApp = {};
+}
+window.stayDrippedApp.analyticsManager = analyticsManager;
 
 export default AnalyticsManager;

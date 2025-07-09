@@ -10,6 +10,7 @@ import "./utilities/analytics.js";
 
 // Import components
 import "./components/mobile-menu.js";
+import "./components/navigation-enhancer.js";
 import "./components/smooth-scroll.js";
 import "./components/back-to-top.js";
 import "./components/intakeq-booking.js";
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize the application
     new App();
   } catch (error) {
-    console.error("Failed to initialize application:", error);
+    // Log sanitized error message to prevent information disclosure
+    console.error("Failed to initialize application");
   }
 });

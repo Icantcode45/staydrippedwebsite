@@ -51,11 +51,34 @@ export const ValidationUtils = {
   },
 
   /**
-   * Check if URL is valid
+   * Check if URL is valid and safe
    */
   isValidURL(url) {
     try {
-      new URL(url);
+      const parsedUrl = new URL(url);
+
+      // Only allow HTTP and HTTPS protocols
+      if (parsedUrl.protocol !== "http:" && parsedUrl.protocol !== "https:") {
+        return false;
+      }
+
+      // Validate hostname - prevent localhost, private IPs, etc.
+      const hostname = parsedUrl.hostname.toLowerCase();
+
+      // Block localhost and private network ranges
+      if (
+        hostname === "localhost" ||
+        hostname === "127.0.0.1" ||
+        hostname === "::1" ||
+        hostname.startsWith("192.168.") ||
+        hostname.startsWith("10.") ||
+        /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(hostname) ||
+        hostname.includes(".local") ||
+        hostname === "0.0.0.0"
+      ) {
+        return false;
+      }
+
       return true;
     } catch {
       return false;

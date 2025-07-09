@@ -66,7 +66,8 @@ class App {
       const registration = await navigator.serviceWorker.register("/sw.js");
       this.handleServiceWorkerUpdate(registration);
     } catch (error) {
-      if (this.isDebug) console.log("SW registration failed: ", error);
+      // Log sanitized error message to prevent information disclosure
+      if (this.isDebug) console.log("SW registration failed");
     }
   }
 
@@ -94,14 +95,16 @@ class App {
 
   handleError(event) {
     if (this.isDebug) {
-      console.error("Global error:", event.message || "Unknown error");
+      // Log sanitized error message to prevent information disclosure
+      console.error("Global error occurred");
     }
   }
 
   handleRejection(event) {
     event.preventDefault();
     if (this.isDebug) {
-      console.error("Unhandled promise rejection:", event.reason?.toString());
+      // Log sanitized error message to prevent information disclosure
+      console.error("Unhandled promise rejection occurred");
     }
   }
 
@@ -184,8 +187,18 @@ class App {
 
     // Copy to clipboard functionality
     document.addEventListener("click", (e) => {
-      if (e.target.matches("[data-copy]")) {
-        this.copyToClipboard(e.target.dataset.copy);
+      const target = e.target;
+      if (
+        target &&
+        target.matches("[data-copy]") &&
+        target.dataset &&
+        target.dataset.copy
+      ) {
+        // Validate the copy value to prevent abuse
+        const copyValue = target.dataset.copy;
+        if (typeof copyValue === "string" && copyValue.length < 1000) {
+          this.copyToClipboard(copyValue);
+        }
       }
     });
   }
@@ -223,7 +236,8 @@ class App {
       await navigator.clipboard.writeText(text);
       this.showToast("Copied to clipboard!");
     } catch (err) {
-      console.error("Failed to copy: ", err);
+      // Log sanitized error message to prevent information disclosure
+      console.error("Failed to copy");
       this.showToast("Failed to copy", "error");
     }
   }

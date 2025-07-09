@@ -9,14 +9,26 @@ export const DOM = {
   create(tag, attributes = {}, content = "") {
     const element = document.createElement(tag);
 
-    Object.entries(attributes).forEach(([key, value]) => {
+    // Safely iterate over own properties only to prevent prototype pollution
+    Object.keys(attributes).forEach((key) => {
+      if (!Object.prototype.hasOwnProperty.call(attributes, key)) return;
+
+      const value = attributes[key];
       if (key === "className") {
         element.className = value;
-      } else if (key === "dataset") {
-        Object.entries(value).forEach(([dataKey, dataValue]) => {
-          element.dataset[dataKey] = dataValue;
+      } else if (
+        key === "dataset" &&
+        typeof value === "object" &&
+        value !== null
+      ) {
+        Object.keys(value).forEach((dataKey) => {
+          if (!Object.prototype.hasOwnProperty.call(value, dataKey)) return;
+          element.dataset[dataKey] = value[dataKey];
         });
-      } else {
+      } else if (
+        typeof key === "string" &&
+        /^[a-zA-Z][a-zA-Z0-9-]*$/.test(key)
+      ) {
         element.setAttribute(key, value);
       }
     });
@@ -66,7 +78,8 @@ export const DOM = {
       try {
         handler(e);
       } catch (error) {
-        console.error("Error in event handler:", error);
+        // Log sanitized error message to prevent information disclosure
+        console.error("Error in event handler");
       }
     };
 

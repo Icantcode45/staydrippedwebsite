@@ -148,7 +148,8 @@ class IntakeQCategoryBooking {
       this.initializeWidgets();
       this.addStyles();
     } catch (error) {
-      console.error("Error initializing IntakeQ booking system:", error);
+      // Log sanitized error message to prevent information disclosure
+      console.error("Error initializing IntakeQ booking system");
       this.initializeFallbackButtons();
     }
   }
@@ -168,7 +169,10 @@ class IntakeQCategoryBooking {
         window.intakeq = this.accountId;
         resolve();
       };
-      script.onerror = reject;
+      script.onerror = () => {
+        // Reject with sanitized error to prevent information disclosure
+        reject(new Error("Script loading failed"));
+      };
       document.head.appendChild(script);
     });
   }
@@ -180,16 +184,16 @@ class IntakeQCategoryBooking {
   }
 
   createServiceWidget(serviceKey) {
-    const service = this.services[serviceKey];
+    const service = this.getService(serviceKey);
 
     if (!ValidationUtils.isValidServiceConfig(service)) {
-      console.error(`Invalid service configuration for ${serviceKey}`);
+      console.error("Invalid service configuration");
       return;
     }
 
     const container = document.getElementById(service.containerId);
     if (!ValidationUtils.isElementValid(container)) {
-      console.warn(`Container not found for service: ${serviceKey}`);
+      console.warn("Container not found for service");
       return;
     }
 
@@ -206,28 +210,24 @@ class IntakeQCategoryBooking {
   }
 
   handleWidgetError(error, container, service) {
-    console.error(`Error creating widget for ${service.name}:`, error);
+    // Log sanitized error message to prevent information disclosure
+    console.error("Error creating widget");
     this.createFallbackButton(container, service);
   }
 
   buildWidgetContainer(service, serviceKey) {
     const container = document.createElement("div");
     container.className = "intakeq-service-widget";
-    container.innerHTML = this.getWidgetTemplate(service, serviceKey);
-    return container;
-  }
 
-  getWidgetTemplate(service, serviceKey) {
     const header = this.createWidgetHeader(service);
     const content = this.createWidgetContent(serviceKey);
     const fallback = this.createWidgetFallback(serviceKey);
 
-    const container = document.createElement("div");
     container.appendChild(header);
     container.appendChild(content);
     container.appendChild(fallback);
 
-    return container.innerHTML;
+    return container;
   }
 
   createWidgetHeader(service) {
@@ -289,7 +289,13 @@ class IntakeQCategoryBooking {
   }
 
   renderWidgetContainer(container, widgetContainer) {
-    container.innerHTML = "";
+    // Clear container safely with loop protection
+    let attempts = 0;
+    const maxAttempts = 100; // Prevent infinite loops
+    while (container.firstChild && attempts < maxAttempts) {
+      container.removeChild(container.firstChild);
+      attempts++;
+    }
     container.appendChild(widgetContainer);
   }
 
@@ -313,9 +319,14 @@ class IntakeQCategoryBooking {
   }
 
   initializeEmbeddedWidget(serviceKey) {
-    const service = this.services[serviceKey];
+    const service = this.getService(serviceKey);
+
+    // Sanitize serviceKey to prevent DOM clobbering
+    const sanitizedKey = this.sanitizeScriptValue(serviceKey);
+    if (!sanitizedKey) return;
+
     const embedContainer = document.getElementById(
-      `intakeq-widget-${serviceKey}`,
+      `intakeq-widget-${sanitizedKey}`,
     );
 
     if (!embedContainer) return;
@@ -329,38 +340,70 @@ class IntakeQCategoryBooking {
   }
 
   setServiceConfiguration(serviceId) {
-    window.intakeqServiceId = serviceId;
+    // Store service ID safely without polluting global namespace
+    if (!window.intakeqConfig) {
+      window.intakeqConfig = {};
+    }
+    window.intakeqConfig.serviceId = serviceId;
   }
 
   createEmbeddedScript(serviceKey, serviceId) {
-    const widgetScript = document.createElement("script");
-    widgetScript.innerHTML = this.generateWidgetScript(serviceKey, serviceId);
-    document.head.appendChild(widgetScript);
+    // Replace dynamic script generation with direct DOM manipulation for security
+    this.initializeWidgetDOM(serviceKey, serviceId);
   }
 
-  generateWidgetScript(serviceKey, serviceId) {
-    return `
-      (function(c) {
-        var containerId = 'intakeq-widget-${serviceKey}';
-        var container = document.getElementById(containerId);
-        if (container && window.intakeq) {
-          window.intakeqServiceId = '${serviceId}';
-          var widgetDiv = document.createElement('div');
-          widgetDiv.id = 'intakeq-${serviceKey}';
-          widgetDiv.style.maxWidth = '100%';
-          widgetDiv.style.width = '100%';
-          widgetDiv.style.minHeight = '400px';
-          container.appendChild(widgetDiv);
-        }
-      })(document);
-    `;
+  initializeWidgetDOM(serviceKey, serviceId) {
+    // Sanitize inputs to prevent code injection
+    const sanitizedServiceKey = this.sanitizeScriptValue(serviceKey);
+    const sanitizedServiceId = this.sanitizeScriptValue(serviceId);
+
+    if (!sanitizedServiceKey || !sanitizedServiceId) return;
+
+    const containerId = `intakeq-widget-${sanitizedServiceKey}`;
+    const container = document.getElementById(containerId);
+
+    if (container && window.intakeq) {
+      // Store service ID safely without polluting global namespace
+      if (!window.intakeqConfig) {
+        window.intakeqConfig = {};
+      }
+      window.intakeqConfig.serviceId = sanitizedServiceId;
+
+      // Create widget div using DOM methods instead of script injection
+      const widgetDiv = document.createElement("div");
+      widgetDiv.id = `intakeq-${sanitizedServiceKey}`;
+      widgetDiv.style.maxWidth = "100%";
+      widgetDiv.style.width = "100%";
+      widgetDiv.style.minHeight = "400px";
+
+      // Clear container and append widget
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
+      container.appendChild(widgetDiv);
+    }
+  }
+
+  sanitizeScriptValue(value) {
+    if (typeof value !== "string") return "";
+    // Only allow alphanumeric characters, hyphens, and underscores
+    return value.replace(/[^a-zA-Z0-9_-]/g, "");
+  }
+
+  getService(serviceKey) {
+    // Safe object access to prevent prototype pollution
+    if (
+      typeof serviceKey !== "string" ||
+      !Object.prototype.hasOwnProperty.call(this.services, serviceKey)
+    ) {
+      return null;
+    }
+    return this.services[serviceKey];
   }
 
   renderWidgetError(error, embedContainer, serviceKey) {
-    console.error(
-      `Error initializing embedded widget for ${serviceKey}:`,
-      error,
-    );
+    // Log sanitized error message to prevent information disclosure
+    console.error("Error initializing embedded widget");
 
     const errorDiv = document.createElement("div");
     errorDiv.className = "widget-error";
@@ -376,17 +419,26 @@ class IntakeQCategoryBooking {
     errorDiv.appendChild(message);
     errorDiv.appendChild(button);
 
-    embedContainer.innerHTML = "";
+    // Clear container safely with loop protection
+    let attempts = 0;
+    const maxAttempts = 100; // Prevent infinite loops
+    while (embedContainer.firstChild && attempts < maxAttempts) {
+      embedContainer.removeChild(embedContainer.firstChild);
+      attempts++;
+    }
     embedContainer.appendChild(errorDiv);
   }
 
   openBookingForService(serviceKey) {
-    const service = this.services[serviceKey];
+    const service = this.getService(serviceKey);
     if (!service) return;
 
     try {
-      // Set the global service ID
-      window.intakeqServiceId = service.id;
+      // Store service ID safely without polluting global namespace
+      if (!window.intakeqConfig) {
+        window.intakeqConfig = {};
+      }
+      window.intakeqConfig.serviceId = service.id;
 
       // Try to use the IntakeQ widget API
       if (window.IntakeQ && typeof window.IntakeQ.open === "function") {
@@ -396,21 +448,22 @@ class IntakeQCategoryBooking {
         this.openDirectBookingUrl(serviceKey);
       }
     } catch (error) {
-      console.error("Error opening IntakeQ widget:", error);
+      // Log sanitized error message to prevent information disclosure
+      console.error("Error opening IntakeQ widget");
       this.openDirectBookingUrl(serviceKey);
     }
   }
 
   openDirectBookingUrl(serviceKey) {
-    const service = this.services[serviceKey];
+    const service = this.getService(serviceKey);
     if (!service || !service.id) {
-      console.error(`Invalid service for booking: ${serviceKey}`);
+      console.error("Invalid service for booking");
       return;
     }
 
     const url = `${this.baseUrl}?serviceId=${service.id}`;
     if (!ValidationUtils.isValidURL(url)) {
-      console.error(`Invalid booking URL generated: ${url}`);
+      console.error("Invalid booking URL generated");
       return;
     }
 
@@ -427,7 +480,13 @@ class IntakeQCategoryBooking {
     fallback.appendChild(header);
     fallback.appendChild(button);
 
-    container.innerHTML = "";
+    // Clear container safely with loop protection
+    let attempts = 0;
+    const maxAttempts = 100; // Prevent infinite loops
+    while (container.firstChild && attempts < maxAttempts) {
+      container.removeChild(container.firstChild);
+      attempts++;
+    }
     container.appendChild(fallback);
   }
 
@@ -485,28 +544,39 @@ class IntakeQCategoryBooking {
   }
 
   loadStylesheet(href) {
-    if (document.querySelector(`link[href="${href}"]`)) return;
+    // Validate href to prevent malicious stylesheet loading
+    if (!ValidationUtils.isValidURL(href)) {
+      console.error("Invalid stylesheet URL provided");
+      return;
+    }
+
+    // Check if stylesheet already exists
+    if (document.querySelector(`link[href="${CSS.escape(href)}"]`)) return;
 
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = href;
+
+    // Add security attributes
+    link.crossOrigin = "anonymous";
+    link.referrerPolicy = "no-referrer";
+
     document.head.appendChild(link);
   }
 
   // Public methods for manual widget creation
   createBookingWidget(serviceKey, containerId) {
-    if (!this.services[serviceKey]) {
-      console.error(`Service ${serviceKey} not found`);
+    const service = this.getService(serviceKey);
+    if (!service) {
+      console.error("Service not found");
       return;
     }
-
-    const service = this.services[serviceKey];
     service.containerId = containerId;
     this.createServiceWidget(serviceKey);
   }
 
   getBookingUrl(serviceKey) {
-    const service = this.services[serviceKey];
+    const service = this.getService(serviceKey);
     return service ? `${this.baseUrl}?serviceId=${service.id}` : null;
   }
 
@@ -520,7 +590,11 @@ class IntakeQCategoryBooking {
 
 // Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  window.IntakeQBooking = new IntakeQCategoryBooking();
+  // Store IntakeQ booking safely without polluting global namespace
+  if (!window.stayDrippedApp) {
+    window.stayDrippedApp = {};
+  }
+  window.stayDrippedApp.IntakeQBooking = new IntakeQCategoryBooking();
 });
 
 // Export for module usage

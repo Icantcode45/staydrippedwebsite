@@ -65,8 +65,8 @@ class BackToTop {
     }
 
     // Track analytics
-    if (window.analyticsManager) {
-      window.analyticsManager.trackEvent("click", "back_to_top");
+    if (window.stayDrippedApp && window.stayDrippedApp.analyticsManager) {
+      window.stayDrippedApp.analyticsManager.trackEvent("click", "back_to_top");
     }
   }
 
