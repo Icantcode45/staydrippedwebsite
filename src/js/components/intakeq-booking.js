@@ -444,7 +444,7 @@ class IntakeQCategoryBooking {
 
     const url = `${this.baseUrl}?serviceId=${service.id}`;
     if (!ValidationUtils.isValidURL(url)) {
-      console.error(`Invalid booking URL generated: ${url}`);
+      console.error("Invalid booking URL generated");
       return;
     }
 
