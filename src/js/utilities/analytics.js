@@ -27,8 +27,14 @@ class AnalyticsManager {
   }
 
   checkConsent() {
-    const consent = localStorage.getItem("analytics_consent");
-    this.consentGiven = consent === "true";
+    try {
+      const consent = localStorage.getItem("analytics_consent");
+      // Validate the stored value to prevent injection
+      this.consentGiven = consent === "true";
+    } catch (error) {
+      // Handle localStorage access errors (e.g., in private browsing)
+      this.consentGiven = false;
+    }
   }
 
   enableTracking() {
