@@ -431,8 +431,11 @@ class IntakeQCategoryBooking {
     if (!service) return;
 
     try {
-      // Set the global service ID
-      window.intakeqServiceId = service.id;
+      // Store service ID safely without polluting global namespace
+      if (!window.intakeqConfig) {
+        window.intakeqConfig = {};
+      }
+      window.intakeqConfig.serviceId = service.id;
 
       // Try to use the IntakeQ widget API
       if (window.IntakeQ && typeof window.IntakeQ.open === "function") {
