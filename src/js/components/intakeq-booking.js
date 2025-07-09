@@ -374,7 +374,10 @@ class IntakeQCategoryBooking {
     errorDiv.appendChild(message);
     errorDiv.appendChild(button);
 
-    embedContainer.innerHTML = "";
+    // Clear container safely
+    while (embedContainer.firstChild) {
+      embedContainer.removeChild(embedContainer.firstChild);
+    }
     embedContainer.appendChild(errorDiv);
   }
 
