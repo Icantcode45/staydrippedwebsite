@@ -538,9 +538,15 @@ class NavigationEnhancer {
     const urlParams = new URLSearchParams(window.location.search);
     const redirect = urlParams.get("redirect");
 
-    if (redirect && this.pageMap[redirect]) {
+    // Validate redirect parameter to prevent open redirect attacks
+    if (redirect && this.isValidRedirect(redirect) && this.pageMap[redirect]) {
       window.location.href = this.pageMap[redirect];
     }
+  }
+
+  isValidRedirect(redirect) {
+    // Only allow alphanumeric characters, hyphens, and underscores
+    return /^[a-zA-Z0-9_-]+$/.test(redirect) && redirect.length < 50;
   }
 
   enhanceButtonInteractions() {
