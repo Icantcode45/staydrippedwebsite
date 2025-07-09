@@ -525,11 +525,23 @@ class IntakeQCategoryBooking {
   }
 
   loadStylesheet(href) {
-    if (document.querySelector(`link[href="${href}"]`)) return;
+    // Validate href to prevent malicious stylesheet loading
+    if (!ValidationUtils.isValidURL(href)) {
+      console.error("Invalid stylesheet URL provided");
+      return;
+    }
+
+    // Check if stylesheet already exists
+    if (document.querySelector(`link[href="${CSS.escape(href)}"]`)) return;
 
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = href;
+
+    // Add security attributes
+    link.crossOrigin = "anonymous";
+    link.referrerPolicy = "no-referrer";
+
     document.head.appendChild(link);
   }
 
