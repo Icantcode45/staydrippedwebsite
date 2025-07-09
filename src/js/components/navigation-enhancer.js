@@ -418,7 +418,9 @@ class NavigationEnhancer {
     const phoneBtn = document.createElement("a");
     phoneBtn.href = "tel:+16026889825";
     phoneBtn.className = "btn btn--success btn--icon";
-    phoneBtn.innerHTML = '<i class="fas fa-phone"></i>';
+    const phoneIcon = document.createElement("i");
+    phoneIcon.className = "fas fa-phone";
+    phoneBtn.appendChild(phoneIcon);
     phoneBtn.setAttribute("aria-label", "Call us");
     phoneBtn.style.cssText = `
       width: 3rem;
