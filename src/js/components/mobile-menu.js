@@ -74,6 +74,12 @@ class MobileMenu {
 
     // Add smooth reveal animation for menu items
     this.addMenuItemAnimations();
+
+    // Add touch gestures
+    this.addTouchGestures();
+
+    // Add enhanced keyboard navigation
+    this.addKeyboardNavigation();
   }
 
   toggleMenu() {
@@ -84,6 +90,63 @@ class MobileMenu {
     } else {
       this.openMenu();
     }
+  }
+
+  addTouchGestures() {
+    if (!this.menu) return;
+
+    this.menu.addEventListener(
+      "touchstart",
+      (e) => {
+        this.touchStartY = e.touches[0].clientY;
+      },
+      { passive: true },
+    );
+
+    this.menu.addEventListener(
+      "touchend",
+      (e) => {
+        this.touchEndY = e.changedTouches[0].clientY;
+        this.handleSwipeGesture();
+      },
+      { passive: true },
+    );
+  }
+
+  handleSwipeGesture() {
+    const swipeDistance = this.touchStartY - this.touchEndY;
+    const minSwipeDistance = 50;
+
+    // Swipe up to close menu
+    if (swipeDistance > minSwipeDistance) {
+      this.closeMenu();
+    }
+  }
+
+  addKeyboardNavigation() {
+    if (!this.menu) return;
+
+    this.menu.addEventListener("keydown", (e) => {
+      const focusableElements = this.menu.querySelectorAll(
+        'a, button, [tabindex]:not([tabindex="-1"])',
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (e.key === "Tab") {
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    });
   }
 
   openMenu() {
