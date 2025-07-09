@@ -280,6 +280,14 @@ class AnalyticsManager {
       this.trackEvent(event.action, event.category, event);
     }
   }
+
+  sendToCustomAnalytics(eventData) {
+    // Implement custom analytics endpoint if needed
+    // This could be your own analytics server or third-party service
+    if (this.isDebug) {
+      console.log("Analytics Event:", eventData);
+    }
+  }
 }
 
 class ScrollDepthTracker {
