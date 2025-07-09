@@ -179,53 +179,67 @@ class NavigationEnhancer {
   }
 
   addPageTransition(link) {
-    // Create overlay for smooth page transition
+    const overlay = this.createTransitionOverlay();
+    this.addSpinnerStyles();
+    this.showTransitionOverlay(overlay);
+    this.scheduleOverlayCleanup(overlay);
+  }
+
+  createTransitionOverlay() {
     const overlay = document.createElement("div");
     overlay.className = "page-transition-overlay";
-    overlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(145deg, rgba(0, 122, 255, 0.9), rgba(90, 200, 250, 0.9));
-      z-index: 10000;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.2rem;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-    `;
+    overlay.style.cssText = this.getOverlayStyles();
+    overlay.innerHTML = this.getOverlayHTML();
+    document.body.appendChild(overlay);
+    return overlay;
+  }
 
-    overlay.innerHTML = `
+  getOverlayStyles() {
+    return `
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(145deg, rgba(0, 122, 255, 0.9), rgba(90, 200, 250, 0.9));
+      z-index: 10000; opacity: 0; transition: opacity 0.3s ease;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.2rem; font-weight: 600; backdrop-filter: blur(10px);
+    `;
+  }
+
+  getOverlayHTML() {
+    return `
       <div style="text-align: center;">
-        <div style="width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
+        <div class="loading-spinner"></div>
         <div>Loading...</div>
       </div>
     `;
+  }
 
-    // Add spinner animation
+  addSpinnerStyles() {
+    if (document.querySelector("#loading-spinner-styles")) return;
+
     const style = document.createElement("style");
+    style.id = "loading-spinner-styles";
     style.textContent = `
+      .loading-spinner {
+        width: 40px; height: 40px; margin: 0 auto 1rem;
+        border: 3px solid rgba(255,255,255,0.3);
+        border-top: 3px solid white; border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
       @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
     `;
     document.head.appendChild(style);
+  }
 
-    document.body.appendChild(overlay);
-
-    // Trigger animation
+  showTransitionOverlay(overlay) {
     requestAnimationFrame(() => {
       overlay.style.opacity = "1";
     });
+  }
 
-    // Clean up if navigation is slow
+  scheduleOverlayCleanup(overlay) {
     setTimeout(() => {
       if (overlay.parentNode) {
         overlay.remove();
