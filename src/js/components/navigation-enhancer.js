@@ -189,7 +189,10 @@ class NavigationEnhancer {
     const overlay = document.createElement("div");
     overlay.className = "page-transition-overlay";
     overlay.style.cssText = this.getOverlayStyles();
-    overlay.innerHTML = this.getOverlayHTML();
+
+    const content = this.createOverlayContent();
+    overlay.appendChild(content);
+
     document.body.appendChild(overlay);
     return overlay;
   }
