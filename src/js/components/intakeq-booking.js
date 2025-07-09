@@ -341,31 +341,37 @@ class IntakeQCategoryBooking {
   }
 
   createEmbeddedScript(serviceKey, serviceId) {
-    const widgetScript = document.createElement("script");
-    widgetScript.textContent = this.generateWidgetScript(serviceKey, serviceId);
-    document.head.appendChild(widgetScript);
+    // Replace dynamic script generation with direct DOM manipulation for security
+    this.initializeWidgetDOM(serviceKey, serviceId);
   }
 
-  generateWidgetScript(serviceKey, serviceId) {
+  initializeWidgetDOM(serviceKey, serviceId) {
     // Sanitize inputs to prevent code injection
     const sanitizedServiceKey = this.sanitizeScriptValue(serviceKey);
     const sanitizedServiceId = this.sanitizeScriptValue(serviceId);
 
-    return `
-      (function(c) {
-        var containerId = 'intakeq-widget-' + ${JSON.stringify(sanitizedServiceKey)};
-        var container = document.getElementById(containerId);
-        if (container && window.intakeq) {
-          window.intakeqServiceId = ${JSON.stringify(sanitizedServiceId)};
-          var widgetDiv = document.createElement('div');
-          widgetDiv.id = 'intakeq-' + ${JSON.stringify(sanitizedServiceKey)};
-          widgetDiv.style.maxWidth = '100%';
-          widgetDiv.style.width = '100%';
-          widgetDiv.style.minHeight = '400px';
-          container.appendChild(widgetDiv);
-        }
-      })(document);
-    `;
+    if (!sanitizedServiceKey || !sanitizedServiceId) return;
+
+    const containerId = `intakeq-widget-${sanitizedServiceKey}`;
+    const container = document.getElementById(containerId);
+
+    if (container && window.intakeq) {
+      // Set global service ID safely
+      window.intakeqServiceId = sanitizedServiceId;
+
+      // Create widget div using DOM methods instead of script injection
+      const widgetDiv = document.createElement("div");
+      widgetDiv.id = `intakeq-${sanitizedServiceKey}`;
+      widgetDiv.style.maxWidth = "100%";
+      widgetDiv.style.width = "100%";
+      widgetDiv.style.minHeight = "400px";
+
+      // Clear container and append widget
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
+      container.appendChild(widgetDiv);
+    }
   }
 
   sanitizeScriptValue(value) {
