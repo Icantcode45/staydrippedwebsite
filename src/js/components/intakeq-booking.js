@@ -213,21 +213,16 @@ class IntakeQCategoryBooking {
   buildWidgetContainer(service, serviceKey) {
     const container = document.createElement("div");
     container.className = "intakeq-service-widget";
-    container.innerHTML = this.getWidgetTemplate(service, serviceKey);
-    return container;
-  }
 
-  getWidgetTemplate(service, serviceKey) {
     const header = this.createWidgetHeader(service);
     const content = this.createWidgetContent(serviceKey);
     const fallback = this.createWidgetFallback(serviceKey);
 
-    const container = document.createElement("div");
     container.appendChild(header);
     container.appendChild(content);
     container.appendChild(fallback);
 
-    return container.innerHTML;
+    return container;
   }
 
   createWidgetHeader(service) {
