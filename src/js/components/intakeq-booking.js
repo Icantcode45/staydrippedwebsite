@@ -190,7 +190,7 @@ class IntakeQCategoryBooking {
 
     const container = document.getElementById(service.containerId);
     if (!ValidationUtils.isElementValid(container)) {
-      console.warn(`Container not found for service: ${serviceKey}`);
+      console.warn("Container not found for service");
       return;
     }
 
