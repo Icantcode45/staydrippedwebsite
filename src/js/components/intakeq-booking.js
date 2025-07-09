@@ -520,12 +520,11 @@ class IntakeQCategoryBooking {
 
   // Public methods for manual widget creation
   createBookingWidget(serviceKey, containerId) {
-    if (!this.services[serviceKey]) {
+    const service = this.getService(serviceKey);
+    if (!service) {
       console.error(`Service ${serviceKey} not found`);
       return;
     }
-
-    const service = this.services[serviceKey];
     service.containerId = containerId;
     this.createServiceWidget(serviceKey);
   }
