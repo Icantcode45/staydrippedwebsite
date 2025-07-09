@@ -549,7 +549,7 @@ class IntakeQCategoryBooking {
   createBookingWidget(serviceKey, containerId) {
     const service = this.getService(serviceKey);
     if (!service) {
-      console.error(`Service ${serviceKey} not found`);
+      console.error("Service not found");
       return;
     }
     service.containerId = containerId;
