@@ -356,8 +356,12 @@ class ScrollDepthTracker {
 
   // Public method to track custom events
   static track(action, category, parameters = {}) {
-    if (window.analyticsManager) {
-      window.analyticsManager.trackEvent(action, category, parameters);
+    if (window.stayDrippedApp && window.stayDrippedApp.analyticsManager) {
+      window.stayDrippedApp.analyticsManager.trackEvent(
+        action,
+        category,
+        parameters,
+      );
     }
   }
 }
