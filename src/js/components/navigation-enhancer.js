@@ -204,13 +204,20 @@ class NavigationEnhancer {
     `;
   }
 
-  getOverlayHTML() {
-    return `
-      <div style="text-align: center;">
-        <div class="loading-spinner"></div>
-        <div>Loading...</div>
-      </div>
-    `;
+  createOverlayContent() {
+    const container = document.createElement("div");
+    container.style.textAlign = "center";
+
+    const spinner = document.createElement("div");
+    spinner.className = "loading-spinner";
+
+    const text = document.createElement("div");
+    text.textContent = "Loading...";
+
+    container.appendChild(spinner);
+    container.appendChild(text);
+
+    return container;
   }
 
   addSpinnerStyles() {
