@@ -1698,25 +1698,23 @@
         });
       }
 
-      // Enhanced active nav link highlighting
-      function initNavHighlighting() {
-        const sections = document.querySelectorAll("section[id]");
+      // Global function for updating active nav links
+      function updateActiveNavLink(currentSection) {
         const navLinks = document.querySelectorAll(
           ".nav-link, .mobile-menu__link",
         );
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          const href = link.getAttribute("href");
+          if (href === `#${currentSection}` || href.includes(currentSection)) {
+            link.classList.add("active");
+          }
+        });
+      }
 
-        function updateActiveNavLink(currentSection) {
-          navLinks.forEach((link) => {
-            link.classList.remove("active");
-            const href = link.getAttribute("href");
-            if (
-              href === `#${currentSection}` ||
-              href.includes(currentSection)
-            ) {
-              link.classList.add("active");
-            }
-          });
-        }
+      // Enhanced active nav link highlighting
+      function initNavHighlighting() {
+        const sections = document.querySelectorAll("section[id]");
 
         window.addEventListener("scroll", () => {
           let current = "";
