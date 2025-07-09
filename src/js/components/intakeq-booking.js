@@ -587,7 +587,11 @@ class IntakeQCategoryBooking {
 
 // Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
-  window.IntakeQBooking = new IntakeQCategoryBooking();
+  // Store IntakeQ booking safely without polluting global namespace
+  if (!window.stayDrippedApp) {
+    window.stayDrippedApp = {};
+  }
+  window.stayDrippedApp.IntakeQBooking = new IntakeQCategoryBooking();
 });
 
 // Export for module usage
