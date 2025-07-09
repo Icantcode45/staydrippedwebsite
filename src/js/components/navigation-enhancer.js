@@ -345,7 +345,9 @@ class NavigationEnhancer {
   addStickyBackToTop() {
     const backToTop = document.createElement("button");
     backToTop.className = "btn btn--floating back-to-top";
-    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    const icon = document.createElement("i");
+    icon.className = "fas fa-arrow-up";
+    backToTop.appendChild(icon);
     backToTop.setAttribute("aria-label", "Back to top");
 
     backToTop.style.cssText = `
