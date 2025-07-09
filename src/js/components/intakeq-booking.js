@@ -286,9 +286,12 @@ class IntakeQCategoryBooking {
   }
 
   renderWidgetContainer(container, widgetContainer) {
-    // Clear container safely
-    while (container.firstChild) {
+    // Clear container safely with loop protection
+    let attempts = 0;
+    const maxAttempts = 100; // Prevent infinite loops
+    while (container.firstChild && attempts < maxAttempts) {
       container.removeChild(container.firstChild);
+      attempts++;
     }
     container.appendChild(widgetContainer);
   }
