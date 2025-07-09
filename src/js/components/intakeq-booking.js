@@ -332,7 +332,7 @@ class IntakeQCategoryBooking {
 
   createEmbeddedScript(serviceKey, serviceId) {
     const widgetScript = document.createElement("script");
-    widgetScript.innerHTML = this.generateWidgetScript(serviceKey, serviceId);
+    widgetScript.textContent = this.generateWidgetScript(serviceKey, serviceId);
     document.head.appendChild(widgetScript);
   }
 
