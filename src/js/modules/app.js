@@ -103,7 +103,8 @@ class App {
   handleRejection(event) {
     event.preventDefault();
     if (this.isDebug) {
-      console.error("Unhandled promise rejection:", event.reason?.toString());
+      // Log sanitized error message to prevent information disclosure
+      console.error("Unhandled promise rejection occurred");
     }
   }
 
