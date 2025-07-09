@@ -281,9 +281,15 @@ class AnalyticsManager {
   }
 
   processQueue() {
-    while (this.trackingQueue.length > 0) {
+    // Process queue with loop protection to prevent infinite loops
+    let attempts = 0;
+    const maxAttempts = 1000; // Prevent infinite loops
+    while (this.trackingQueue.length > 0 && attempts < maxAttempts) {
       const event = this.trackingQueue.shift();
-      this.trackEvent(event.action, event.category, event);
+      if (event && event.action && event.category) {
+        this.trackEvent(event.action, event.category, event);
+      }
+      attempts++;
     }
   }
 
