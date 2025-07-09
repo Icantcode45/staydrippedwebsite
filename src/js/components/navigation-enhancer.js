@@ -463,41 +463,63 @@ class NavigationEnhancer {
   }
 
   showPageNotFound(href) {
-    const modal = document.createElement("div");
-    modal.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-    `;
+    const modal = this.createModal();
+    const content = this.createModalContent();
 
-    modal.innerHTML = `
-      <div style="
-        background: white;
-        padding: 2rem;
-        border-radius: 1rem;
-        text-align: center;
-        max-width: 400px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      ">
-        <h3 style="margin-bottom: 1rem; color: #ff3b30;">Page Not Found</h3>
-        <p style="margin-bottom: 2rem; color: #666;">The page you're looking for is coming soon!</p>
-        <button class="btn btn--primary" onclick="this.closest('[style*=fixed]').remove()">
-          OK
-        </button>
-      </div>
-    `;
-
+    modal.appendChild(content);
     document.body.appendChild(modal);
 
+    this.scheduleModalCleanup(modal);
+  }
+
+  createModal() {
+    const modal = document.createElement("div");
+    modal.style.cssText = `
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8); display: flex;
+      align-items: center; justify-content: center; z-index: 10000;
+    `;
+    return modal;
+  }
+
+  createModalContent() {
+    const content = document.createElement("div");
+    content.style.cssText = `
+      background: white; padding: 2rem; border-radius: 1rem;
+      text-align: center; max-width: 400px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    `;
+
+    const title = document.createElement("h3");
+    title.textContent = "Page Not Found";
+    title.style.cssText = "margin-bottom: 1rem; color: #ff3b30;";
+
+    const message = document.createElement("p");
+    message.textContent = "The page you're looking for is coming soon!";
+    message.style.cssText = "margin-bottom: 2rem; color: #666;";
+
+    const button = document.createElement("button");
+    button.className = "btn btn--primary";
+    button.textContent = "OK";
+    button.addEventListener("click", (e) => {
+      const modal = e.target.closest('[style*="position: fixed"]');
+      if (modal) {
+        modal.remove();
+      }
+    });
+
+    content.appendChild(title);
+    content.appendChild(message);
+    content.appendChild(button);
+
+    return content;
+  }
+
+  scheduleModalCleanup(modal) {
     setTimeout(() => {
-      modal.remove();
+      if (modal.parentNode) {
+        modal.remove();
+      }
     }, 5000);
   }
 
