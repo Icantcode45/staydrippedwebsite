@@ -184,8 +184,18 @@ class App {
 
     // Copy to clipboard functionality
     document.addEventListener("click", (e) => {
-      if (e.target.matches("[data-copy]")) {
-        this.copyToClipboard(e.target.dataset.copy);
+      const target = e.target;
+      if (
+        target &&
+        target.matches("[data-copy]") &&
+        target.dataset &&
+        target.dataset.copy
+      ) {
+        // Validate the copy value to prevent abuse
+        const copyValue = target.dataset.copy;
+        if (typeof copyValue === "string" && copyValue.length < 1000) {
+          this.copyToClipboard(copyValue);
+        }
       }
     });
   }
