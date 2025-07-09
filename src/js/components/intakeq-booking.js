@@ -337,14 +337,18 @@ class IntakeQCategoryBooking {
   }
 
   generateWidgetScript(serviceKey, serviceId) {
+    // Sanitize inputs to prevent code injection
+    const sanitizedServiceKey = this.sanitizeScriptValue(serviceKey);
+    const sanitizedServiceId = this.sanitizeScriptValue(serviceId);
+
     return `
       (function(c) {
-        var containerId = 'intakeq-widget-${serviceKey}';
+        var containerId = 'intakeq-widget-' + ${JSON.stringify(sanitizedServiceKey)};
         var container = document.getElementById(containerId);
         if (container && window.intakeq) {
-          window.intakeqServiceId = '${serviceId}';
+          window.intakeqServiceId = ${JSON.stringify(sanitizedServiceId)};
           var widgetDiv = document.createElement('div');
-          widgetDiv.id = 'intakeq-${serviceKey}';
+          widgetDiv.id = 'intakeq-' + ${JSON.stringify(sanitizedServiceKey)};
           widgetDiv.style.maxWidth = '100%';
           widgetDiv.style.width = '100%';
           widgetDiv.style.minHeight = '400px';
@@ -352,6 +356,12 @@ class IntakeQCategoryBooking {
         }
       })(document);
     `;
+  }
+
+  sanitizeScriptValue(value) {
+    if (typeof value !== "string") return "";
+    // Only allow alphanumeric characters, hyphens, and underscores
+    return value.replace(/[^a-zA-Z0-9_-]/g, "");
   }
 
   renderWidgetError(error, embedContainer, serviceKey) {
