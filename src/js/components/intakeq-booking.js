@@ -180,7 +180,7 @@ class IntakeQCategoryBooking {
   }
 
   createServiceWidget(serviceKey) {
-    const service = this.services[serviceKey];
+    const service = this.getService(serviceKey);
 
     if (!ValidationUtils.isValidServiceConfig(service)) {
       console.error(`Invalid service configuration for ${serviceKey}`);
