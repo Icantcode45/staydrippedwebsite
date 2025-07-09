@@ -555,6 +555,19 @@ class NavigationEnhancer {
     return /^[a-zA-Z0-9_-]+$/.test(redirect) && redirect.length < 50;
   }
 
+  isValidPageHref(href) {
+    if (!href || typeof href !== "string") return false;
+
+    // Allow relative paths to pages and anchor links
+    return (
+      /^pages\/[a-zA-Z0-9_-]+\.html$/.test(href) ||
+      /^#[a-zA-Z0-9_-]+$/.test(href) ||
+      /^\.\.?\/pages\/[a-zA-Z0-9_-]+\.html$/.test(href) ||
+      href === "/" ||
+      href === "./index.html"
+    );
+  }
+
   enhanceButtonInteractions() {
     // Add enhanced 3D button effects to all buttons
     const buttons = document.querySelectorAll(".btn");
