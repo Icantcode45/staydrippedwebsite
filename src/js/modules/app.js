@@ -95,7 +95,8 @@ class App {
 
   handleError(event) {
     if (this.isDebug) {
-      console.error("Global error:", event.message || "Unknown error");
+      // Log sanitized error message to prevent information disclosure
+      console.error("Global error occurred");
     }
   }
 
