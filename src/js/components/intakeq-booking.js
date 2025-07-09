@@ -403,9 +403,12 @@ class IntakeQCategoryBooking {
     errorDiv.appendChild(message);
     errorDiv.appendChild(button);
 
-    // Clear container safely
-    while (embedContainer.firstChild) {
+    // Clear container safely with loop protection
+    let attempts = 0;
+    const maxAttempts = 100; // Prevent infinite loops
+    while (embedContainer.firstChild && attempts < maxAttempts) {
       embedContainer.removeChild(embedContainer.firstChild);
+      attempts++;
     }
     embedContainer.appendChild(errorDiv);
   }
