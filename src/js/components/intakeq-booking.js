@@ -438,7 +438,7 @@ class IntakeQCategoryBooking {
   openDirectBookingUrl(serviceKey) {
     const service = this.getService(serviceKey);
     if (!service || !service.id) {
-      console.error(`Invalid service for booking: ${serviceKey}`);
+      console.error("Invalid service for booking");
       return;
     }
 
