@@ -233,7 +233,8 @@ class App {
       await navigator.clipboard.writeText(text);
       this.showToast("Copied to clipboard!");
     } catch (err) {
-      console.error("Failed to copy: ", err);
+      // Log sanitized error message to prevent information disclosure
+      console.error("Failed to copy");
       this.showToast("Failed to copy", "error");
     }
   }
