@@ -342,14 +342,6 @@ class ScrollDepthTracker {
     });
   }
 
-  sendToCustomAnalytics(eventData) {
-    // Implement custom analytics endpoint if needed
-    // This could be your own analytics server or third-party service
-    if (this.isDebug) {
-      console.log("Analytics Event:", eventData);
-    }
-  }
-
   // Public method to track custom events
   static track(action, category, parameters = {}) {
     if (window.analyticsManager) {
