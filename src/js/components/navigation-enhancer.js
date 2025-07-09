@@ -76,6 +76,12 @@ class NavigationEnhancer {
 
   enhancePageLink(link) {
     const href = link.getAttribute("href");
+
+    // Validate href to prevent malicious URLs
+    if (!this.isValidPageHref(href)) {
+      return;
+    }
+
     const cleanHref = href.startsWith("/") ? href : `/${href}`;
 
     // Ensure proper linking from any page level
