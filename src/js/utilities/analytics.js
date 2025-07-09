@@ -179,14 +179,24 @@ class AnalyticsManager {
   }
 
   giveConsent() {
-    localStorage.setItem("analytics_consent", "true");
-    this.consentGiven = true;
-    this.enableTracking();
+    try {
+      localStorage.setItem("analytics_consent", "true");
+      this.consentGiven = true;
+      this.enableTracking();
+    } catch (error) {
+      // Handle localStorage write errors
+      console.warn("Unable to store consent preference:", error);
+    }
   }
 
   rejectConsent() {
-    localStorage.setItem("analytics_consent", "false");
-    this.consentGiven = false;
+    try {
+      localStorage.setItem("analytics_consent", "false");
+      this.consentGiven = false;
+    } catch (error) {
+      // Handle localStorage write errors
+      console.warn("Unable to store consent preference:", error);
+    }
   }
 
   setupEventListeners() {
