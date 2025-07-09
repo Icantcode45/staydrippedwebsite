@@ -364,6 +364,10 @@ class ScrollDepthTracker {
 
 // Initialize analytics manager
 const analyticsManager = new AnalyticsManager();
-window.analyticsManager = analyticsManager;
+// Store analytics manager safely without polluting global namespace
+if (!window.stayDrippedApp) {
+  window.stayDrippedApp = {};
+}
+window.stayDrippedApp.analyticsManager = analyticsManager;
 
 export default AnalyticsManager;
