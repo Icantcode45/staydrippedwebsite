@@ -162,12 +162,9 @@ class IntakeQWidgetManager {
       window.intakeq = this.services.baseConfig.accountId;
       window.intakeqServiceId = widgetData.service.id;
 
-      // Create widget HTML safely
-      const widgetHtml = this.createWidgetHTML(widgetData.service);
-      // Use safe DOM manipulation instead of innerHTML
-      const tempDiv = document.createElement("div");
-      tempDiv.innerHTML = widgetHtml;
-      container.replaceChildren(...tempDiv.children);
+      // Create widget HTML safely using DOM methods
+      const widgetElement = this.createWidgetElement(widgetData.service);
+      container.replaceChildren(widgetElement);
 
       // Load IntakeQ script
       await this.loadIntakeQScript();
