@@ -220,10 +220,13 @@ class IntakeQManager {
       // Create button that opens IntakeQ booking
       const bookingButton = document.createElement("button");
       bookingButton.className = "intakeq-booking-btn btn btn-primary";
-      bookingButton.innerHTML = `
-        <i class="fas fa-calendar-plus"></i>
-        Book ${config.name}
-      `;
+      // Create button content safely
+      const icon = document.createElement("i");
+      icon.className = "fas fa-calendar-plus";
+      bookingButton.appendChild(icon);
+      bookingButton.appendChild(
+        document.createTextNode(` Book ${config.name}`),
+      );
 
       bookingButton.addEventListener("click", () => {
         this.openBookingWidget(config.serviceId);
