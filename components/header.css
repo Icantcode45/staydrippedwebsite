@@ -77,14 +77,17 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  transition: all var(--transition-base);
-  border-radius: var(--radius-lg);
-  padding: 0.5rem;
+  transition: all 0.4s var(--header-animation-spring);
+  border-radius: 1rem;
+  padding: 0.75rem;
   position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .site-logo:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px) translateZ(4px) scale(1.05);
+  filter: drop-shadow(0 8px 16px rgb(var(--header-shadow-color) / 0.15));
 }
 
 .site-logo:focus {
@@ -121,29 +124,39 @@
 
 .main-nav__link {
   display: block;
-  padding: 0.75rem 1.25rem;
-  color: var(--color-gray-700);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--text-base);
+  padding: 0.875rem 1.5rem;
+  color: var(--color-gray-700, #374151);
+  font-weight: var(--font-weight-medium, 500);
+  font-size: var(--text-base, 1rem);
   text-decoration: none;
-  border-radius: var(--radius-xl);
-  transition: all var(--transition-base);
+  border-radius: 1rem;
+  transition: all 0.35s var(--header-animation-spring);
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .main-nav__link::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgb(0 122 255 / 10%),
-    rgb(90 200 250 / 10%)
-  );
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgb(var(--header-shadow-color) / 0.15) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      135deg,
+      rgb(var(--header-shadow-color) / 0.08),
+      rgb(90 200 250 / 0.12)
+    );
   opacity: 0;
-  transition: opacity var(--transition-base);
+  transition: all 0.35s var(--header-animation-spring);
   border-radius: inherit;
+  transform: translateZ(-1px);
 }
 
 .main-nav__link:hover::before {
@@ -151,9 +164,13 @@
 }
 
 .main-nav__link:hover {
-  color: var(--color-primary);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgb(0 122 255 / 15%);
+  color: var(--color-primary, #007aff);
+  transform: translateY(-3px) translateZ(6px) scale(1.02);
+  box-shadow:
+    0 8px 24px rgb(var(--header-shadow-color) / 0.2),
+    0 4px 12px rgb(var(--header-shadow-color) / 0.15),
+    inset 0 1px 2px rgb(255 255 255 / 0.8);
+  filter: brightness(1.05);
 }
 
 .main-nav__link:focus {
