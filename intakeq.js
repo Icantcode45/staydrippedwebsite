@@ -197,10 +197,11 @@ class IntakeQManager {
       fallbackLink.target = "_blank";
       fallbackLink.rel = "noopener noreferrer";
       fallbackLink.className = "intakeq-fallback-link btn btn-outline";
-      fallbackLink.innerHTML = `
-        <i class="fas fa-external-link-alt"></i>
-        Book ${config.name}
-      `;
+      // Create fallback link content safely
+      const icon = document.createElement("i");
+      icon.className = "fas fa-external-link-alt";
+      fallbackLink.appendChild(icon);
+      fallbackLink.appendChild(document.createTextNode(` Book ${config.name}`));
 
       container.replaceChildren();
       container.appendChild(fallbackLink);
@@ -247,10 +248,11 @@ class IntakeQManager {
       fallbackLink.target = "_blank";
       fallbackLink.rel = "noopener noreferrer";
       fallbackLink.className = "intakeq-fallback-link btn btn-outline";
-      fallbackLink.innerHTML = `
-        <i class="fas fa-external-link-alt"></i>
-        Book ${config.name}
-      `;
+      // Create fallback link content safely
+      const icon = document.createElement("i");
+      icon.className = "fas fa-external-link-alt";
+      fallbackLink.appendChild(icon);
+      fallbackLink.appendChild(document.createTextNode(` Book ${config.name}`));
 
       container.replaceChildren();
       container.appendChild(fallbackLink);
