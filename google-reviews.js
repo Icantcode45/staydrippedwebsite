@@ -215,17 +215,55 @@ class GoogleReviewsWidget {
           .toUpperCase()
       : '??';
 
-    card.innerHTML = `
-      <div class="review-header">
-        <div class="reviewer-avatar">
-          ${avatarContent}
-          <div class="avatar-fallback" style="${reviewData.avatar ? 'display: none' : 'display: flex'}">${avatarFallback}</div>
-        </div>
-        <div class="reviewer-info">
-          <h4 class="reviewer-name">${reviewData.name || 'Anonymous'}</h4>
-          <div class="review-stars">${'★'.repeat(reviewData.rating || 5)}</div>
-          <div class="review-date">${reviewData.date || 'Recently'}</div>
-        </div>
+        // Create elements safely to prevent XSS
+    card.replaceChildren();
+
+    const reviewHeader = document.createElement('div');
+    reviewHeader.className = 'review-header';
+
+    const reviewerAvatar = document.createElement('div');
+    reviewerAvatar.className = 'reviewer-avatar';
+
+    if (reviewData.avatar) {
+      const avatarImg = document.createElement('img');
+      avatarImg.src = reviewData.avatar;
+      avatarImg.alt = 'Reviewer avatar';
+      reviewerAvatar.appendChild(avatarImg);
+    }
+
+    const avatarFallback = document.createElement('div');
+    avatarFallback.className = 'avatar-fallback';
+    avatarFallback.style.display = reviewData.avatar ? 'none' : 'flex';
+    avatarFallback.textContent = reviewData.name
+      ? reviewData.name
+          .split(' ')
+          .map((n) => n.charAt(0))
+          .join('')
+          .toUpperCase()
+      : '??';
+    reviewerAvatar.appendChild(avatarFallback);
+
+    const reviewerInfo = document.createElement('div');
+    reviewerInfo.className = 'reviewer-info';
+
+    const reviewerName = document.createElement('h4');
+    reviewerName.className = 'reviewer-name';
+    reviewerName.textContent = reviewData.name || 'Anonymous';
+
+    const reviewStars = document.createElement('div');
+    reviewStars.className = 'review-stars';
+    reviewStars.textContent = '★'.repeat(Math.max(1, Math.min(5, reviewData.rating || 5)));
+
+    const reviewDate = document.createElement('div');
+    reviewDate.className = 'review-date';
+    reviewDate.textContent = reviewData.date || 'Recently';
+
+    reviewerInfo.appendChild(reviewerName);
+    reviewerInfo.appendChild(reviewStars);
+    reviewerInfo.appendChild(reviewDate);
+
+    reviewHeader.appendChild(reviewerAvatar);
+    reviewHeader.appendChild(reviewerInfo);
         <div class="google-icon">
           <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
             <path d="M47.532 24.43C47.532 22.437 47.362 20.443 47.005 18.496H24V29.595H36.4229C35.8571 32.487 34.3829 35.0972 32.112 36.8676V43.0027H39.9548C44.6762 38.618 47.532 31.808 47.532 24.43Z" fill="#4285F4"/>
