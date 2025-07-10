@@ -8,25 +8,25 @@ class AdvancedInteractions {
     try {
       this.init();
     } catch (error) {
-      console.warn('AdvancedInteractions initialization error:', error);
+      console.warn("AdvancedInteractions initialization error:", error);
     }
   }
 
   init() {
     const methods = [
-      'setupAdvancedScrollEffects',
-      'setupMagneticButtons',
-      'setupTextAnimations',
-      'setupParticleBackground',
-      'setupSmoothReveal',
-      'setupAdvancedFAQ',
-      'setupPerformanceOptimization',
-      'setupAccessibilityEnhancements',
+      "setupAdvancedScrollEffects",
+      "setupMagneticButtons",
+      "setupTextAnimations",
+      "setupParticleBackground",
+      "setupSmoothReveal",
+      "setupAdvancedFAQ",
+      "setupPerformanceOptimization",
+      "setupAccessibilityEnhancements",
     ];
 
     methods.forEach((methodName) => {
       try {
-        if (typeof this[methodName] === 'function') {
+        if (typeof this[methodName] === "function") {
           this[methodName]();
         }
       } catch (error) {
@@ -42,14 +42,14 @@ class AdvancedInteractions {
 
     const updateScrollEffects = () => {
       const scrollY = window.scrollY;
-      const scrollDirection = scrollY > lastScrollY ? 'down' : 'up';
+      const scrollDirection = scrollY > lastScrollY ? "down" : "up";
       const scrollPercentage =
         (scrollY /
           (document.documentElement.scrollHeight - window.innerHeight)) *
         100;
 
       // Header background opacity
-      const header = document.querySelector('header');
+      const header = document.querySelector("header");
       if (header) {
         const opacity = Math.min(scrollY / 100, 0.95);
         header.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
@@ -58,7 +58,7 @@ class AdvancedInteractions {
 
       // Floating cards effect
       const cards = document.querySelectorAll(
-        '.card, .service-card, .how-it-works-step',
+        ".card, .service-card, .how-it-works-step",
       );
       cards.forEach((card, index) => {
         const rect = card.getBoundingClientRect();
@@ -74,13 +74,13 @@ class AdvancedInteractions {
       });
 
       // Section reveal effects
-      const sections = document.querySelectorAll('section');
+      const sections = document.querySelectorAll("section");
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight * 0.8;
 
-        if (isVisible && !section.classList.contains('revealed')) {
-          section.classList.add('revealed');
+        if (isVisible && !section.classList.contains("revealed")) {
+          section.classList.add("revealed");
           this.triggerSectionAnimations(section);
         }
       });
@@ -96,10 +96,10 @@ class AdvancedInteractions {
       }
     };
 
-    window.addEventListener('scroll', requestTick, { passive: true });
+    window.addEventListener("scroll", requestTick, { passive: true });
 
     // Add CSS for scroll effects
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
       .revealed .animate-slide-up {
         animation: advancedSlideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -128,11 +128,11 @@ class AdvancedInteractions {
   // Magnetic Button Effects
   setupMagneticButtons() {
     const buttons = document.querySelectorAll(
-      '.btn-primary, .btn-secondary, .booking-btn, .premium-btn',
+      ".btn-primary, .btn-secondary, .booking-btn, .premium-btn",
     );
 
     buttons.forEach((button) => {
-      button.addEventListener('mousemove', (e) => {
+      button.addEventListener("mousemove", (e) => {
         const rect = button.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
@@ -158,9 +158,9 @@ class AdvancedInteractions {
         `;
       });
 
-      button.addEventListener('mouseleave', () => {
-        button.style.transform = '';
-        button.style.background = '';
+      button.addEventListener("mouseleave", () => {
+        button.style.transform = "";
+        button.style.background = "";
       });
     });
   }
@@ -169,21 +169,21 @@ class AdvancedInteractions {
   setupTextAnimations() {
     const animateText = (element) => {
       const text = element.textContent;
-      element.innerHTML = '';
+      element.replaceChildren();
 
-      text.split('').forEach((char, index) => {
-        const span = document.createElement('span');
-        span.textContent = char === ' ' ? '\u00A0' : char;
-        span.style.display = 'inline-block';
-        span.style.opacity = '0';
-        span.style.transform = 'translateY(20px) rotateX(90deg)';
+      text.split("").forEach((char, index) => {
+        const span = document.createElement("span");
+        span.textContent = char === " " ? "\u00A0" : char;
+        span.style.display = "inline-block";
+        span.style.opacity = "0";
+        span.style.transform = "translateY(20px) rotateX(90deg)";
         span.style.transition = `all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.03}s`;
         element.appendChild(span);
 
         setTimeout(
           () => {
-            span.style.opacity = '1';
-            span.style.transform = 'translateY(0) rotateX(0)';
+            span.style.opacity = "1";
+            span.style.transform = "translateY(0) rotateX(0)";
           },
           100 + index * 30,
         );
@@ -191,7 +191,7 @@ class AdvancedInteractions {
     };
 
     const textElements = document.querySelectorAll(
-      '.how-it-works-title, .faq-title, .booking-title, .testimonials-title',
+      ".how-it-works-title, .faq-title, .booking-title, .testimonials-title",
     );
 
     const textObserver = new IntersectionObserver(
@@ -199,9 +199,9 @@ class AdvancedInteractions {
         entries.forEach((entry) => {
           if (
             entry.isIntersecting &&
-            !entry.target.classList.contains('text-animated')
+            !entry.target.classList.contains("text-animated")
           ) {
-            entry.target.classList.add('text-animated');
+            entry.target.classList.add("text-animated");
             animateText(entry.target);
           }
         });
@@ -215,8 +215,8 @@ class AdvancedInteractions {
   // Particle Background Effect
   setupParticleBackground() {
     const createParticle = (container) => {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
+      const particle = document.createElement("div");
+      particle.className = "particle";
 
       const size = Math.random() * 4 + 1;
       const x = Math.random() * container.offsetWidth;
@@ -242,13 +242,13 @@ class AdvancedInteractions {
       }, 16000);
     };
 
-    const heroSection = document.querySelector('.hero');
-    const bookingSection = document.querySelector('.booking-section');
+    const heroSection = document.querySelector(".hero");
+    const bookingSection = document.querySelector(".booking-section");
 
     [heroSection, bookingSection].forEach((section) => {
       if (section) {
-        section.style.position = 'relative';
-        section.style.overflow = 'hidden';
+        section.style.position = "relative";
+        section.style.overflow = "hidden";
 
         setInterval(() => {
           if (Math.random() < 0.3) {
@@ -262,7 +262,7 @@ class AdvancedInteractions {
   // Smooth Reveal Animations
   setupSmoothReveal() {
     const revealElements = document.querySelectorAll(
-      '.card, .service-card, .how-it-works-step, .faq-item',
+      ".card, .service-card, .how-it-works-step, .faq-item",
     );
 
     const revealObserver = new IntersectionObserver(
@@ -270,78 +270,78 @@ class AdvancedInteractions {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0) scale(1)';
-              entry.target.style.filter = 'blur(0)';
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0) scale(1)";
+              entry.target.style.filter = "blur(0)";
             }, index * 150);
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: '-50px 0px',
+        rootMargin: "-50px 0px",
       },
     );
 
     revealElements.forEach((el) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(60px) scale(0.9)';
-      el.style.filter = 'blur(5px)';
-      el.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      el.style.opacity = "0";
+      el.style.transform = "translateY(60px) scale(0.9)";
+      el.style.filter = "blur(5px)";
+      el.style.transition = "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
       revealObserver.observe(el);
     });
   }
 
   // Advanced FAQ Interactions
   setupAdvancedFAQ() {
-    const faqItems = document.querySelectorAll('.faq-item');
+    const faqItems = document.querySelectorAll(".faq-item");
 
     faqItems.forEach((item, index) => {
-      const summary = item.querySelector('.faq-summary');
-      const answer = item.querySelector('.faq-answer');
+      const summary = item.querySelector(".faq-summary");
+      const answer = item.querySelector(".faq-answer");
 
       if (summary && answer) {
-        summary.addEventListener('click', (e) => {
+        summary.addEventListener("click", (e) => {
           e.preventDefault();
 
           // Close other items
           faqItems.forEach((otherItem) => {
-            if (otherItem !== item && otherItem.hasAttribute('open')) {
-              otherItem.removeAttribute('open');
-              const otherAnswer = otherItem.querySelector('.faq-answer');
+            if (otherItem !== item && otherItem.hasAttribute("open")) {
+              otherItem.removeAttribute("open");
+              const otherAnswer = otherItem.querySelector(".faq-answer");
               if (otherAnswer) {
-                otherAnswer.style.maxHeight = '0';
-                otherAnswer.style.opacity = '0';
+                otherAnswer.style.maxHeight = "0";
+                otherAnswer.style.opacity = "0";
               }
             }
           });
 
           // Toggle current item
-          if (item.hasAttribute('open')) {
-            item.removeAttribute('open');
-            answer.style.maxHeight = '0';
-            answer.style.opacity = '0';
+          if (item.hasAttribute("open")) {
+            item.removeAttribute("open");
+            answer.style.maxHeight = "0";
+            answer.style.opacity = "0";
           } else {
-            item.setAttribute('open', '');
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-            answer.style.opacity = '1';
+            item.setAttribute("open", "");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            answer.style.opacity = "1";
 
             // Scroll to item
             setTimeout(() => {
               item.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
+                behavior: "smooth",
+                block: "nearest",
               });
             }, 300);
           }
         });
 
         // Initialize styles
-        answer.style.maxHeight = '0';
-        answer.style.opacity = '0';
+        answer.style.maxHeight = "0";
+        answer.style.opacity = "0";
         answer.style.transition =
-          'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        answer.style.overflow = 'hidden';
+          "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+        answer.style.overflow = "hidden";
       }
     });
   }
@@ -350,7 +350,7 @@ class AdvancedInteractions {
   setupPerformanceOptimization() {
     // Throttle resize events
     let resizeTimeout;
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         this.recalculateAnimations();
@@ -362,9 +362,9 @@ class AdvancedInteractions {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('in-viewport');
+            entry.target.classList.add("in-viewport");
           } else {
-            entry.target.classList.remove('in-viewport');
+            entry.target.classList.remove("in-viewport");
           }
         });
       },
@@ -372,13 +372,13 @@ class AdvancedInteractions {
     );
 
     document
-      .querySelectorAll('.animate-float, .animate-pulse-glow')
+      .querySelectorAll(".animate-float, .animate-pulse-glow")
       .forEach((el) => {
         performanceObserver.observe(el);
       });
 
     // Add CSS for performance optimization
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
       .animate-float:not(.in-viewport),
       .animate-pulse-glow:not(.in-viewport) {
@@ -397,16 +397,16 @@ class AdvancedInteractions {
   setupAccessibilityEnhancements() {
     // Keyboard navigation for custom elements
     const interactiveElements = document.querySelectorAll(
-      '.faq-summary, .card, .service-card',
+      ".faq-summary, .card, .service-card",
     );
 
     interactiveElements.forEach((element) => {
-      if (!element.hasAttribute('tabindex')) {
-        element.setAttribute('tabindex', '0');
+      if (!element.hasAttribute("tabindex")) {
+        element.setAttribute("tabindex", "0");
       }
 
-      element.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+      element.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           element.click();
         }
@@ -414,23 +414,23 @@ class AdvancedInteractions {
     });
 
     // Focus management
-    document.addEventListener('focusin', (e) => {
-      if (e.target.classList.contains('faq-summary')) {
-        e.target.style.outline = '3px solid rgba(0, 229, 255, 0.5)';
-        e.target.style.outlineOffset = '2px';
+    document.addEventListener("focusin", (e) => {
+      if (e.target.classList.contains("faq-summary")) {
+        e.target.style.outline = "3px solid rgba(0, 229, 255, 0.5)";
+        e.target.style.outlineOffset = "2px";
       }
     });
 
-    document.addEventListener('focusout', (e) => {
-      if (e.target.classList.contains('faq-summary')) {
-        e.target.style.outline = '';
-        e.target.style.outlineOffset = '';
+    document.addEventListener("focusout", (e) => {
+      if (e.target.classList.contains("faq-summary")) {
+        e.target.style.outline = "";
+        e.target.style.outlineOffset = "";
       }
     });
 
     // Reduced motion handling
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const style = document.createElement('style');
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const style = document.createElement("style");
       style.textContent = `
         *, *::before, *::after {
           animation-duration: 0.01ms !important;
@@ -444,34 +444,34 @@ class AdvancedInteractions {
 
   // Helper Methods
   triggerSectionAnimations(section) {
-    const animatedElements = section.querySelectorAll('.animate-slide-up');
+    const animatedElements = section.querySelectorAll(".animate-slide-up");
     animatedElements.forEach((el, index) => {
       setTimeout(() => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
       }, index * 100);
     });
   }
 
   recalculateAnimations() {
     // Recalculate animation positions on resize
-    const animatedElements = document.querySelectorAll('.card, .service-card');
+    const animatedElements = document.querySelectorAll(".card, .service-card");
     animatedElements.forEach((el) => {
-      el.style.transform = '';
+      el.style.transform = "";
     });
   }
 }
 
 // Initialize when DOM is loaded safely
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   try {
     new AdvancedInteractions();
   } catch (error) {
-    console.warn('AdvancedInteractions initialization error:', error);
+    console.warn("AdvancedInteractions initialization error:", error);
   }
 });
 
 // Export for potential module use
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = AdvancedInteractions;
 }
