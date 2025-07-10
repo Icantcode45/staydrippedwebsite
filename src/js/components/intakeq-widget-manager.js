@@ -37,15 +37,20 @@ class IntakeQWidgetManager {
       return;
     }
 
-    // Dynamically load services data if not available
+    // Safely load services data if not available
     try {
-      const response = await fetch("/assets/js/services-data.js");
-      const script = await response.text();
-      eval(script);
+      // Use dynamic import instead of eval() for security
+      const module = await import("/assets/js/services-data.js");
       this.services = window.STAY_DRIPPED_SERVICES;
     } catch (error) {
-      console.error("Failed to load services data:", error);
-      throw error;
+      // Fallback to script tag method
+      try {
+        await this.loadServicesScript();
+        this.services = window.STAY_DRIPPED_SERVICES;
+      } catch (fallbackError) {
+        console.error("Failed to load services data:", fallbackError);
+        throw fallbackError;
+      }
     }
   }
 
