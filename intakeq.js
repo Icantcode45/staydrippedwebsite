@@ -193,7 +193,12 @@ class IntakeQManager {
 
       // Fallback: create a direct link
       const fallbackLink = document.createElement("a");
-      fallbackLink.href = `https://Staydripped.intakeq.com/booking?categoryId=${config.categoryId}`;
+      // Safely construct URL with proper encoding
+      const baseUrl = "https://Staydripped.intakeq.com/booking";
+      const params = new URLSearchParams({
+        categoryId: String(config.categoryId),
+      });
+      fallbackLink.href = `${baseUrl}?${params.toString()}`;
       fallbackLink.target = "_blank";
       fallbackLink.rel = "noopener noreferrer";
       fallbackLink.className = "intakeq-fallback-link btn btn-outline";
@@ -201,7 +206,9 @@ class IntakeQManager {
       const icon = document.createElement("i");
       icon.className = "fas fa-external-link-alt";
       fallbackLink.appendChild(icon);
-      fallbackLink.appendChild(document.createTextNode(` Book ${config.name}`));
+      // Safely add text content
+      const safeName = String(config.name || "Service").replace(/[<>"'&]/g, "");
+      fallbackLink.appendChild(document.createTextNode(` Book ${safeName}`));
 
       container.replaceChildren();
       container.appendChild(fallbackLink);
