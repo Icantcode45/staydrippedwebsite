@@ -233,7 +233,8 @@ class IntakeQWidgetManager {
     // Clear any existing IntakeQ widgets
     const existingWidgets = document.querySelectorAll("#intakeq");
     existingWidgets.forEach((widget) => {
-      widget.innerHTML = "";
+      // Use safe DOM manipulation
+      widget.replaceChildren();
     });
 
     // Clear IntakeQ globals
