@@ -1,5 +1,5 @@
 /**
- * Premium IntakeQ Widget Manager
+ * Premium IntakeQ Widget Manager - Security Enhanced
  * Handles loading and managing IntakeQ booking widgets for each service
  */
 
@@ -68,91 +68,82 @@ class IntakeQWidgetManager {
     // Listen for booking button clicks
     document.addEventListener("click", (e) => {
       const bookingBtn = e.target.closest("[data-service-booking]");
-      if (bookingBtn) {
+      if (bookingBtn && this.initialized) {
         e.preventDefault();
-        const serviceKey = bookingBtn.getAttribute("data-service-booking");
-        this.openServiceBooking(serviceKey);
+        const serviceId = bookingBtn.dataset.serviceBooking;
+        this.loadWidget(bookingBtn.closest(".intakeq-widget-container"));
       }
     });
 
-    // Listen for widget container creation
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            const widgetContainers = node.matches?.(".intakeq-widget-container")
-              ? [node]
-              : Array.from(
-                  node.querySelectorAll?.(".intakeq-widget-container") || [],
-                );
+    // Listen for intersection observer events
+    this.setupIntersectionObserver();
+  }
 
-            widgetContainers.forEach((container) => {
-              this.initializeWidgetContainer(container);
-            });
+  setupIntersectionObserver() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "50px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const container = entry.target;
+          const serviceId = container.dataset.serviceId;
+          if (serviceId && !this.loadedWidgets.has(serviceId)) {
+            // Lazy load widget when it comes into view
+            setTimeout(() => this.loadWidget(container), 100);
           }
-        });
+        }
       });
-    });
+    }, observerOptions);
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+    // Observe all widget containers
+    document
+      .querySelectorAll(".intakeq-widget-container")
+      .forEach((container) => {
+        observer.observe(container);
+      });
   }
 
   initializeExistingWidgets() {
-    // Find existing widget containers
+    // Find existing widgets on the page and prepare them
     const containers = document.querySelectorAll(".intakeq-widget-container");
     containers.forEach((container) => {
-      this.initializeWidgetContainer(container);
+      const serviceId = container.dataset.serviceId;
+      if (serviceId) {
+        this.showLoadingState(container);
+      }
     });
-  }
-
-  initializeWidgetContainer(container) {
-    const serviceKey = container.getAttribute("data-service");
-    if (!serviceKey || this.loadedWidgets.has(container)) return;
-
-    const service = this.services.services[serviceKey];
-    if (!service) {
-      console.warn(`Service not found: ${serviceKey}`);
-      return;
-    }
-
-    // Mark as initialized
-    this.loadedWidgets.set(container, {
-      serviceKey,
-      service,
-      loaded: false,
-    });
-
-    // Add loading state
-    this.showLoadingState(container);
-
-    // Setup intersection observer for lazy loading
-    this.setupLazyLoading(container);
-  }
-
-  setupLazyLoading(container) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.loadWidget(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        rootMargin: "100px",
-      },
-    );
-
-    observer.observe(container);
   }
 
   async loadWidget(container) {
-    const widgetData = this.loadedWidgets.get(container);
-    if (!widgetData || widgetData.loaded) return;
+    if (!container || !this.services) return;
+
+    const serviceId = container.dataset.serviceId;
+    if (!serviceId) return;
+
+    const service = this.services.services[serviceId];
+    if (!service) {
+      this.showErrorState(container, "Service not found");
+      return;
+    }
+
+    // Check if widget is already loaded
+    const widgetData = this.loadedWidgets.get(serviceId) || {
+      service,
+      loaded: false,
+      container,
+    };
+
+    if (widgetData.loaded) {
+      // Widget already loaded, just show it
+      container.classList.add("intakeq-widget--loaded");
+      return;
+    }
+
+    // Show loading state
+    this.showLoadingState(container);
 
     try {
       // Clean up any existing IntakeQ instances
@@ -162,7 +153,7 @@ class IntakeQWidgetManager {
       window.intakeq = this.services.baseConfig.accountId;
       window.intakeqServiceId = widgetData.service.id;
 
-      // Create widget HTML safely using DOM methods
+      // Create widget element safely using DOM methods
       const widgetElement = this.createWidgetElement(widgetData.service);
       container.replaceChildren(widgetElement);
 
@@ -172,73 +163,105 @@ class IntakeQWidgetManager {
       // Mark as loaded
       widgetData.loaded = true;
       this.activeWidget = container;
+      this.loadedWidgets.set(serviceId, widgetData);
 
-      // Add loaded class for styling
+      // Add loaded class
+      container.classList.remove("intakeq-widget--loading");
       container.classList.add("intakeq-widget--loaded");
 
-      // Track analytics
-      this.trackWidgetLoad(widgetData.serviceKey);
+      console.log(`IntakeQ widget loaded for service: ${service.name}`);
     } catch (error) {
       console.error("Failed to load IntakeQ widget:", error);
-      this.showErrorState(container, error.message);
+      this.showErrorState(
+        container,
+        "Failed to load booking widget. Please try again.",
+      );
     }
   }
 
-  createWidgetHTML(service) {
-    return `
-      <div class="intakeq-service-header">
-        <div class="intakeq-service-info">
-          <h3 class="intakeq-service-title">${service.name}</h3>
-          <p class="intakeq-service-description">${service.description}</p>
-          <div class="intakeq-service-details">
-            <span class="intakeq-service-price">Starting at $${service.price}</span>
-            <span class="intakeq-service-duration">${service.duration}</span>
-          </div>
-        </div>
-        <div class="intakeq-service-actions">
-          <a href="${this.services.getBookingUrl(Object.keys(this.services.services).find((key) => this.services.services[key] === service))}" 
-             class="btn btn--outline btn--sm" 
-             target="_blank" 
-             rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 1C8.55228 1 9 1.44772 9 2V7H14C14.5523 7 15 7.44772 15 8C15 8.55228 14.5523 9 14 9H9V14C9 14.5523 8.55228 15 8 15C7.44772 15 7 14.5523 7 14V9H2C1.44772 9 1 8.55228 1 8C1 7.44772 1.44772 7 2 7H7V2C7 1.44772 7.44772 1 8 1Z" fill="currentColor"/>
-            </svg>
-            Direct Link
-          </a>
-        </div>
-      </div>
-      <div class="intakeq-widget-wrapper">
-        <div id="intakeq" style="max-width: 720px; width: 100%; min-height: 400px;"></div>
-      </div>
-    `;
-  }
+  createWidgetElement(service) {
+    // Create widget container
+    const container = document.createElement("div");
 
-  loadIntakeQScript() {
-    return new Promise((resolve, reject) => {
-      // Remove existing script if present
-      const existingScript = document.querySelector(
-        'script[src*="intakeq.com"]',
-      );
-      if (existingScript) {
-        existingScript.remove();
-      }
+    // Create header
+    const header = document.createElement("div");
+    header.className = "intakeq-service-header";
 
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.async = true;
-      script.src = this.services.baseConfig.widgetUrl;
+    // Create service info
+    const serviceInfo = document.createElement("div");
+    serviceInfo.className = "intakeq-service-info";
 
-      script.onload = () => {
-        // Wait a bit for IntakeQ to initialize
-        setTimeout(resolve, 500);
-      };
+    const title = document.createElement("h3");
+    title.className = "intakeq-service-title";
+    title.textContent = service.name;
 
-      script.onerror = () => {
-        reject(new Error("Failed to load IntakeQ script"));
-      };
+    const description = document.createElement("p");
+    description.className = "intakeq-service-description";
+    description.textContent = service.description;
 
-      document.head.appendChild(script);
-    });
+    const details = document.createElement("div");
+    details.className = "intakeq-service-details";
+
+    const price = document.createElement("span");
+    price.className = "intakeq-service-price";
+    price.textContent = `Starting at $${service.price}`;
+
+    const duration = document.createElement("span");
+    duration.className = "intakeq-service-duration";
+    duration.textContent = service.duration;
+
+    details.appendChild(price);
+    details.appendChild(duration);
+
+    serviceInfo.appendChild(title);
+    serviceInfo.appendChild(description);
+    serviceInfo.appendChild(details);
+
+    // Create actions
+    const actions = document.createElement("div");
+    actions.className = "intakeq-service-actions";
+
+    const link = document.createElement("a");
+    const serviceKey = Object.keys(this.services.services).find(
+      (key) => this.services.services[key] === service,
+    );
+    link.href = this.services.getBookingUrl(serviceKey);
+    link.className = "btn btn--outline btn--sm";
+    link.target = "_blank";
+    link.rel = "noopener";
+
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", "16");
+    svg.setAttribute("height", "16");
+    svg.setAttribute("viewBox", "0 0 16 16");
+    svg.setAttribute("fill", "none");
+    svg.innerHTML =
+      '<path d="M8 1C8.55228 1 9 1.44772 9 2V7H14C14.5523 7 15 7.44772 15 8C15 8.55228 14.5523 9 14 9H9V14C9 14.5523 8.55228 15 8 15C7.44772 15 7 14.5523 7 14V9H2C1.44772 9 1 8.55228 1 8C1 7.44772 1.44772 7 2 7H7V2C7 1.44772 7.44772 1 8 1Z" fill="currentColor"/>';
+
+    link.appendChild(svg);
+    link.appendChild(document.createTextNode(" Direct Link"));
+
+    actions.appendChild(link);
+
+    header.appendChild(serviceInfo);
+    header.appendChild(actions);
+
+    // Create widget wrapper
+    const wrapper = document.createElement("div");
+    wrapper.className = "intakeq-widget-wrapper";
+
+    const widgetDiv = document.createElement("div");
+    widgetDiv.id = "intakeq";
+    widgetDiv.style.maxWidth = "720px";
+    widgetDiv.style.width = "100%";
+    widgetDiv.style.minHeight = "400px";
+
+    wrapper.appendChild(widgetDiv);
+
+    container.appendChild(header);
+    container.appendChild(wrapper);
+
+    return container;
   }
 
   cleanupExistingWidget() {
@@ -320,94 +343,58 @@ class IntakeQWidgetManager {
     });
   }
 
-  // Public API methods
-  openServiceBooking(serviceKey) {
-    const service = this.services.services[serviceKey];
-    if (!service) {
-      console.error(`Service not found: ${serviceKey}`);
-      return;
-    }
+  loadIntakeQScript() {
+    return new Promise((resolve, reject) => {
+      // Remove existing script if present
+      const existingScript = document.querySelector(
+        'script[src*="intakeq.com"]',
+      );
+      if (existingScript) {
+        existingScript.remove();
+      }
 
-    // Open booking in new tab
-    const bookingUrl = this.services.getBookingUrl(serviceKey);
-    window.open(bookingUrl, "_blank", "noopener,noreferrer");
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = this.services.baseConfig.widgetUrl;
+      script.onload = () => {
+        // Allow time for IntakeQ to initialize
+        setTimeout(resolve, 500);
+      };
+      script.onerror = reject;
 
-    // Track analytics
-    this.trackBookingClick(serviceKey);
-  }
-
-  createServiceWidget(serviceKey, container) {
-    if (!container) {
-      console.error("Container element required");
-      return;
-    }
-
-    container.className = "intakeq-widget-container";
-    container.setAttribute("data-service", serviceKey);
-
-    this.initializeWidgetContainer(container);
-  }
-
-  getServiceInfo(serviceKey) {
-    return this.services.services[serviceKey] || null;
-  }
-
-  getAllServices() {
-    return this.services.services;
-  }
-
-  getServicesByCategory(category) {
-    return this.services.getServicesByCategory(category);
+      document.head.appendChild(script);
+    });
   }
 
   // Analytics tracking
-  trackWidgetLoad(serviceKey) {
-    if (window.gtag) {
-      window.gtag("event", "widget_load", {
-        event_category: "Booking",
-        event_label: serviceKey,
-        value: 1,
+  trackWidgetLoad(service) {
+    if (typeof gtag !== "undefined") {
+      gtag("event", "widget_load", {
+        event_category: "intakeq",
+        event_label: service.name,
+        service_id: service.id,
       });
     }
   }
 
-  trackBookingClick(serviceKey) {
-    if (window.gtag) {
-      window.gtag("event", "booking_click", {
-        event_category: "Booking",
-        event_label: serviceKey,
-        value: 1,
+  trackBookingAttempt(service) {
+    if (typeof gtag !== "undefined") {
+      gtag("event", "booking_attempt", {
+        event_category: "intakeq",
+        event_label: service.name,
+        service_id: service.id,
+        value: service.price,
       });
     }
-  }
-
-  // Utility methods
-  formatPrice(price) {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 0,
-    }).format(price);
-  }
-
-  generateServiceSlug(serviceName) {
-    return serviceName
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
   }
 }
 
-// Auto-initialize when DOM is ready
-if (document.readyState === "loading") {
+// Initialize the widget manager when DOM is ready
+if (typeof window !== "undefined") {
   document.addEventListener("DOMContentLoaded", () => {
-    window.intakeQWidgetManager = new IntakeQWidgetManager();
+    window.intakeQManager = new IntakeQWidgetManager();
   });
-} else {
-  window.intakeQWidgetManager = new IntakeQWidgetManager();
 }
 
-// Export for module systems
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = IntakeQWidgetManager;
-}
+export default IntakeQWidgetManager;
