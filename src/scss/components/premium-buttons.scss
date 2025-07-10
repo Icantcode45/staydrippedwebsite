@@ -638,32 +638,89 @@
 }
 
 /* ========================================================================
-   FLOATING ACTION BUTTON
+   ULTRA-MODERN FLOATING ACTION BUTTON
    ======================================================================== */
 
 .btn--floating {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 3.5rem;
-  height: 3.5rem;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   padding: 0;
   z-index: 1000;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgb(255 255 255 / 0.2) 0%,
+      transparent 70%
+    ),
+    linear-gradient(145deg, #007aff 0%, #5ac8fa 50%, #007aff 100%);
   box-shadow:
-    0 8px 25px rgb(0 122 255 / 30%),
-    0 4px 12px rgb(0 122 255 / 20%);
+    0 var(--btn-3d-depth) calc(var(--btn-3d-depth) * 2)
+      rgb(var(--btn-shadow-color) / 0.35),
+    0 8px 32px rgb(var(--btn-shadow-color) / 0.25),
+    0 4px 16px rgb(var(--btn-shadow-color) / 0.15),
+    inset 0 2px 4px rgb(255 255 255 / 0.3),
+    0 0 60px rgb(var(--btn-shadow-color) / 0.2);
+  border: 2px solid rgb(255 255 255 / 0.2);
+  backdrop-filter: blur(10px);
+
+  /* Pulse animation */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgb(var(--btn-shadow-color) / 0.3) 0%,
+      transparent 70%
+    );
+    animation: fab-pulse 2s ease-in-out infinite;
+    z-index: -1;
+  }
 
   &:hover {
-    transform: translateY(-4px) scale(1.05);
+    transform: translateY(-6px) translateZ(calc(var(--btn-3d-depth) * 1.5))
+      scale(1.08);
     box-shadow:
-      0 12px 35px rgb(0 122 255 / 40%),
-      0 6px 18px rgb(0 122 255 / 30%);
+      0 calc(var(--btn-3d-depth) * 2) calc(var(--btn-3d-depth) * 3)
+        rgb(var(--btn-shadow-color) / 0.45),
+      0 16px 48px rgb(var(--btn-shadow-color) / 0.35),
+      0 8px 24px rgb(var(--btn-shadow-color) / 0.25),
+      inset 0 3px 6px rgb(255 255 255 / 0.4),
+      0 0 80px rgb(var(--btn-shadow-color) / 0.3);
+    filter: brightness(1.1) saturate(1.2);
+  }
+
+  &:active {
+    transform: translateY(-3px) translateZ(calc(var(--btn-3d-depth) / 2))
+      scale(1.02);
   }
 
   svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: transform 0.35s var(--btn-animation-spring);
+  }
+
+  &:hover svg {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+@keyframes fab-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
   }
 }
 
