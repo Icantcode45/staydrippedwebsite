@@ -1,16 +1,26 @@
 /* ========================================================================
-   PREMIUM BUTTON SYSTEM - COMPLETE REDESIGN
-   Ultra-modern, professional, and user-friendly button components
+   ULTRA-MODERN 3D BUTTON SYSTEM - PROFESSIONAL REDESIGN
+   Next-generation interactive buttons with advanced 3D effects
    ======================================================================== */
 
 @use "../base/variables" as *;
+
+/* CSS Custom Properties for Dynamic Theming */
+:root {
+  --btn-shadow-color: 0 122 255;
+  --btn-shadow-intensity: 0.25;
+  --btn-3d-depth: 8px;
+  --btn-3d-scale: 1.05;
+  --btn-animation-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --btn-glow-size: 40px;
+}
 
 /* ========================================================================
    BASE BUTTON FOUNDATION
    ======================================================================== */
 
 .btn {
-  // Reset and base structure
+  /* Reset and ultra-modern base structure */
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -25,33 +35,51 @@
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  isolation: isolate;
 
-  // Typography
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-semibold);
+  /* Ultra-modern typography */
+  font-family: var(
+    --font-family-primary,
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif
+  );
+  font-weight: var(--font-weight-semibold, 600);
   font-size: 1rem;
   line-height: 1;
   letter-spacing: 0.025em;
   white-space: nowrap;
+  font-variation-settings: "wght" 600;
+  text-rendering: optimizeLegibility;
 
-  // Layout
+  /* Advanced 3D layout */
   min-height: 3rem;
   padding: 0.875rem 1.75rem;
-  border-radius: 0.875rem;
+  border-radius: 1rem;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 
-  // Smooth transitions for all interactions
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateY(0) scale(1);
-  will-change: transform, box-shadow, background;
+  /* Ultra-smooth 3D transitions */
+  transition: all 0.35s var(--btn-animation-spring);
+  transform: translateY(0) translateZ(0) scale(1);
+  will-change: transform, box-shadow, background, filter;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-  // Focus and accessibility
+  /* Enhanced accessibility with 3D focus effects */
   &:focus {
     outline: none;
   }
 
   &:focus-visible {
-    outline: 2px solid rgb(0 122 255 / 50%);
-    outline-offset: 2px;
+    outline: 3px solid rgb(var(--btn-shadow-color) / 0.6);
+    outline-offset: 3px;
+    box-shadow:
+      0 0 0 6px rgb(var(--btn-shadow-color) / 0.15),
+      0 var(--btn-3d-depth) calc(var(--btn-3d-depth) * 2)
+        rgb(var(--btn-shadow-color) / 0.2);
   }
 
   // Disabled state
