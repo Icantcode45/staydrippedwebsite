@@ -1,48 +1,69 @@
-<!-- Professional Header -->
+<!-- Premium Header -->
 <header class="site-header" role="banner">
   <div class="container">
-    <!-- Logo -->
+    <!-- Enhanced Logo -->
     <a
       href="/"
       class="site-logo"
-      aria-label="Stay Dripped Mobile IV - Homepage"
+      aria-label="Stay Dripped Mobile IV - Premium Mobile IV Therapy Services"
     >
       <svg
-        width="200"
-        height="40"
-        viewBox="0 0 200 40"
+        width="220"
+        height="45"
+        viewBox="0 0 220 45"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color: #007aff" />
-            <stop offset="100%" style="stop-color: #5ac8fa" />
+            <stop offset="50%" style="stop-color: #5ac8fa" />
+            <stop offset="100%" style="stop-color: #007aff" />
           </linearGradient>
+          <filter id="logoGlow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
-        <path
-          d="M10 20 C10 20, 15 10, 25 15 C35 20, 30 30, 25 25 C20 20, 15 25, 10 20"
-          fill="url(#logoGradient)"
-        />
+        <!-- Medical Cross Icon -->
+        <g filter="url(#logoGlow)">
+          <circle
+            cx="22"
+            cy="22"
+            r="18"
+            fill="url(#logoGradient)"
+            opacity="0.1"
+          />
+          <path
+            d="M22 8 C24 8, 24 8, 24 10 L24 18 L32 18 C34 18, 34 18, 34 20 L34 24 C34 26, 34 26, 32 26 L24 26 L24 34 C24 36, 24 36, 22 36 L18 36 C16 36, 16 36, 16 34 L16 26 L8 26 C6 26, 6 26, 6 24 L6 20 C6 18, 6 18, 8 18 L16 18 L16 10 C16 8, 16 8, 18 8 L22 8 Z"
+            fill="url(#logoGradient)"
+          />
+        </g>
+        <!-- Brand Text -->
         <text
-          x="40"
-          y="15"
+          x="48"
+          y="18"
           font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-          font-size="14"
+          font-size="16"
           font-weight="700"
           fill="#007AFF"
+          letter-spacing="0.5px"
         >
           STAY DRIPPED
         </text>
         <text
-          x="40"
-          y="30"
+          x="48"
+          y="33"
           font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
-          font-size="10"
+          font-size="11"
           font-weight="500"
           fill="#5AC8FA"
+          letter-spacing="1px"
         >
-          MOBILE IV
+          MOBILE IV THERAPY
         </text>
       </svg>
     </a>
@@ -51,42 +72,67 @@
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <ul class="main-nav__list">
         <li class="main-nav__item">
-          <a href="/services" class="main-nav__link">Services</a>
+          <a href="/pages/services.html" class="main-nav__link">Services</a>
           <div class="main-nav__dropdown">
             <div class="main-nav__dropdown-content">
-              <a href="/iv-therapy" class="main-nav__dropdown-link">
+              <a
+                href="/pages/services.html#hydration"
+                class="main-nav__dropdown-link"
+              >
                 <div class="main-nav__dropdown-icon">💧</div>
                 <div>
-                  <h4>IV Therapy</h4>
-                  <p>Hydration and vitamin infusions</p>
+                  <h4>Hydration & Recovery</h4>
+                  <p>Essential hydration treatments</p>
                 </div>
               </a>
-              <a href="/nad-therapy" class="main-nav__dropdown-link">
+              <a
+                href="/pages/services.html#nad"
+                class="main-nav__dropdown-link"
+              >
                 <div class="main-nav__dropdown-icon">🧬</div>
                 <div>
                   <h4>NAD+ Therapy</h4>
-                  <p>Cellular regeneration and anti-aging</p>
+                  <p>Advanced cellular regeneration</p>
                 </div>
               </a>
-              <a href="/aesthetic" class="main-nav__dropdown-link">
+              <a
+                href="/pages/services.html#wellness"
+                class="main-nav__dropdown-link"
+              >
+                <div class="main-nav__dropdown-icon">🌟</div>
+                <div>
+                  <h4>Wellness & Immunity</h4>
+                  <p>Comprehensive wellness support</p>
+                </div>
+              </a>
+              <a
+                href="/pages/services.html#performance"
+                class="main-nav__dropdown-link"
+              >
+                <div class="main-nav__dropdown-icon">⚡</div>
+                <div>
+                  <h4>Performance & Energy</h4>
+                  <p>Athletic enhancement therapies</p>
+                </div>
+              </a>
+              <a
+                href="/pages/services.html#beauty"
+                class="main-nav__dropdown-link"
+              >
                 <div class="main-nav__dropdown-icon">✨</div>
                 <div>
-                  <h4>Aesthetic Services</h4>
-                  <p>Beauty and wellness treatments</p>
+                  <h4>Beauty & Anti-Aging</h4>
+                  <p>Aesthetic wellness treatments</p>
                 </div>
               </a>
-              <a href="/injection-shots" class="main-nav__dropdown-link">
+              <a
+                href="/pages/services.html#shots"
+                class="main-nav__dropdown-link"
+              >
                 <div class="main-nav__dropdown-icon">💉</div>
                 <div>
-                  <h4>Injection Shots</h4>
-                  <p>Vitamin B12, Lipo, and more</p>
-                </div>
-              </a>
-              <a href="/blood-testing" class="main-nav__dropdown-link">
-                <div class="main-nav__dropdown-icon">🔬</div>
-                <div>
-                  <h4>Blood Testing</h4>
-                  <p>Comprehensive health panels</p>
+                  <h4>Vitamin Shots</h4>
+                  <p>Quick nutrient injections</p>
                 </div>
               </a>
             </div>
@@ -96,7 +142,9 @@
           <a href="/how-it-works" class="main-nav__link">How It Works</a>
         </li>
         <li class="main-nav__item">
-          <a href="/memberships" class="main-nav__link">Memberships</a>
+          <a href="/pages/memberships.html" class="main-nav__link"
+            >Memberships</a
+          >
         </li>
         <li class="main-nav__item">
           <a href="/testimonials" class="main-nav__link">Reviews</a>
@@ -107,10 +155,15 @@
       </ul>
     </nav>
 
-    <!-- Header Actions -->
+    <!-- Enhanced Header Actions -->
     <div class="header-actions">
-      <!-- Contact Phone -->
-      <a href="tel:+16026889825" class="header-phone" aria-label="Call us now">
+      <!-- Premium Contact Phone -->
+      <a
+        href="tel:+16026889825"
+        class="btn btn--outline"
+        aria-label="Call us now for immediate service"
+        data-analytics="header-phone"
+      >
         <svg
           width="20"
           height="20"
@@ -118,25 +171,74 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <defs>
+            <linearGradient
+              id="headerPhoneGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: #007aff" />
+              <stop offset="100%" style="stop-color: #5ac8fa" />
+            </linearGradient>
+          </defs>
           <path
             d="M2 3C2 2.44772 2.44772 2 3 2H5.15287C5.64171 2 6.0589 2.35341 6.13927 2.8356L6.87858 7.27147C6.95075 7.70451 6.73206 8.13397 6.3394 8.3303L4.79126 9.10437C5.90756 11.8783 8.12168 14.0924 10.8956 15.2087L11.6697 13.6606C11.866 13.2679 12.2955 13.0492 12.7285 13.1214L17.1644 13.8607C17.6466 13.9411 18 14.3583 18 14.8471V17C18 17.5523 17.5523 18 17 18H15C7.8203 18 2 12.1797 2 5V3Z"
-            fill="currentColor"
+            fill="url(#headerPhoneGradient)"
           />
         </svg>
-        <span>(602) 688-9825</span>
+        <span class="btn__text">(602) 688-9825</span>
       </a>
 
-      <!-- Primary CTA -->
-      <a href="/booking" class="btn btn--primary" data-analytics="header-cta">
-        Book Treatment
+      <!-- Enhanced Primary CTA -->
+      <a
+        href="/pages/services.html"
+        class="btn btn--primary"
+        data-analytics="header-cta"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient
+              id="bookingIconGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: rgb(255 255 255 / 90%)" />
+              <stop
+                offset="100%"
+                style="stop-color: rgb(255 255 255 / 60%)"
+              />
+            </linearGradient>
+          </defs>
+          <path
+            d="M6 2V6M14 2V6M3 10H17M5 4H15C16.1046 4 17 4.89543 17 6V16C17 17.1046 16.1046 18 15 18H5C3.89543 18 3 17.1046 3 16V6C3 4.89543 3.89543 4 5 4Z"
+            stroke="url(#bookingIconGradient)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <circle cx="9" cy="13" r="1" fill="url(#bookingIconGradient)" />
+          <circle cx="13" cy="13" r="1" fill="url(#bookingIconGradient)" />
+        </svg>
+        <span class="btn__text">Book Treatment</span>
       </a>
 
-      <!-- Mobile Menu Toggle -->
+      <!-- Premium Mobile Menu Toggle -->
       <button
         class="mobile-menu-toggle"
-        aria-label="Toggle mobile menu"
+        aria-label="Open navigation menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
+        data-menu-toggle
       >
         <div class="hamburger">
           <span></span>
@@ -368,23 +470,88 @@
     </nav>
 
     <div class="mobile-menu__cta">
-      <a href="/booking" class="btn btn--primary btn--full btn--lg">
-        Book Your Treatment
-      </a>
-      <a href="tel:+16026889825" class="btn btn--outline btn--full">
+      <a
+        href="/pages/services.html"
+        class="btn btn--primary btn--full btn--lg"
+        data-analytics="mobile-menu-booking"
+      >
         <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <defs>
+            <linearGradient
+              id="mobileBookingGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: rgb(255 255 255 / 90%)" />
+              <stop
+                offset="100%"
+                style="stop-color: rgb(255 255 255 / 60%)"
+              />
+            </linearGradient>
+          </defs>
           <path
-            d="M2 3C2 2.44772 2.44772 2 3 2H5.15287C5.64171 2 6.0589 2.35341 6.13927 2.8356L6.87858 7.27147C6.95075 7.70451 6.73206 8.13397 6.3394 8.3303L4.79126 9.10437C5.90756 11.8783 8.12168 14.0924 10.8956 15.2087L11.6697 13.6606C11.866 13.2679 12.2955 13.0492 12.7285 13.1214L17.1644 13.8607C17.6466 13.9411 18 14.3583 18 14.8471V17C18 17.5523 17.5523 18 17 18H15C7.8203 18 2 12.1797 2 5V3Z"
-            fill="currentColor"
+            d="M6.6 2.2V6.6M15.4 2.2V6.6M3.3 11H18.7M5.5 4.4H16.5C17.715 4.4 18.7 5.385 18.7 6.6V17.6C18.7 18.815 17.715 19.8 16.5 19.8H5.5C4.285 19.8 3.3 18.815 3.3 17.6V6.6C3.3 5.385 4.285 4.4 5.5 4.4Z"
+            stroke="url(#mobileBookingGradient)"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <circle
+            cx="8.8"
+            cy="14.3"
+            r="0.8"
+            fill="url(#mobileBookingGradient)"
+          />
+          <circle
+            cx="13.2"
+            cy="14.3"
+            r="0.8"
+            fill="url(#mobileBookingGradient)"
           />
         </svg>
-        Call (602) 688-9825
+        <span class="btn__text">Book Your Treatment</span>
+      </a>
+      <a
+        href="tel:+16026889825"
+        class="btn btn--phone btn--full"
+        data-analytics="mobile-menu-phone"
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient
+              id="mobilePhoneGradientWhite"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: rgb(255 255 255 / 95%)" />
+              <stop
+                offset="100%"
+                style="stop-color: rgb(255 255 255 / 80%)"
+              />
+            </linearGradient>
+          </defs>
+          <path
+            d="M2.2 3.3C2.2 2.69772 2.69772 2.2 3.3 2.2H5.66816C6.20589 2.2 6.66479 2.58875 6.75319 3.11916L7.56644 7.99862C7.6457 8.47497 7.40527 8.94737 6.97334 9.16333L5.27039 10.0148C6.49831 13.0661 8.93388 15.5017 11.9852 16.7296L12.8367 15.0267C13.0526 14.5947 13.525 14.3543 14.0014 14.4336L18.8808 15.2468C19.4113 15.3352 19.8 15.7941 19.8 16.3318V18.7C19.8 19.3023 19.3023 19.8 18.7 19.8H16.5C8.10233 19.8 2.2 13.8977 2.2 5.5V3.3Z"
+            fill="url(#mobilePhoneGradientWhite)"
+          />
+        </svg>
+        <span class="btn__text">Call (602) 688-9825</span>
       </a>
     </div>
 

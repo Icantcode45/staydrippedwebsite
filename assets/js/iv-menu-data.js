@@ -321,7 +321,7 @@ const IVMenuRenderer = {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    container.innerHTML = "";
+    container.replaceChildren();
 
     IVMenuData.categories.forEach((category) => {
       const categoryElement = this.createCategoryElement(category);
@@ -365,8 +365,10 @@ const IVMenuRenderer = {
 
     services.forEach((service) => {
       const serviceElement = document.createElement("div");
-      serviceElement.innerHTML = this.generateServiceHTML(service);
-      grid.appendChild(serviceElement.firstElementChild);
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = this.generateServiceHTML(service);
+      serviceElement.appendChild(tempDiv.firstElementChild);
+      grid.appendChild(serviceElement);
     });
 
     return grid;

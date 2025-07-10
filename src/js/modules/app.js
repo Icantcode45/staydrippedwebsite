@@ -2,9 +2,9 @@
 
 class App {
   constructor() {
-    this.version = "2.0.0";
+    this.version = '2.0.0';
     this.isDebug =
-      typeof process !== "undefined" && process.env?.NODE_ENV === "development";
+      typeof process !== 'undefined' && process.env?.NODE_ENV === 'development';
 
     // Constants
     this.RIPPLE_DURATION = 400;
@@ -41,7 +41,7 @@ class App {
 
     // Trigger custom event for other scripts
     window.dispatchEvent(
-      new CustomEvent("appReady", {
+      new CustomEvent('appReady', {
         detail: { version: this.version },
       }),
     );
@@ -50,33 +50,33 @@ class App {
   initServiceWorker() {
     if (!this.isServiceWorkerSupported()) return;
 
-    window.addEventListener("load", () => this.registerServiceWorker());
+    window.addEventListener('load', () => this.registerServiceWorker());
   }
 
   isServiceWorkerSupported() {
     return (
-      "serviceWorker" in navigator &&
-      window.location.protocol === "https:" &&
+      'serviceWorker' in navigator &&
+      window.location.protocol === 'https:' &&
       !this.isDebug
     );
   }
 
   async registerServiceWorker() {
     try {
-      const registration = await navigator.serviceWorker.register("/sw.js");
+      const registration = await navigator.serviceWorker.register('/sw.js');
       this.handleServiceWorkerUpdate(registration);
     } catch (error) {
       // Log sanitized error message to prevent information disclosure
-      if (this.isDebug) console.log("SW registration failed");
+      if (this.isDebug) console.log('SW registration failed');
     }
   }
 
   handleServiceWorkerUpdate(registration) {
-    registration.addEventListener("updatefound", () => {
+    registration.addEventListener('updatefound', () => {
       const newWorker = registration.installing;
-      newWorker.addEventListener("statechange", () => {
+      newWorker.addEventListener('statechange', () => {
         if (
-          newWorker.state === "installed" &&
+          newWorker.state === 'installed' &&
           navigator.serviceWorker.controller
         ) {
           this.showUpdateAvailable();
@@ -86,9 +86,9 @@ class App {
   }
 
   initErrorHandling() {
-    window.addEventListener("error", this.handleError.bind(this));
+    window.addEventListener('error', this.handleError.bind(this));
     window.addEventListener(
-      "unhandledrejection",
+      'unhandledrejection',
       this.handleRejection.bind(this),
     );
   }
@@ -96,7 +96,7 @@ class App {
   handleError(event) {
     if (this.isDebug) {
       // Log sanitized error message to prevent information disclosure
-      console.error("Global error occurred");
+      console.error('Global error occurred');
     }
   }
 
@@ -104,12 +104,12 @@ class App {
     event.preventDefault();
     if (this.isDebug) {
       // Log sanitized error message to prevent information disclosure
-      console.error("Unhandled promise rejection occurred");
+      console.error('Unhandled promise rejection occurred');
     }
   }
 
   initPerformanceMonitoring() {
-    if (!("PerformanceObserver" in window)) return;
+    if (!('PerformanceObserver' in window)) return;
 
     this.observeLargestContentfulPaint();
   }
@@ -121,13 +121,13 @@ class App {
         if (entries.length > 0) {
           const lastEntry = entries[entries.length - 1];
           if (this.isDebug && lastEntry.startTime) {
-            console.log("LCP:", Math.round(lastEntry.startTime));
+            console.log('LCP:', Math.round(lastEntry.startTime));
           }
         }
-      }).observe({ entryTypes: ["largest-contentful-paint"] });
+      }).observe({ entryTypes: ['largest-contentful-paint'] });
     } catch (error) {
       if (this.isDebug) {
-        console.warn("Performance observer not supported:", error);
+        console.warn('Performance observer not supported:', error);
       }
     }
   }
@@ -139,64 +139,64 @@ class App {
   }
 
   setupKeyboardNavigation() {
-    document.addEventListener("keydown", (e) =>
+    document.addEventListener('keydown', (e) =>
       this.handleKeyboardNavigation(e),
     );
   }
 
   setupFocusManagement() {
     const focusSelectors =
-      ".btn, .card--interactive, a, input, textarea, select";
+      '.btn, .card--interactive, a, input, textarea, select';
 
-    document.addEventListener("focusin", (e) => {
+    document.addEventListener('focusin', (e) => {
       if (e.target.matches(focusSelectors)) {
-        e.target.classList.add("focus-visible");
+        e.target.classList.add('focus-visible');
       }
     });
 
-    document.addEventListener("focusout", (e) => {
-      e.target.classList.remove("focus-visible");
+    document.addEventListener('focusout', (e) => {
+      e.target.classList.remove('focus-visible');
     });
   }
 
   setupMotionPreferences() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      document.documentElement.classList.add("reduce-motion");
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('reduce-motion');
     }
   }
 
   handleKeyboardNavigation(e) {
     // Escape key handling
-    if (e.key === "Escape") {
+    if (e.key === 'Escape') {
       const openElements = document.querySelectorAll(
-        ".mobile-menu.active, .dropdown.open",
+        '.mobile-menu.active, .dropdown.open',
       );
       openElements.forEach((el) => {
-        el.classList.remove("active", "open");
+        el.classList.remove('active', 'open');
       });
     }
   }
 
   initInteractiveElements() {
     // Add ripple effect to buttons
-    document.addEventListener("click", (e) => {
-      if (e.target.matches(".btn:not(.btn--link)")) {
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('.btn:not(.btn--link)')) {
         this.createRippleEffect(e);
       }
     });
 
     // Copy to clipboard functionality
-    document.addEventListener("click", (e) => {
+    document.addEventListener('click', (e) => {
       const target = e.target;
       if (
         target &&
-        target.matches("[data-copy]") &&
+        target.matches('[data-copy]') &&
         target.dataset &&
         target.dataset.copy
       ) {
         // Validate the copy value to prevent abuse
         const copyValue = target.dataset.copy;
-        if (typeof copyValue === "string" && copyValue.length < 1000) {
+        if (typeof copyValue === 'string' && copyValue.length < 1000) {
           this.copyToClipboard(copyValue);
         }
       }
@@ -208,7 +208,7 @@ class App {
     const ripple = this.buildRippleElement(e, button);
 
     // Remove existing ripple
-    const existing = button.querySelector(".ripple");
+    const existing = button.querySelector('.ripple');
     if (existing) existing.remove();
 
     button.appendChild(ripple);
@@ -216,7 +216,7 @@ class App {
   }
 
   buildRippleElement(e, button) {
-    const ripple = document.createElement("span");
+    const ripple = document.createElement('span');
     const rect = button.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
 
@@ -227,32 +227,32 @@ class App {
       top: `${e.clientY - rect.top - size / 2}px`,
     });
 
-    ripple.classList.add("ripple");
+    ripple.classList.add('ripple');
     return ripple;
   }
 
   async copyToClipboard(text) {
     try {
       await navigator.clipboard.writeText(text);
-      this.showToast("Copied to clipboard!");
+      this.showToast('Copied to clipboard!');
     } catch (err) {
       // Log sanitized error message to prevent information disclosure
-      console.error("Failed to copy");
-      this.showToast("Failed to copy", "error");
+      console.error('Failed to copy');
+      this.showToast('Failed to copy', 'error');
     }
   }
 
   initFormEnhancements() {
     // Real-time validation
-    document.addEventListener("input", (e) => {
-      if (e.target.matches("input[required], textarea[required]")) {
+    document.addEventListener('input', (e) => {
+      if (e.target.matches('input[required], textarea[required]')) {
         this.validateField(e.target);
       }
     });
 
     // Form submission enhancement
-    document.addEventListener("submit", (e) => {
-      if (e.target.matches("form[data-enhanced]")) {
+    document.addEventListener('submit', (e) => {
+      if (e.target.matches('form[data-enhanced]')) {
         this.handleFormSubmission(e);
       }
     });
@@ -260,9 +260,9 @@ class App {
 
   validateField(field) {
     const isValid = field.checkValidity();
-    field.classList.toggle("is-valid", isValid);
-    field.classList.toggle("is-invalid", !isValid);
-    field.setAttribute("aria-invalid", !isValid);
+    field.classList.toggle('is-valid', isValid);
+    field.classList.toggle('is-invalid', !isValid);
+    field.setAttribute('aria-invalid', !isValid);
   }
 
   handleFormSubmission(e) {
@@ -271,59 +271,59 @@ class App {
     const submitButton = form.querySelector('button[type="submit"]');
 
     if (submitButton) {
-      submitButton.classList.add("btn--loading");
+      submitButton.classList.add('btn--loading');
       submitButton.disabled = true;
     }
 
     // Simulate form processing
     setTimeout(() => {
       if (submitButton) {
-        submitButton.classList.remove("btn--loading");
+        submitButton.classList.remove('btn--loading');
         submitButton.disabled = false;
       }
-      this.showToast("Form submitted successfully!", "success");
+      this.showToast('Form submitted successfully!', 'success');
     }, this.FORM_SUBMIT_TIMEOUT);
   }
 
   setupCustomEvents() {
     // Theme change event
-    window.addEventListener("themeChanged", (e) => {
+    window.addEventListener('themeChanged', (e) => {
       if (this.isDebug) {
-        console.log("Theme changed to:", e.detail.theme);
+        console.log('Theme changed to:', e.detail.theme);
       }
     });
   }
 
   showUpdateAvailable() {
-    if (confirm("A new version is available! Would you like to update?")) {
+    if (confirm('A new version is available! Would you like to update?')) {
       window.location.reload();
     }
   }
 
-  showToast(message, type = "info") {
-    const toast = document.createElement("div");
+  showToast(message, type = 'info') {
+    const toast = document.createElement('div');
     toast.className = `toast toast--${type}`;
     toast.textContent = message;
-    toast.setAttribute("role", "alert");
+    toast.setAttribute('role', 'alert');
 
     document.body.appendChild(toast);
 
     setTimeout(
-      () => toast.classList.add("toast--visible"),
+      () => toast.classList.add('toast--visible'),
       this.TOAST_SHOW_DELAY,
     );
     setTimeout(() => {
-      toast.classList.remove("toast--visible");
+      toast.classList.remove('toast--visible');
       setTimeout(() => toast.remove(), this.TOAST_HIDE_DELAY);
     }, this.TOAST_DURATION);
   }
 
   announcePageReady() {
-    const announcement = document.createElement("div");
-    announcement.setAttribute("aria-live", "polite");
-    announcement.setAttribute("aria-atomic", "true");
-    announcement.className = "sr-only";
-    announcement.textContent = "Page loaded and ready for interaction";
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.className = 'sr-only';
+    announcement.textContent = 'Page loaded and ready for interaction';
 
     document.body.appendChild(announcement);
     setTimeout(() => announcement.remove(), this.ANNOUNCEMENT_CLEANUP_DELAY);

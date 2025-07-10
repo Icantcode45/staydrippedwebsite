@@ -90,7 +90,7 @@ function renderFallbackContent(container, service) {
   fallback.appendChild(message);
   fallback.appendChild(link);
 
-  container.innerHTML = "";
+  container.replaceChildren();
   container.appendChild(fallback);
 }
 

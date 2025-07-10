@@ -169,7 +169,7 @@ class AdvancedInteractions {
   setupTextAnimations() {
     const animateText = (element) => {
       const text = element.textContent;
-      element.innerHTML = "";
+      element.replaceChildren();
 
       text.split("").forEach((char, index) => {
         const span = document.createElement("span");

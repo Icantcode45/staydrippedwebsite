@@ -140,51 +140,96 @@
           </div>
         </div>
 
-        <!-- CTA Buttons -->
+        <!-- Premium CTA Buttons -->
         <div class="hero__actions">
           <a
-            href="/booking"
+            href="/pages/services.html"
             class="btn btn--primary btn--lg"
             data-analytics="hero-primary-cta"
           >
             <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <defs>
+                <linearGradient
+                  id="calendarGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop
+                    offset="0%"
+                    style="stop-color: rgb(255 255 255 / 80%)"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: rgb(255 255 255 / 40%)"
+                  />
+                </linearGradient>
+              </defs>
               <path
-                d="M6 2V6M14 2V6M3 10H17M5 4H15C16.1046 4 17 4.89543 17 6V16C17 17.1046 16.1046 18 15 18H5C3.89543 18 3 17.1046 3 16V6C3 4.89543 3.89543 4 5 4Z"
-                stroke="currentColor"
-                stroke-width="2"
+                d="M6.6 2.2V6.6M15.4 2.2V6.6M3.3 11H18.7M5.5 4.4H16.5C17.715 4.4 18.7 5.385 18.7 6.6V17.6C18.7 18.815 17.715 19.8 16.5 19.8H5.5C4.285 19.8 3.3 18.815 3.3 17.6V6.6C3.3 5.385 4.285 4.4 5.5 4.4Z"
+                stroke="url(#calendarGradient)"
+                stroke-width="2.2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
+              <circle
+                cx="8.8"
+                cy="14.3"
+                r="0.8"
+                fill="url(#calendarGradient)"
+              />
+              <circle
+                cx="13.2"
+                cy="14.3"
+                r="0.8"
+                fill="url(#calendarGradient)"
+              />
             </svg>
-            Book Your Treatment
+            <span class="btn__text">Book Your Treatment</span>
           </a>
           <a
-            href="#services"
-            class="btn btn--secondary btn--lg"
-            data-analytics="hero-secondary-cta"
+            href="tel:+16026889825"
+            class="btn btn--phone btn--lg"
+            data-analytics="hero-phone-cta"
           >
             <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <defs>
+                <linearGradient
+                  id="phoneGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop
+                    offset="0%"
+                    style="stop-color: rgb(255 255 255 / 90%)"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: rgb(255 255 255 / 60%)"
+                  />
+                </linearGradient>
+              </defs>
               <path
-                d="M13 2L3 14L12 14L11 22L21 10L12 10L13 2Z"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                d="M2.2 3.3C2.2 2.69772 2.69772 2.2 3.3 2.2H5.66816C6.20589 2.2 6.66479 2.58875 6.75319 3.11916L7.56644 7.99862C7.6457 8.47497 7.40527 8.94737 6.97334 9.16333L5.27039 10.0148C6.49831 13.0661 8.93388 15.5017 11.9852 16.7296L12.8367 15.0267C13.0526 14.5947 13.525 14.3543 14.0014 14.4336L18.8808 15.2468C19.4113 15.3352 19.8 15.7941 19.8 16.3318V18.7C19.8 19.3023 19.3023 19.8 18.7 19.8H16.5C8.10233 19.8 2.2 13.8977 2.2 5.5V3.3Z"
+                fill="url(#phoneGradient)"
               />
             </svg>
-            Explore Services
+            <span class="btn__text">Call (602) 688-9825</span>
           </a>
         </div>
 
@@ -471,10 +516,36 @@
         </div>
       </div>
       <div class="quick-contact__actions">
-        <a href="tel:+16026889825" class="btn btn--outline btn--sm">
-          Call Now
+        <a href="tel:+16026889825" class="btn btn--phone btn--sm">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.6 2.4C1.6 1.96436 1.96436 1.6 2.4 1.6H4.121C4.51336 1.6 4.84348 1.88091 4.91141 2.26667L5.55013 5.81735C5.61505 6.17634 5.45109 6.54081 5.13789 6.7093L3.85119 7.37408C4.72514 9.51573 6.48427 11.2749 8.62592 12.1488L9.29069 10.8621C9.45918 10.5489 9.82366 10.385 10.1827 10.4499L13.7333 11.0886C14.1191 11.1565 14.4 11.4866 14.4 11.879V13.6C14.4 14.0356 14.0356 14.4 13.6 14.4H12C5.81624 14.4 1.6 10.1838 1.6 4V2.4Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span class="btn__text">Call Now</span>
         </a>
-        <a href="/booking" class="btn btn--primary btn--sm"> Book Online </a>
+        <a href="/pages/services.html" class="btn btn--primary btn--sm">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 1C8.55228 1 9 1.44772 9 2V7H14C14.5523 7 15 7.44772 15 8C15 8.55228 14.5523 9 14 9H9V14C9 14.5523 8.55228 15 8 15C7.44772 15 7 14.5523 7 14V9H2C1.44772 9 1 8.55228 1 8C1 7.44772 1.44772 7 2 7H7V2C7 1.44772 7.44772 1 8 1Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span class="btn__text">Book Online</span>
+        </a>
       </div>
     </div>
   </div>

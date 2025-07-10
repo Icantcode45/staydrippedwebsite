@@ -186,8 +186,8 @@ class GoogleReviewsWidget {
     const reviewsGrid = document.querySelector(".reviews-grid");
     if (!reviewsGrid) return;
 
-    // Clear existing reviews
-    reviewsGrid.innerHTML = "";
+    // Clear existing reviews safely
+    reviewsGrid.replaceChildren();
 
     // Add new reviews
     reviewsData.forEach((review) => {
@@ -215,28 +215,78 @@ class GoogleReviewsWidget {
           .toUpperCase()
       : "??";
 
-    card.innerHTML = `
-      <div class="review-header">
-        <div class="reviewer-avatar">
-          ${avatarContent}
-          <div class="avatar-fallback" style="${reviewData.avatar ? "display: none" : "display: flex"}">${avatarFallback}</div>
-        </div>
-        <div class="reviewer-info">
-          <h4 class="reviewer-name">${reviewData.name || "Anonymous"}</h4>
-          <div class="review-stars">${"★".repeat(reviewData.rating || 5)}</div>
-          <div class="review-date">${reviewData.date || "Recently"}</div>
-        </div>
-        <div class="google-icon">
-          <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
-            <path d="M47.532 24.43C47.532 22.437 47.362 20.443 47.005 18.496H24V29.595H36.4229C35.8571 32.487 34.3829 35.0972 32.112 36.8676V43.0027H39.9548C44.6762 38.618 47.532 31.808 47.532 24.43Z" fill="#4285F4"/>
-            <path d="M24 48C30.48 48 35.952 45.84 39.9548 43.0027L32.112 36.8676C30.0048 38.3488 27.288 39.168 24 39.168C17.7617 39.168 12.4571 34.9473 10.5376 29.1902H2.96429V35.336C6.44971 42.1357 14.6109 48 24 48Z" fill="#34A853"/>
-            <path d="M10.5376 29.1902C9.63976 26.6984 9.15714 23.996 9.15714 21.168C9.15714 18.34 9.63976 15.6376 10.5376 13.1458V7H2.96429C0.984286 11.11 0 15.8857 0 21.168C0 26.4503 0.984286 31.226 2.96429 35.336L10.5376 29.1902Z" fill="#FBBC04"/>
-            <path d="M24 9.672C27.5143 9.672 30.6571 11 33.0229 13.2472L39.5457 6.7248C35.8857 3.408 30.48 2 24 2C14.6109 2 6.44971 7.8643 2.96429 14.664L10.5376 20.8098C12.4571 15.0527 17.7617 10.832 24 9.672Z" fill="#EA4335"/>
-          </svg>
-        </div>
-      </div>
-      <p class="review-text">${reviewData.text || ""}</p>
-    `;
+    // Create elements safely to prevent XSS
+    card.replaceChildren();
+
+    const reviewHeader = document.createElement("div");
+    reviewHeader.className = "review-header";
+
+    const reviewerAvatar = document.createElement("div");
+    reviewerAvatar.className = "reviewer-avatar";
+
+    if (reviewData.avatar) {
+      const avatarImg = document.createElement("img");
+      avatarImg.src = reviewData.avatar;
+      avatarImg.alt = "Reviewer avatar";
+      reviewerAvatar.appendChild(avatarImg);
+    }
+
+    const avatarFallback = document.createElement("div");
+    avatarFallback.className = "avatar-fallback";
+    avatarFallback.style.display = reviewData.avatar ? "none" : "flex";
+    avatarFallback.textContent = reviewData.name
+      ? reviewData.name
+          .split(" ")
+          .map((n) => n.charAt(0))
+          .join("")
+          .toUpperCase()
+      : "??";
+    reviewerAvatar.appendChild(avatarFallback);
+
+    const reviewerInfo = document.createElement("div");
+    reviewerInfo.className = "reviewer-info";
+
+    const reviewerName = document.createElement("h4");
+    reviewerName.className = "reviewer-name";
+    reviewerName.textContent = reviewData.name || "Anonymous";
+
+    const reviewStars = document.createElement("div");
+    reviewStars.className = "review-stars";
+    reviewStars.textContent = "★".repeat(
+      Math.max(1, Math.min(5, reviewData.rating || 5)),
+    );
+
+    const reviewDate = document.createElement("div");
+    reviewDate.className = "review-date";
+    reviewDate.textContent = reviewData.date || "Recently";
+
+    reviewerInfo.appendChild(reviewerName);
+    reviewerInfo.appendChild(reviewStars);
+    reviewerInfo.appendChild(reviewDate);
+
+    reviewHeader.appendChild(reviewerAvatar);
+    reviewHeader.appendChild(reviewerInfo);
+
+    // Create Google icon safely
+    const googleIcon = document.createElement("div");
+    googleIcon.className = "google-icon";
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", "20");
+    svg.setAttribute("height", "20");
+    svg.setAttribute("viewBox", "0 0 48 48");
+    svg.setAttribute("fill", "none");
+    svg.innerHTML = `<path d="M47.532 24.43C47.532 22.437 47.362 20.443 47.005 18.496H24V29.595H36.4229C35.8571 32.487 34.3829 35.0972 32.112 36.8676V43.0027H39.9548C44.6762 38.618 47.532 31.808 47.532 24.43Z" fill="#4285F4"/><path d="M24 48C30.48 48 35.952 45.84 39.9548 43.0027L32.112 36.8676C30.0048 38.3488 27.288 39.168 24 39.168C17.7617 39.168 12.4571 34.9473 10.5376 29.1902H2.96429V35.336C6.44971 42.1357 14.6109 48 24 48Z" fill="#34A853"/><path d="M10.5376 29.1902C9.63976 26.6984 9.15714 23.996 9.15714 21.168C9.15714 18.34 9.63976 15.6376 10.5376 13.1458V7H2.96429C0.984286 11.11 0 15.8857 0 21.168C0 26.4503 0.984286 31.226 2.96429 35.336L10.5376 29.1902Z" fill="#FBBC04"/><path d="M24 9.672C27.5143 9.672 30.6571 11 33.0229 13.2472L39.5457 6.7248C35.8857 3.408 30.48 2 24 2C14.6109 2 6.44971 7.8643 2.96429 14.664L10.5376 20.8098C12.4571 15.0527 17.7617 10.832 24 9.672Z" fill="#EA4335"/>`;
+    googleIcon.appendChild(svg);
+
+    reviewHeader.appendChild(googleIcon);
+
+    // Create review text safely
+    const reviewText = document.createElement("p");
+    reviewText.className = "review-text";
+    reviewText.textContent = reviewData.text || "";
+
+    card.appendChild(reviewHeader);
+    card.appendChild(reviewText);
 
     return card;
   }

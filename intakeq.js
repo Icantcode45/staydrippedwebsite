@@ -167,17 +167,20 @@ class IntakeQManager {
       // Create button that opens IntakeQ booking with category
       const bookingButton = document.createElement("button");
       bookingButton.className = "intakeq-booking-btn btn btn-primary";
-      bookingButton.innerHTML = `
-        <i class="fas fa-calendar-plus"></i>
-        Book ${config.name}
-      `;
+      // Create button content safely
+      const icon = document.createElement("i");
+      icon.className = "fas fa-calendar-plus";
+      bookingButton.appendChild(icon);
+      bookingButton.appendChild(
+        document.createTextNode(` Book ${config.name}`),
+      );
 
       bookingButton.addEventListener("click", () => {
         this.openCategoryBooking(config.categoryId);
       });
 
       // Clear container and add button
-      container.innerHTML = "";
+      container.replaceChildren();
       container.appendChild(bookingButton);
 
       // Store widget config
@@ -194,12 +197,13 @@ class IntakeQManager {
       fallbackLink.target = "_blank";
       fallbackLink.rel = "noopener noreferrer";
       fallbackLink.className = "intakeq-fallback-link btn btn-outline";
-      fallbackLink.innerHTML = `
-        <i class="fas fa-external-link-alt"></i>
-        Book ${config.name}
-      `;
+      // Create fallback link content safely
+      const icon = document.createElement("i");
+      icon.className = "fas fa-external-link-alt";
+      fallbackLink.appendChild(icon);
+      fallbackLink.appendChild(document.createTextNode(` Book ${config.name}`));
 
-      container.innerHTML = "";
+      container.replaceChildren();
       container.appendChild(fallbackLink);
     }
   }
@@ -217,17 +221,20 @@ class IntakeQManager {
       // Create button that opens IntakeQ booking
       const bookingButton = document.createElement("button");
       bookingButton.className = "intakeq-booking-btn btn btn-primary";
-      bookingButton.innerHTML = `
-        <i class="fas fa-calendar-plus"></i>
-        Book ${config.name}
-      `;
+      // Create button content safely
+      const icon = document.createElement("i");
+      icon.className = "fas fa-calendar-plus";
+      bookingButton.appendChild(icon);
+      bookingButton.appendChild(
+        document.createTextNode(` Book ${config.name}`),
+      );
 
       bookingButton.addEventListener("click", () => {
         this.openBookingWidget(config.serviceId);
       });
 
       // Clear container and add button
-      container.innerHTML = "";
+      container.replaceChildren();
       container.appendChild(bookingButton);
 
       // Store widget config
@@ -241,12 +248,13 @@ class IntakeQManager {
       fallbackLink.target = "_blank";
       fallbackLink.rel = "noopener noreferrer";
       fallbackLink.className = "intakeq-fallback-link btn btn-outline";
-      fallbackLink.innerHTML = `
-        <i class="fas fa-external-link-alt"></i>
-        Book ${config.name}
-      `;
+      // Create fallback link content safely
+      const icon = document.createElement("i");
+      icon.className = "fas fa-external-link-alt";
+      fallbackLink.appendChild(icon);
+      fallbackLink.appendChild(document.createTextNode(` Book ${config.name}`));
 
-      container.innerHTML = "";
+      container.replaceChildren();
       container.appendChild(fallbackLink);
     }
   }

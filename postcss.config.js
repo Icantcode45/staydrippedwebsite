@@ -1,18 +1,18 @@
 module.exports = {
   plugins: [
-    require("autoprefixer")({
+    require('autoprefixer')({
       overrideBrowserslist: [
-        "> 1%",
-        "last 2 versions",
-        "Firefox ESR",
-        "not dead",
-        "not ie 11",
+        '> 1%',
+        'last 2 versions',
+        'Firefox ESR',
+        'not dead',
+        'not ie 11',
       ],
-      grid: "autoplace",
+      grid: 'autoplace',
     }),
-    require("cssnano")({
+    require('cssnano')({
       preset: [
-        "default",
+        'default',
         {
           discardComments: {
             removeAll: true,

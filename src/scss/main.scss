@@ -14,10 +14,11 @@
 @use "layouts/flexbox";
 
 // Import components
-@use "components/buttons";
+@use "components/premium-buttons";
 @use "components/cards";
 @use "components/forms";
 @use "components/animations";
+@use "components/header";
 
 // Import utilities last
 @use "utilities/spacing";

@@ -6,7 +6,7 @@ export const DOM = {
   /**
    * Create element with attributes and content
    */
-  create(tag, attributes = {}, content = "") {
+  create(tag, attributes = {}, content = '') {
     const element = document.createElement(tag);
 
     // Safely iterate over own properties only to prevent prototype pollution
@@ -14,11 +14,11 @@ export const DOM = {
       if (!Object.prototype.hasOwnProperty.call(attributes, key)) return;
 
       const value = attributes[key];
-      if (key === "className") {
+      if (key === 'className') {
         element.className = value;
       } else if (
-        key === "dataset" &&
-        typeof value === "object" &&
+        key === 'dataset' &&
+        typeof value === 'object' &&
         value !== null
       ) {
         Object.keys(value).forEach((dataKey) => {
@@ -26,7 +26,7 @@ export const DOM = {
           element.dataset[dataKey] = value[dataKey];
         });
       } else if (
-        typeof key === "string" &&
+        typeof key === 'string' &&
         /^[a-zA-Z][a-zA-Z0-9-]*$/.test(key)
       ) {
         element.setAttribute(key, value);
@@ -34,7 +34,7 @@ export const DOM = {
     });
 
     if (content) {
-      if (typeof content === "string") {
+      if (typeof content === 'string') {
         element.textContent = content;
       } else {
         element.appendChild(content);
@@ -72,14 +72,14 @@ export const DOM = {
    * Add event listener with error handling
    */
   on(element, event, handler, options = {}) {
-    if (!element || typeof handler !== "function") return;
+    if (!element || typeof handler !== 'function') return;
 
     const safeHandler = (e) => {
       try {
         handler(e);
       } catch (error) {
         // Log sanitized error message to prevent information disclosure
-        console.error("Error in event handler");
+        console.error('Error in event handler');
       }
     };
 

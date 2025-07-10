@@ -32,10 +32,10 @@
 			hideSearchResults();
 			
 			$.ajax({
-				type: "post",
+				type: 'post',
 				url: wcLiquid.ajaxUrl,
 				data: {
-					action: "liquid_wc_get_products_by_input_text",
+					action: 'liquid_wc_get_products_by_input_text',
 					searchText: searchFieldInput.val(),
 					termId: searchFieldSelect.find('option:selected').data('term-id')
 				},

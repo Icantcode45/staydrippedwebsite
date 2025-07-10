@@ -2,39 +2,39 @@
 
 // Header scroll effect
 function initHeaderScroll() {
-  const header = document.getElementById("header");
+  const header = document.getElementById('header');
   if (!header) {
-    console.warn("Header element not found");
+    console.warn('Header element not found');
     return;
   }
 
   const handleScroll = () => {
-    header.classList.toggle("scrolled", window.scrollY > 100);
+    header.classList.toggle('scrolled', window.scrollY > 100);
   };
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener('scroll', handleScroll, { passive: true });
 }
 
 // Fade in animation on scroll
 function initFadeInAnimations() {
   if (!window.IntersectionObserver) {
-    console.warn("IntersectionObserver not supported");
+    console.warn('IntersectionObserver not supported');
     return;
   }
 
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
+    rootMargin: '0px 0px -50px 0px',
   };
 
   const handleIntersection = (entries) => {
     entries.forEach((entry) => {
       try {
         if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+          entry.target.classList.add('visible');
         }
       } catch (error) {
-        console.error("Error in intersection handler:", error);
+        console.error('Error in intersection handler:', error);
       }
     });
   };
@@ -43,7 +43,7 @@ function initFadeInAnimations() {
     handleIntersection,
     observerOptions,
   );
-  const elements = document.querySelectorAll(".fade-in");
+  const elements = document.querySelectorAll('.fade-in');
 
   elements.forEach((el) => {
     observer.observe(el);
@@ -52,8 +52,8 @@ function initFadeInAnimations() {
 
 // Analytics tracking
 function trackPageView(pageTitle) {
-  if (typeof gtag !== "undefined") {
-    gtag("event", "page_view", {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'page_view', {
       page_title: pageTitle,
       page_location: window.location.href,
     });
@@ -61,13 +61,13 @@ function trackPageView(pageTitle) {
 }
 
 // Initialize shared functionality
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   initHeaderScroll();
   initFadeInAnimations();
 });
 
 // Export functions for module usage
-if (typeof module !== "undefined" && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     initHeaderScroll,
     initFadeInAnimations,

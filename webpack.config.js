@@ -1,36 +1,36 @@
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { GenerateSW } = require("workbox-webpack-plugin");
-const glob = require("glob");
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
+const glob = require('glob');
 
 module.exports = (env) => {
-  const isProduction = env === "production";
+  const isProduction = env === 'production';
 
   return {
-    mode: isProduction ? "production" : "development",
+    mode: isProduction ? 'production' : 'development',
     entry: {
-      main: "./src/js/index.js",
-      styles: "./src/scss/main.scss",
+      main: './src/js/index.js',
+      styles: './src/scss/main.scss',
     },
     output: {
-      filename: isProduction ? "js/[name].[contenthash].js" : "js/[name].js",
-      path: path.resolve(__dirname, "dist"),
+      filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].js',
+      path: path.resolve(__dirname, 'dist'),
       clean: true,
-      assetModuleFilename: "assets/[path][name][ext][query]",
-      publicPath: "/",
+      assetModuleFilename: 'assets/[path][name][ext][query]',
+      publicPath: '/',
     },
     devServer: {
       static: [
         {
-          directory: path.join(__dirname, "dist"),
+          directory: path.join(__dirname, 'dist'),
         },
         {
-          directory: path.join(__dirname, "pages"),
-          publicPath: "/pages",
+          directory: path.join(__dirname, 'pages'),
+          publicPath: '/pages',
         },
       ],
       compress: true,
@@ -40,7 +40,7 @@ module.exports = (env) => {
       open: false,
       historyApiFallback: true,
       client: {
-        logging: "none",
+        logging: 'none',
         overlay: false,
       },
     },
@@ -50,13 +50,13 @@ module.exports = (env) => {
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
-              presets: ["@babel/preset-env"],
+              presets: ['@babel/preset-env'],
               plugins: [
-                "@babel/plugin-transform-class-properties",
-                "@babel/plugin-transform-private-methods",
-                "@babel/plugin-transform-private-property-in-object",
+                '@babel/plugin-transform-class-properties',
+                '@babel/plugin-transform-private-methods',
+                '@babel/plugin-transform-private-property-in-object',
               ],
             },
           },
@@ -66,24 +66,24 @@ module.exports = (env) => {
           use: [
             MiniCssExtractPlugin.loader,
             {
-              loader: "css-loader",
+              loader: 'css-loader',
               options: {
                 sourceMap: !isProduction,
               },
             },
             {
-              loader: "postcss-loader",
+              loader: 'postcss-loader',
               options: {
                 sourceMap: !isProduction,
               },
             },
             {
-              loader: "sass-loader",
+              loader: 'sass-loader',
               options: {
                 sourceMap: !isProduction,
                 sassOptions: {
                   quietDeps: true,
-                  silenceDeprecations: ["legacy-js-api"],
+                  silenceDeprecations: ['legacy-js-api'],
                 },
               },
             },
@@ -91,16 +91,16 @@ module.exports = (env) => {
         },
         {
           test: /\.(png|jpe?g|gif|svg|ico|webp)$/i,
-          type: "asset/resource",
+          type: 'asset/resource',
           generator: {
-            filename: "assets/images/[name].[hash][ext]",
+            filename: 'assets/images/[name].[hash][ext]',
           },
         },
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
-          type: "asset/resource",
+          type: 'asset/resource',
           generator: {
-            filename: "assets/fonts/[name].[hash][ext]",
+            filename: 'assets/fonts/[name].[hash][ext]',
           },
         },
       ],
@@ -108,13 +108,13 @@ module.exports = (env) => {
     plugins: [
       new MiniCssExtractPlugin({
         filename: isProduction
-          ? "css/[name].[contenthash].css"
-          : "css/[name].css",
+          ? 'css/[name].[contenthash].css'
+          : 'css/[name].css',
       }),
       new HtmlWebpackPlugin({
-        template: "./index.html",
-        filename: "index.html",
-        inject: "body",
+        template: './index.html',
+        filename: 'index.html',
+        inject: 'body',
         minify: isProduction
           ? {
               removeComments: true,
@@ -134,9 +134,9 @@ module.exports = (env) => {
         ? [
             new PurgeCSSPlugin({
               paths: glob.sync([
-                path.join(__dirname, "public/**/*.html"),
-                path.join(__dirname, "components/**/*.html"),
-                path.join(__dirname, "src/**/*.js"),
+                path.join(__dirname, 'public/**/*.html'),
+                path.join(__dirname, 'components/**/*.html'),
+                path.join(__dirname, 'src/**/*.js'),
               ]),
               safelist: {
                 standard: [
@@ -170,9 +170,9 @@ module.exports = (env) => {
               runtimeCaching: [
                 {
                   urlPattern: /\.(?:png|jpg|jpeg|svg|webp|gif|ico)$/,
-                  handler: "CacheFirst",
+                  handler: 'CacheFirst',
                   options: {
-                    cacheName: "images",
+                    cacheName: 'images',
                     expiration: {
                       maxEntries: 100,
                       maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
@@ -181,9 +181,9 @@ module.exports = (env) => {
                 },
                 {
                   urlPattern: /\.(?:js|css)$/,
-                  handler: "StaleWhileRevalidate",
+                  handler: 'StaleWhileRevalidate',
                   options: {
-                    cacheName: "static-resources",
+                    cacheName: 'static-resources',
                   },
                 },
               ],
@@ -209,30 +209,30 @@ module.exports = (env) => {
         new CssMinimizerPlugin(),
       ],
       splitChunks: {
-        chunks: "all",
+        chunks: 'all',
         cacheGroups: {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            chunks: "all",
+            name: 'vendors',
+            chunks: 'all',
           },
           common: {
-            name: "common",
+            name: 'common',
             minChunks: 2,
-            chunks: "all",
+            chunks: 'all',
             enforce: true,
           },
         },
       },
     },
     resolve: {
-      extensions: [".js", ".json"],
+      extensions: ['.js', '.json'],
       alias: {
-        "@": path.resolve(__dirname, "src/js"),
-        "@styles": path.resolve(__dirname, "src/scss"),
-        "@assets": path.resolve(__dirname, "src/assets"),
+        '@': path.resolve(__dirname, 'src/js'),
+        '@styles': path.resolve(__dirname, 'src/scss'),
+        '@assets': path.resolve(__dirname, 'src/assets'),
       },
     },
-    devtool: isProduction ? "source-map" : "eval-source-map",
+    devtool: isProduction ? 'source-map' : 'eval-source-map',
   };
 };
