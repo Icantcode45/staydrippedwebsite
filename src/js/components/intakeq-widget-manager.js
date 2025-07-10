@@ -54,6 +54,16 @@ class IntakeQWidgetManager {
     }
   }
 
+  loadServicesScript() {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "/assets/js/services-data.js";
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+
   setupEventListeners() {
     // Listen for booking button clicks
     document.addEventListener("click", (e) => {
