@@ -1,885 +1,838 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Premium Mobile IV & Wellness Services | Stay Dripped Mobile IV
-    </title>
+    <title>Our Services - Stay Dripped Mobile IV | Premium IV Therapy</title>
     <meta
       name="description"
-      content="Professional mobile IV therapy and wellness services including hydration, NAD+, vitamin injections, and specialty treatments. Licensed medical professionals, same-day service."
+      content="Explore our comprehensive range of mobile IV therapy services including hydration, NAD+, wellness treatments, and vitamin shots delivered to your location."
     />
 
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../assets/images/favicon-32x32.png"
-    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/intakeq-widgets.css" />
 
     <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
+  </head>
+  <body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+      <div class="container">
+        <div class="services-hero__content">
+          <h1 class="services-hero__title">
+            <span class="services-hero__title-main"
+              >Premium IV Therapy Services</span
+            >
+            <span class="services-hero__title-sub"
+              >Delivered to Your Doorstep</span
+            >
+          </h1>
+          <p class="services-hero__subtitle">
+            Choose from our comprehensive range of medical-grade IV treatments,
+            each designed to address specific wellness goals and administered by
+            licensed medical professionals.
+          </p>
+          <div class="services-hero__stats">
+            <div class="services-hero__stat">
+              <span class="services-hero__stat-number">25+</span>
+              <span class="services-hero__stat-label">IV Treatments</span>
+            </div>
+            <div class="services-hero__stat">
+              <span class="services-hero__stat-number">100%</span>
+              <span class="services-hero__stat-label">Licensed Staff</span>
+            </div>
+            <div class="services-hero__stat">
+              <span class="services-hero__stat-number">5000+</span>
+              <span class="services-hero__stat-label"
+                >Treatments Delivered</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Categories -->
+    <section class="service-categories" id="categories">
+      <div class="container">
+        <div class="service-categories__header">
+          <h2 class="service-categories__title">Service Categories</h2>
+          <p class="service-categories__subtitle">
+            Browse our services by category to find the perfect treatment for
+            your needs
+          </p>
+        </div>
+
+        <div class="service-categories__grid">
+          <!-- Hydration & Recovery -->
+          <div class="service-category-card" data-category="hydration">
+            <div class="service-category-card__icon">💧</div>
+            <h3 class="service-category-card__title">Hydration & Recovery</h3>
+            <p class="service-category-card__description">
+              Essential hydration and recovery treatments for optimal wellness
+            </p>
+            <div class="service-category-card__count">6 Services</div>
+          </div>
+
+          <!-- Wellness & Immunity -->
+          <div class="service-category-card" data-category="wellness">
+            <div class="service-category-card__icon">🌟</div>
+            <h3 class="service-category-card__title">Wellness & Immunity</h3>
+            <p class="service-category-card__description">
+              Comprehensive wellness and immune system support treatments
+            </p>
+            <div class="service-category-card__count">8 Services</div>
+          </div>
+
+          <!-- Performance & Energy -->
+          <div class="service-category-card" data-category="performance">
+            <div class="service-category-card__icon">⚡</div>
+            <h3 class="service-category-card__title">Performance & Energy</h3>
+            <p class="service-category-card__description">
+              Athletic performance and energy enhancement therapies
+            </p>
+            <div class="service-category-card__count">5 Services</div>
+          </div>
+
+          <!-- Beauty & Anti-Aging -->
+          <div class="service-category-card" data-category="beauty">
+            <div class="service-category-card__icon">✨</div>
+            <h3 class="service-category-card__title">Beauty & Anti-Aging</h3>
+            <p class="service-category-card__description">
+              Aesthetic and anti-aging treatments for radiant wellness
+            </p>
+            <div class="service-category-card__count">2 Services</div>
+          </div>
+
+          <!-- NAD+ Therapy -->
+          <div class="service-category-card" data-category="nad">
+            <div class="service-category-card__icon">🧬</div>
+            <h3 class="service-category-card__title">NAD+ Therapy</h3>
+            <p class="service-category-card__description">
+              Advanced cellular regeneration and longevity treatments
+            </p>
+            <div class="service-category-card__count">4 Services</div>
+          </div>
+
+          <!-- Vitamin Shots -->
+          <div class="service-category-card" data-category="shots">
+            <div class="service-category-card__icon">💉</div>
+            <h3 class="service-category-card__title">Vitamin Shots</h3>
+            <p class="service-category-card__description">
+              Quick vitamin and nutrient injections for immediate benefits
+            </p>
+            <div class="service-category-card__count">3 Services</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Services -->
+    <section class="popular-services" id="popular">
+      <div class="container">
+        <div class="popular-services__header">
+          <h2 class="popular-services__title">Most Popular Services</h2>
+          <p class="popular-services__subtitle">
+            Our most requested treatments, loved by clients for their immediate
+            and lasting benefits
+          </p>
+        </div>
+
+        <div class="popular-services__grid">
+          <!-- Popular Service 1: Myers' Cocktail -->
+          <div class="service-card service-card--popular">
+            <div class="service-card__badge">Most Popular</div>
+            <div class="service-card__header">
+              <div class="service-card__icon">🌟</div>
+              <div class="service-card__meta">
+                <h3 class="service-card__title">Myers' Cocktail IV</h3>
+                <div class="service-card__price">$249</div>
+              </div>
+            </div>
+            <p class="service-card__description">
+              The classic wellness treatment with a powerful blend of vitamins
+              and minerals for optimal health.
+            </p>
+            <div class="service-card__benefits">
+              <span>Immune Support</span>
+              <span>Energy Boost</span>
+              <span>Overall Wellness</span>
+            </div>
+            <div class="service-card__actions">
+              <button
+                class="btn btn--primary"
+                data-service-booking="myers-cocktail"
+              >
+                Book Now
+              </button>
+              <a href="#myers-cocktail-widget" class="btn btn--outline">
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <!-- Popular Service 2: Hangover Relief -->
+          <div class="service-card service-card--popular">
+            <div class="service-card__badge">Quick Relief</div>
+            <div class="service-card__header">
+              <div class="service-card__icon">💧</div>
+              <div class="service-card__meta">
+                <h3 class="service-card__title">Hangover Relief IV</h3>
+                <div class="service-card__price">$199</div>
+              </div>
+            </div>
+            <p class="service-card__description">
+              Rapid hangover relief with hydration, vitamins, and anti-nausea
+              medication for quick recovery.
+            </p>
+            <div class="service-card__benefits">
+              <span>Fast Acting</span>
+              <span>Nausea Relief</span>
+              <span>Rehydration</span>
+            </div>
+            <div class="service-card__actions">
+              <button
+                class="btn btn--primary"
+                data-service-booking="day-after-hangover"
+              >
+                Book Now
+              </button>
+              <a href="#hangover-relief-widget" class="btn btn--outline">
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <!-- Popular Service 3: NAD+ Basic -->
+          <div class="service-card service-card--featured">
+            <div class="service-card__badge">Anti-Aging</div>
+            <div class="service-card__header">
+              <div class="service-card__icon">🧬</div>
+              <div class="service-card__meta">
+                <h3 class="service-card__title">Basic NAD+ IV</h3>
+                <div class="service-card__price">$449</div>
+              </div>
+            </div>
+            <p class="service-card__description">
+              Introduction to NAD+ therapy for cellular regeneration,
+              anti-aging, and enhanced mental clarity.
+            </p>
+            <div class="service-card__benefits">
+              <span>Anti-Aging</span>
+              <span>Mental Clarity</span>
+              <span>Cellular Repair</span>
+            </div>
+            <div class="service-card__actions">
+              <button class="btn btn--primary" data-service-booking="basic-nad">
+                Book Now
+              </button>
+              <a href="#basic-nad-widget" class="btn btn--outline">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Widgets Section -->
+    <section class="service-widgets" id="booking-widgets">
+      <div class="container">
+        <div class="service-widgets__header">
+          <h2 class="service-widgets__title">Book Your Treatment</h2>
+          <p class="service-widgets__subtitle">
+            Select a service below to book your appointment. All treatments are
+            administered by licensed medical professionals at your preferred
+            location.
+          </p>
+        </div>
+
+        <!-- Hydration Services -->
+        <div class="service-widgets__category">
+          <h3 class="service-widgets__category-title">
+            <span class="category-icon">💧</span>
+            Hydration & Recovery
+          </h3>
+
+          <!-- Rehydrate IV -->
+          <div
+            class="intakeq-widget-container"
+            data-service="rehydrate-iv"
+            data-category="hydration"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Rehydrate Plus IV -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--popular"
+            data-service="rehydrate-plus-iv"
+            data-category="hydration"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Hangover Relief -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--featured"
+            data-service="day-after-hangover"
+            data-category="hydration"
+            id="hangover-relief-widget"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Gold Ultimate -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--featured"
+            data-service="gold-ultimate"
+            data-category="performance"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Platinum Ultimate -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--premium"
+            data-service="platinum-ultimate"
+            data-category="performance"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Wellness Services -->
+        <div class="service-widgets__category">
+          <h3 class="service-widgets__category-title">
+            <span class="category-icon">🌟</span>
+            Wellness & Immunity
+          </h3>
+
+          <!-- Jr. Myers' Cocktail -->
+          <div
+            class="intakeq-widget-container"
+            data-service="jr-myers-cocktail"
+            data-category="wellness"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Myers' Cocktail -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--popular"
+            data-service="myers-cocktail"
+            data-category="wellness"
+            id="myers-cocktail-widget"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Mega Myers' Cocktail -->
+          <div
+            class="intakeq-widget-container"
+            data-service="mega-myers-cocktail"
+            data-category="wellness"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Diamond-Back Immune -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--popular"
+            data-service="diamond-back-immune"
+            data-category="wellness"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Arizona Detox -->
+          <div
+            class="intakeq-widget-container"
+            data-service="arizona-detox"
+            data-category="wellness"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Stress Relief -->
+          <div
+            class="intakeq-widget-container"
+            data-service="stress-relief"
+            data-category="wellness"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Anti-Inflammatory -->
+          <div
+            class="intakeq-widget-container"
+            data-service="anti-inflammatory"
+            data-category="wellness"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Stay Dripped Special -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--featured"
+            data-service="stay-dripped-special"
+            data-category="wellness"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+        </div>
+
+        <!-- NAD+ Services -->
+        <div class="service-widgets__category">
+          <h3 class="service-widgets__category-title">
+            <span class="category-icon">🧬</span>
+            NAD+ Therapy
+          </h3>
+
+          <!-- Basic NAD+ -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--popular"
+            data-service="basic-nad"
+            data-category="nad"
+            id="basic-nad-widget"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Fountain of Youth NAD+ -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--featured"
+            data-service="fountain-youth-nad"
+            data-category="nad"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Diamond NAD+ -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--premium"
+            data-service="diamond-nad"
+            data-category="nad"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Elite NAD+ -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--premium intakeq-widget-container--featured"
+            data-service="elite-nad"
+            data-category="nad"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Performance Services -->
+        <div class="service-widgets__category">
+          <h3 class="service-widgets__category-title">
+            <span class="category-icon">⚡</span>
+            Performance & Energy
+          </h3>
+
+          <!-- Sun Devil Energy -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--popular"
+            data-service="sun-devil-energy"
+            data-category="performance"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- D-Book Performance -->
+          <div
+            class="intakeq-widget-container"
+            data-service="d-book-performance"
+            data-category="performance"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Mental Clarity -->
+          <div
+            class="intakeq-widget-container"
+            data-service="mental-clarity"
+            data-category="performance"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+
+          <!-- Metabolism Booster -->
+          <div
+            class="intakeq-widget-container"
+            data-service="metabolism-booster"
+            data-category="performance"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Beauty Services -->
+        <div class="service-widgets__category">
+          <h3 class="service-widgets__category-title">
+            <span class="category-icon">✨</span>
+            Beauty & Anti-Aging
+          </h3>
+
+          <!-- Scottsdale Beauty -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--popular"
+            data-service="scottsdale-beauty"
+            data-category="beauty"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Vitamin Shots -->
+        <div class="service-widgets__category">
+          <h3 class="service-widgets__category-title">
+            <span class="category-icon">💉</span>
+            Vitamin Shots
+          </h3>
+
+          <!-- B12 Energy Shot -->
+          <div
+            class="intakeq-widget-container intakeq-widget-container--popular"
+            data-service="b12-energy-shot"
+            data-category="shots"
+          >
+            <!-- Widget will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/services-data.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Load header and footer -->
+    <script>
+      // Load header
+      fetch("/components/header.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+        });
+
+      // Load footer
+      fetch("/components/footer.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        });
+    </script>
 
     <style>
-      :root {
-        --primary: #007aff;
-        --primary-dark: #0056b3;
-        --secondary: #5ac8fa;
-        --accent: #34c759;
-        --gold: #ffd700;
-        --white: #fff;
-        --gray-50: #f9fafb;
-        --gray-100: #f3f4f6;
-        --gray-200: #e5e7eb;
-        --gray-300: #d1d5db;
-        --gray-400: #9ca3af;
-        --gray-500: #6b7280;
-        --gray-600: #4b5563;
-        --gray-700: #374151;
-        --gray-800: #1f2937;
-        --gray-900: #111827;
-        --gradient-primary: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--secondary) 100%
-        );
-        --gradient-hero: linear-gradient(
-          135deg,
-          rgba(0, 122, 255, 0.95) 0%,
-          rgba(90, 200, 250, 0.95) 100%
-        );
-        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
-        --shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
-        --shadow-md:
-          0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
-        --shadow-lg:
-          0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-        --shadow-xl:
-          0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
-        --border-radius: 8px;
-        --border-radius-lg: 12px;
-        --border-radius-xl: 16px;
-        --border-radius-2xl: 24px;
-        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family:
-          Inter,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        line-height: 1.6;
-        color: var(--gray-800);
-        background: var(--white);
-        overflow-x: hidden;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-      }
-
-      /* Header */
-      .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--gray-200);
-        z-index: 1000;
-        transition: var(--transition);
-      }
-
-      .header.scrolled {
-        background: rgba(255, 255, 255, 0.98);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .header-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 1.5rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-      }
-
-      .logo img {
-        height: 45px;
-        width: auto;
-      }
-
-      .nav {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        list-style: none;
-      }
-
-      .nav-link {
-        color: var(--gray-700);
-        text-decoration: none;
-        font-weight: 500;
-        transition: var(--transition);
-        position: relative;
-      }
-
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--primary);
-      }
-
-      .nav-link.active::after {
-        content: "";
-        position: absolute;
-        bottom: -8px;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: var(--primary);
-        border-radius: 1px;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: var(--border-radius-2xl);
-        font-weight: 600;
-        font-size: 1rem;
-        text-decoration: none;
-        cursor: pointer;
-        transition: var(--transition);
-        white-space: nowrap;
-      }
-
-      .btn-primary {
-        background: var(--gradient-primary);
-        color: var(--white);
-        box-shadow: var(--shadow-md);
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-xl);
-        color: var(--white);
-        text-decoration: none;
-      }
-
-      .btn-secondary {
-        background: var(--white);
-        color: var(--primary);
-        border: 2px solid var(--primary);
-        box-shadow: var(--shadow);
-      }
-
-      .btn-secondary:hover {
-        background: var(--primary);
-        color: var(--white);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-        text-decoration: none;
-      }
-
-      .btn-lg {
-        padding: 1.25rem 2.5rem;
-        font-size: 1.125rem;
-      }
-
-      /* Hero Section */
-      .hero {
-        background:
-          linear-gradient(var(--gradient-hero), var(--gradient-hero)),
-          url("https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2Fcbebee042f6941f68dabb26a8ecca733?format=webp&width=800");
-        background-size: cover;
-        background-position: center;
-        color: var(--white);
-        padding: 140px 0 100px;
+      /* Services Hero Styles */
+      .services-hero {
+        background: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%);
+        color: white;
+        padding: 6rem 0 4rem;
         text-align: center;
-        position: relative;
-        overflow: hidden;
       }
 
-      .hero-content {
-        position: relative;
-        z-index: 2;
-      }
-
-      .hero-title {
-        font-size: clamp(2.5rem, 5vw, 4rem);
+      .services-hero__title-main {
+        display: block;
+        font-size: 3.5rem;
         font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(
-          135deg,
-          var(--white) 0%,
-          rgba(255, 255, 255, 0.8) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        margin-bottom: 0.5rem;
       }
 
-      .hero-subtitle {
+      .services-hero__title-sub {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 400;
+        opacity: 0.9;
+      }
+
+      .services-hero__subtitle {
         font-size: 1.25rem;
-        opacity: 0.95;
-        margin-bottom: 2.5rem;
+        margin: 2rem auto;
         max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
+        opacity: 0.9;
       }
 
-      .hero-cta {
+      .services-hero__stats {
         display: flex;
-        align-items: center;
         justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
+        gap: 3rem;
+        margin-top: 3rem;
       }
 
-      /* Services Section */
-      .services {
-        padding: 100px 0;
-        background: var(--gray-50);
+      .services-hero__stat-number {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 700;
       }
 
-      .section-header {
+      .services-hero__stat-label {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+
+      /* Service Categories */
+      .service-categories {
+        padding: 6rem 0;
+        background: #f8fafc;
+      }
+
+      .service-categories__header {
         text-align: center;
         margin-bottom: 4rem;
       }
 
-      .section-title {
-        font-size: clamp(2rem, 4vw, 3rem);
-        font-weight: 800;
-        color: var(--gray-900);
+      .service-categories__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1f2937;
         margin-bottom: 1rem;
       }
 
-      .section-subtitle {
+      .service-categories__subtitle {
         font-size: 1.125rem;
-        color: var(--gray-600);
+        color: #6b7280;
         max-width: 600px;
         margin: 0 auto;
       }
 
-      .services-grid {
+      .service-categories__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-category-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .service-category-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-category-card__icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-category-card__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+      }
+
+      .service-category-card__description {
+        color: #6b7280;
+        margin-bottom: 1rem;
+      }
+
+      .service-category-card__count {
+        color: #007aff;
+        font-weight: 600;
+      }
+
+      /* Popular Services */
+      .popular-services {
+        padding: 6rem 0;
+      }
+
+      .popular-services__header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .popular-services__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 1rem;
+      }
+
+      .popular-services__subtitle {
+        font-size: 1.125rem;
+        color: #6b7280;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .popular-services__grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 2rem;
       }
 
+      /* Service Cards */
       .service-card {
-        background: var(--white);
-        border-radius: var(--border-radius-xl);
-        padding: 2.5rem;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
+        background: white;
+        border-radius: 1.5rem;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
       }
 
-      .service-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: var(--gradient-primary);
-        transform: scaleX(0);
-        transition: var(--transition);
-      }
-
       .service-card:hover {
         transform: translateY(-8px);
-        box-shadow: var(--shadow-xl);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
       }
 
-      .service-card:hover::before {
-        transform: scaleX(1);
-      }
-
-      .service-icon {
-        width: 80px;
-        height: 80px;
-        background: var(--gradient-primary);
-        border-radius: var(--border-radius-xl);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        color: var(--white);
-        margin-bottom: 1.5rem;
-      }
-
-      .service-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--gray-900);
-        margin-bottom: 1rem;
-      }
-
-      .service-description {
-        color: var(--gray-600);
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-      }
-
-      .service-features {
-        list-style: none;
-        margin-bottom: 2rem;
-      }
-
-      .service-features li {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--gray-700);
-        margin-bottom: 0.5rem;
-      }
-
-      .service-features li::before {
-        content: "✓";
-        color: var(--accent);
+      .service-card__badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: linear-gradient(135deg, #ffd700, #ffa500);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
         font-weight: 600;
       }
 
-      .pricing-highlight {
-        background: var(--gray-50);
-        border-radius: var(--border-radius-lg);
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-      }
-
-      .price-range {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--primary);
-      }
-
-      /* CTA Section */
-      .cta {
-        padding: 100px 0;
-        background: var(--gradient-primary);
-        color: var(--white);
-        text-align: center;
-      }
-
-      .cta-title {
-        font-size: clamp(2rem, 4vw, 3rem);
-        font-weight: 800;
+      .service-card__header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
         margin-bottom: 1rem;
       }
 
-      .cta-subtitle {
-        font-size: 1.25rem;
-        opacity: 0.95;
-        margin-bottom: 2.5rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .cta-buttons {
+      .service-card__icon {
+        font-size: 2.5rem;
+        width: 4rem;
+        height: 4rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
+        background: rgba(0, 122, 255, 0.1);
+        border-radius: 1rem;
       }
 
-      /* Footer */
-      .footer {
-        background: var(--gray-900);
-        color: var(--gray-300);
-        padding: 60px 0 30px;
-      }
-
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
-      }
-
-      .footer-section h3 {
-        color: var(--white);
+      .service-card__title {
+        font-size: 1.25rem;
         font-weight: 700;
+        color: #1f2937;
+      }
+
+      .service-card__price {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #007aff;
+      }
+
+      .service-card__description {
+        color: #6b7280;
         margin-bottom: 1.5rem;
       }
 
-      .footer-links {
-        list-style: none;
+      .service-card__benefits {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
       }
 
-      .footer-links li {
-        margin-bottom: 0.75rem;
+      .service-card__benefits span {
+        background: rgba(0, 122, 255, 0.1);
+        color: #007aff;
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
       }
 
-      .footer-links a {
-        color: var(--gray-400);
-        text-decoration: none;
-        transition: var(--transition);
+      .service-card__actions {
+        display: flex;
+        gap: 1rem;
       }
 
-      .footer-links a:hover {
-        color: var(--primary);
+      /* Service Widgets */
+      .service-widgets {
+        padding: 6rem 0;
+        background: #f8fafc;
       }
 
-      .footer-bottom {
-        border-top: 1px solid var(--gray-700);
-        padding-top: 2rem;
+      .service-widgets__header {
         text-align: center;
-        color: var(--gray-500);
+        margin-bottom: 4rem;
+      }
+
+      .service-widgets__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 1rem;
+      }
+
+      .service-widgets__subtitle {
+        font-size: 1.125rem;
+        color: #6b7280;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .service-widgets__category {
+        margin-bottom: 4rem;
+      }
+
+      .service-widgets__category-title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(0, 122, 255, 0.1);
+      }
+
+      .category-icon {
+        font-size: 2.5rem;
       }
 
       /* Responsive */
       @media (max-width: 768px) {
-        .nav-links {
-          display: none;
+        .services-hero__title-main {
+          font-size: 2.5rem;
         }
 
-        .hero {
-          padding: 120px 0 80px;
-        }
-
-        .hero-cta {
+        .services-hero__stats {
           flex-direction: column;
+          gap: 1.5rem;
         }
 
-        .services-grid {
+        .service-categories__grid,
+        .popular-services__grid {
           grid-template-columns: 1fr;
         }
 
-        .cta-buttons {
+        .service-card__actions {
           flex-direction: column;
         }
       }
-
-      /* Animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
     </style>
-  </head>
-
-  <body>
-    <!-- Header -->
-    <header class="header" id="header">
-      <div class="header-container">
-        <a href="../index.html" class="logo">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2F3a39d60c58cd46b6ae649aefdca6db7f?format=webp&width=800"
-            alt="Stay Dripped Mobile IV Service"
-          />
-        </a>
-
-        <nav class="nav">
-          <ul class="nav-links">
-            <li><a href="../index.html" class="nav-link">Home</a></li>
-            <li>
-              <a href="services.html" class="nav-link active">Services</a>
-            </li>
-            <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-            <li><a href="booking.html" class="nav-link">Book Now</a></li>
-            <li><a href="membership.html" class="nav-link">Membership</a></li>
-            <li><a href="client-portal.html" class="nav-link">Portal</a></li>
-          </ul>
-
-          <div class="header-actions">
-            <a href="tel:+16026889825" class="btn btn-primary">
-              <i class="fas fa-phone"></i>
-              (602) 688-9825
-            </a>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content fade-in">
-          <h1 class="hero-title">Premium Mobile IV & Wellness Services</h1>
-          <p class="hero-subtitle">
-            Professional IV therapy, NAD+ treatments, vitamin injections, and
-            specialty wellness services delivered by licensed medical
-            professionals to your location in Phoenix Valley.
-          </p>
-
-          <div class="hero-cta">
-            <a href="booking.html" class="btn btn-primary btn-lg">
-              <i class="fas fa-calendar-plus"></i>
-              Book Service Now
-            </a>
-            <a href="pricing.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-list"></i>
-              View Pricing
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2 class="section-title">Our Professional Services</h2>
-          <p class="section-subtitle">
-            Comprehensive mobile wellness treatments delivered by licensed
-            medical professionals using FDA-approved ingredients
-          </p>
-        </div>
-
-        <div class="services-grid">
-          <div class="service-card fade-in">
-            <div class="service-icon">
-              <i class="fas fa-tint"></i>
-            </div>
-            <h3 class="service-title">IV Hydration Therapy</h3>
-            <p class="service-description">
-              Professional intravenous hydration and nutrient delivery with
-              customized vitamin blends for optimal wellness and recovery.
-            </p>
-            <div class="pricing-highlight">
-              <div class="price-range">$99 - $355</div>
-              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
-                Starting from basic saline to platinum recovery
-              </p>
-            </div>
-            <ul class="service-features">
-              <li>Myers' Cocktail IV Drips</li>
-              <li>Hangover Relief Treatment</li>
-              <li>Athletic Recovery Infusions</li>
-              <li>Detox & Cleanse Therapy</li>
-              <li>Custom Vitamin Blends</li>
-            </ul>
-            <a href="iv-therapy.html" class="btn btn-primary">
-              <i class="fas fa-arrow-right"></i>
-              View IV Services
-            </a>
-          </div>
-
-          <div class="service-card fade-in">
-            <div class="service-icon">
-              <i class="fas fa-dna"></i>
-            </div>
-            <h3 class="service-title">NAD+ Anti-Aging Therapy</h3>
-            <p class="service-description">
-              Cutting-edge NAD+ therapy for cellular repair, mental clarity,
-              anti-aging benefits, and enhanced energy levels.
-            </p>
-            <div class="pricing-highlight">
-              <div class="price-range">$400 - $525</div>
-              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
-                Basic to diamond NAD+ treatments
-              </p>
-            </div>
-            <ul class="service-features">
-              <li>Cellular Regeneration</li>
-              <li>Mental Clarity Enhancement</li>
-              <li>Energy Level Boost</li>
-              <li>Anti-Aging Benefits</li>
-              <li>Fountain of Youth IV</li>
-            </ul>
-            <a href="booking.html" class="btn btn-primary">
-              <i class="fas fa-calendar-plus"></i>
-              Book NAD+ Therapy
-            </a>
-          </div>
-
-          <div class="service-card fade-in">
-            <div class="service-icon">
-              <i class="fas fa-syringe"></i>
-            </div>
-            <h3 class="service-title">Vitamin Injections</h3>
-            <p class="service-description">
-              Quick and effective vitamin shots for energy, weight management,
-              immune support, and overall wellness enhancement.
-            </p>
-            <div class="pricing-highlight">
-              <div class="price-range">Starting at $35</div>
-              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
-                Individual shots and bundle packages
-              </p>
-            </div>
-            <ul class="service-features">
-              <li>B12 Energy Shots</li>
-              <li>Lipo Weight Management</li>
-              <li>Vitamin D Injections</li>
-              <li>Immune Boosters</li>
-              <li>Custom Formulations</li>
-            </ul>
-            <a href="booking-vitamin-shots.html" class="btn btn-primary">
-              <i class="fas fa-calendar-plus"></i>
-              Book Vitamin Shots
-            </a>
-          </div>
-
-          <div class="service-card fade-in">
-            <div class="service-icon">
-              <i class="fas fa-star"></i>
-            </div>
-            <h3 class="service-title">Membership Plans</h3>
-            <p class="service-description">
-              Exclusive membership benefits with priority booking, significant
-              savings, and VIP treatment access.
-            </p>
-            <div class="pricing-highlight">
-              <div class="price-range">Save up to 30%</div>
-              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
-                Monthly plans with exclusive benefits
-              </p>
-            </div>
-            <ul class="service-features">
-              <li>Up to 30% Savings</li>
-              <li>Priority Booking</li>
-              <li>Monthly Treatment Credits</li>
-              <li>VIP Customer Support</li>
-              <li>Exclusive Access</li>
-            </ul>
-            <a href="membership.html" class="btn btn-primary">
-              <i class="fas fa-crown"></i>
-              Join Membership
-            </a>
-          </div>
-
-          <div class="service-card fade-in">
-            <div class="service-icon">
-              <i class="fas fa-building"></i>
-            </div>
-            <h3 class="service-title">Corporate & Group Events</h3>
-            <p class="service-description">
-              Professional wellness services for corporate events, team
-              building, parties, and group gatherings.
-            </p>
-            <div class="pricing-highlight">
-              <div class="price-range">Group Discounts</div>
-              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
-                Up to 40% off for groups
-              </p>
-            </div>
-            <ul class="service-features">
-              <li>On-Site Group Service</li>
-              <li>Corporate Wellness Events</li>
-              <li>Team Building Activities</li>
-              <li>Party & Event Packages</li>
-              <li>Mobile RV Service</li>
-            </ul>
-            <a href="corporate-events.html" class="btn btn-primary">
-              <i class="fas fa-users"></i>
-              Plan Event
-            </a>
-          </div>
-
-          <div class="service-card fade-in">
-            <div class="service-icon">
-              <i class="fas fa-sparkles"></i>
-            </div>
-            <h3 class="service-title">Specialty Treatments</h3>
-            <p class="service-description">
-              Targeted wellness treatments including beauty enhancement,
-              athletic performance, and stress relief therapies.
-            </p>
-            <div class="pricing-highlight">
-              <div class="price-range">$215 - $425</div>
-              <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0">
-                Specialized wellness formulations
-              </p>
-            </div>
-            <ul class="service-features">
-              <li>Beauty & Skin Health</li>
-              <li>Athletic Performance</li>
-              <li>Stress Relief Therapy</li>
-              <li>Mental Clarity Boost</li>
-              <li>Weight Management</li>
-            </ul>
-            <a href="booking.html" class="btn btn-primary">
-              <i class="fas fa-magic"></i>
-              Book Specialty
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-      <div class="container">
-        <div class="fade-in">
-          <h2 class="cta-title">Ready to Experience Premium Wellness?</h2>
-          <p class="cta-subtitle">
-            Book your professional mobile IV therapy service today and feel the
-            difference that licensed medical care makes.
-          </p>
-
-          <div class="cta-buttons">
-            <a href="booking.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-calendar-plus"></i>
-              Book Service Online
-            </a>
-            <a href="tel:+16026889825" class="btn btn-primary btn-lg">
-              <i class="fas fa-phone"></i>
-              Call (602) 688-9825
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Stay Dripped Mobile IV</h3>
-            <p>
-              Premium mobile IV therapy and wellness services delivered to your
-              location in Phoenix Valley by licensed medical professionals.
-            </p>
-            <div style="margin-top: 1rem">
-              <a
-                href="tel:+16026889825"
-                style="color: var(--primary); text-decoration: none"
-              >
-                <i class="fas fa-phone"></i> (602) 688-9825
-              </a>
-            </div>
-          </div>
-
-          <div class="footer-section">
-            <h3>Services</h3>
-            <ul class="footer-links">
-              <li><a href="iv-therapy.html">IV Hydration Therapy</a></li>
-              <li><a href="booking.html">NAD+ Anti-Aging</a></li>
-              <li>
-                <a href="booking-vitamin-shots.html">Vitamin Injections</a>
-              </li>
-              <li><a href="corporate-events.html">Corporate Events</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-              <li><a href="pricing.html">View Pricing</a></li>
-              <li><a href="booking.html">Book Treatment</a></li>
-              <li><a href="client-portal.html">Client Portal</a></li>
-              <li><a href="membership.html">Membership Plans</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h3>Service Areas</h3>
-            <ul class="footer-links">
-              <li>Phoenix</li>
-              <li>Scottsdale</li>
-              <li>Tempe</li>
-              <li>Mesa</li>
-              <li>Chandler</li>
-              <li>Gilbert</li>
-              <li>Glendale</li>
-              <li>Peoria</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>
-            &copy; 2024 Stay Dripped Mobile IV. All rights reserved. Licensed
-            medical professionals.
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-      // Header scroll effect
-      window.addEventListener("scroll", () => {
-        const header = document.getElementById("header");
-        if (window.scrollY > 100) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-      });
-
-      // Fade in animation on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll(".fade-in").forEach((el) => {
-        observer.observe(el);
-      });
-
-      // Analytics tracking
-      if (typeof gtag !== "undefined") {
-        gtag("event", "page_view", {
-          page_title: "Services Page",
-          page_location: window.location.href,
-        });
-      }
-    </script>
   </body>
 </html>
