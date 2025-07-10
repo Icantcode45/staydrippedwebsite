@@ -186,8 +186,8 @@ class GoogleReviewsWidget {
     const reviewsGrid = document.querySelector(".reviews-grid");
     if (!reviewsGrid) return;
 
-    // Clear existing reviews
-    reviewsGrid.innerHTML = "";
+    // Clear existing reviews safely
+    reviewsGrid.replaceChildren();
 
     // Add new reviews
     reviewsData.forEach((review) => {
