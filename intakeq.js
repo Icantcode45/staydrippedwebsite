@@ -305,19 +305,19 @@ class IntakeQManager {
         window.intakeqServiceId = serviceId;
         window.IntakeQ.open();
       } else {
-        // Fallback to direct URL
-        window.open(
-          `https://Staydripped.intakeq.com/booking?serviceId=${serviceId}`,
-          "_blank",
-        );
+        // Fallback to direct URL with safe construction
+        const baseUrl = "https://Staydripped.intakeq.com/booking";
+        const params = new URLSearchParams({ serviceId: String(serviceId) });
+        const safeUrl = `${baseUrl}?${params.toString()}`;
+        window.open(safeUrl, "_blank", "noopener,noreferrer");
       }
     } catch (error) {
       console.error("Error opening IntakeQ widget:", error);
-      // Final fallback
-      window.open(
-        `https://Staydripped.intakeq.com/booking?serviceId=${serviceId}`,
-        "_blank",
-      );
+      // Final fallback with safe URL construction
+      const baseUrl = "https://Staydripped.intakeq.com/booking";
+      const params = new URLSearchParams({ serviceId: String(serviceId) });
+      const safeUrl = `${baseUrl}?${params.toString()}`;
+      window.open(safeUrl, "_blank", "noopener,noreferrer");
     }
   }
 }
