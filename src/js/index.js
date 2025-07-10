@@ -9,6 +9,7 @@ import "./utilities/lazy-loading.js";
 import "./utilities/analytics.js";
 
 // Import components
+import "./components/header-enhancer.js";
 import "./components/mobile-menu.js";
 import "./components/navigation-enhancer.js";
 import "./components/smooth-scroll.js";
