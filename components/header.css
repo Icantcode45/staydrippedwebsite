@@ -7,19 +7,19 @@
   position: sticky;
   top: 0;
   z-index: var(--z-fixed);
-  background: rgba(255, 255, 255, 0.85);
+  background: rgb(255 255 255 / 85%);
   backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(0, 122, 255, 0.08);
+  border-bottom: 1px solid rgb(0 122 255 / 8%);
   transition: all var(--transition-base);
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 20px rgb(0 0 0 / 3%);
 }
 
 .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgb(255 255 255 / 95%);
   box-shadow:
-    0 1px 20px rgba(0, 0, 0, 0.08),
-    0 4px 40px rgba(0, 122, 255, 0.04);
-  border-bottom-color: rgba(0, 122, 255, 0.12);
+    0 1px 20px rgb(0 0 0 / 8%),
+    0 4px 40px rgb(0 122 255 / 4%);
+  border-bottom-color: rgb(0 122 255 / 12%);
 }
 
 .site-header .container {
@@ -50,7 +50,7 @@
 
 .site-logo:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+  box-shadow: 0 0 0 3px rgb(0 122 255 / 30%);
 }
 
 /* ========================================================================
@@ -96,14 +96,11 @@
 .main-nav__link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(0, 122, 255, 0.1),
-    rgba(90, 200, 250, 0.1)
+    rgb(0 122 255 / 10%),
+    rgb(90 200 250 / 10%)
   );
   opacity: 0;
   transition: opacity var(--transition-base);
@@ -117,13 +114,13 @@
 .main-nav__link:hover {
   color: var(--color-primary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.15);
+  box-shadow: 0 4px 12px rgb(0 122 255 / 15%);
 }
 
 .main-nav__link:focus {
   outline: none;
   color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+  box-shadow: 0 0 0 3px rgb(0 122 255 / 30%);
 }
 
 /* Enhanced Dropdown */
@@ -132,13 +129,13 @@
   top: calc(100% + 0.5rem);
   left: 0;
   min-width: 280px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgb(255 255 255 / 95%);
   backdrop-filter: blur(20px) saturate(180%);
   border-radius: var(--radius-2xl);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.08),
-    0 8px 16px rgba(0, 122, 255, 0.06);
-  border: 1px solid rgba(0, 122, 255, 0.08);
+    0 20px 40px rgb(0 0 0 / 8%),
+    0 8px 16px rgb(0 122 255 / 6%);
+  border: 1px solid rgb(0 122 255 / 8%);
   padding: 1rem;
   opacity: 0;
   visibility: hidden;
@@ -175,14 +172,11 @@
 .main-nav__dropdown-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(0, 122, 255, 0.05),
-    rgba(90, 200, 250, 0.05)
+    rgb(0 122 255 / 5%),
+    rgb(90 200 250 / 5%)
   );
   opacity: 0;
   transition: opacity var(--transition-base);
@@ -206,8 +200,8 @@
   justify-content: center;
   background: linear-gradient(
     135deg,
-    rgba(0, 122, 255, 0.1),
-    rgba(90, 200, 250, 0.1)
+    rgb(0 122 255 / 10%),
+    rgb(90 200 250 / 10%)
   );
   border-radius: var(--radius-lg);
   flex-shrink: 0;
@@ -250,8 +244,8 @@
   color: var(--color-gray-700);
   text-decoration: none;
   border-radius: var(--radius-xl);
-  border: 2px solid rgba(0, 122, 255, 0.1);
-  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgb(0 122 255 / 10%);
+  background: rgb(255 255 255 / 80%);
   backdrop-filter: blur(10px);
   transition: all var(--transition-base);
   font-weight: var(--font-weight-medium);
@@ -268,14 +262,11 @@
 .header-phone::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(0, 122, 255, 0.05),
-    rgba(90, 200, 250, 0.05)
+    rgb(0 122 255 / 5%),
+    rgb(90 200 250 / 5%)
   );
   opacity: 0;
   transition: opacity var(--transition-base);
@@ -287,9 +278,9 @@
 
 .header-phone:hover {
   color: var(--color-primary);
-  border-color: rgba(0, 122, 255, 0.3);
+  border-color: rgb(0 122 255 / 30%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.15);
+  box-shadow: 0 8px 20px rgb(0 122 255 / 15%);
 }
 
 .header-phone svg {
@@ -317,8 +308,8 @@
   gap: 0.5rem;
   transition: all var(--transition-base);
   box-shadow:
-    0 4px 12px rgba(0, 122, 255, 0.3),
-    0 2px 4px rgba(0, 122, 255, 0.2);
+    0 4px 12px rgb(0 122 255 / 30%),
+    0 2px 4px rgb(0 122 255 / 20%);
   overflow: hidden;
   z-index: 1;
 }
@@ -326,11 +317,8 @@
 .btn--primary::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #0066ff 0%, #4ab8ff 100%);
+  inset: 0;
+  background: linear-gradient(135deg, #06f 0%, #4ab8ff 100%);
   opacity: 0;
   transition: opacity var(--transition-base);
   z-index: -1;
@@ -343,7 +331,7 @@
   left: 50%;
   width: 0;
   height: 0;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255 255 255 / 30%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.4s ease-out;
@@ -362,8 +350,8 @@
 .btn--primary:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow:
-    0 12px 24px rgba(0, 122, 255, 0.4),
-    0 6px 12px rgba(0, 122, 255, 0.3);
+    0 12px 24px rgb(0 122 255 / 40%),
+    0 6px 12px rgb(0 122 255 / 30%);
 }
 
 .btn--primary:active {
@@ -374,8 +362,8 @@
 .btn--primary:focus {
   outline: none;
   box-shadow:
-    0 0 0 3px rgba(0, 122, 255, 0.4),
-    0 4px 12px rgba(0, 122, 255, 0.3);
+    0 0 0 3px rgb(0 122 255 / 40%),
+    0 4px 12px rgb(0 122 255 / 30%);
 }
 
 /* ========================================================================
@@ -388,9 +376,9 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgb(255 255 255 / 90%);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(0, 122, 255, 0.1);
+  border: 2px solid rgb(0 122 255 / 10%);
   border-radius: var(--radius-xl);
   color: var(--color-gray-700);
   cursor: pointer;
@@ -408,14 +396,11 @@
 .mobile-menu-toggle::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(0, 122, 255, 0.1),
-    rgba(90, 200, 250, 0.1)
+    rgb(0 122 255 / 10%),
+    rgb(90 200 250 / 10%)
   );
   opacity: 0;
   transition: opacity var(--transition-base);
@@ -426,14 +411,14 @@
 }
 
 .mobile-menu-toggle:hover {
-  border-color: rgba(0, 122, 255, 0.3);
+  border-color: rgb(0 122 255 / 30%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.15);
+  box-shadow: 0 8px 20px rgb(0 122 255 / 15%);
 }
 
 .mobile-menu-toggle:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+  box-shadow: 0 0 0 3px rgb(0 122 255 / 30%);
 }
 
 .mobile-menu-toggle.active {
@@ -454,7 +439,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background: currentColor;
+  background: currentcolor;
   border-radius: 1px;
   position: absolute;
   transition: all var(--transition-base);
@@ -496,7 +481,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgb(0 0 0 / 95%);
   backdrop-filter: blur(20px);
   z-index: var(--z-modal);
   opacity: 0;
@@ -515,7 +500,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(0 0 0 / 50%);
 }
 
 .mobile-menu__content {
@@ -523,8 +508,8 @@
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(0, 122, 255, 0.95),
-    rgba(90, 200, 250, 0.9)
+    rgb(0 122 255 / 95%),
+    rgb(90 200 250 / 90%)
   );
   backdrop-filter: blur(20px);
   display: flex;
@@ -551,9 +536,9 @@
 .mobile-menu__close {
   width: 48px;
   height: 48px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255 255 255 / 20%);
   border-radius: var(--radius-xl);
   color: white;
   cursor: pointer;
@@ -564,7 +549,7 @@
 }
 
 .mobile-menu__close:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(255 255 255 / 20%);
   transform: scale(1.05);
 }
 
@@ -586,9 +571,9 @@
   color: white;
   text-decoration: none;
   border-radius: var(--radius-2xl);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgb(255 255 255 / 10%);
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
@@ -597,11 +582,8 @@
 .mobile-menu__link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.1);
+  inset: 0;
+  background: rgb(255 255 255 / 10%);
   opacity: 0;
   transition: opacity var(--transition-base);
 }
@@ -612,7 +594,7 @@
 
 .mobile-menu__link:hover {
   transform: translateX(8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 20%);
 }
 
 .mobile-menu__link-content {
@@ -629,7 +611,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgb(255 255 255 / 15%);
   border-radius: var(--radius-lg);
   flex-shrink: 0;
 }
@@ -663,21 +645,21 @@
 }
 
 .mobile-menu__cta .btn--outline {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgb(255 255 255 / 10%);
+  border: 2px solid rgb(255 255 255 / 30%);
   color: white;
   backdrop-filter: blur(10px);
 }
 
 .mobile-menu__cta .btn--outline:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgb(255 255 255 / 20%);
+  border-color: rgb(255 255 255 / 50%);
 }
 
 .mobile-menu__contact {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgb(255 255 255 / 20%);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -687,7 +669,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
   font-size: var(--text-sm);
 }
 
@@ -738,19 +720,19 @@
 
 @media (prefers-color-scheme: dark) {
   .site-header {
-    background: rgba(30, 30, 30, 0.85);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
+    background: rgb(30 30 30 / 85%);
+    border-bottom-color: rgb(255 255 255 / 8%);
   }
 
   .site-header.scrolled {
-    background: rgba(20, 20, 20, 0.95);
+    background: rgb(20 20 20 / 95%);
     box-shadow:
-      0 1px 20px rgba(0, 0, 0, 0.3),
-      0 4px 40px rgba(0, 122, 255, 0.1);
+      0 1px 20px rgb(0 0 0 / 30%),
+      0 4px 40px rgb(0 122 255 / 10%);
   }
 
   .main-nav__link {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(255 255 255 / 80%);
   }
 
   .main-nav__link:hover {
@@ -758,23 +740,23 @@
   }
 
   .header-phone {
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(20, 20, 20, 0.8);
-    border-color: rgba(255, 255, 255, 0.1);
+    color: rgb(255 255 255 / 80%);
+    background: rgb(20 20 20 / 80%);
+    border-color: rgb(255 255 255 / 10%);
   }
 
   .header-phone:hover {
     color: var(--color-primary-light);
-    border-color: rgba(90, 200, 250, 0.3);
+    border-color: rgb(90 200 250 / 30%);
   }
 
   .mobile-menu-toggle {
-    background: rgba(20, 20, 20, 0.9);
-    color: rgba(255, 255, 255, 0.8);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgb(20 20 20 / 90%);
+    color: rgb(255 255 255 / 80%);
+    border-color: rgb(255 255 255 / 10%);
   }
 
   .mobile-menu-toggle:hover {
-    border-color: rgba(90, 200, 250, 0.3);
+    border-color: rgb(90 200 250 / 30%);
   }
 }

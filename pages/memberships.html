@@ -468,10 +468,7 @@
       .memberships-hero::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="crown" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.1)">👑</text></pattern></defs><rect width="100" height="100" fill="url(%23crown)"/></svg>');
         opacity: 0.3;
       }
@@ -486,9 +483,9 @@
         align-items: center;
         gap: 0.5rem;
         padding: 0.75rem 1.5rem;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgb(255 255 255 / 20%);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border: 1px solid rgb(255 255 255 / 30%);
         border-radius: 2rem;
         font-size: 0.875rem;
         font-weight: 600;
@@ -504,7 +501,7 @@
         font-size: 3.5rem;
         font-weight: 800;
         margin-bottom: 0.5rem;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
       }
 
       .memberships-hero__title-sub {
@@ -543,7 +540,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgb(255 255 255 / 20%);
         border-radius: 50%;
         backdrop-filter: blur(10px);
       }
@@ -586,7 +583,7 @@
         background: white;
         border-radius: 1.5rem;
         padding: 2.5rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
@@ -595,15 +592,15 @@
 
       .membership-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 12px 30px rgb(0 0 0 / 12%);
       }
 
       .membership-card--popular {
         border-color: #007aff;
         background: linear-gradient(
           135deg,
-          rgba(0, 122, 255, 0.02),
-          rgba(90, 200, 250, 0.02)
+          rgb(0 122 255 / 2%),
+          rgb(90 200 250 / 2%)
         );
       }
 
@@ -611,8 +608,8 @@
         border-color: #ffd700;
         background: linear-gradient(
           135deg,
-          rgba(255, 215, 0, 0.02),
-          rgba(255, 165, 0, 0.02)
+          rgb(255 215 0 / 2%),
+          rgb(255 165 0 / 2%)
         );
       }
 
@@ -620,8 +617,8 @@
         border-color: #8b5cf6;
         background: linear-gradient(
           135deg,
-          rgba(139, 92, 246, 0.02),
-          rgba(168, 85, 247, 0.02)
+          rgb(139 92 246 / 2%),
+          rgb(168 85 247 / 2%)
         );
       }
 
@@ -635,17 +632,17 @@
         border-radius: 1rem;
         font-size: 0.75rem;
         font-weight: 600;
-        box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+        box-shadow: 0 4px 12px rgb(0 122 255 / 30%);
       }
 
       .membership-card--featured .membership-card__badge {
         background: linear-gradient(135deg, #ffd700, #ffa500);
-        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        box-shadow: 0 4px 12px rgb(255 215 0 / 30%);
       }
 
       .membership-card--platinum .membership-card__badge {
         background: linear-gradient(135deg, #8b5cf6, #a855f7);
-        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        box-shadow: 0 4px 12px rgb(139 92 246 / 30%);
       }
 
       .membership-card__header {
@@ -721,9 +718,9 @@
         align-items: center;
         margin-bottom: 2rem;
         padding: 1rem;
-        background: rgba(0, 122, 255, 0.05);
+        background: rgb(0 122 255 / 5%);
         border-radius: 0.75rem;
-        border: 1px solid rgba(0, 122, 255, 0.1);
+        border: 1px solid rgb(0 122 255 / 10%);
       }
 
       .membership-card__savings-label {
@@ -771,14 +768,14 @@
         background: white;
         border-radius: 1.5rem;
         padding: 2rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
         transition: all 0.3s ease;
-        border: 2px solid rgba(255, 107, 107, 0.2);
+        border: 2px solid rgb(255 107 107 / 20%);
       }
 
       .bundle-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 25px rgb(0 0 0 / 10%);
       }
 
       .bundle-card__header {
@@ -860,7 +857,7 @@
       }
 
       /* Responsive */
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         .memberships-hero__title-main {
           font-size: 2.5rem;
         }
