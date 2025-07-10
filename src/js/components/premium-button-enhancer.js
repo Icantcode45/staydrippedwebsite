@@ -20,7 +20,7 @@ class PremiumButtonEnhancer {
   }
 
   findButtons() {
-    this.buttons = Array.from(document.querySelectorAll(".btn"));
+    this.buttons = Array.from(document.querySelectorAll('.btn'));
   }
 
   enhanceButtons() {
@@ -31,9 +31,9 @@ class PremiumButtonEnhancer {
 
   enhanceButton(button) {
     // Skip if already enhanced
-    if (button.hasAttribute("data-enhanced")) return;
+    if (button.hasAttribute('data-enhanced')) return;
 
-    button.setAttribute("data-enhanced", "true");
+    button.setAttribute('data-enhanced', 'true');
 
     // Wrap text content for animations
     this.wrapButtonText(button);
@@ -57,82 +57,82 @@ class PremiumButtonEnhancer {
     );
 
     textNodes.forEach((textNode) => {
-      const wrapper = document.createElement("span");
-      wrapper.className = "btn__text";
+      const wrapper = document.createElement('span');
+      wrapper.className = 'btn__text';
       wrapper.textContent = textNode.textContent;
       button.replaceChild(wrapper, textNode);
     });
   }
 
   addRippleContainer(button) {
-    if (button.querySelector(".btn__ripple-container")) return;
+    if (button.querySelector('.btn__ripple-container')) return;
 
-    const rippleContainer = document.createElement("div");
-    rippleContainer.className = "btn__ripple-container";
+    const rippleContainer = document.createElement('div');
+    rippleContainer.className = 'btn__ripple-container';
     button.appendChild(rippleContainer);
     this.rippleElements.set(button, rippleContainer);
   }
 
   addButtonListeners(button) {
     // Mouse events
-    button.addEventListener("mousedown", (e) =>
+    button.addEventListener('mousedown', (e) =>
       this.handleMouseDown(e, button),
     );
-    button.addEventListener("mouseup", (e) => this.handleMouseUp(e, button));
-    button.addEventListener("mouseleave", (e) =>
+    button.addEventListener('mouseup', (e) => this.handleMouseUp(e, button));
+    button.addEventListener('mouseleave', (e) =>
       this.handleMouseLeave(e, button),
     );
-    button.addEventListener("mouseenter", (e) =>
+    button.addEventListener('mouseenter', (e) =>
       this.handleMouseEnter(e, button),
     );
 
     // Touch events for mobile
     button.addEventListener(
-      "touchstart",
+      'touchstart',
       (e) => this.handleTouchStart(e, button),
       { passive: true },
     );
-    button.addEventListener("touchend", (e) => this.handleTouchEnd(e, button), {
+    button.addEventListener('touchend', (e) => this.handleTouchEnd(e, button), {
       passive: true,
     });
 
     // Keyboard events
-    button.addEventListener("keydown", (e) => this.handleKeyDown(e, button));
-    button.addEventListener("keyup", (e) => this.handleKeyUp(e, button));
+    button.addEventListener('keydown', (e) => this.handleKeyDown(e, button));
+    button.addEventListener('keyup', (e) => this.handleKeyUp(e, button));
 
     // Focus events
-    button.addEventListener("focus", (e) => this.handleFocus(e, button));
-    button.addEventListener("blur", (e) => this.handleBlur(e, button));
+    button.addEventListener('focus', (e) => this.handleFocus(e, button));
+    button.addEventListener('blur', (e) => this.handleBlur(e, button));
 
     // Click event for special handling
-    button.addEventListener("click", (e) => this.handleClick(e, button));
+    button.addEventListener('click', (e) => this.handleClick(e, button));
   }
 
   handleMouseDown(event, button) {
     if (button.disabled) return;
 
-    button.classList.add("btn--pressed");
+    button.classList.add('btn--pressed');
     this.createRipple(event, button);
     this.addHapticFeedback();
   }
 
   handleMouseUp(event, button) {
-    button.classList.remove("btn--pressed");
+    button.classList.remove('btn--pressed');
   }
 
   handleMouseLeave(event, button) {
-    button.classList.remove("btn--pressed", "btn--hovered");
+    button.classList.remove('btn--pressed', 'btn--hovered');
   }
 
   handleMouseEnter(event, button) {
     if (button.disabled) return;
-    button.classList.add("btn--hovered");
+    button.classList.add('btn--hovered');
   }
 
   handleTouchStart(event, button) {
     if (button.disabled) return;
 
-    button.classList.add("btn--pressed");
+    button.classList.add('btn--pressed');
 
     // Create ripple for touch
     const touch = event.touches[0];
@@ -145,38 +145,38 @@ class PremiumButtonEnhancer {
   }
 
   handleTouchEnd(event, button) {
-    button.classList.remove("btn--pressed");
+    button.classList.remove('btn--pressed');
   }
 
   handleKeyDown(event, button) {
-    if (event.key === "Enter" || event.key === " ") {
+    if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      button.classList.add("btn--pressed");
+      button.classList.add('btn--pressed');
       this.addHapticFeedback();
     }
   }
 
   handleKeyUp(event, button) {
-    if (event.key === "Enter" || event.key === " ") {
-      button.classList.remove("btn--pressed");
+    if (event.key === 'Enter' || event.key === ' ') {
+      button.classList.remove('btn--pressed');
       // Simulate click for keyboard activation
       setTimeout(() => button.click(), 50);
     }
   }
 
   handleFocus(event, button) {
-    button.classList.add("btn--focused");
+    button.classList.add('btn--focused');
   }
 
   handleBlur(event, button) {
-    button.classList.remove("btn--focused", "btn--pressed");
+    button.classList.remove('btn--focused', 'btn--pressed');
   }
 
   handleClick(event, button) {
     // Special handling for different button types
-    if (button.classList.contains("btn--phone")) {
+    if (button.classList.contains('btn--phone')) {
       this.handlePhoneClick(event, button);
-    } else if (button.classList.contains("btn--primary")) {
+    } else if (button.classList.contains('btn--primary')) {
       this.handlePrimaryClick(event, button);
     }
 
@@ -186,18 +186,18 @@ class PremiumButtonEnhancer {
 
   handlePhoneClick(event, button) {
     // Add phone icon animation
-    const icon = button.querySelector("svg");
+    const icon = button.querySelector('svg');
     if (icon) {
-      icon.style.transform = "scale(1.2) rotate(10deg)";
+      icon.style.transform = 'scale(1.2) rotate(10deg)';
       setTimeout(() => {
-        icon.style.transform = "";
+        icon.style.transform = '';
       }, 200);
     }
   }
 
   handlePrimaryClick(event, button) {
     // Add success pulse effect for primary buttons
-    if (!button.href || button.href.startsWith("#")) {
+    if (!button.href || button.href.startsWith('#')) {
       this.addSuccessPulse(button);
     }
   }
@@ -211,8 +211,8 @@ class PremiumButtonEnhancer {
     const x = event.clientX - rect.left - size / 2;
     const y = event.clientY - rect.top - size / 2;
 
-    const ripple = document.createElement("div");
-    ripple.className = "btn__ripple";
+    const ripple = document.createElement('div');
+    ripple.className = 'btn__ripple';
     ripple.style.cssText = `
       position: absolute;
       width: ${size}px;
@@ -238,38 +238,38 @@ class PremiumButtonEnhancer {
 
   addHapticFeedback() {
     // Add subtle haptic feedback on supported devices
-    if ("vibrate" in navigator) {
+    if ('vibrate' in navigator) {
       navigator.vibrate(10);
     }
   }
 
   addSuccessPulse(button) {
-    button.classList.add("btn--success-pulse");
+    button.classList.add('btn--success-pulse');
     setTimeout(() => {
-      button.classList.remove("btn--success-pulse");
+      button.classList.remove('btn--success-pulse');
     }, 600);
   }
 
   enhanceAccessibility(button) {
     // Ensure proper ARIA labels
-    if (!button.getAttribute("aria-label") && !button.textContent.trim()) {
-      const icon = button.querySelector("svg");
+    if (!button.getAttribute('aria-label') && !button.textContent.trim()) {
+      const icon = button.querySelector('svg');
       if (icon) {
-        button.setAttribute("aria-label", "Button");
+        button.setAttribute('aria-label', 'Button');
       }
     }
 
     // Add role if not present
     if (
-      !button.getAttribute("role") &&
-      button.tagName.toLowerCase() !== "button"
+      !button.getAttribute('role') &&
+      button.tagName.toLowerCase() !== 'button'
     ) {
-      button.setAttribute("role", "button");
+      button.setAttribute('role', 'button');
     }
 
     // Ensure keyboard accessibility
-    if (button.tagName.toLowerCase() === "a" && !button.getAttribute("href")) {
-      button.setAttribute("tabindex", "0");
+    if (button.tagName.toLowerCase() === 'a' && !button.getAttribute('href')) {
+      button.setAttribute('tabindex', '0');
     }
   }
 
@@ -278,7 +278,7 @@ class PremiumButtonEnhancer {
 
     button.setLoading = (loading = true) => {
       if (loading) {
-        button.classList.add("btn--loading");
+        button.classList.add('btn--loading');
         button.disabled = true;
 
         // Auto-remove loading state after 5 seconds (safety)
@@ -287,7 +287,7 @@ class PremiumButtonEnhancer {
         }, 5000);
         this.loadingTimeouts.set(button, timeout);
       } else {
-        button.classList.remove("btn--loading");
+        button.classList.remove('btn--loading');
         button.disabled = false;
 
         const timeout = this.loadingTimeouts.get(button);
@@ -298,14 +298,14 @@ class PremiumButtonEnhancer {
       }
     };
 
-    button.isLoading = () => button.classList.contains("btn--loading");
+    button.isLoading = () => button.classList.contains('btn--loading');
   }
 
   trackButtonClick(button) {
-    const analytics = button.getAttribute("data-analytics");
+    const analytics = button.getAttribute('data-analytics');
     if (analytics && window.gtag) {
-      window.gtag("event", "click", {
-        event_category: "Button",
+      window.gtag('event', 'click', {
+        event_category: 'Button',
         event_label: analytics,
         value: 1,
       });
@@ -318,9 +318,9 @@ class PremiumButtonEnhancer {
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === Node.ELEMENT_NODE) {
-            const buttons = node.matches?.(".btn")
+            const buttons = node.matches?.('.btn')
               ? [node]
-              : Array.from(node.querySelectorAll?.(".btn") || []);
+              : Array.from(node.querySelectorAll?.('.btn') || []);
 
             buttons.forEach((button) => this.enhanceButton(button));
           }
@@ -335,10 +335,10 @@ class PremiumButtonEnhancer {
   }
 
   addDynamicStyles() {
-    if (document.getElementById("premium-button-styles")) return;
+    if (document.getElementById('premium-button-styles')) return;
 
-    const styles = document.createElement("style");
-    styles.id = "premium-button-styles";
+    const styles = document.createElement('style');
+    styles.id = 'premium-button-styles';
     styles.textContent = `
       .btn__ripple-container {
         position: absolute;
@@ -436,7 +436,7 @@ class PremiumButtonEnhancer {
   }
 
   enhanceNewButton(button) {
-    if (button && button.classList.contains("btn")) {
+    if (button && button.classList.contains('btn')) {
       this.enhanceButton(button);
     }
   }
@@ -451,7 +451,7 @@ class PremiumButtonEnhancer {
     });
 
     // Remove dynamic styles
-    const styles = document.getElementById("premium-button-styles");
+    const styles = document.getElementById('premium-button-styles');
     if (styles) {
       styles.remove();
     }
@@ -462,7 +462,7 @@ class PremiumButtonEnhancer {
 window.ButtonUtils = {
   setLoading: (selector, loading = true) => {
     const buttons =
-      typeof selector === "string"
+      typeof selector === 'string'
         ? Array.from(document.querySelectorAll(selector))
         : [selector];
 
@@ -475,15 +475,15 @@ window.ButtonUtils = {
 
   addSuccessState: (selector) => {
     const buttons =
-      typeof selector === "string"
+      typeof selector === 'string'
         ? Array.from(document.querySelectorAll(selector))
         : [selector];
 
     buttons.forEach((button) => {
       if (button) {
-        button.classList.add("btn--success-pulse");
+        button.classList.add('btn--success-pulse');
         setTimeout(() => {
-          button.classList.remove("btn--success-pulse");
+          button.classList.remove('btn--success-pulse');
         }, 600);
       }
     });
@@ -491,7 +491,7 @@ window.ButtonUtils = {
 
   disableButton: (selector, disabled = true) => {
     const buttons =
-      typeof selector === "string"
+      typeof selector === 'string'
         ? Array.from(document.querySelectorAll(selector))
         : [selector];
 
@@ -499,9 +499,9 @@ window.ButtonUtils = {
       if (button) {
         button.disabled = disabled;
         if (disabled) {
-          button.setAttribute("aria-disabled", "true");
+          button.setAttribute('aria-disabled', 'true');
         } else {
-          button.removeAttribute("aria-disabled");
+          button.removeAttribute('aria-disabled');
         }
       }
     });
@@ -509,8 +509,8 @@ window.ButtonUtils = {
 };
 
 // Auto-initialize when DOM is ready
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
     window.premiumButtonEnhancer = new PremiumButtonEnhancer();
   });
 } else {
@@ -518,6 +518,6 @@ if (document.readyState === "loading") {
 }
 
 // Export for module systems
-if (typeof module !== "undefined" && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = PremiumButtonEnhancer;
 }

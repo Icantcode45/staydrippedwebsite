@@ -5,21 +5,21 @@
 
 // Global variables for WooCommerce scripts
 window.wc_add_to_cart_params = {
-  ajax_url: "/wp-admin/admin-ajax.php",
-  wc_ajax_url: "/wc-ajax/%%endpoint%%",
-  i18n_view_cart: "View cart",
-  cart_url: "/cart",
+  ajax_url: '/wp-admin/admin-ajax.php',
+  wc_ajax_url: '/wc-ajax/%%endpoint%%',
+  i18n_view_cart: 'View cart',
+  cart_url: '/cart',
   is_cart: false,
-  cart_redirect_after_add: "no",
+  cart_redirect_after_add: 'no',
 };
 
 window.woocommerce_params = {
-  ajax_url: "/wp-admin/admin-ajax.php",
-  wc_ajax_url: "/wc-ajax/%%endpoint%%",
+  ajax_url: '/wp-admin/admin-ajax.php',
+  wc_ajax_url: '/wc-ajax/%%endpoint%%',
 };
 
 window.wcLiquid = {
-  ajaxUrl: "/wp-admin/admin-ajax.php",
+  ajaxUrl: '/wp-admin/admin-ajax.php',
 };
 
 // Order attribution configuration
@@ -31,26 +31,26 @@ window.wc_order_attribution = {
     base64: false,
   },
   fields: {
-    source_type: "current.typ",
-    referrer: "current.src",
-    utm_campaign: "current.cmp",
-    utm_source: "current.src",
-    utm_medium: "current.mdm",
-    utm_content: "current.cnt",
-    utm_id: "current.id",
-    utm_term: "current.trm",
-    session_entry: "current_add.ep",
-    session_start_time: "current_add.fd",
-    session_pages: "session.pgs",
-    session_count: "udata.vst",
-    user_agent: "udata.uag",
+    source_type: 'current.typ',
+    referrer: 'current.src',
+    utm_campaign: 'current.cmp',
+    utm_source: 'current.src',
+    utm_medium: 'current.mdm',
+    utm_content: 'current.cnt',
+    utm_id: 'current.id',
+    utm_term: 'current.trm',
+    session_entry: 'current_add.ep',
+    session_start_time: 'current_add.fd',
+    session_pages: 'session.pgs',
+    session_count: 'udata.vst',
+    user_agent: 'udata.uag',
   },
 };
 
 // Initialize Cookies object for order attribution
 (function () {
-  "use strict";
-  if (typeof window.Cookies === "undefined" && typeof Cookies !== "undefined") {
+  'use strict';
+  if (typeof window.Cookies === 'undefined' && typeof Cookies !== 'undefined') {
     window.Cookies = Cookies;
   }
 })();

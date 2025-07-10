@@ -11,15 +11,15 @@ export class EventManager {
    * Add event listener with automatic cleanup tracking
    */
   addListener(element, eventType, handler, options = {}) {
-    if (!element || typeof handler !== "function") {
-      console.error("Invalid element or handler provided to EventManager");
+    if (!element || typeof handler !== 'function') {
+      console.error('Invalid element or handler provided to EventManager');
       return;
     }
 
     const listenerKey = this.generateListenerKey(element, eventType, handler);
 
     if (this.listeners.has(listenerKey)) {
-      console.warn("Event listener already exists for this combination");
+      console.warn('Event listener already exists for this combination');
       return;
     }
 
@@ -28,7 +28,7 @@ export class EventManager {
         handler.call(element, event);
       } catch (error) {
         // Log sanitized error message to prevent information disclosure
-        console.error("Error in event handler");
+        console.error('Error in event handler');
       }
     };
 
@@ -95,7 +95,7 @@ export class EventManager {
           listenerData.options,
         );
       } catch (error) {
-        console.warn("Error removing event listener during cleanup:", error);
+        console.warn('Error removing event listener during cleanup:', error);
       }
     }
     this.listeners.clear();
@@ -105,7 +105,7 @@ export class EventManager {
    * Generate unique key for listener tracking
    */
   generateListenerKey(element, eventType, handler) {
-    const elementId = element.id || element.tagName || "unknown";
+    const elementId = element.id || element.tagName || 'unknown';
     const handlerString = handler.toString().substring(0, 50);
     return `${elementId}-${eventType}-${handlerString}`;
   }
@@ -122,7 +122,7 @@ export class EventManager {
 const globalEventManager = new EventManager();
 
 // Cleanup on page unload
-window.addEventListener("beforeunload", () => {
+window.addEventListener('beforeunload', () => {
   globalEventManager.cleanup();
 });
 

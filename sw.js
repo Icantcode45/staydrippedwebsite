@@ -1,48 +1,48 @@
 // Enhanced Service Worker for Stay Dripped Mobile IV
 
-const CACHE_NAME = "stay-dripped-v1.0.0";
-const STATIC_CACHE = "static-v1.0.0";
-const DYNAMIC_CACHE = "dynamic-v1.0.0";
-const IMAGE_CACHE = "images-v1.0.0";
+const CACHE_NAME = 'stay-dripped-v1.0.0';
+const STATIC_CACHE = 'static-v1.0.0';
+const DYNAMIC_CACHE = 'dynamic-v1.0.0';
+const IMAGE_CACHE = 'images-v1.0.0';
 
 // Files to precache
 const STATIC_FILES = [
-  "/",
-  "assets/css/main.css",
-  "/js/main.js",
-  "json/manifest.json",
-  "/assets/icons/favicon-32x32.png",
-  "/assets/icons/apple-touch-icon.png",
-  "/components/html/header.html",
-  "/components/html/footer.html",
-  "/components/html/hero.html",
-  "/offline.html", // Offline fallback page
+  '/',
+  'assets/css/main.css',
+  '/js/main.js',
+  'json/manifest.json',
+  '/assets/icons/favicon-32x32.png',
+  '/assets/icons/apple-touch-icon.png',
+  '/components/html/header.html',
+  '/components/html/footer.html',
+  '/components/html/hero.html',
+  '/offline.html', // Offline fallback page
 ];
 
 // Install event - precache static files
-self.addEventListener("install", (event) => {
-  console.log("Service Worker: Installing...");
+self.addEventListener('install', (event) => {
+  console.log('Service Worker: Installing...');
 
   event.waitUntil(
     caches
       .open(STATIC_CACHE)
       .then((cache) => {
-        console.log("Service Worker: Precaching static files");
+        console.log('Service Worker: Precaching static files');
         return cache.addAll(STATIC_FILES);
       })
       .then(() => {
-        console.log("Service Worker: Skip waiting");
+        console.log('Service Worker: Skip waiting');
         return self.skipWaiting();
       })
       .catch((error) => {
-        console.error("Service Worker: Precaching failed", error);
+        console.error('Service Worker: Precaching failed', error);
       }),
   );
 });
 
 // Activate event - clean up old caches
-self.addEventListener("activate", (event) => {
-  console.log("Service Worker: Activating...");
+self.addEventListener('activate', (event) => {
+  console.log('Service Worker: Activating...');
 
   event.waitUntil(
     caches
@@ -55,26 +55,26 @@ self.addEventListener("activate", (event) => {
               cacheName !== DYNAMIC_CACHE &&
               cacheName !== IMAGE_CACHE
             ) {
-              console.log("Service Worker: Deleting old cache", cacheName);
+              console.log('Service Worker: Deleting old cache', cacheName);
               return caches.delete(cacheName);
             }
           }),
         );
       })
       .then(() => {
-        console.log("Service Worker: Claiming clients");
+        console.log('Service Worker: Claiming clients');
         return self.clients.claim();
       }),
   );
 });
 
 // Fetch event - serve from cache with network fallback
-self.addEventListener("fetch", (event) => {
+self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
   // Skip non-GET requests
-  if (request.method !== "GET") {
+  if (request.method !== 'GET') {
     return;
   }
 
@@ -101,7 +101,7 @@ async function handleRequest(request) {
       return await networkFirst(request, DYNAMIC_CACHE);
     }
   } catch (error) {
-    console.error("Service Worker: Request failed", error);
+    console.error('Service Worker: Request failed', error);
     return await getOfflineFallback(request);
   }
 }
@@ -159,7 +159,7 @@ async function updateCacheInBackground(request, cache) {
     }
   } catch (error) {
     // Fail silently for background updates
-    console.log("Service Worker: Background update failed", error);
+    console.log('Service Worker: Background update failed', error);
   }
 }
 
@@ -168,23 +168,23 @@ async function getOfflineFallback(request) {
   const cache = await caches.open(STATIC_CACHE);
 
   if (isHTMLPage(request)) {
-    const offlinePage = await cache.match("/offline.html");
+    const offlinePage = await cache.match('/offline.html');
     if (offlinePage) {
       return offlinePage;
     }
   }
 
   if (isImage(request.url)) {
-    const offlineImage = await cache.match("/assets/icons/offline-image.png");
+    const offlineImage = await cache.match('/assets/icons/offline-image.png');
     if (offlineImage) {
       return offlineImage;
     }
   }
 
   // Return a basic response for other types
-  return new Response("Offline", {
+  return new Response('Offline', {
     status: 503,
-    statusText: "Service Unavailable",
+    statusText: 'Service Unavailable',
   });
 }
 
@@ -198,14 +198,14 @@ function isImage(pathname) {
 }
 
 function isHTMLPage(request) {
-  return request.headers.get("accept")?.includes("text/html");
+  return request.headers.get('accept')?.includes('text/html');
 }
 
 // Background sync for form submissions
-self.addEventListener("sync", (event) => {
-  console.log("Service Worker: Background sync", event.tag);
+self.addEventListener('sync', (event) => {
+  console.log('Service Worker: Background sync', event.tag);
 
-  if (event.tag === "booking-form") {
+  if (event.tag === 'booking-form') {
     event.waitUntil(syncBookingForm());
   }
 });
@@ -222,13 +222,13 @@ async function syncBookingForm() {
       }
     }
   } catch (error) {
-    console.error("Service Worker: Form sync failed", error);
+    console.error('Service Worker: Form sync failed', error);
   }
 }
 
 // Push notification handling
-self.addEventListener("push", (event) => {
-  console.log("Service Worker: Push received");
+self.addEventListener('push', (event) => {
+  console.log('Service Worker: Push received');
 
   if (!event.data) {
     return;
@@ -238,20 +238,20 @@ self.addEventListener("push", (event) => {
 
   const options = {
     body: data.body,
-    icon: "/assets/icons/apple-touch-icon.png",
-    badge: "/assets/icons/badge-icon.png",
+    icon: '/assets/icons/apple-touch-icon.png',
+    badge: '/assets/icons/badge-icon.png',
     vibrate: [200, 100, 200],
     data: data.data,
     actions: [
       {
-        action: "view",
-        title: "View",
-        icon: "/assets/icons/view-icon.png",
+        action: 'view',
+        title: 'View',
+        icon: '/assets/icons/view-icon.png',
       },
       {
-        action: "dismiss",
-        title: "Dismiss",
-        icon: "/assets/icons/dismiss-icon.png",
+        action: 'dismiss',
+        title: 'Dismiss',
+        icon: '/assets/icons/dismiss-icon.png',
       },
     ],
   };
@@ -260,25 +260,25 @@ self.addEventListener("push", (event) => {
 });
 
 // Notification click handling
-self.addEventListener("notificationclick", (event) => {
-  console.log("Service Worker: Notification clicked", event.action);
+self.addEventListener('notificationclick', (event) => {
+  console.log('Service Worker: Notification clicked', event.action);
 
   event.notification.close();
 
-  if (event.action === "view") {
-    event.waitUntil(clients.openWindow(event.notification.data.url || "/"));
+  if (event.action === 'view') {
+    event.waitUntil(clients.openWindow(event.notification.data.url || '/'));
   }
 });
 
 // Message handling for cache updates
-self.addEventListener("message", (event) => {
-  console.log("Service Worker: Message received", event.data);
+self.addEventListener('message', (event) => {
+  console.log('Service Worker: Message received', event.data);
 
-  if (event.data.type === "SKIP_WAITING") {
+  if (event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 
-  if (event.data.type === "CACHE_URLS") {
+  if (event.data.type === 'CACHE_URLS') {
     event.waitUntil(cacheUrls(event.data.urls));
   }
 });
@@ -293,7 +293,7 @@ async function cacheUrls(urls) {
         await cache.put(url, response);
       }
     } catch (error) {
-      console.error("Service Worker: Failed to cache URL", url, error);
+      console.error('Service Worker: Failed to cache URL', url, error);
     }
   }
 }
@@ -306,12 +306,12 @@ async function getPendingFormData() {
 
 async function submitFormData(data) {
   // Implementation would submit form data to server
-  console.log("Service Worker: Submitting form data", data);
+  console.log('Service Worker: Submitting form data', data);
 }
 
 async function removePendingFormData(id) {
   // Implementation would remove data from IndexedDB
-  console.log("Service Worker: Removing pending form data", id);
+  console.log('Service Worker: Removing pending form data', id);
 }
 
-console.log("Service Worker: Loaded and ready");
+console.log('Service Worker: Loaded and ready');

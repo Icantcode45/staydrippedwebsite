@@ -6,7 +6,7 @@ class AnalyticsManager {
     this.consentGiven = false;
     this.trackingQueue = [];
     this.isDebug =
-      typeof process !== "undefined" && process.env?.NODE_ENV === "development";
+      typeof process !== 'undefined' && process.env?.NODE_ENV === 'development';
 
     this.init();
   }
@@ -28,9 +28,9 @@ class AnalyticsManager {
 
   checkConsent() {
     try {
-      const consent = localStorage.getItem("analytics_consent");
+      const consent = localStorage.getItem('analytics_consent');
       // Validate the stored value to prevent injection
-      this.consentGiven = consent === "true";
+      this.consentGiven = consent === 'true';
     } catch (error) {
       // Handle localStorage access errors (e.g., in private browsing)
       this.consentGiven = false;
@@ -52,11 +52,11 @@ class AnalyticsManager {
 
   loadGoogleAnalytics() {
     // Only load if GA ID is available and not already loaded
-    const gaId = "G-XXXXXXXXXX"; // Replace with actual GA4 ID
+    const gaId = 'G-XXXXXXXXXX'; // Replace with actual GA4 ID
 
-    if (!window.gtag && gaId !== "G-XXXXXXXXXX") {
+    if (!window.gtag && gaId !== 'G-XXXXXXXXXX') {
       // Load GA4
-      const script = document.createElement("script");
+      const script = document.createElement('script');
       script.async = true;
       script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
       document.head.appendChild(script);
@@ -69,16 +69,16 @@ class AnalyticsManager {
         window.dataLayer.push(args);
       };
 
-      gtag("js", new Date());
-      gtag("config", gaId, {
+      gtag('js', new Date());
+      gtag('config', gaId, {
         anonymize_ip: true,
-        cookie_flags: "SameSite=None;Secure",
+        cookie_flags: 'SameSite=None;Secure',
       });
     }
   }
 
   showConsentBanner() {
-    if (document.querySelector(".consent-banner")) return;
+    if (document.querySelector('.consent-banner')) return;
 
     const banner = this.createConsentBanner();
     this.addConsentStyles();
@@ -87,28 +87,28 @@ class AnalyticsManager {
   }
 
   createConsentBanner() {
-    const banner = document.createElement("div");
-    banner.className = "consent-banner";
+    const banner = document.createElement('div');
+    banner.className = 'consent-banner';
 
-    const content = document.createElement("div");
-    content.className = "consent-banner__content";
+    const content = document.createElement('div');
+    content.className = 'consent-banner__content';
 
-    const text = document.createElement("p");
+    const text = document.createElement('p');
     text.textContent =
-      "We use cookies to improve your experience and analyze site usage. By continuing to browse, you consent to our use of cookies.";
+      'We use cookies to improve your experience and analyze site usage. By continuing to browse, you consent to our use of cookies.';
 
-    const actions = document.createElement("div");
-    actions.className = "consent-banner__actions";
+    const actions = document.createElement('div');
+    actions.className = 'consent-banner__actions';
 
     const rejectBtn = this.createConsentButton(
-      "reject",
-      "Decline",
-      "btn btn--sm btn--secondary",
+      'reject',
+      'Decline',
+      'btn btn--sm btn--secondary',
     );
     const acceptBtn = this.createConsentButton(
-      "accept",
-      "Accept",
-      "btn btn--sm btn--primary",
+      'accept',
+      'Accept',
+      'btn btn--sm btn--primary',
     );
 
     actions.appendChild(rejectBtn);
@@ -121,7 +121,7 @@ class AnalyticsManager {
   }
 
   createConsentButton(consentValue, textContent, className) {
-    const button = document.createElement("button");
+    const button = document.createElement('button');
     button.className = className;
     button.textContent = textContent;
     button.dataset.consent = consentValue;
@@ -129,10 +129,10 @@ class AnalyticsManager {
   }
 
   addConsentStyles() {
-    if (document.querySelector("#consent-styles")) return;
+    if (document.querySelector('#consent-styles')) return;
 
-    const styleSheet = document.createElement("style");
-    styleSheet.id = "consent-styles";
+    const styleSheet = document.createElement('style');
+    styleSheet.id = 'consent-styles';
     styleSheet.textContent = `
       .consent-banner {
         position: fixed;
@@ -168,16 +168,16 @@ class AnalyticsManager {
   }
 
   setupConsentHandlers(banner) {
-    banner.addEventListener("click", (e) => {
+    banner.addEventListener('click', (e) => {
       // Safely access dataset with validation
       const target = e.target;
       if (!target || !target.dataset) return;
 
       const consent = target.dataset.consent;
-      if (consent === "accept") {
+      if (consent === 'accept') {
         this.giveConsent();
         banner.remove();
-      } else if (consent === "reject") {
+      } else if (consent === 'reject') {
         this.rejectConsent();
         banner.remove();
       }
@@ -186,30 +186,30 @@ class AnalyticsManager {
 
   giveConsent() {
     try {
-      localStorage.setItem("analytics_consent", "true");
+      localStorage.setItem('analytics_consent', 'true');
       this.consentGiven = true;
       this.enableTracking();
     } catch (error) {
       // Handle localStorage write errors
-      console.warn("Unable to store consent preference:", error);
+      console.warn('Unable to store consent preference:', error);
     }
   }
 
   rejectConsent() {
     try {
-      localStorage.setItem("analytics_consent", "false");
+      localStorage.setItem('analytics_consent', 'false');
       this.consentGiven = false;
     } catch (error) {
       // Handle localStorage write errors
-      console.warn("Unable to store consent preference:", error);
+      console.warn('Unable to store consent preference:', error);
     }
   }
 
   setupEventListeners() {
     // Track button clicks
-    document.addEventListener("click", (e) => {
-      if (e.target.matches(".btn, .card--interactive, .cta-button")) {
-        this.trackEvent("click", "button", {
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('.btn, .card--interactive, .cta-button')) {
+        this.trackEvent('click', 'button', {
           text: e.target.textContent.trim(),
           url: window.location.pathname,
         });
@@ -217,21 +217,21 @@ class AnalyticsManager {
     });
 
     // Track form submissions
-    document.addEventListener("submit", (e) => {
-      if (e.target.matches("form")) {
-        this.trackEvent("submit", "form", {
-          form_id: e.target.id || "unknown",
+    document.addEventListener('submit', (e) => {
+      if (e.target.matches('form')) {
+        this.trackEvent('submit', 'form', {
+          form_id: e.target.id || 'unknown',
           url: window.location.pathname,
         });
       }
     });
 
     // Track outbound links
-    document.addEventListener("click", (e) => {
-      if (e.target.tagName === "A" && e.target.href) {
+    document.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' && e.target.href) {
         const isOutbound = !e.target.href.includes(window.location.hostname);
-        if (isOutbound && e.target.href.startsWith("http")) {
-          this.trackEvent("click", "outbound_link", {
+        if (isOutbound && e.target.href.startsWith('http')) {
+          this.trackEvent('click', 'outbound_link', {
             url: e.target.href,
             text: e.target.textContent.trim(),
           });
@@ -253,7 +253,7 @@ class AnalyticsManager {
     };
 
     if (this.isEnabled && window.gtag) {
-      gtag("event", action, {
+      gtag('event', action, {
         event_category: category,
         ...parameters,
       });
@@ -268,7 +268,7 @@ class AnalyticsManager {
 
   trackPageView() {
     if (this.isEnabled && window.gtag) {
-      gtag("event", "page_view", {
+      gtag('event', 'page_view', {
         page_title: document.title,
         page_location: window.location.href,
       });
@@ -297,7 +297,7 @@ class AnalyticsManager {
     // Implement custom analytics endpoint if needed
     // This could be your own analytics server or third-party service
     if (this.isDebug) {
-      console.log("Analytics Event:", eventData);
+      console.log('Analytics Event:', eventData);
     }
   }
 }
@@ -313,7 +313,7 @@ class ScrollDepthTracker {
 
   init() {
     const scrollHandler = () => this.handleScroll();
-    window.addEventListener("scroll", scrollHandler, { passive: true });
+    window.addEventListener('scroll', scrollHandler, { passive: true });
   }
 
   handleScroll() {
@@ -347,7 +347,7 @@ class ScrollDepthTracker {
     this.thresholds.forEach((threshold) => {
       if (scrollPercent >= threshold && !this.tracked.has(threshold)) {
         this.tracked.add(threshold);
-        this.analytics.trackEvent("scroll", "scroll_depth", {
+        this.analytics.trackEvent('scroll', 'scroll_depth', {
           scroll_depth: threshold,
         });
       }

@@ -7,9 +7,9 @@ class SmoothScroll {
 
   init() {
     // Check if browser supports smooth scrolling
-    if ("scrollBehavior" in document.documentElement.style) {
+    if ('scrollBehavior' in document.documentElement.style) {
       // Native smooth scrolling is supported
-      document.documentElement.style.scrollBehavior = "smooth";
+      document.documentElement.style.scrollBehavior = 'smooth';
     } else {
       // Polyfill for older browsers
       this.polyfill();
@@ -24,11 +24,11 @@ class SmoothScroll {
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
     anchorLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const href = link.getAttribute("href");
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
 
         // Skip if it's just "#"
-        if (href === "#") return;
+        if (href === '#') return;
 
         const targetId = href.substring(1);
         const targetElement = document.getElementById(targetId);
@@ -54,10 +54,10 @@ class SmoothScroll {
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
-    if ("scrollBehavior" in document.documentElement.style) {
+    if ('scrollBehavior' in document.documentElement.style) {
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     } else {
       // Animated scroll for older browsers
@@ -66,14 +66,14 @@ class SmoothScroll {
   }
 
   getHeaderHeight() {
-    const header = document.querySelector(".site-header");
+    const header = document.querySelector('.site-header');
     return header ? header.offsetHeight + 20 : 20; // Add some padding
   }
 
   focusElement(element) {
     // Make element focusable if it isn't already
-    if (!element.hasAttribute("tabindex")) {
-      element.setAttribute("tabindex", "-1");
+    if (!element.hasAttribute('tabindex')) {
+      element.setAttribute('tabindex', '-1');
     }
 
     // Focus the element
@@ -81,8 +81,8 @@ class SmoothScroll {
 
     // Remove tabindex after focusing if we added it
     setTimeout(() => {
-      if (element.getAttribute("tabindex") === "-1") {
-        element.removeAttribute("tabindex");
+      if (element.getAttribute('tabindex') === '-1') {
+        element.removeAttribute('tabindex');
       }
     }, 100);
   }
@@ -141,14 +141,14 @@ class SmoothScroll {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
   }
 }
 
 // Initialize smooth scroll
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   new SmoothScroll();
 });
 

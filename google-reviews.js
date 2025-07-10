@@ -15,36 +15,36 @@ class GoogleReviewsWidget {
   }
 
   setupAnimations() {
-    const reviewCards = document.querySelectorAll(".google-review-card");
-    const headerCard = document.querySelector(".reviews-header-card");
+    const reviewCards = document.querySelectorAll('.google-review-card');
+    const headerCard = document.querySelector('.reviews-header-card');
 
     // Intersection Observer for fade-in animations
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
+      rootMargin: '0px 0px -50px 0px',
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
       });
     }, observerOptions);
 
     // Initialize cards with hidden state
     if (headerCard) {
-      headerCard.style.opacity = "0";
-      headerCard.style.transform = "translateY(20px)";
+      headerCard.style.opacity = '0';
+      headerCard.style.transform = 'translateY(20px)';
       headerCard.style.transition =
-        "opacity 0.6s ease-out, transform 0.6s ease-out";
+        'opacity 0.6s ease-out, transform 0.6s ease-out';
       observer.observe(headerCard);
     }
 
     reviewCards.forEach((card, index) => {
-      card.style.opacity = "0";
-      card.style.transform = "translateY(20px)";
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
       card.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
       observer.observe(card);
     });
@@ -52,91 +52,91 @@ class GoogleReviewsWidget {
 
   setupEventListeners() {
     // Handle review card clicks for enhanced interaction
-    const reviewCards = document.querySelectorAll(".google-review-card");
+    const reviewCards = document.querySelectorAll('.google-review-card');
 
     reviewCards.forEach((card) => {
-      card.addEventListener("mouseenter", this.onCardHover.bind(this));
-      card.addEventListener("mouseleave", this.onCardLeave.bind(this));
-      card.addEventListener("click", this.onCardClick.bind(this));
+      card.addEventListener('mouseenter', this.onCardHover.bind(this));
+      card.addEventListener('mouseleave', this.onCardLeave.bind(this));
+      card.addEventListener('click', this.onCardClick.bind(this));
     });
 
     // Handle "View All Reviews" button
-    const viewAllBtn = document.querySelector(".view-all-reviews-btn");
+    const viewAllBtn = document.querySelector('.view-all-reviews-btn');
     if (viewAllBtn) {
-      viewAllBtn.addEventListener("click", this.trackReviewsClick.bind(this));
+      viewAllBtn.addEventListener('click', this.trackReviewsClick.bind(this));
     }
 
     // Handle Google logo click
-    const googleLogo = document.querySelector(".google-logo");
+    const googleLogo = document.querySelector('.google-logo');
     if (googleLogo) {
-      googleLogo.addEventListener("click", this.onGoogleLogoClick.bind(this));
-      googleLogo.style.cursor = "pointer";
+      googleLogo.addEventListener('click', this.onGoogleLogoClick.bind(this));
+      googleLogo.style.cursor = 'pointer';
     }
   }
 
   onCardHover(event) {
     const card = event.currentTarget;
-    const googleIcon = card.querySelector(".google-icon");
+    const googleIcon = card.querySelector('.google-icon');
 
     if (googleIcon) {
-      googleIcon.style.opacity = "1";
-      googleIcon.style.transform = "scale(1.1)";
-      googleIcon.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+      googleIcon.style.opacity = '1';
+      googleIcon.style.transform = 'scale(1.1)';
+      googleIcon.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     }
   }
 
   onCardLeave(event) {
     const card = event.currentTarget;
-    const googleIcon = card.querySelector(".google-icon");
+    const googleIcon = card.querySelector('.google-icon');
 
     if (googleIcon) {
-      googleIcon.style.opacity = "0.7";
-      googleIcon.style.transform = "scale(1)";
+      googleIcon.style.opacity = '0.7';
+      googleIcon.style.transform = 'scale(1)';
     }
   }
 
   onCardClick(event) {
     // Optional: Add click analytics or interaction
-    this.trackReviewInteraction("card_click");
+    this.trackReviewInteraction('card_click');
   }
 
   onGoogleLogoClick() {
     // Open Google reviews in new tab
     window.open(
-      "https://www.google.com/search?q=Stay+Dripped+Mobile+IV+reviews",
-      "_blank",
-      "noopener,noreferrer",
+      'https://www.google.com/search?q=Stay+Dripped+Mobile+IV+reviews',
+      '_blank',
+      'noopener,noreferrer',
     );
-    this.trackReviewInteraction("logo_click");
+    this.trackReviewInteraction('logo_click');
   }
 
   trackReviewsClick(event) {
     // Track when user clicks "View All Reviews"
-    this.trackReviewInteraction("view_all_click");
+    this.trackReviewInteraction('view_all_click');
   }
 
   trackReviewInteraction(action) {
     // Analytics tracking (if Google Analytics is available)
-    if (typeof gtag !== "undefined") {
-      gtag("event", "reviews_interaction", {
-        event_category: "Google Reviews Widget",
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'reviews_interaction', {
+        event_category: 'Google Reviews Widget',
         event_label: action,
         value: 1,
       });
     }
 
     // Custom analytics tracking
-    if (window.analytics && typeof window.analytics.track === "function") {
-      window.analytics.track("Reviews Widget Interaction", {
+    if (window.analytics && typeof window.analytics.track === 'function') {
+      window.analytics.track('Reviews Widget Interaction', {
         action: action,
-        section: "google_reviews",
+        section: 'google_reviews',
       });
     }
   }
 
   loadReviewsOnScroll() {
     // Simulate loading more reviews on scroll (for future enhancement)
-    const reviewsSection = document.querySelector(".google-reviews");
+    const reviewsSection = document.querySelector('.google-reviews');
     if (!reviewsSection) return;
 
     const observer = new IntersectionObserver(
@@ -156,15 +156,15 @@ class GoogleReviewsWidget {
 
   animateStars() {
     // Add a subtle animation to the main rating stars
-    const starsLarge = document.querySelector(".stars-large");
+    const starsLarge = document.querySelector('.stars-large');
     if (starsLarge) {
-      starsLarge.style.animation = "starGlow 2s ease-in-out";
+      starsLarge.style.animation = 'starGlow 2s ease-in-out';
     }
 
     // Add CSS for star glow animation
-    if (!document.querySelector("#star-glow-styles")) {
-      const style = document.createElement("style");
-      style.id = "star-glow-styles";
+    if (!document.querySelector('#star-glow-styles')) {
+      const style = document.createElement('style');
+      style.id = 'star-glow-styles';
       style.textContent = `
         @keyframes starGlow {
           0%, 100% { 
@@ -183,11 +183,11 @@ class GoogleReviewsWidget {
   updateReviews(reviewsData) {
     if (!reviewsData || !Array.isArray(reviewsData)) return;
 
-    const reviewsGrid = document.querySelector(".reviews-grid");
+    const reviewsGrid = document.querySelector('.reviews-grid');
     if (!reviewsGrid) return;
 
     // Clear existing reviews
-    reviewsGrid.innerHTML = "";
+    reviewsGrid.innerHTML = '';
 
     // Add new reviews
     reviewsData.forEach((review) => {
@@ -200,31 +200,31 @@ class GoogleReviewsWidget {
   }
 
   createReviewCard(reviewData) {
-    const card = document.createElement("div");
-    card.className = "google-review-card";
+    const card = document.createElement('div');
+    card.className = 'google-review-card';
 
     const avatarContent = reviewData.avatar
       ? `<img src="${reviewData.avatar}" alt="${reviewData.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />`
-      : "";
+      : '';
 
     const avatarFallback = reviewData.name
       ? reviewData.name
-          .split(" ")
+          .split(' ')
           .map((n) => n.charAt(0))
-          .join("")
+          .join('')
           .toUpperCase()
-      : "??";
+      : '??';
 
     card.innerHTML = `
       <div class="review-header">
         <div class="reviewer-avatar">
           ${avatarContent}
-          <div class="avatar-fallback" style="${reviewData.avatar ? "display: none" : "display: flex"}">${avatarFallback}</div>
+          <div class="avatar-fallback" style="${reviewData.avatar ? 'display: none' : 'display: flex'}">${avatarFallback}</div>
         </div>
         <div class="reviewer-info">
-          <h4 class="reviewer-name">${reviewData.name || "Anonymous"}</h4>
-          <div class="review-stars">${"★".repeat(reviewData.rating || 5)}</div>
-          <div class="review-date">${reviewData.date || "Recently"}</div>
+          <h4 class="reviewer-name">${reviewData.name || 'Anonymous'}</h4>
+          <div class="review-stars">${'★'.repeat(reviewData.rating || 5)}</div>
+          <div class="review-date">${reviewData.date || 'Recently'}</div>
         </div>
         <div class="google-icon">
           <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
@@ -235,7 +235,7 @@ class GoogleReviewsWidget {
           </svg>
         </div>
       </div>
-      <p class="review-text">${reviewData.text || ""}</p>
+      <p class="review-text">${reviewData.text || ''}</p>
     `;
 
     return card;
@@ -243,11 +243,11 @@ class GoogleReviewsWidget {
 }
 
 // Initialize the Google Reviews Widget when DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   new GoogleReviewsWidget();
 });
 
 // Export for module systems
-if (typeof module !== "undefined" && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = GoogleReviewsWidget;
 }
