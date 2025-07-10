@@ -247,14 +247,26 @@ class IntakeQWidgetManager {
   }
 
   showLoadingState(container) {
-    container.innerHTML = `
-      <div class="intakeq-loading">
-        <div class="intakeq-loading-spinner">
-          <div class="spinner"></div>
-        </div>
-        <p class="intakeq-loading-text">Loading booking widget...</p>
-      </div>
-    `;
+    // Use safe DOM creation instead of innerHTML
+    container.replaceChildren();
+
+    const loadingDiv = document.createElement("div");
+    loadingDiv.className = "intakeq-loading";
+
+    const spinnerContainer = document.createElement("div");
+    spinnerContainer.className = "intakeq-loading-spinner";
+
+    const spinner = document.createElement("div");
+    spinner.className = "spinner";
+
+    const loadingText = document.createElement("p");
+    loadingText.className = "intakeq-loading-text";
+    loadingText.textContent = "Loading booking widget...";
+
+    spinnerContainer.appendChild(spinner);
+    loadingDiv.appendChild(spinnerContainer);
+    loadingDiv.appendChild(loadingText);
+    container.appendChild(loadingDiv);
     container.classList.add("intakeq-widget--loading");
   }
 
