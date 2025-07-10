@@ -573,56 +573,97 @@
 }
 
 /* ========================================================================
-   BUTTON GROUPS
+   ULTRA-MODERN 3D BUTTON GROUPS
    ======================================================================== */
 
 .btn-group {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
+  transform-style: preserve-3d;
+
+  /* Group hover effect */
+  &:hover .btn {
+    filter: brightness(0.95) saturate(0.9);
+
+    &:hover {
+      filter: brightness(1.1) saturate(1.1);
+    }
+  }
 
   &--attached {
     gap: 0;
+    background: linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.1) 0%,
+      transparent 100%
+    );
+    border-radius: 1.25rem;
+    padding: 0.25rem;
+    backdrop-filter: blur(10px);
+    box-shadow:
+      0 4px 12px rgb(0 0 0 / 0.05),
+      inset 0 1px 2px rgb(255 255 255 / 0.8);
 
     .btn {
       border-radius: 0;
       margin-left: -1px;
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        z-index: -1;
+      }
 
       &:first-child {
-        border-radius: 0.875rem 0 0 0.875rem;
+        border-radius: 1rem 0 0 1rem;
         margin-left: 0;
       }
 
       &:last-child {
-        border-radius: 0 0.875rem 0.875rem 0;
+        border-radius: 0 1rem 1rem 0;
       }
 
       &:only-child {
-        border-radius: 0.875rem;
+        border-radius: 1rem;
+      }
+
+      &:hover {
+        z-index: 2;
+        transform: translateY(-2px) translateZ(4px) scale(1.02);
       }
     }
   }
 
   &--vertical {
     flex-direction: column;
+    gap: 1rem;
 
     &.btn-group--attached {
+      flex-direction: column;
+
       .btn {
         margin-left: 0;
         margin-top: -1px;
+        width: 100%;
 
         &:first-child {
-          border-radius: 0.875rem 0.875rem 0 0;
+          border-radius: 1rem 1rem 0 0;
           margin-top: 0;
         }
 
         &:last-child {
-          border-radius: 0 0 0.875rem 0.875rem;
+          border-radius: 0 0 1rem 1rem;
         }
 
         &:only-child {
-          border-radius: 0.875rem;
+          border-radius: 1rem;
+        }
+
+        &:hover {
+          transform: translateX(2px) translateZ(4px) scale(1.02);
         }
       }
     }
@@ -630,10 +671,32 @@
 
   &--center {
     justify-content: center;
+
+    /* Ripple effect from center */
+    .btn {
+      animation-delay: calc(var(--btn-index, 0) * 0.1s);
+    }
   }
 
   &--end {
     justify-content: flex-end;
+  }
+
+  /* Staggered animation for multiple buttons */
+  &--stagger {
+    .btn {
+      animation: btn-group-entrance 0.6s var(--btn-animation-spring) forwards;
+      animation-delay: calc(var(--btn-index, 0) * 0.1s);
+      opacity: 0;
+      transform: translateY(20px) translateZ(-10px) scale(0.9);
+    }
+  }
+}
+
+@keyframes btn-group-entrance {
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0) scale(1);
   }
 }
 
