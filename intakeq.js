@@ -180,7 +180,7 @@ class IntakeQManager {
       });
 
       // Clear container and add button
-      container.innerHTML = "";
+      container.replaceChildren();
       container.appendChild(bookingButton);
 
       // Store widget config
@@ -202,7 +202,7 @@ class IntakeQManager {
         Book ${config.name}
       `;
 
-      container.innerHTML = "";
+      container.replaceChildren();
       container.appendChild(fallbackLink);
     }
   }
@@ -233,7 +233,7 @@ class IntakeQManager {
       });
 
       // Clear container and add button
-      container.innerHTML = "";
+      container.replaceChildren();
       container.appendChild(bookingButton);
 
       // Store widget config
@@ -252,7 +252,7 @@ class IntakeQManager {
         Book ${config.name}
       `;
 
-      container.innerHTML = "";
+      container.replaceChildren();
       container.appendChild(fallbackLink);
     }
   }
