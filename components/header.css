@@ -1,25 +1,64 @@
 /* ========================================================================
-   PREMIUM HEADER SYSTEM - Stay Dripped Mobile IV
-   Modern, glassmorphic design with enhanced button interactions
+   ULTRA-MODERN 3D HEADER SYSTEM - Stay Dripped Mobile IV
+   Next-generation glassmorphic design with advanced 3D interactions
    ======================================================================== */
+
+:root {
+  --header-glass-opacity: 0.85;
+  --header-blur-strength: 25px;
+  --header-3d-depth: 12px;
+  --header-shadow-color: 0 122 255;
+  --header-animation-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
 .site-header {
   position: sticky;
   top: 0;
-  z-index: var(--z-fixed);
-  background: rgb(255 255 255 / 85%);
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgb(0 122 255 / 8%);
-  transition: all var(--transition-base);
-  box-shadow: 0 1px 20px rgb(0 0 0 / 3%);
+  z-index: var(--z-fixed, 1000);
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgb(255 255 255 / 0.1) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      145deg,
+      rgb(255 255 255 / var(--header-glass-opacity)) 0%,
+      rgb(248 250 252 / 0.9) 100%
+    );
+  backdrop-filter: blur(var(--header-blur-strength)) saturate(180%)
+    brightness(1.1);
+  border-bottom: 1px solid rgb(var(--header-shadow-color) / 0.12);
+  transition: all 0.4s var(--header-animation-spring);
+  box-shadow:
+    0 4px var(--header-3d-depth) rgb(var(--header-shadow-color) / 0.08),
+    0 8px 32px rgb(0 0 0 / 0.06),
+    inset 0 1px 2px rgb(255 255 255 / 0.8);
+  transform-style: preserve-3d;
+  isolation: isolate;
 }
 
 .site-header.scrolled {
-  background: rgb(255 255 255 / 95%);
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgb(255 255 255 / 0.15) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.95) 0%,
+      rgb(248 250 252 / 0.98) 100%
+    );
   box-shadow:
-    0 1px 20px rgb(0 0 0 / 8%),
-    0 4px 40px rgb(0 122 255 / 4%);
-  border-bottom-color: rgb(0 122 255 / 12%);
+    0 6px calc(var(--header-3d-depth) * 1.5)
+      rgb(var(--header-shadow-color) / 0.12),
+    0 12px 48px rgb(0 0 0 / 0.1),
+    0 2px 8px rgb(var(--header-shadow-color) / 0.06),
+    inset 0 1px 3px rgb(255 255 255 / 0.9);
+  border-bottom-color: rgb(var(--header-shadow-color) / 0.18);
+  backdrop-filter: blur(calc(var(--header-blur-strength) + 5px)) saturate(200%)
+    brightness(1.15);
 }
 
 .site-header .container {
