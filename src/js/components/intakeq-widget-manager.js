@@ -271,22 +271,38 @@ class IntakeQWidgetManager {
   }
 
   showErrorState(container, message) {
-    container.innerHTML = `
-      <div class="intakeq-error">
-        <div class="intakeq-error-icon">⚠️</div>
-        <h4 class="intakeq-error-title">Booking Widget Error</h4>
-        <p class="intakeq-error-message">${message}</p>
-        <button class="btn btn--outline btn--sm intakeq-retry-btn">
-          Try Again
-        </button>
-      </div>
-    `;
+    // Use safe DOM creation instead of innerHTML
+    container.replaceChildren();
+
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "intakeq-error";
+
+    const errorIcon = document.createElement("div");
+    errorIcon.className = "intakeq-error-icon";
+    errorIcon.textContent = "⚠️";
+
+    const errorTitle = document.createElement("h4");
+    errorTitle.className = "intakeq-error-title";
+    errorTitle.textContent = "Booking Widget Error";
+
+    const errorMessage = document.createElement("p");
+    errorMessage.className = "intakeq-error-message";
+    errorMessage.textContent = message; // Safe text content instead of innerHTML
+
+    const retryBtn = document.createElement("button");
+    retryBtn.className = "btn btn--outline btn--sm intakeq-retry-btn";
+    retryBtn.textContent = "Try Again";
+
+    errorDiv.appendChild(errorIcon);
+    errorDiv.appendChild(errorTitle);
+    errorDiv.appendChild(errorMessage);
+    errorDiv.appendChild(retryBtn);
+    container.appendChild(errorDiv);
 
     container.classList.add("intakeq-widget--error");
 
     // Add retry functionality
-    const retryBtn = container.querySelector(".intakeq-retry-btn");
-    retryBtn?.addEventListener("click", () => {
+    retryBtn.addEventListener("click", () => {
       container.classList.remove("intakeq-widget--error");
       this.loadWidget(container);
     });
