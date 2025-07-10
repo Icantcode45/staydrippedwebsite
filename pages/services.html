@@ -524,18 +524,24 @@
 
     <!-- Load header and footer -->
     <script>
-      // Load header
+      // Load header safely
       fetch("/components/header.html")
         .then((response) => response.text())
         .then((html) => {
-          document.getElementById("header-placeholder").innerHTML = html;
+          const placeholder = document.getElementById("header-placeholder");
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = html;
+          placeholder.replaceChildren(...tempDiv.children);
         });
 
-      // Load footer
+      // Load footer safely
       fetch("/components/footer.html")
         .then((response) => response.text())
         .then((html) => {
-          document.getElementById("footer-placeholder").innerHTML = html;
+          const placeholder = document.getElementById("footer-placeholder");
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = html;
+          placeholder.replaceChildren(...tempDiv.children);
         });
     </script>
 
