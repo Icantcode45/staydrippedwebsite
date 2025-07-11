@@ -60,7 +60,6 @@ h1 {
     var(--color-gray-700) 50%,
     var(--color-gray-900) 100%
   );
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
@@ -82,7 +81,6 @@ h2 {
     var(--color-gray-900) 0%,
     var(--color-gray-600) 100%
   );
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
@@ -490,14 +488,12 @@ p {
 /* Gradient Text Effects */
 .text-gradient-primary {
   background: var(--color-primary-gradient);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-secondary {
   background: var(--color-secondary-gradient);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
