@@ -1,27 +1,895 @@
 /* ========================================================================
-   STAY DRIPPED MOBILE IV - MAIN SCSS ENTRY POINT
-   Modern, Apple-inspired design system for premium medical services
+   STAY DRIPPED MOBILE IV - MODERN 3D DESIGN SYSTEM
+   Professional, sleek, clean aesthetic with realistic 3D elements
    ======================================================================== */
 
-// Import base styles first
+/* Import base styles first - Foundation */
 @use "base/variables";
 @use "base/reset";
 @use "base/typography";
 
-// Import layout components
+/* Import layout components - Structure */
 @use "layouts/container";
 @use "layouts/grid";
 @use "layouts/flexbox";
 
-// Import components
-@use "components/premium-buttons";
+/* Import modern 3D components - Visual Elements */
+@use "components/buttons";
 @use "components/cards";
 @use "components/forms";
-@use "components/animations";
 @use "components/header";
+@use "components/hero";
+@use "components/navigation";
+@use "components/premium-buttons";
+@use "components/animations";
 
-// Import utilities last
+/* Import utilities last - Helpers */
 @use "utilities/spacing";
 @use "utilities/display";
 @use "utilities/responsive";
 @use "utilities/accessibility";
+
+/* Global Performance Optimizations */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
+  color: var(--color-gray-800);
+  background: var(--color-white);
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+/* Modern Selection Styling */
+::selection {
+  background: rgb(0 102 255 / 20%);
+  text-shadow: none;
+}
+
+::selection {
+  background: rgb(0 102 255 / 20%);
+  text-shadow: none;
+}
+
+/* Enhanced Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-gradient);
+  border-radius: var(--radius-full);
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-dark) 0%,
+      var(--color-primary) 100%
+    );
+  }
+}
+
+/* Modern Container System */
+.container {
+  width: 100%;
+  max-width: var(--container-2xl);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+
+  @media (width <= 768px) {
+    padding: 0 var(--space-4);
+  }
+}
+
+.container-sm {
+  max-width: var(--container-sm);
+}
+
+.container-md {
+  max-width: var(--container-md);
+}
+
+.container-lg {
+  max-width: var(--container-lg);
+}
+
+.container-xl {
+  max-width: var(--container-xl);
+}
+
+.container-2xl {
+  max-width: var(--container-2xl);
+}
+
+.container-fluid {
+  width: 100%;
+  max-width: none;
+  padding: 0 var(--space-6);
+}
+
+/* Section Spacing */
+.section {
+  padding: var(--space-20) 0;
+
+  @media (width <= 768px) {
+    padding: var(--space-16) 0;
+  }
+}
+
+.section-sm {
+  padding: var(--space-16) 0;
+}
+
+.section-lg {
+  padding: var(--space-32) 0;
+}
+
+/* Enhanced Glass Morphism Utilities */
+.glass {
+  background: var(--glass-background);
+  backdrop-filter: var(--glass-backdrop-filter);
+  border: var(--glass-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-3d-sm);
+}
+
+.glass-light {
+  background: rgb(255 255 255 / 25%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgb(255 255 255 / 18%);
+}
+
+.glass-dark {
+  background: rgb(0 0 0 / 25%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgb(255 255 255 / 10%);
+}
+
+/* 3D Surface Utilities */
+.surface {
+  background: var(--gradient-surface);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-3d-md);
+  border: 1px solid rgb(255 255 255 / 20%);
+  transition: var(--transition-3d);
+
+  &:hover {
+    transform: translateY(-4px) rotateX(2deg);
+    box-shadow: var(--shadow-3d-lg);
+  }
+}
+
+.surface-flat {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-base);
+}
+
+.surface-elevated {
+  background: var(--gradient-surface);
+  box-shadow: var(--shadow-3d-xl);
+  transform: translateZ(10px);
+}
+
+/* Modern Grid System */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+
+  &.gap-sm {
+    gap: var(--space-4);
+  }
+
+  &.gap-lg {
+    gap: var(--space-8);
+  }
+
+  &.gap-xl {
+    gap: var(--space-12);
+  }
+}
+
+.grid-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/* Responsive Grid */
+@media (width <= 1024px) {
+  .grid-4,
+  .grid-5,
+  .grid-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width <= 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-5,
+  .grid-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 480px) {
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-5,
+  .grid-6 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Flexbox Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-auto {
+  flex: auto;
+}
+
+.flex-none {
+  flex: none;
+}
+
+/* Gap Utilities */
+.gap-0 {
+  gap: 0;
+}
+
+.gap-1 {
+  gap: var(--space-1);
+}
+
+.gap-2 {
+  gap: var(--space-2);
+}
+
+.gap-3 {
+  gap: var(--space-3);
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+.gap-5 {
+  gap: var(--space-5);
+}
+
+.gap-6 {
+  gap: var(--space-6);
+}
+
+.gap-8 {
+  gap: var(--space-8);
+}
+
+.gap-10 {
+  gap: var(--space-10);
+}
+
+.gap-12 {
+  gap: var(--space-12);
+}
+
+.gap-16 {
+  gap: var(--space-16);
+}
+
+.gap-20 {
+  gap: var(--space-20);
+}
+
+/* Positioning */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.inset-0 {
+  inset: 0;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+/* Z-Index */
+.z-0 {
+  z-index: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
+}
+
+.z-30 {
+  z-index: 30;
+}
+
+.z-40 {
+  z-index: 40;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+/* Display */
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Visibility */
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* Overflow */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+/* Border Radius */
+.rounded-none {
+  border-radius: var(--radius-none);
+}
+
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+.rounded {
+  border-radius: var(--radius-base);
+}
+
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+.rounded-xl {
+  border-radius: var(--radius-xl);
+}
+
+.rounded-2xl {
+  border-radius: var(--radius-2xl);
+}
+
+.rounded-3xl {
+  border-radius: var(--radius-3xl);
+}
+
+.rounded-4xl {
+  border-radius: var(--radius-4xl);
+}
+
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* Shadow Utilities */
+.shadow-none {
+  box-shadow: var(--shadow-none);
+}
+
+.shadow-xs {
+  box-shadow: var(--shadow-xs);
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow {
+  box-shadow: var(--shadow-base);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+.shadow-2xl {
+  box-shadow: var(--shadow-2xl);
+}
+
+.shadow-3xl {
+  box-shadow: var(--shadow-3xl);
+}
+
+.shadow-inner {
+  box-shadow: var(--shadow-inner);
+}
+
+/* 3D Shadow Utilities */
+.shadow-3d-sm {
+  box-shadow: var(--shadow-3d-sm);
+}
+
+.shadow-3d-md {
+  box-shadow: var(--shadow-3d-md);
+}
+
+.shadow-3d-lg {
+  box-shadow: var(--shadow-3d-lg);
+}
+
+.shadow-3d-xl {
+  box-shadow: var(--shadow-3d-xl);
+}
+
+/* Background Utilities */
+.bg-white {
+  background: var(--color-white);
+}
+
+.bg-gray-50 {
+  background: var(--color-gray-50);
+}
+
+.bg-gray-100 {
+  background: var(--color-gray-100);
+}
+
+.bg-gray-900 {
+  background: var(--color-gray-900);
+}
+
+.bg-primary {
+  background: var(--color-primary);
+}
+
+.bg-secondary {
+  background: var(--color-secondary);
+}
+
+.bg-gradient-primary {
+  background: var(--color-primary-gradient);
+}
+
+.bg-gradient-secondary {
+  background: var(--color-secondary-gradient);
+}
+
+.bg-gradient-surface {
+  background: var(--gradient-surface);
+}
+
+/* Border Utilities */
+.border {
+  border: 1px solid var(--color-gray-200);
+}
+
+.border-2 {
+  border: 2px solid var(--color-gray-200);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.border-white {
+  border-color: var(--color-white);
+}
+
+/* Width & Height */
+.w-full {
+  width: 100%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+/* Enhanced Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 8px;
+  border-radius: var(--radius-base);
+  text-decoration: none;
+  z-index: var(--z-toast);
+
+  &:focus {
+    top: 6px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .surface,
+  .glass {
+    border-width: 2px;
+    border-color: var(--color-gray-400);
+  }
+
+  .btn {
+    border-width: 2px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: var(--color-black) !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transform: none !important;
+  }
+
+  .container {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .section {
+    padding: var(--space-8) 0 !important;
+  }
+
+  .hidden-print {
+    display: none !important;
+  }
+
+  .show-print {
+    display: block !important;
+  }
+}
+
+/* Dark mode preparation */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--color-gray-900);
+    color: var(--color-gray-100);
+  }
+}
+
+/* Performance hints */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-auto {
+  will-change: auto;
+}
+
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+/* Modern focus management */
+.focus-trap {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Enhanced transition utilities */
+.transition-none {
+  transition: none;
+}
+
+.transition-all {
+  transition: var(--transition-all);
+}
+
+.transition-colors {
+  transition: var(--transition-colors);
+}
+
+.transition-opacity {
+  transition: var(--transition-opacity);
+}
+
+.transition-shadow {
+  transition: var(--transition-shadow);
+}
+
+.transition-transform {
+  transition: var(--transition-transform);
+}
+
+.transition-3d {
+  transition: var(--transition-3d);
+}
+
+/* Animation utilities */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Modern cursor utilities */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+/* Touch action utilities */
+.touch-auto {
+  touch-action: auto;
+}
+
+.touch-none {
+  touch-action: none;
+}
+
+.touch-pan-x {
+  touch-action: pan-x;
+}
+
+.touch-pan-y {
+  touch-action: pan-y;
+}
+
+.touch-manipulation {
+  touch-action: manipulation;
+}
