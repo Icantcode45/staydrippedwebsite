@@ -490,6 +490,7 @@ p {
 /* Gradient Text Effects */
 .text-gradient-primary {
   background: var(--color-primary-gradient);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
