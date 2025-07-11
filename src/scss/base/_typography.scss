@@ -60,6 +60,7 @@ h1 {
     var(--color-gray-700) 50%,
     var(--color-gray-900) 100%
   );
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
