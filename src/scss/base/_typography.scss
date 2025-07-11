@@ -82,6 +82,7 @@ h2 {
     var(--color-gray-900) 0%,
     var(--color-gray-600) 100%
   );
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
