@@ -8,7 +8,6 @@
   --animation-speed-slow: 800ms;
   --animation-speed-normal: 400ms;
   --animation-speed-fast: 200ms;
-
   --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --easing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
@@ -228,6 +227,7 @@
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -273,6 +273,7 @@
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.05);
@@ -285,10 +286,11 @@
 
 @keyframes pulse-glow {
   from {
-    box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+    box-shadow: 0 0 20px rgb(0 102 255 / 40%);
   }
+
   to {
-    box-shadow: 0 0 40px rgba(0, 102, 255, 0.8);
+    box-shadow: 0 0 40px rgb(0 102 255 / 80%);
   }
 }
 
@@ -303,6 +305,7 @@
     transform: translateY(0);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
+
   50% {
     transform: translateY(-25%);
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -320,13 +323,16 @@
     opacity: 0;
     transform: scale(0.3);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.1);
   }
+
   70% {
     transform: scale(0.9);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -343,15 +349,18 @@
   90% {
     transform: translate3d(-1px, 0, 0);
   }
+
   20%,
   80% {
     transform: translate3d(2px, 0, 0);
   }
+
   30%,
   50%,
   70% {
     transform: translate3d(-4px, 0, 0);
   }
+
   40%,
   60% {
     transform: translate3d(4px, 0, 0);
@@ -367,6 +376,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -382,7 +392,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: currentColor;
+    background: currentcolor;
     animation: loading-dots 1.4s ease-in-out infinite both;
   }
 
@@ -398,6 +408,7 @@
     transform: scale(0);
     opacity: 0.5;
   }
+
   40% {
     transform: scale(1);
     opacity: 1;
@@ -437,7 +448,6 @@
     var(--color-primary)
   );
   background-size: 200% 200%;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradient-flow 3s ease infinite;
@@ -448,6 +458,7 @@
   100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -507,7 +518,7 @@
     inset: 0;
     background-image: radial-gradient(
       circle,
-      rgba(255, 255, 255, 0.1) 1px,
+      rgb(255 255 255 / 10%) 1px,
       transparent 1px
     );
     background-size: 50px 50px;
@@ -519,6 +530,7 @@
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(-100px);
   }
@@ -541,23 +553,28 @@
     width: 200px;
     height: 200px;
     background: var(--gradient-surface);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgb(255 255 255 / 20%);
 
     &.front {
       transform: rotateY(0deg) translateZ(100px);
     }
+
     &.back {
       transform: rotateY(180deg) translateZ(100px);
     }
+
     &.right {
       transform: rotateY(90deg) translateZ(100px);
     }
+
     &.left {
       transform: rotateY(-90deg) translateZ(100px);
     }
+
     &.top {
       transform: rotateX(90deg) translateZ(100px);
     }
+
     &.bottom {
       transform: rotateX(-90deg) translateZ(100px);
     }
@@ -568,6 +585,7 @@
   from {
     transform: rotateX(0deg) rotateY(0deg);
   }
+
   to {
     transform: rotateX(360deg) rotateY(360deg);
   }
@@ -609,7 +627,7 @@
 }
 
 /* Responsive Animations */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .fade-in,
   .scale-in,
   .slide-in-up,

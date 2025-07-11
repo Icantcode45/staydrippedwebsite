@@ -87,7 +87,7 @@
       width: 1rem;
       height: 1rem;
       border: 2px solid transparent;
-      border-top: 2px solid currentColor;
+      border-top: 2px solid currentcolor;
       border-radius: 50%;
       animation: button-spin 1s linear infinite;
     }
@@ -104,7 +104,7 @@
 .btn-primary {
   background: var(--color-primary-gradient);
   color: var(--color-white);
-  border: 1px solid rgba(0, 102, 255, 0.3);
+  border: 1px solid rgb(0 102 255 / 30%);
 
   box-shadow: var(--shadow-3d-md);
 
@@ -112,10 +112,7 @@
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: var(--gradient-glass-light);
     border-radius: inherit;
     transition: var(--transition-all);
@@ -131,13 +128,13 @@
   &:hover {
     transform: var(--transform-button-hover);
     box-shadow: var(--shadow-3d-lg);
-    border-color: rgba(0, 102, 255, 0.5);
+    border-color: rgb(0 102 255 / 50%);
 
     &::before {
       background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0.1) 100%
+        rgb(255 255 255 / 30%) 0%,
+        rgb(255 255 255 / 10%) 100%
       );
     }
 
@@ -166,14 +163,11 @@
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: linear-gradient(
       135deg,
-      rgba(0, 102, 255, 0.1) 0%,
-      rgba(0, 212, 170, 0.05) 100%
+      rgb(0 102 255 / 10%) 0%,
+      rgb(0 212 170 / 5%) 100%
     );
     border-radius: inherit;
     opacity: 0;
@@ -188,7 +182,7 @@
   &:hover {
     transform: var(--transform-button-hover);
     box-shadow: var(--shadow-3d-md);
-    border-color: rgba(0, 102, 255, 0.3);
+    border-color: rgb(0 102 255 / 30%);
 
     &::before {
       opacity: 1;
@@ -215,10 +209,7 @@
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: var(--color-primary);
     border-radius: inherit;
     transform: scale(0);
@@ -405,7 +396,7 @@
   .btn {
     border-radius: 0;
     margin: 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgb(255 255 255 / 20%);
 
     &:first-child {
       border-top-left-radius: var(--radius-xl);
@@ -459,6 +450,7 @@
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.05);
@@ -479,6 +471,7 @@
     transform: translateY(0);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
+
   50% {
     transform: translateY(-25%);
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -553,7 +546,7 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .btn {
     padding: var(--space-3) var(--space-5);
     font-size: var(--text-sm);
@@ -574,7 +567,7 @@
 
     .btn {
       border-right: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgb(255 255 255 / 20%);
 
       &:first-child {
         border-radius: var(--radius-xl) var(--radius-xl) 0 0;

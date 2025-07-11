@@ -10,7 +10,7 @@
   flex-direction: column;
 
   background: var(--gradient-surface);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255 255 255 / 20%);
   border-radius: var(--radius-2xl);
 
   box-shadow: var(--shadow-3d-md);
@@ -27,10 +27,7 @@
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: var(--gradient-glass-light);
     border-radius: inherit;
     pointer-events: none;
@@ -47,14 +44,14 @@
   &:hover {
     transform: var(--transform-card-hover);
     box-shadow: var(--shadow-3d-xl);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgb(255 255 255 / 30%);
 
     &::before {
       background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0.05) 100%
+        rgb(255 255 255 / 30%) 0%,
+        rgb(255 255 255 / 10%) 50%,
+        rgb(255 255 255 / 5%) 100%
       );
     }
   }
@@ -63,11 +60,11 @@
 /* Card Header */
 .card-header {
   padding: var(--space-6) var(--space-6) var(--space-4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgb(255 255 255 / 10%) 0%,
+    rgb(255 255 255 / 5%) 100%
   );
 
   .card-title {
@@ -103,11 +100,11 @@
 /* Card Footer */
 .card-footer {
   padding: var(--space-4) var(--space-6) var(--space-6);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgb(255 255 255 / 10%);
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.02) 0%,
-    rgba(0, 0, 0, 0.01) 100%
+    rgb(0 0 0 / 2%) 0%,
+    rgb(0 0 0 / 1%) 100%
   );
 }
 
@@ -129,7 +126,7 @@
 /* Service Card - Enhanced for IV Therapy */
 .service-card {
   background: var(--gradient-surface);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255 255 255 / 20%);
   border-radius: var(--radius-3xl);
   padding: var(--space-8);
 
@@ -144,10 +141,7 @@
   &::after {
     content: "";
     position: absolute;
-    top: -50%;
-    left: -50%;
-    right: -50%;
-    bottom: -50%;
+    inset: -50%;
     background: var(--gradient-mesh);
     opacity: 0.3;
     transition: var(--transition-all);
@@ -163,7 +157,7 @@
   &:hover {
     transform: translateY(-16px) rotateX(10deg) rotateY(5deg) scale(1.02);
     box-shadow: var(--shadow-3d-xl);
-    border-color: rgba(0, 102, 255, 0.3);
+    border-color: rgb(0 102 255 / 30%);
 
     &::after {
       opacity: 0.5;
@@ -224,7 +218,6 @@
     var(--color-gray-900) 0%,
     var(--color-gray-700) 100%
   );
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -277,7 +270,7 @@
 /* Pricing Card */
 .pricing-card {
   background: var(--gradient-surface);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgb(255 255 255 / 20%);
   border-radius: var(--radius-3xl);
   padding: var(--space-8);
   text-align: center;
@@ -292,9 +285,9 @@
     border-color: var(--color-primary);
     background: linear-gradient(
       135deg,
-      rgba(0, 102, 255, 0.05) 0%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(0, 212, 170, 0.05) 100%
+      rgb(0 102 255 / 5%) 0%,
+      rgb(255 255 255 / 100%) 50%,
+      rgb(0 212 170 / 5%) 100%
     );
 
     transform: scale(1.05);
@@ -344,7 +337,6 @@
   margin-bottom: var(--space-1);
 
   background: var(--color-primary-gradient);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
@@ -363,7 +355,7 @@
 /* Testimonial Card */
 .testimonial-card {
   background: var(--gradient-surface);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255 255 255 / 20%);
   border-radius: var(--radius-3xl);
   padding: var(--space-8);
 
@@ -417,7 +409,7 @@
   border-radius: 50%;
   object-fit: cover;
   box-shadow: var(--shadow-3d-sm);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgb(255 255 255 / 50%);
 }
 
 .testimonial-info {
@@ -449,7 +441,7 @@
 
   &:hover {
     border-color: var(--color-primary);
-    background: rgba(0, 102, 255, 0.02);
+    background: rgb(0 102 255 / 2%);
   }
 }
 
@@ -465,7 +457,7 @@
 
   .card-text,
   .service-description {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgb(255 255 255 / 90%);
   }
 }
 
@@ -494,12 +486,15 @@
   &.grid-1 {
     grid-template-columns: 1fr;
   }
+
   &.grid-2 {
     grid-template-columns: repeat(2, 1fr);
   }
+
   &.grid-3 {
     grid-template-columns: repeat(3, 1fr);
   }
+
   &.grid-4 {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -510,7 +505,7 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .card,
   .service-card,
   .pricing-card,
