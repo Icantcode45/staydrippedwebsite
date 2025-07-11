@@ -60,7 +60,7 @@ h1 {
     var(--color-gray-700) 50%,
     var(--color-gray-900) 100%
   );
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
@@ -82,7 +82,7 @@ h2 {
     var(--color-gray-900) 0%,
     var(--color-gray-600) 100%
   );
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
@@ -187,39 +187,51 @@ p {
 .text-xs {
   font-size: var(--text-xs);
 }
+
 .text-sm {
   font-size: var(--text-sm);
 }
+
 .text-base {
   font-size: var(--text-base);
 }
+
 .text-lg {
   font-size: var(--text-lg);
 }
+
 .text-xl {
   font-size: var(--text-xl);
 }
+
 .text-2xl {
   font-size: var(--text-2xl);
 }
+
 .text-3xl {
   font-size: var(--text-3xl);
 }
+
 .text-4xl {
   font-size: var(--text-4xl);
 }
+
 .text-5xl {
   font-size: var(--text-5xl);
 }
+
 .text-6xl {
   font-size: var(--text-6xl);
 }
+
 .text-7xl {
   font-size: var(--text-7xl);
 }
+
 .text-8xl {
   font-size: var(--text-8xl);
 }
+
 .text-9xl {
   font-size: var(--text-9xl);
 }
@@ -228,27 +240,35 @@ p {
 .font-thin {
   font-weight: var(--font-weight-thin);
 }
+
 .font-extralight {
   font-weight: var(--font-weight-extralight);
 }
+
 .font-light {
   font-weight: var(--font-weight-light);
 }
+
 .font-normal {
   font-weight: var(--font-weight-regular);
 }
+
 .font-medium {
   font-weight: var(--font-weight-medium);
 }
+
 .font-semibold {
   font-weight: var(--font-weight-semibold);
 }
+
 .font-bold {
   font-weight: var(--font-weight-bold);
 }
+
 .font-extrabold {
   font-weight: var(--font-weight-extrabold);
 }
+
 .font-black {
   font-weight: var(--font-weight-black);
 }
@@ -269,48 +289,63 @@ p {
 .text-white {
   color: var(--color-white);
 }
+
 .text-black {
   color: var(--color-black);
 }
+
 .text-gray-50 {
   color: var(--color-gray-50);
 }
+
 .text-gray-100 {
   color: var(--color-gray-100);
 }
+
 .text-gray-200 {
   color: var(--color-gray-200);
 }
+
 .text-gray-300 {
   color: var(--color-gray-300);
 }
+
 .text-gray-400 {
   color: var(--color-gray-400);
 }
+
 .text-gray-500 {
   color: var(--color-gray-500);
 }
+
 .text-gray-600 {
   color: var(--color-gray-600);
 }
+
 .text-gray-700 {
   color: var(--color-gray-700);
 }
+
 .text-gray-800 {
   color: var(--color-gray-800);
 }
+
 .text-gray-900 {
   color: var(--color-gray-900);
 }
+
 .text-success {
   color: var(--color-success);
 }
+
 .text-warning {
   color: var(--color-warning);
 }
+
 .text-error {
   color: var(--color-error);
 }
+
 .text-info {
   color: var(--color-info);
 }
@@ -319,12 +354,15 @@ p {
 .text-left {
   text-align: left;
 }
+
 .text-center {
   text-align: center;
 }
+
 .text-right {
   text-align: right;
 }
+
 .text-justify {
   text-align: justify;
 }
@@ -452,14 +490,14 @@ p {
 /* Gradient Text Effects */
 .text-gradient-primary {
   background: var(--color-primary-gradient);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-secondary {
   background: var(--color-secondary-gradient);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
