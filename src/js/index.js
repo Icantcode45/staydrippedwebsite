@@ -15,6 +15,7 @@ import "./components/header-enhancer.js";
 import "./components/mobile-menu.js";
 import "./components/navigation-enhancer.js";
 import "./components/smooth-scroll.js";
+import "./components/cookie-consent.js";
 import "./components/back-to-top.js";
 import "./components/intakeq-booking.js";
 
