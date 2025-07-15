@@ -1,62 +1,115 @@
 /* ========================================================================
-   CSS CUSTOM PROPERTIES (Design System)
+   MODERN 3D DESIGN SYSTEM - CSS CUSTOM PROPERTIES
+   Professional, sleek, clean aesthetic with realistic 3D elements
    ======================================================================== */
 
 :root {
-  /* Healthcare Professional Color Palette */
-  --color-primary: #007aff; /* Medical blue - trust & professionalism */
-  --color-primary-light: #5ac8fa; /* Light blue for accents */
-  --color-primary-dark: #0051d4; /* Deep blue for depth */
-  --color-secondary: #00c851; /* Health green - vitality */
-  --color-accent: #ff3b30; /* Alert red for urgency */
-  --color-success: #34c759; /* Success green */
-  --color-warning: #ff9500; /* Warning orange */
-
-  /* Neutral Healthcare Palette */
-  --color-white: #fff;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-  --color-black: #000;
-
-  /* Professional Gradients */
-  --gradient-primary: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%);
-  --gradient-secondary: linear-gradient(135deg, #00c851 0%, #34c759 100%);
-  --gradient-glass: linear-gradient(
+  /* Modern Color Palette - Professional Medical/Tech */
+  --color-primary: #06f;
+  --color-primary-light: #3d8bff;
+  --color-primary-dark: #0052cc;
+  --color-primary-gradient: linear-gradient(
     135deg,
-    rgb(255 255 255 / 10%) 0%,
+    #06f 0%,
+    #3d8bff 50%,
+    #0052cc 100%
+  );
+  --color-secondary: #00d4aa;
+  --color-secondary-light: #3db;
+  --color-secondary-dark: #00a885;
+  --color-secondary-gradient: linear-gradient(135deg, #00d4aa 0%, #3db 100%);
+  --color-accent: #ff4757;
+  --color-accent-light: #ff6b7a;
+  --color-accent-dark: #e73c44;
+  --color-success: #2ed573;
+  --color-warning: #ffa502;
+  --color-error: #ff3838;
+  --color-info: #3742fa;
+
+  /* Sophisticated Neutral Palette */
+  --color-white: #fff;
+  --color-black: #0a0a0a;
+  --color-gray-50: #fafbfc;
+  --color-gray-100: #f1f3f6;
+  --color-gray-200: #e4e8ed;
+  --color-gray-300: #d1d9e0;
+  --color-gray-400: #a8b5c4;
+  --color-gray-500: #7c8894;
+  --color-gray-600: #5a6c7d;
+  --color-gray-700: #3e4c59;
+  --color-gray-800: #2d3748;
+  --color-gray-900: #1a202c;
+
+  /* Advanced 3D Gradients & Glass Effects */
+  --gradient-glass-light: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 25%) 0%,
+    rgb(255 255 255 / 10%) 50%,
     rgb(255 255 255 / 5%) 100%
   );
-  --gradient-overlay: linear-gradient(
+  --gradient-glass-dark: linear-gradient(
     135deg,
-    rgb(0 122 255 / 80%) 0%,
-    rgb(90 200 250 / 90%) 100%
+    rgb(0 0 0 / 10%) 0%,
+    rgb(0 0 0 / 5%) 50%,
+    rgb(0 0 0 / 2%) 100%
   );
+  --gradient-surface: linear-gradient(
+    145deg,
+    #fff 0%,
+    #f8fafc 50%,
+    #f1f5f9 100%
+  );
+  --gradient-surface-dark: linear-gradient(
+    145deg,
+    #2d3748 0%,
+    #1a202c 50%,
+    #0f1419 100%
+  );
+  --gradient-hero: linear-gradient(
+    135deg,
+    rgb(0 102 255 / 95%) 0%,
+    rgb(61 139 255 / 90%) 50%,
+    rgb(0 82 204 / 95%) 100%
+  );
+  --gradient-mesh:
+    radial-gradient(
+      circle at 20% 50%,
+      rgb(0 102 255 / 10%) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgb(0 212 170 / 10%) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgb(255 71 87 / 5%) 0%,
+      transparent 50%
+    );
 
-  /* Typography System */
+  /* Modern Typography System */
   --font-family-primary:
-    -apple-system, blinkmacsystemfont, "SF Pro Display", "Segoe UI", roboto,
-    helvetica, arial, sans-serif;
-  --font-family-secondary:
-    -apple-system, blinkmacsystemfont, "SF Pro Text", "Segoe UI", roboto,
-    helvetica, arial, sans-serif;
+    "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
+    sans-serif;
+  --font-family-display:
+    "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
+    sans-serif;
+  --font-family-mono:
+    "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace;
 
-  /* Font Weights */
+  /* Enhanced Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-weight-heavy: 800;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
 
-  /* Typography Scale */
+  /* Refined Typography Scale */
   --text-xs: 0.75rem; /* 12px */
   --text-sm: 0.875rem; /* 14px */
   --text-base: 1rem; /* 16px */
@@ -68,23 +121,47 @@
   --text-5xl: 3rem; /* 48px */
   --text-6xl: 3.75rem; /* 60px */
   --text-7xl: 4.5rem; /* 72px */
+  --text-8xl: 6rem; /* 96px */
+  --text-9xl: 8rem; /* 128px */
 
-  /* Spacing System (8px grid) */
+  /* Precise Spacing System (4px base) */
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0-5: 0.125rem; /* 2px */
   --space-1: 0.25rem; /* 4px */
+  --space-1-5: 0.375rem; /* 6px */
   --space-2: 0.5rem; /* 8px */
+  --space-2-5: 0.625rem; /* 10px */
   --space-3: 0.75rem; /* 12px */
+  --space-3-5: 0.875rem; /* 14px */
   --space-4: 1rem; /* 16px */
   --space-5: 1.25rem; /* 20px */
   --space-6: 1.5rem; /* 24px */
+  --space-7: 1.75rem; /* 28px */
   --space-8: 2rem; /* 32px */
+  --space-9: 2.25rem; /* 36px */
   --space-10: 2.5rem; /* 40px */
+  --space-11: 2.75rem; /* 44px */
   --space-12: 3rem; /* 48px */
+  --space-14: 3.5rem; /* 56px */
   --space-16: 4rem; /* 64px */
   --space-20: 5rem; /* 80px */
   --space-24: 6rem; /* 96px */
+  --space-28: 7rem; /* 112px */
   --space-32: 8rem; /* 128px */
+  --space-36: 9rem; /* 144px */
+  --space-40: 10rem; /* 160px */
+  --space-44: 11rem; /* 176px */
+  --space-48: 12rem; /* 192px */
+  --space-52: 13rem; /* 208px */
+  --space-56: 14rem; /* 224px */
+  --space-60: 15rem; /* 240px */
+  --space-64: 16rem; /* 256px */
+  --space-72: 18rem; /* 288px */
+  --space-80: 20rem; /* 320px */
+  --space-96: 24rem; /* 384px */
 
-  /* Border Radius */
+  /* Modern Border Radius */
   --radius-none: 0;
   --radius-sm: 0.125rem; /* 2px */
   --radius-base: 0.25rem; /* 4px */
@@ -93,42 +170,150 @@
   --radius-xl: 0.75rem; /* 12px */
   --radius-2xl: 1rem; /* 16px */
   --radius-3xl: 1.5rem; /* 24px */
+  --radius-4xl: 2rem; /* 32px */
   --radius-full: 9999px;
 
-  /* Shadows (Apple-style) */
+  /* Professional 3D Shadows */
+  --shadow-none: 0 0 #0000;
   --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+  --shadow-sm:
+    0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
   --shadow-base:
-    0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+    0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
   --shadow-md:
-    0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+    0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
   --shadow-lg:
-    0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+    0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
   --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 25%);
   --shadow-2xl: 0 50px 100px -20px rgb(0 0 0 / 25%);
-  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 6%);
+  --shadow-3xl: 0 60px 120px -20px rgb(0 0 0 / 30%);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 5%);
 
-  /* Transitions */
-  --transition-fast: 150ms ease-out;
-  --transition-base: 250ms ease-out;
-  --transition-slow: 350ms ease-out;
-  --transition-bounce: 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* 3D Depth Shadows */
+  --shadow-3d-sm:
+    0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%),
+    inset 0 1px 0 rgb(255 255 255 / 10%);
+  --shadow-3d-md:
+    0 4px 8px rgb(0 0 0 / 12%), 0 12px 24px rgb(0 0 0 / 15%),
+    0 24px 48px rgb(0 0 0 / 10%), inset 0 1px 0 rgb(255 255 255 / 10%);
+  --shadow-3d-lg:
+    0 8px 16px rgb(0 0 0 / 15%), 0 20px 40px rgb(0 0 0 / 20%),
+    0 40px 80px rgb(0 0 0 / 15%), inset 0 2px 0 rgb(255 255 255 / 10%);
+  --shadow-3d-xl:
+    0 16px 32px rgb(0 0 0 / 20%), 0 32px 64px rgb(0 0 0 / 25%),
+    0 64px 128px rgb(0 0 0 / 20%), inset 0 4px 0 rgb(255 255 255 / 10%);
 
-  /* Z-index Scale */
+  /* Smooth Professional Transitions */
+  --transition-none: none;
+  --transition-all: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-colors:
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-opacity: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-shadow: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-transform: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* 3D Specific Transitions */
+  --transition-3d: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-elastic: all 400ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  /* Z-index Management */
   --z-behind: -1;
   --z-normal: 1;
-  --z-tooltip: 10;
-  --z-fixed: 100;
-  --z-modal-backdrop: 200;
-  --z-modal: 300;
-  --z-popover: 400;
-  --z-skip-link: 500;
-  --z-toast: 600;
+  --z-docked: 10;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-banner: 1030;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-offcanvas-backdrop: 1045;
+  --z-modal: 1050;
+  --z-offcanvas: 1055;
+  --z-popover: 1070;
+  --z-tooltip: 1080;
+  --z-toast: 1090;
 
-  /* Breakpoints (for reference in JS) */
+  /* Container & Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* Breakpoints */
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
+
+  /* Glass Morphism Effects */
+  --glass-backdrop-filter: blur(16px) saturate(180%);
+  --glass-background: rgb(255 255 255 / 25%);
+  --glass-border: 1px solid rgb(255 255 255 / 18%);
+
+  /* 3D Transform Presets */
+  --transform-3d-hover: translateY(-8px) rotateX(5deg) scale(1.02);
+  --transform-3d-active: translateY(-4px) rotateX(2deg) scale(0.98);
+  --transform-card-hover: translateY(-12px) rotateX(8deg) rotateY(2deg)
+    scale(1.03);
+  --transform-button-hover: translateY(-2px) scale(1.05);
+  --transform-button-active: translateY(0) scale(0.95);
+
+  /* Animation Durations */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
+
+  /* Modern Focus Ring */
+  --focus-ring: 0 0 0 2px rgb(0 102 255 / 20%);
+  --focus-ring-offset:
+    0 0 0 2px var(--color-white), 0 0 0 4px rgb(0 102 255 / 20%);
+}
+
+/* Dark mode color overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-white: #0a0a0a;
+    --color-black: #fff;
+    --color-gray-50: #1a202c;
+    --color-gray-100: #2d3748;
+    --color-gray-200: #3e4c59;
+    --color-gray-300: #5a6c7d;
+    --color-gray-400: #7c8894;
+    --color-gray-500: #a8b5c4;
+    --color-gray-600: #d1d9e0;
+    --color-gray-700: #e4e8ed;
+    --color-gray-800: #f1f3f6;
+    --color-gray-900: #fafbfc;
+    --gradient-surface: var(--gradient-surface-dark);
+    --glass-background: rgb(0 0 0 / 25%);
+    --glass-border: 1px solid rgb(255 255 255 / 10%);
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  :root {
+    --shadow-3d-sm: 0 2px 4px rgb(0 0 0 / 30%);
+    --shadow-3d-md: 0 4px 8px rgb(0 0 0 / 40%);
+    --shadow-3d-lg: 0 8px 16px rgb(0 0 0 / 50%);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-all: none;
+    --transition-3d: none;
+    --transition-bounce: none;
+    --transition-elastic: none;
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+  }
 }
