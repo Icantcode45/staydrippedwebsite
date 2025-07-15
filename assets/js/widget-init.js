@@ -82,7 +82,10 @@ function renderFallbackContent(container, service) {
   message.textContent = "Widget temporarily unavailable";
 
   const link = document.createElement("a");
-  link.href = `https://Staydripped.intakeq.com/booking?serviceId=${service.serviceId}`;
+  // Safely construct URL
+  const baseUrl = "https://Staydripped.intakeq.com/booking";
+  const params = new URLSearchParams({ serviceId: String(service.serviceId) });
+  link.href = `${baseUrl}?${params.toString()}`;
   link.target = "_blank";
   link.className = "book-now-btn";
   link.textContent = "Book Now";

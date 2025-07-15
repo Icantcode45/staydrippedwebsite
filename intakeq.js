@@ -193,7 +193,12 @@ class IntakeQManager {
 
       // Fallback: create a direct link
       const fallbackLink = document.createElement("a");
-      fallbackLink.href = `https://Staydripped.intakeq.com/booking?categoryId=${config.categoryId}`;
+      // Safely construct URL with proper encoding
+      const baseUrl = "https://Staydripped.intakeq.com/booking";
+      const params = new URLSearchParams({
+        categoryId: String(config.categoryId),
+      });
+      fallbackLink.href = `${baseUrl}?${params.toString()}`;
       fallbackLink.target = "_blank";
       fallbackLink.rel = "noopener noreferrer";
       fallbackLink.className = "intakeq-fallback-link btn btn-outline";
@@ -201,7 +206,9 @@ class IntakeQManager {
       const icon = document.createElement("i");
       icon.className = "fas fa-external-link-alt";
       fallbackLink.appendChild(icon);
-      fallbackLink.appendChild(document.createTextNode(` Book ${config.name}`));
+      // Safely add text content
+      const safeName = String(config.name || "Service").replace(/[<>"'&]/g, "");
+      fallbackLink.appendChild(document.createTextNode(` Book ${safeName}`));
 
       container.replaceChildren();
       container.appendChild(fallbackLink);
@@ -244,7 +251,12 @@ class IntakeQManager {
 
       // Fallback: create a direct link
       const fallbackLink = document.createElement("a");
-      fallbackLink.href = `https://Staydripped.intakeq.com/booking?serviceId=${config.serviceId}`;
+      // Safely construct URL with proper encoding
+      const baseUrl = "https://Staydripped.intakeq.com/booking";
+      const params = new URLSearchParams({
+        serviceId: String(config.serviceId),
+      });
+      fallbackLink.href = `${baseUrl}?${params.toString()}`;
       fallbackLink.target = "_blank";
       fallbackLink.rel = "noopener noreferrer";
       fallbackLink.className = "intakeq-fallback-link btn btn-outline";
@@ -252,7 +264,9 @@ class IntakeQManager {
       const icon = document.createElement("i");
       icon.className = "fas fa-external-link-alt";
       fallbackLink.appendChild(icon);
-      fallbackLink.appendChild(document.createTextNode(` Book ${config.name}`));
+      // Safely add text content
+      const safeName = String(config.name || "Service").replace(/[<>"'&]/g, "");
+      fallbackLink.appendChild(document.createTextNode(` Book ${safeName}`));
 
       container.replaceChildren();
       container.appendChild(fallbackLink);
@@ -268,19 +282,19 @@ class IntakeQManager {
       if (window.IntakeQ && typeof window.IntakeQ.open === "function") {
         window.IntakeQ.open();
       } else {
-        // Fallback to direct URL
-        window.open(
-          `https://Staydripped.intakeq.com/booking?categoryId=${categoryId}`,
-          "_blank",
-        );
+        // Fallback to direct URL with safe construction
+        const baseUrl = "https://Staydripped.intakeq.com/booking";
+        const params = new URLSearchParams({ categoryId: String(categoryId) });
+        const safeUrl = `${baseUrl}?${params.toString()}`;
+        window.open(safeUrl, "_blank", "noopener,noreferrer");
       }
     } catch (error) {
       console.error("Error opening IntakeQ category widget:", error);
-      // Final fallback
-      window.open(
-        `https://Staydripped.intakeq.com/booking?categoryId=${categoryId}`,
-        "_blank",
-      );
+      // Final fallback with safe URL construction
+      const baseUrl = "https://Staydripped.intakeq.com/booking";
+      const params = new URLSearchParams({ categoryId: String(categoryId) });
+      const safeUrl = `${baseUrl}?${params.toString()}`;
+      window.open(safeUrl, "_blank", "noopener,noreferrer");
     }
   }
 
@@ -291,19 +305,19 @@ class IntakeQManager {
         window.intakeqServiceId = serviceId;
         window.IntakeQ.open();
       } else {
-        // Fallback to direct URL
-        window.open(
-          `https://Staydripped.intakeq.com/booking?serviceId=${serviceId}`,
-          "_blank",
-        );
+        // Fallback to direct URL with safe construction
+        const baseUrl = "https://Staydripped.intakeq.com/booking";
+        const params = new URLSearchParams({ serviceId: String(serviceId) });
+        const safeUrl = `${baseUrl}?${params.toString()}`;
+        window.open(safeUrl, "_blank", "noopener,noreferrer");
       }
     } catch (error) {
       console.error("Error opening IntakeQ widget:", error);
-      // Final fallback
-      window.open(
-        `https://Staydripped.intakeq.com/booking?serviceId=${serviceId}`,
-        "_blank",
-      );
+      // Final fallback with safe URL construction
+      const baseUrl = "https://Staydripped.intakeq.com/booking";
+      const params = new URLSearchParams({ serviceId: String(serviceId) });
+      const safeUrl = `${baseUrl}?${params.toString()}`;
+      window.open(safeUrl, "_blank", "noopener,noreferrer");
     }
   }
 }
