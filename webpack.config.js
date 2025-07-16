@@ -4,6 +4,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { GenerateSW } = require("workbox-webpack-plugin");
 const glob = require("glob");
 
@@ -13,8 +14,8 @@ module.exports = (env) => {
   return {
     mode: isProduction ? "production" : "development",
     entry: {
-      main: "./js/index.js",
-      styles: "./assets/css/main.scss",
+      main: "./src/js/index.js",
+      styles: "./src/css/main.scss",
     },
     output: {
       filename: isProduction ? "js/[name].[contenthash].js" : "js/[name].js",
@@ -105,8 +106,13 @@ module.exports = (env) => {
           ? "css/[name].[contenthash].css"
           : "css/[name].css",
       }),
+      new CopyWebpackPlugin({
+        patterns: [
+          { from: "src/pages", to: "" },
+        ],
+      }),
       new HtmlWebpackPlugin({
-        template: "./index.html",
+        template: "./src/index.html",
         filename: "index.html",
         inject: "body",
         minify: isProduction
@@ -128,10 +134,10 @@ module.exports = (env) => {
         ? [
             new PurgeCSSPlugin({
               paths: glob.sync([
-                path.join(__dirname, "**/*.html"),
-                path.join(__dirname, "components/**/*.html"),
-                path.join(__dirname, "pages/**/*.html"),
-                path.join(__dirname, "js/**/*.js"),
+                path.join(__dirname, "*.html"),
+                path.join(__dirname, "src/**/*.html"),
+                path.join(__dirname, "src/components/**/*.html"),
+                path.join(__dirname, "src/js/**/*.js"),
               ]),
               safelist: {
                 standard: [
@@ -223,9 +229,9 @@ module.exports = (env) => {
     resolve: {
       extensions: [".js", ".json"],
       alias: {
-        "@": path.resolve(__dirname, "js"),
-        "@styles": path.resolve(__dirname, "assets/css"),
-        "@assets": path.resolve(__dirname, "assets"),
+        "@": path.resolve(__dirname, "src/js"),
+        "@styles": path.resolve(__dirname, "src/css"),
+        "@assets": path.resolve(__dirname, "src/assets"),
       },
     },
     devtool: isProduction ? "source-map" : "eval-source-map",

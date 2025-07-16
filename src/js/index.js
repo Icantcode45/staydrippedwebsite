@@ -1,12 +1,12 @@
 // Main JavaScript entry point for Stay Dripped Mobile IV
 
 // Import all modules
-import "./modules/theme-manager.js";
-import "./modules/lazy-loading.js";
-import "./modules/mobile-menu.js";
-import "./modules/smooth-scroll.js";
-import "./modules/analytics.js";
-import "./modules/back-to-top.js";
+import "./theme-manager.js";
+import "./lazy-loading.js";
+import "./mobile-menu.js";
+import "./smooth-scroll.js";
+import "./analytics.js";
+import "./back-to-top.js";
 
 // Application initialization
 class App {
