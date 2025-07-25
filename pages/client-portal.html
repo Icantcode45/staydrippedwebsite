@@ -24,6 +24,10 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
@@ -323,6 +327,269 @@
         overflow: hidden;
         background: var(--gray-50);
         border: 2px solid var(--gray-100);
+        position: relative;
+      }
+
+      /* Neumorphic Login Form Styling for IntakeQ Integration */
+      .neumorphic-portal {
+        --neumorphic-primary: #e5e8ef;
+        --neumorphic-primary-dark: #e1e4ea;
+        --neumorphic-secondary-lime: #e1ff2d;
+        --neumorphic-secondary-lavender: #d3b7f8;
+        --neumorphic-primary-box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+          7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9,
+          inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9,
+          inset 0px 0px 0px 0px #0001;
+        --neumorphic-secondary-box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+          -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+          inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+          inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+        --neumorphic-font: "Nunito Sans", sans-serif;
+
+        background: var(--neumorphic-primary);
+        min-height: 500px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .neumorphic-portal::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(145deg, #f1f4fa, #cbcdd3);
+        opacity: 0.8;
+        z-index: 1;
+      }
+
+      .neumorphic-form-container {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 400px;
+        padding: 24px;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #f1f4fa, #cbcdd3);
+        box-shadow: var(--neumorphic-primary-box-shadow);
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .neumorphic-title {
+        color: #5a5a5a;
+        font-weight: 800;
+        font-size: 1.4rem;
+        line-height: 1;
+        letter-spacing: 0.8px;
+        font-family: var(--neumorphic-font);
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .neumorphic-widget-wrapper {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      /* IntakeQ Widget Styling Override */
+      #intakeq {
+        background: transparent !important;
+        border: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+      }
+
+      /* Override IntakeQ form elements with neumorphic styling */
+      #intakeq input[type="text"],
+      #intakeq input[type="email"],
+      #intakeq input[type="password"],
+      #intakeq input[type="tel"] {
+        border: none !important;
+        border-radius: 10px !important;
+        background: linear-gradient(145deg, #f1f4fa, #cbcdd3) !important;
+        box-shadow: var(--neumorphic-secondary-box-shadow) !important;
+        padding: 12px 20px !important;
+        height: 49px !important;
+        width: 100% !important;
+        font-family: var(--neumorphic-font) !important;
+        font-size: 0.95rem !important;
+        color: #5a5a5a !important;
+        outline: none !important;
+        margin-bottom: 1rem !important;
+      }
+
+      #intakeq input[type="text"]:focus,
+      #intakeq input[type="email"]:focus,
+      #intakeq input[type="password"]:focus,
+      #intakeq input[type="tel"]:focus {
+        box-shadow: var(--neumorphic-secondary-box-shadow), 0 0 0 2px rgba(90, 200, 250, 0.3) !important;
+      }
+
+      #intakeq input::placeholder {
+        color: #9ca3af !important;
+        font-family: var(--neumorphic-font) !important;
+      }
+
+      #intakeq button,
+      #intakeq input[type="submit"],
+      #intakeq input[type="button"] {
+        background: linear-gradient(145deg, #f1f4fa, #cbcdd3) !important;
+        box-shadow: var(--neumorphic-primary-box-shadow) !important;
+        border: none !important;
+        border-radius: 10px !important;
+        cursor: pointer !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.8px !important;
+        height: 50px !important;
+        font-size: 1rem !important;
+        color: #5a5a5a !important;
+        font-family: var(--neumorphic-font) !important;
+        width: 100% !important;
+        position: relative !important;
+        overflow: hidden !important;
+        transition: all 0.3s ease !important;
+      }
+
+      #intakeq button:hover,
+      #intakeq input[type="submit"]:hover,
+      #intakeq input[type="button"]:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: var(--neumorphic-primary-box-shadow), 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      #intakeq button:active,
+      #intakeq input[type="submit"]:active,
+      #intakeq input[type="button"]:active {
+        transform: translateY(0) !important;
+        box-shadow: inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3), inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5) !important;
+      }
+
+      /* Neumorphic ripple effect for buttons */
+      #intakeq button::before,
+      #intakeq input[type="submit"]::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 0 !important;
+        height: 0 !important;
+        border-radius: 50% !important;
+        background: rgba(255, 255, 255, 0.3) !important;
+        transform: translate(-50%, -50%) !important;
+        transition: width 0.6s, height 0.6s !important;
+        z-index: 1 !important;
+      }
+
+      #intakeq button:active::before,
+      #intakeq input[type="submit"]:active::before {
+        width: 300px !important;
+        height: 300px !important;
+      }
+
+      /* IntakeQ form container styling */
+      #intakeq .form-container,
+      #intakeq .login-form,
+      #intakeq form {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+      }
+
+      /* IntakeQ labels and text */
+      #intakeq label,
+      #intakeq .form-label,
+      #intakeq p,
+      #intakeq span:not(.ripple) {
+        color: #5a5a5a !important;
+        font-family: var(--neumorphic-font) !important;
+        font-weight: 500 !important;
+        font-size: 0.9rem !important;
+      }
+
+      #intakeq a {
+        color: #6b7280 !important;
+        text-decoration: underline !important;
+        font-family: var(--neumorphic-font) !important;
+        font-size: 0.8rem !important;
+        transition: color 0.3s ease !important;
+      }
+
+      #intakeq a:hover {
+        color: var(--primary) !important;
+      }
+
+      /* Loading states */
+      .neumorphic-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #5a5a5a;
+        font-family: var(--neumorphic-font);
+        font-weight: 500;
+      }
+
+      .neumorphic-loading::after {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border: 2px solid #5a5a5a;
+        border-top: 2px solid transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-left: 10px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .neumorphic-form-container {
+          max-width: 100%;
+          padding: 20px;
+          min-height: 350px;
+        }
+
+        .neumorphic-title {
+          font-size: 1.2rem;
+        }
+      }
+
+      /* Error and success message styling */
+      #intakeq .error-message,
+      #intakeq .success-message,
+      #intakeq .alert {
+        background: linear-gradient(145deg, #f1f4fa, #cbcdd3) !important;
+        border: none !important;
+        border-radius: 10px !important;
+        padding: 12px 16px !important;
+        margin: 8px 0 !important;
+        font-family: var(--neumorphic-font) !important;
+        font-size: 0.9rem !important;
+        box-shadow: var(--neumorphic-secondary-box-shadow) !important;
+      }
+
+      #intakeq .error-message {
+        color: #dc2626 !important;
+      }
+
+      #intakeq .success-message {
+        color: #059669 !important;
       }
 
       .fallback-link {
@@ -567,11 +834,19 @@
             </div>
 
             <div class="portal-content">
-              <!-- IntakeQ Client Portal Widget -->
-              <div
-                id="intakeq-client-portal"
-                class="client-portal-widget"
-              ></div>
+              <!-- Neumorphic IntakeQ Portal Widget -->
+              <div class="neumorphic-portal">
+                <div class="neumorphic-form-container">
+                  <div class="neumorphic-title">Patient Portal Login</div>
+
+                  <div class="neumorphic-widget-wrapper">
+                    <!-- IntakeQ Widget Container -->
+                    <div id="intakeq-client-portal" class="client-portal-widget">
+                      <div class="neumorphic-loading">Loading secure portal...</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <!-- Fallback Link -->
               <a
@@ -749,19 +1024,40 @@
       })(document);
     </script>
 
-    <!-- Initialize widget in container -->
+    <!-- Initialize neumorphic widget in container -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const container = document.getElementById("intakeq-client-portal");
         if (container) {
-          // Create the IntakeQ div for client area
+          // Clear loading state
+          container.innerHTML = '';
+
+          // Create the IntakeQ div for client area with neumorphic styling
           const widgetDiv = document.createElement("div");
           widgetDiv.id = "intakeq";
-          widgetDiv.style.maxWidth = "720px";
+          widgetDiv.style.maxWidth = "100%";
           widgetDiv.style.width = "100%";
-          widgetDiv.style.minHeight = "500px";
+          widgetDiv.style.minHeight = "auto";
+          widgetDiv.style.background = "transparent";
           container.appendChild(widgetDiv);
         }
+
+        // Add IntakeQ load event listener for additional styling
+        window.addEventListener('message', function(event) {
+          if (event.origin === 'https://intakeq.com') {
+            // Widget loaded, apply final styling adjustments
+            setTimeout(() => {
+              const intakeqElement = document.getElementById('intakeq');
+              if (intakeqElement) {
+                // Force neumorphic styling on any dynamic content
+                const inputs = intakeqElement.querySelectorAll('input, button');
+                inputs.forEach(input => {
+                  input.style.fontFamily = '"Nunito Sans", sans-serif';
+                });
+              }
+            }, 1000);
+          }
+        });
 
         // Header scroll effect
         window.addEventListener("scroll", () => {
