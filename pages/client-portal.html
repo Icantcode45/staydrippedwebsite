@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Client Portal - Stay Dripped Mobile IV</title>
+    <title>Client Portal - Stay Dripped Mobile IV | Patient Login</title>
     <meta
       name="description"
       content="Access your Stay Dripped client portal to manage appointments, view treatment history, and update your information. Secure login for existing clients."
@@ -18,9 +18,21 @@
       href="../assets/images/favicon-32x32.png"
     />
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/intakeq-widgets.css" />
+
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind&display=swap"
       rel="stylesheet"
     />
     <link
@@ -28,384 +40,818 @@
       rel="stylesheet"
     />
 
+    <!-- Skip to content -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <style>
-      :root {
-        --primary: #007aff;
-        --primary-dark: #0056b3;
-        --secondary: #5ac8fa;
-        --accent: #34c759;
-        --gold: #ffd700;
-        --white: #fff;
-        --gray-50: #f9fafb;
-        --gray-100: #f3f4f6;
-        --gray-200: #e5e7eb;
-        --gray-300: #d1d5db;
-        --gray-400: #9ca3af;
-        --gray-500: #6b7280;
-        --gray-600: #4b5563;
-        --gray-700: #374151;
-        --gray-800: #1f2937;
-        --gray-900: #111827;
-        --gradient-primary: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--secondary) 100%
-        );
-        --gradient-hero: linear-gradient(
-          135deg,
-          rgba(0, 122, 255, 0.95) 0%,
-          rgba(90, 200, 250, 0.95) 100%
-        );
-        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
-        --shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
-        --shadow-md:
-          0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
-        --shadow-lg:
-          0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-        --shadow-xl:
-          0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
-        --border-radius: 8px;
-        --border-radius-lg: 12px;
-        --border-radius-xl: 16px;
-        --border-radius-2xl: 24px;
-        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family:
-          Inter,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        line-height: 1.6;
-        color: var(--gray-800);
-        background: var(--white);
-        overflow-x: hidden;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-      }
-
-      /* Header */
-      .header {
+      /* Neumorphic Preloader Styling */
+      .page-preloader {
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--gray-200);
-        z-index: 1000;
-        transition: var(--transition);
-      }
-
-      .header-container {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(145deg, #f3f4f8, #cccdd1);
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem 1.5rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-      }
-
-      .logo img {
-        height: 45px;
-        width: auto;
-      }
-
-      .nav {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        list-style: none;
-      }
-
-      .nav-link {
-        color: var(--gray-700);
-        text-decoration: none;
-        font-weight: 500;
-        transition: var(--transition);
-        position: relative;
-      }
-
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--primary);
-      }
-
-      .nav-link.active::after {
-        content: "";
-        position: absolute;
-        bottom: -8px;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: var(--primary);
-        border-radius: 1px;
-      }
-
-      .btn {
-        display: inline-flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: var(--border-radius-2xl);
-        font-weight: 600;
-        font-size: 1rem;
-        text-decoration: none;
-        cursor: pointer;
-        transition: var(--transition);
-        white-space: nowrap;
+        z-index: 9999;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
       }
 
-      .btn-primary {
-        background: var(--gradient-primary);
-        color: var(--white);
-        box-shadow: var(--shadow-md);
+      .page-preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
       }
 
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-xl);
-        color: var(--white);
-        text-decoration: none;
+      .preloader {
+        animation: largePopOut 1s linear;
+        border-radius: 50%;
+        box-shadow:
+          0.15em 0.15em 0.15em #ffffff inset,
+          -0.15em -0.15em 0.15em #727274 inset,
+          1em 1em 2em #727274,
+          -1em -1em 2em #ffffff;
+        margin-bottom: 3em;
+        position: relative;
+        width: 12em;
+        height: 12em;
       }
 
-      .btn-secondary {
-        background: var(--white);
-        color: var(--primary);
-        border: 2px solid var(--primary);
-        box-shadow: var(--shadow);
+      .preloader__square {
+        animation: smallPopOut1 1s linear, popInOut 6s 1s linear infinite;
+        border-radius: 0.5em;
+        box-shadow:
+          0.15em 0.15em 0.15em #ffffff inset,
+          -0.15em -0.15em 0.15em #727274 inset,
+          0.25em 0.25em 0.5em #727274,
+          -0.25em -0.25em 0.5em #ffffff;
+        position: absolute;
+        top: 2.5em;
+        left: 2.5em;
+        width: 3em;
+        height: 3em;
       }
 
-      .btn-secondary:hover {
-        background: var(--primary);
-        color: var(--white);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-        text-decoration: none;
+      .preloader__square:nth-child(n + 2):nth-child(-n + 3) {
+        left: 6.5em;
       }
 
-      .btn-lg {
-        padding: 1.25rem 2.5rem;
-        font-size: 1.125rem;
+      .preloader__square:nth-child(n + 3) {
+        top: 6.5em;
       }
 
-      /* Hero Section */
-      .hero {
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-        color: var(--white);
-        padding: 140px 0 100px;
+      .preloader__square:nth-child(2) {
+        animation: smallPopOut2 1s linear, move2 6s 1s linear infinite;
+      }
+
+      .preloader__square:nth-child(3) {
+        animation: smallPopOut3 1s linear, move3 6s 1s linear infinite;
+      }
+
+      .preloader__square:nth-child(4) {
+        animation: smallPopOut4 1s linear, move4 6s 1s linear infinite;
+      }
+
+      .status {
+        animation: fadeIn 1s linear forwards;
         text-align: center;
+        font-family: 'Hind', sans-serif;
+        color: #17181c;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .status__dot {
+        animation: appear1 1s 1s steps(1,start) infinite;
+        display: inline-block;
+      }
+
+      .status__dot:nth-child(2) {
+        animation: appear2 1s 1s steps(1,start) infinite;
+      }
+
+      .status__dot:nth-child(3) {
+        animation: appear3 1s 1s steps(1,start) infinite;
+      }
+
+      /* Preloader Animations */
+      @keyframes largePopOut {
+        from, 20% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+        }
+        40% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            2em 2em 2em #727274,
+            -2em -2em 4em #ffffff;
+        }
+        60%, to {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            1em 1em 2em #727274,
+            -1em -1em 2em #ffffff;
+        }
+      }
+
+      @keyframes smallPopOut1 {
+        from, 40% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+        }
+        60% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+        }
+        80%, to {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.25em 0.25em 0.5em #727274,
+            -0.25em -0.25em 0.5em #ffffff;
+        }
+      }
+
+      @keyframes smallPopOut2 {
+        from, 45% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+        }
+        65% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+        }
+        85%, to {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.25em 0.25em 0.5em #727274,
+            -0.25em -0.25em 0.5em #ffffff;
+        }
+      }
+
+      @keyframes smallPopOut3 {
+        from, 50% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+        }
+        70% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+        }
+        90%, to {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.25em 0.25em 0.5em #727274,
+            -0.25em -0.25em 0.5em #ffffff;
+        }
+      }
+
+      @keyframes smallPopOut4 {
+        from, 55% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+        }
+        75% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+        }
+        95%, to {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.25em 0.25em 0.5em #727274,
+            -0.25em -0.25em 0.5em #ffffff;
+        }
+      }
+
+      @keyframes popInOut {
+        from {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.25em 0.25em 0.5em #727274,
+            -0.25em -0.25em 0.5em #ffffff;
+          transform: translate(0,0);
+        }
+        4% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+          transform: translate(0,0);
+        }
+        8% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+          transform: translate(0,0);
+        }
+        12%, 16% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+          transform: translate(4em,0);
+        }
+        20% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+          transform: translate(4em,0);
+        }
+        24%, 25% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.25em 0.25em 0.5em #727274,
+            -0.25em -0.25em 0.5em #ffffff;
+          transform: translate(4em,0);
+        }
+        29% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+          transform: translate(4em,0);
+        }
+        33% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+          transform: translate(4em,0);
+        }
+        37%, 41% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+          transform: translate(4em,4em);
+        }
+        45% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+          transform: translate(4em,4em);
+        }
+        49%, 50% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.25em 0.25em 0.5em #727274,
+            -0.25em -0.25em 0.5em #ffffff;
+          transform: translate(4em,4em);
+        }
+        54% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+          transform: translate(4em,4em);
+        }
+        58% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+          transform: translate(4em,4em);
+        }
+        62%, 66% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+          transform: translate(0,4em);
+        }
+        70% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+          transform: translate(0,4em);
+        }
+        74%, 75% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.25em 0.25em 0.5em #727274,
+            -0.25em -0.25em 0.5em #ffffff;
+          transform: translate(0,4em);
+        }
+        79% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+          transform: translate(0,4em);
+        }
+        83% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+          transform: translate(0,4em);
+        }
+        87%, 91% {
+          box-shadow:
+            0 0 0 #ffffff inset,
+            0 0 0 #727274 inset,
+            0 0 0 #727274,
+            0 0 0 #ffffff;
+          transform: translate(0,0);
+        }
+        95% {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.5em 0.5em 0.5em #727274,
+            -0.5em -0.5em 1em #ffffff;
+          transform: translate(0,0);
+        }
+        99%, to {
+          box-shadow:
+            0.15em 0.15em 0.15em #ffffff inset,
+            -0.15em -0.15em 0.15em #727274 inset,
+            0.25em 0.25em 0.5em #727274,
+            -0.25em -0.25em 0.5em #ffffff;
+          transform: translate(0,0);
+        }
+      }
+
+      @keyframes move2 {
+        from, 8% {
+          transform: translate(0,0);
+          width: 3em;
+          height: 3em;
+        }
+        12% {
+          transform: translate(-4em,0);
+          width: 7em;
+          height: 3em;
+        }
+        16%, 83% {
+          transform: translate(-4em,0);
+          width: 3em;
+          height: 3em;
+        }
+        87% {
+          transform: translate(-4em,0);
+          width: 3em;
+          height: 7em;
+        }
+        91%, to {
+          transform: translate(-4em,4em);
+          width: 3em;
+          height: 3em;
+        }
+      }
+
+      @keyframes move3 {
+        from, 33% {
+          transform: translate(0,0);
+          height: 3em;
+        }
+        37% {
+          transform: translate(0,-4em);
+          height: 7em;
+        }
+        41%, to {
+          transform: translate(0,-4em);
+          height: 3em;
+        }
+      }
+
+      @keyframes move4 {
+        from, 58% {
+          transform: translate(0,0);
+          width: 3em;
+        }
+        62% {
+          transform: translate(0,0);
+          width: 7em;
+        }
+        66%, to {
+          transform: translate(4em,0);
+          width: 3em;
+        }
+      }
+
+      @keyframes fadeIn {
+        from, 67% {
+          opacity: 0;
+        }
+        83.3%, to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes appear1 {
+        from {
+          visibility: hidden;
+        }
+        33%, to {
+          visibility: visible;
+        }
+      }
+
+      @keyframes appear2 {
+        from, 33% {
+          visibility: hidden;
+        }
+        67%, to {
+          visibility: visible;
+        }
+      }
+
+      @keyframes appear3 {
+        from, 67% {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+
+      /* Dark mode support for preloader */
+      @media (prefers-color-scheme: dark) {
+        .page-preloader {
+          background: linear-gradient(145deg, #4a4e5a, #3e424c);
+        }
+
+        .status {
+          color: #e3e4e8;
+        }
+
+        .preloader {
+          box-shadow:
+            0.15em 0.15em 0.15em #686e7e inset,
+            -0.15em -0.15em 0.15em #23252a inset,
+            1em 1em 2em #23252a,
+            -1em -1em 2em #686e7e;
+        }
+
+        .preloader__square {
+          box-shadow:
+            0.15em 0.15em 0.15em #686e7e inset,
+            -0.15em -0.15em 0.15em #23252a inset,
+            0.25em 0.25em 0.5em #23252a,
+            -0.25em -0.25em 0.5em #686e7e;
+        }
+      }
+
+      /* Neumorphic Portal Styling */
+      .neumorphic-portal {
+        --neumorphic-primary: #e5e8ef;
+        --neumorphic-primary-dark: #e1e4ea;
+        --neumorphic-secondary-lime: #e1ff2d;
+        --neumorphic-secondary-lavender: #d3b7f8;
+        --neumorphic-primary-box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+          7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9,
+          inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9,
+          inset 0px 0px 0px 0px #0001;
+        --neumorphic-secondary-box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+          -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+          inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+          inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+        --neumorphic-font: "Nunito Sans", sans-serif;
+        
+        background: var(--neumorphic-primary);
+        min-height: 500px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
         position: relative;
         overflow: hidden;
       }
 
-      .hero-content {
+      .neumorphic-portal::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(145deg, #f1f4fa, #cbcdd3);
+        opacity: 0.8;
+        z-index: 1;
+      }
+
+      .neumorphic-form-container {
         position: relative;
         z-index: 2;
+        width: 100%;
+        max-width: 400px;
+        padding: 24px;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #f1f4fa, #cbcdd3);
+        box-shadow: var(--neumorphic-primary-box-shadow);
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
       }
 
-      .hero-title {
-        font-size: clamp(2.5rem, 5vw, 4rem);
+      .neumorphic-title {
+        color: #5a5a5a;
         font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 1.5rem;
-      }
-
-      .hero-subtitle {
-        font-size: 1.25rem;
-        opacity: 0.95;
-        margin-bottom: 2.5rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* Portal Section */
-      .portal-section {
-        padding: 100px 0;
-        background: var(--gray-50);
-      }
-
-      .section-header {
+        font-size: 1.4rem;
+        line-height: 1;
+        letter-spacing: 0.8px;
+        font-family: var(--neumorphic-font);
+        margin-bottom: 2rem;
         text-align: center;
-        margin-bottom: 4rem;
       }
 
-      .section-title {
-        font-size: clamp(2rem, 4vw, 3rem);
-        font-weight: 800;
-        color: var(--gray-900);
-        margin-bottom: 1rem;
+      .neumorphic-widget-wrapper {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
       }
 
-      .section-subtitle {
-        font-size: 1.125rem;
-        color: var(--gray-600);
-        max-width: 600px;
-        margin: 0 auto;
+      /* IntakeQ Widget Styling Override */
+      #intakeq {
+        background: transparent !important;
+        border: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
       }
 
-      .portal-container {
-        max-width: 900px;
-        margin: 0 auto;
+      /* Override IntakeQ form elements with neumorphic styling */
+      #intakeq input[type="text"],
+      #intakeq input[type="email"],
+      #intakeq input[type="password"],
+      #intakeq input[type="tel"] {
+        border: none !important;
+        border-radius: 10px !important;
+        background: linear-gradient(145deg, #f1f4fa, #cbcdd3) !important;
+        box-shadow: var(--neumorphic-secondary-box-shadow) !important;
+        padding: 12px 20px !important;
+        height: 49px !important;
+        width: 100% !important;
+        font-family: var(--neumorphic-font) !important;
+        font-size: 0.95rem !important;
+        color: #5a5a5a !important;
+        outline: none !important;
+        margin-bottom: 1rem !important;
       }
 
-      .portal-widget {
-        background: var(--white);
-        border-radius: var(--border-radius-xl);
-        box-shadow: var(--shadow-xl);
+      #intakeq input[type="text"]:focus,
+      #intakeq input[type="email"]:focus,
+      #intakeq input[type="password"]:focus,
+      #intakeq input[type="tel"]:focus {
+        box-shadow: var(--neumorphic-secondary-box-shadow), 0 0 0 2px rgba(90, 200, 250, 0.3) !important;
+      }
+
+      #intakeq input::placeholder {
+        color: #9ca3af !important;
+        font-family: var(--neumorphic-font) !important;
+      }
+
+      #intakeq button,
+      #intakeq input[type="submit"],
+      #intakeq input[type="button"] {
+        background: linear-gradient(145deg, #f1f4fa, #cbcdd3) !important;
+        box-shadow: var(--neumorphic-primary-box-shadow) !important;
+        border: none !important;
+        border-radius: 10px !important;
+        cursor: pointer !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.8px !important;
+        height: 50px !important;
+        font-size: 1rem !important;
+        color: #5a5a5a !important;
+        font-family: var(--neumorphic-font) !important;
+        width: 100% !important;
+        position: relative !important;
+        overflow: hidden !important;
+        transition: all 0.3s ease !important;
+      }
+
+      #intakeq button:hover,
+      #intakeq input[type="submit"]:hover,
+      #intakeq input[type="button"]:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: var(--neumorphic-primary-box-shadow), 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      #intakeq button:active,
+      #intakeq input[type="submit"]:active,
+      #intakeq input[type="button"]:active {
+        transform: translateY(0) !important;
+        box-shadow: inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3), inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5) !important;
+      }
+
+      /* IntakeQ form container styling */
+      #intakeq .form-container,
+      #intakeq .login-form,
+      #intakeq form {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+      }
+
+      /* IntakeQ labels and text */
+      #intakeq label,
+      #intakeq .form-label,
+      #intakeq p,
+      #intakeq span:not(.ripple) {
+        color: #5a5a5a !important;
+        font-family: var(--neumorphic-font) !important;
+        font-weight: 500 !important;
+        font-size: 0.9rem !important;
+      }
+
+      #intakeq a {
+        color: #6b7280 !important;
+        text-decoration: underline !important;
+        font-family: var(--neumorphic-font) !important;
+        font-size: 0.8rem !important;
+        transition: color 0.3s ease !important;
+      }
+
+      #intakeq a:hover {
+        color: var(--color-primary) !important;
+      }
+
+      /* Loading states */
+      .neumorphic-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #5a5a5a;
+        font-family: var(--neumorphic-font);
+        font-weight: 500;
+      }
+
+      .neumorphic-loading::after {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border: 2px solid #5a5a5a;
+        border-top: 2px solid transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-left: 10px;
+      }
+
+      /* Portal specific card styling */
+      .portal-card {
+        background: white;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
         overflow: hidden;
-        border: 1px solid var(--gray-200);
+        border: 1px solid rgb(0 0 0 / 5%);
       }
 
-      .portal-header {
-        background: var(--gradient-primary);
-        color: var(--white);
+      .portal-card-header {
+        background: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%);
+        color: white;
         padding: 2rem;
         text-align: center;
       }
 
-      .portal-icon {
+      .portal-card-icon {
         font-size: 3rem;
         margin-bottom: 1rem;
         display: block;
       }
 
-      .portal-title {
+      .portal-card-title {
         font-size: 1.75rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
       }
 
-      .portal-description {
+      .portal-card-description {
         opacity: 0.95;
         font-size: 1.1rem;
       }
 
-      .portal-content {
-        padding: 3rem;
+      .portal-card-content {
+        padding: 3rem 2rem;
       }
 
-      .client-portal-widget {
-        min-height: 500px;
-        border-radius: var(--border-radius-lg);
-        overflow: hidden;
-        background: var(--gray-50);
-        border: 2px solid var(--gray-100);
+      /* Features section styling */
+      .portal-features {
+        padding: 6rem 0;
+        background: white;
       }
 
-      .fallback-link {
-        display: block;
-        text-align: center;
-        margin-top: 2rem;
-        padding: 1rem 2rem;
-        background: var(--gradient-primary);
-        color: var(--white);
-        text-decoration: none;
-        border-radius: var(--border-radius-lg);
-        font-weight: 600;
-        transition: var(--transition);
-      }
-
-      .fallback-link:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-        text-decoration: none;
-        color: var(--white);
-      }
-
-      /* Features Section */
-      .features-section {
-        padding: 100px 0;
-        background: var(--white);
-      }
-
-      .features-grid {
+      .portal-features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
       }
 
-      .feature-card {
+      .portal-feature-card {
         text-align: center;
         padding: 2rem;
-        border-radius: var(--border-radius-xl);
-        background: var(--gray-50);
-        transition: var(--transition);
-        border: 2px solid var(--gray-100);
+        border-radius: 1rem;
+        background: #f8fafc;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
       }
 
-      .feature-card:hover {
+      .portal-feature-card:hover {
         transform: translateY(-4px);
-        box-shadow: var(--shadow-lg);
-        border-color: var(--primary);
+        box-shadow: 0 8px 25px rgb(0 0 0 / 10%);
+        border-color: var(--color-primary);
       }
 
-      .feature-icon {
+      .portal-feature-icon {
         font-size: 3rem;
-        color: var(--primary);
+        color: var(--color-primary);
         margin-bottom: 1rem;
       }
 
-      .feature-title {
+      .portal-feature-title {
         font-size: 1.25rem;
         font-weight: 700;
-        color: var(--gray-900);
+        color: var(--color-gray-900);
         margin-bottom: 1rem;
       }
 
-      .feature-description {
-        color: var(--gray-600);
+      .portal-feature-description {
+        color: var(--color-gray-600);
         line-height: 1.6;
       }
 
-      /* CTA Section */
-      .cta {
-        padding: 100px 0;
-        background: var(--gradient-primary);
-        color: var(--white);
+      /* CTA section */
+      .portal-cta {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%);
+        color: white;
         text-align: center;
       }
 
-      .cta-title {
+      .portal-cta-title {
         font-size: clamp(2rem, 4vw, 3rem);
         font-weight: 800;
         margin-bottom: 1rem;
       }
 
-      .cta-subtitle {
+      .portal-cta-subtitle {
         font-size: 1.25rem;
         opacity: 0.95;
         margin-bottom: 2.5rem;
@@ -414,7 +860,7 @@
         margin-right: auto;
       }
 
-      .cta-buttons {
+      .portal-cta-buttons {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -422,319 +868,221 @@
         flex-wrap: wrap;
       }
 
-      /* Footer */
-      .footer {
-        background: var(--gray-900);
-        color: var(--gray-300);
-        padding: 60px 0 30px;
-      }
-
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        margin-bottom: 3rem;
-      }
-
-      .footer-section h3 {
-        color: var(--white);
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-
-      .footer-links {
-        list-style: none;
-      }
-
-      .footer-links li {
-        margin-bottom: 0.75rem;
-      }
-
-      .footer-links a {
-        color: var(--gray-400);
-        text-decoration: none;
-        transition: var(--transition);
-      }
-
-      .footer-links a:hover {
-        color: var(--primary);
-      }
-
-      .footer-bottom {
-        border-top: 1px solid var(--gray-700);
-        padding-top: 2rem;
-        text-align: center;
-        color: var(--gray-500);
-      }
-
       /* Responsive */
       @media (max-width: 768px) {
-        .nav-links {
-          display: none;
+        .neumorphic-form-container {
+          max-width: 100%;
+          padding: 20px;
+          min-height: 350px;
+        }
+        
+        .neumorphic-title {
+          font-size: 1.2rem;
         }
 
-        .portal-content {
-          padding: 2rem;
+        .portal-card-content {
+          padding: 2rem 1.5rem;
         }
 
-        .features-grid {
+        .portal-features-grid {
           grid-template-columns: 1fr;
         }
 
-        .cta-buttons {
+        .portal-cta-buttons {
           flex-direction: column;
         }
       }
 
-      /* Animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
     </style>
   </head>
 
-  <body>
-    <!-- Header -->
-    <header class="header" id="header">
-      <div class="header-container">
-        <a href="../index.html" class="logo">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2F3a39d60c58cd46b6ae649aefdca6db7f?format=webp&width=800"
-            alt="Stay Dripped Mobile IV Service"
-          />
-        </a>
+  <body class="page-transition">
+    <!-- Neumorphic Preloader -->
+    <div class="page-preloader" id="preloader">
+      <div class="preloader">
+        <div class="preloader__square"></div>
+        <div class="preloader__square"></div>
+        <div class="preloader__square"></div>
+        <div class="preloader__square"></div>
+      </div>
+      <div class="status">Loading<span class="status__dot">.</span><span class="status__dot">.</span><span class="status__dot">.</span></div>
+    </div>
 
-        <nav class="nav">
-          <ul class="nav-links">
-            <li><a href="../index.html" class="nav-link">Home</a></li>
-            <li><a href="services.html" class="nav-link">Services</a></li>
-            <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-            <li><a href="booking.html" class="nav-link">Book Now</a></li>
-            <li><a href="membership.html" class="nav-link">Membership</a></li>
-            <li>
-              <a href="client-portal.html" class="nav-link active">Portal</a>
-            </li>
-          </ul>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
 
-          <div class="header-actions">
-            <a href="tel:+16026889825" class="btn btn-primary">
-              <i class="fas fa-phone"></i>
-              (602) 688-9825
-            </a>
+    <main id="main">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title display-1 fade-in">
+              Client Portal
+            </h1>
+            <p class="hero-subtitle fade-in">
+              Manage your appointments, view treatment history, and update your
+              information through our secure client portal.
+            </p>
           </div>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content fade-in">
-          <h1 class="hero-title">Client Portal</h1>
-          <p class="hero-subtitle">
-            Manage your appointments, view treatment history, and update your
-            information through our secure client portal.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portal Section -->
-    <section class="portal-section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2 class="section-title">Access Your Account</h2>
-          <p class="section-subtitle">
-            Login to your patient portal to manage your wellness journey
-          </p>
         </div>
 
-        <div class="portal-container">
-          <div class="portal-widget fade-in">
-            <div class="portal-header">
-              <div class="portal-icon">🔐</div>
-              <h3 class="portal-title">Secure Client Login</h3>
-              <p class="portal-description">
-                Access your personalized wellness dashboard
+        <a href="#portal" class="hero-scroll">
+          <span>Scroll to access portal</span>
+        </a>
+      </section>
+
+      <!-- Portal Section -->
+      <section class="section bg-gray-50" id="portal">
+        <div class="container">
+          <div class="text-center scroll-reveal mb-16">
+            <h2 class="text-5xl font-bold text-gray-900 mb-6">
+              Access Your Account
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Login to your patient portal to manage your wellness journey
+            </p>
+          </div>
+
+          <div class="max-w-4xl mx-auto">
+            <div class="portal-card scroll-reveal">
+              <div class="portal-card-header">
+                <div class="portal-card-icon">���</div>
+                <h3 class="portal-card-title">Secure Client Login</h3>
+                <p class="portal-card-description">
+                  Access your personalized wellness dashboard
+                </p>
+              </div>
+
+              <div class="portal-card-content">
+                <!-- Neumorphic IntakeQ Portal Widget -->
+                <div class="neumorphic-portal">
+                  <div class="neumorphic-form-container">
+                    <div class="neumorphic-title">Patient Portal Login</div>
+                    
+                    <div class="neumorphic-widget-wrapper">
+                      <!-- IntakeQ Widget Container -->
+                      <div id="intakeq-client-portal">
+                        <div class="neumorphic-loading">Loading secure portal...</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fallback Link -->
+                <div class="text-center mt-8">
+                  <a
+                    href="https://Staydripped.intakeq.com/booking?clientArea=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary btn-lg"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    Open Portal in New Window
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="portal-features">
+        <div class="container">
+          <div class="text-center scroll-reveal">
+            <h2 class="text-5xl font-bold text-gray-900 mb-6">What You Can Do</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive account management for your wellness journey
+            </p>
+          </div>
+
+          <div class="portal-features-grid stagger-children">
+            <div class="portal-feature-card scroll-reveal">
+              <div class="portal-feature-icon">📅</div>
+              <h4 class="portal-feature-title">Manage Appointments</h4>
+              <p class="portal-feature-description">
+                View, reschedule, or cancel your upcoming appointments with ease
               </p>
             </div>
 
-            <div class="portal-content">
-              <!-- IntakeQ Client Portal Widget -->
-              <div
-                id="intakeq-client-portal"
-                class="client-portal-widget"
-              ></div>
+            <div class="portal-feature-card scroll-reveal">
+              <div class="portal-feature-icon">📋</div>
+              <h4 class="portal-feature-title">Treatment History</h4>
+              <p class="portal-feature-description">
+                Access your complete treatment history and medical records
+              </p>
+            </div>
 
-              <!-- Fallback Link -->
-              <a
-                href="https://Staydripped.intakeq.com/booking?clientArea=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="fallback-link"
-              >
-                <i class="fas fa-external-link-alt"></i>
-                Open Client Portal in New Window
+            <div class="portal-feature-card scroll-reveal">
+              <div class="portal-feature-icon">📝</div>
+              <h4 class="portal-feature-title">Update Information</h4>
+              <p class="portal-feature-description">
+                Keep your contact details and medical information current
+              </p>
+            </div>
+
+            <div class="portal-feature-card scroll-reveal">
+              <div class="portal-feature-icon">💬</div>
+              <h4 class="portal-feature-title">Message Your Provider</h4>
+              <p class="portal-feature-description">
+                Communicate securely with your healthcare team
+              </p>
+            </div>
+
+            <div class="portal-feature-card scroll-reveal">
+              <div class="portal-feature-icon">📊</div>
+              <h4 class="portal-feature-title">Wellness Tracking</h4>
+              <p class="portal-feature-description">
+                Monitor your wellness progress and treatment outcomes
+              </p>
+            </div>
+
+            <div class="portal-feature-card scroll-reveal">
+              <div class="portal-feature-icon">🔔</div>
+              <h4 class="portal-feature-title">Appointment Reminders</h4>
+              <p class="portal-feature-description">
+                Receive automated reminders and important notifications
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="portal-cta">
+        <div class="container">
+          <div class="scroll-reveal">
+            <h2 class="portal-cta-title">Need to Schedule a New Appointment?</h2>
+            <p class="portal-cta-subtitle">
+              Book your next wellness treatment or speak with our team about your
+              needs
+            </p>
+
+            <div class="portal-cta-buttons">
+              <a href="booking.html" class="btn btn-secondary btn-lg">
+                <i class="fas fa-calendar-plus"></i>
+                Book New Appointment
+              </a>
+              <a href="tel:+16026889825" class="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-primary">
+                <i class="fas fa-phone"></i>
+                Call (602) 688-9825
               </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Features Section -->
-    <section class="features-section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2 class="section-title">What You Can Do</h2>
-          <p class="section-subtitle">
-            Comprehensive account management for your wellness journey
-          </p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-card fade-in">
-            <div class="feature-icon">📅</div>
-            <h4 class="feature-title">Manage Appointments</h4>
-            <p class="feature-description">
-              View, reschedule, or cancel your upcoming appointments with ease
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">📋</div>
-            <h4 class="feature-title">Treatment History</h4>
-            <p class="feature-description">
-              Access your complete treatment history and medical records
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">📝</div>
-            <h4 class="feature-title">Update Information</h4>
-            <p class="feature-description">
-              Keep your contact details and medical information current
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">💬</div>
-            <h4 class="feature-title">Message Your Provider</h4>
-            <p class="feature-description">
-              Communicate securely with your healthcare team
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">📊</div>
-            <h4 class="feature-title">Wellness Tracking</h4>
-            <p class="feature-description">
-              Monitor your wellness progress and treatment outcomes
-            </p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">🔔</div>
-            <h4 class="feature-title">Appointment Reminders</h4>
-            <p class="feature-description">
-              Receive automated reminders and important notifications
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-      <div class="container">
-        <div class="fade-in">
-          <h2 class="cta-title">Need to Schedule a New Appointment?</h2>
-          <p class="cta-subtitle">
-            Book your next wellness treatment or speak with our team about your
-            needs
-          </p>
-
-          <div class="cta-buttons">
-            <a href="booking.html" class="btn btn-secondary btn-lg">
-              <i class="fas fa-calendar-plus"></i>
-              Book New Appointment
-            </a>
-            <a href="tel:+16026889825" class="btn btn-primary btn-lg">
-              <i class="fas fa-phone"></i>
-              Call (602) 688-9825
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Stay Dripped Mobile IV</h3>
-            <p>
-              Premium mobile IV therapy and wellness services delivered to your
-              location in Phoenix Valley.
-            </p>
-            <div style="margin-top: 1rem">
-              <a
-                href="tel:+16026889825"
-                style="color: var(--primary); text-decoration: none"
-              >
-                <i class="fas fa-phone"></i> (602) 688-9825
-              </a>
-            </div>
-          </div>
-
-          <div class="footer-section">
-            <h3>Client Portal</h3>
-            <ul class="footer-links">
-              <li><a href="client-portal.html">Login to Portal</a></li>
-              <li><a href="booking.html">Book Appointment</a></li>
-              <li><a href="membership.html">Membership Benefits</a></li>
-              <li><a href="services.html">View Services</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h3>Support</h3>
-            <ul class="footer-links">
-              <li><a href="tel:+16026889825">Call Support</a></li>
-              <li><a href="pricing.html">View Pricing</a></li>
-              <li><a href="../index.html">Back to Home</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h3>Service Areas</h3>
-            <ul class="footer-links">
-              <li>Phoenix</li>
-              <li>Scottsdale</li>
-              <li>Tempe</li>
-              <li>Mesa</li>
-              <li>Chandler</li>
-              <li>Gilbert</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>
-            &copy; 2024 Stay Dripped Mobile IV. All rights reserved. Licensed
-            medical professionals.
-          </p>
-        </div>
-      </div>
-    </footer>
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
 
     <!-- IntakeQ Client Area Script -->
     <script>
@@ -749,46 +1097,126 @@
       })(document);
     </script>
 
-    <!-- Initialize widget in container -->
+    <!-- Load header and footer -->
     <script>
+      // Load header safely
+      fetch("/components/header.html")
+        .then((response) => response.text())
+        .then((html) => {
+          const placeholder = document.getElementById("header-placeholder");
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = html;
+          placeholder.replaceChildren(...tempDiv.children);
+          preloaderManager.markLoaded('header');
+        })
+        .catch(() => {
+          // Handle header load error gracefully
+          preloaderManager.markLoaded('header');
+        });
+
+      // Load footer safely
+      fetch("/components/footer.html")
+        .then((response) => response.text())
+        .then((html) => {
+          const placeholder = document.getElementById("footer-placeholder");
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = html;
+          placeholder.replaceChildren(...tempDiv.children);
+          preloaderManager.markLoaded('footer');
+        })
+        .catch(() => {
+          // Handle footer load error gracefully
+          preloaderManager.markLoaded('footer');
+        });
+
+      // Fallback - ensure preloader doesn't stay forever
+      setTimeout(() => {
+        if (preloaderManager.preloader && !preloaderManager.preloader.classList.contains('hidden')) {
+          preloaderManager.hidePreloader();
+        }
+      }, 8000); // 8 second maximum
+    </script>
+
+    <!-- Preloader and Widget Initialization -->
+    <script>
+      // Preloader Management
+      class PreloaderManager {
+        constructor() {
+          this.preloader = document.getElementById('preloader');
+          this.loadedItems = {
+            dom: false,
+            header: false,
+            footer: false,
+            intakeq: false
+          };
+          this.minLoadTime = 2000; // Minimum 2 seconds to see the animation
+          this.startTime = Date.now();
+        }
+
+        markLoaded(item) {
+          this.loadedItems[item] = true;
+          this.checkAllLoaded();
+        }
+
+        checkAllLoaded() {
+          const allLoaded = Object.values(this.loadedItems).every(loaded => loaded);
+          const timeElapsed = Date.now() - this.startTime;
+
+          if (allLoaded) {
+            if (timeElapsed >= this.minLoadTime) {
+              this.hidePreloader();
+            } else {
+              setTimeout(() => this.hidePreloader(), this.minLoadTime - timeElapsed);
+            }
+          }
+        }
+
+        hidePreloader() {
+          if (this.preloader) {
+            this.preloader.classList.add('hidden');
+            setTimeout(() => {
+              this.preloader.style.display = 'none';
+            }, 500);
+          }
+        }
+      }
+
+      const preloaderManager = new PreloaderManager();
+
       document.addEventListener("DOMContentLoaded", function () {
+        preloaderManager.markLoaded('dom');
+
         const container = document.getElementById("intakeq-client-portal");
         if (container) {
-          // Create the IntakeQ div for client area
+          // Clear loading state
+          container.innerHTML = '';
+
+          // Create the IntakeQ div for client area with neumorphic styling
           const widgetDiv = document.createElement("div");
           widgetDiv.id = "intakeq";
-          widgetDiv.style.maxWidth = "720px";
+          widgetDiv.style.maxWidth = "100%";
           widgetDiv.style.width = "100%";
-          widgetDiv.style.minHeight = "500px";
+          widgetDiv.style.minHeight = "auto";
+          widgetDiv.style.background = "transparent";
           container.appendChild(widgetDiv);
         }
 
-        // Header scroll effect
-        window.addEventListener("scroll", () => {
-          const header = document.getElementById("header");
-          if (window.scrollY > 100) {
-            header.classList.add("scrolled");
-          } else {
-            header.classList.remove("scrolled");
+        // Add IntakeQ load event listener for additional styling
+        window.addEventListener('message', function(event) {
+          if (event.origin === 'https://intakeq.com') {
+            // Widget loaded, apply final styling adjustments
+            setTimeout(() => {
+              const intakeqElement = document.getElementById('intakeq');
+              if (intakeqElement) {
+                // Force neumorphic styling on any dynamic content
+                const inputs = intakeqElement.querySelectorAll('input, button');
+                inputs.forEach(input => {
+                  input.style.fontFamily = '"Nunito Sans", sans-serif';
+                });
+                preloaderManager.markLoaded('intakeq');
+              }
+            }, 1000);
           }
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        }, observerOptions);
-
-        document.querySelectorAll(".fade-in").forEach((el) => {
-          observer.observe(el);
         });
 
         // Analytics tracking
@@ -798,6 +1226,208 @@
             page_location: window.location.href,
           });
         }
+      });
+    </script>
+
+    <!-- Main JavaScript from the shared system -->
+    <script>
+      // Enhanced Mobile Menu Class
+      class MobileMenu {
+        constructor() {
+          this.toggle = document.querySelector(".mobile-menu-btn");
+          this.menu = document.querySelector(".mobile-menu");
+          this.overlay = document.querySelector(".mobile-menu");
+          this.closeBtn = document.querySelector(".mobile-menu-close");
+          this.links = document.querySelectorAll(".mobile-menu-link");
+          this.isOpen = false;
+          this.init();
+        }
+
+        init() {
+          if (!this.toggle || !this.menu) return;
+
+          this.toggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            this.toggleMenu();
+          });
+
+          if (this.closeBtn) {
+            this.closeBtn.addEventListener("click", (e) => {
+              e.preventDefault();
+              this.closeMenu();
+            });
+          }
+
+          if (this.overlay) {
+            this.overlay.addEventListener("click", (e) => {
+              if (e.target === this.overlay) this.closeMenu();
+            });
+          }
+
+          this.links.forEach((link) => {
+            link.addEventListener("click", () => {
+              setTimeout(() => this.closeMenu(), 200);
+            });
+          });
+
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && this.isOpen) {
+              this.closeMenu();
+            }
+          });
+        }
+
+        toggleMenu() {
+          if (this.isOpen) {
+            this.closeMenu();
+          } else {
+            this.openMenu();
+          }
+        }
+
+        openMenu() {
+          this.isOpen = true;
+          this.menu.classList.add("active");
+          this.toggle.classList.add("active");
+          document.body.style.overflow = "hidden";
+          this.toggle.setAttribute("aria-expanded", "true");
+        }
+
+        closeMenu() {
+          this.isOpen = false;
+          this.menu.classList.remove("active");
+          this.toggle.classList.remove("active");
+          document.body.style.overflow = "";
+          this.toggle.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      // Enhanced Scroll Effects
+      class ScrollEffects {
+        constructor() {
+          this.header = document.getElementById("header");
+          this.progressBar = document.querySelector(".scroll-progress");
+          this.parallaxElements = document.querySelectorAll(".parallax");
+          this.init();
+        }
+
+        init() {
+          window.addEventListener("scroll", () => {
+            this.updateHeader();
+            this.updateProgress();
+            this.updateParallax();
+          });
+        }
+
+        updateHeader() {
+          const scrolled = window.scrollY > 50;
+          if (this.header) {
+            if (scrolled) {
+              this.header.classList.add("scrolled");
+            } else {
+              this.header.classList.remove("scrolled");
+            }
+          }
+        }
+
+        updateProgress() {
+          const scrollPercent =
+            (window.scrollY /
+              (document.documentElement.scrollHeight - window.innerHeight)) *
+            100;
+          if (this.progressBar) {
+            this.progressBar.style.transform = `scaleX(${scrollPercent / 100})`;
+          }
+        }
+
+        updateParallax() {
+          const scrolled = window.scrollY;
+          this.parallaxElements.forEach((element) => {
+            const rate = scrolled * -0.5;
+            element.style.transform = `translateZ(-200px) scale(1.2) translateY(${rate}px)`;
+          });
+        }
+      }
+
+      // Enhanced Intersection Observer
+      class AnimationObserver {
+        constructor() {
+          this.observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -80px 0px",
+          };
+          this.init();
+        }
+
+        init() {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible", "revealed");
+
+                // Stagger children animations
+                const children = entry.target.querySelectorAll(
+                  ".portal-feature-card, .fade-in",
+                );
+                children.forEach((child, index) => {
+                  setTimeout(() => {
+                    child.classList.add("visible");
+                  }, index * 100);
+                });
+              }
+            });
+          }, this.observerOptions);
+
+          // Observe scroll reveal elements
+          document
+            .querySelectorAll(".scroll-reveal, .fade-in")
+            .forEach((el) => {
+              observer.observe(el);
+            });
+        }
+      }
+
+      // Enhanced Smooth Scrolling
+      function initSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              const headerHeight =
+                document.querySelector(".header")?.offsetHeight || 0;
+              const targetPosition =
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight -
+                20;
+
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      }
+
+      // Page Load Animation
+      function initPageAnimations() {
+        document.body.classList.add("loaded");
+      }
+
+      // Initialize everything when DOM is ready
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize core functionality
+        new MobileMenu();
+        new ScrollEffects();
+        new AnimationObserver();
+
+        // Initialize enhancements
+        initSmoothScrolling();
+        initPageAnimations();
+
+        console.log("✨ Stay Dripped Client Portal - Loaded with Neumorphic Styling");
       });
     </script>
   </body>
