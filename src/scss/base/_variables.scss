@@ -4,20 +4,20 @@
    ======================================================================== */
 
 :root {
-  /* Modern Color Palette - Professional Medical/Tech */
-  --color-primary: #06f;
-  --color-primary-light: #3d8bff;
-  --color-primary-dark: #0052cc;
+  /* Ridex Car Rental Color Palette - Carolina Blue Theme */
+  --color-primary: hsl(204, 91%, 53%); /* Carolina Blue */
+  --color-primary-light: hsl(204, 80%, 63%); /* Blue Jeans */
+  --color-primary-dark: hsl(211, 100%, 35%); /* Sapphire */
   --color-primary-gradient: linear-gradient(
     135deg,
-    #06f 0%,
-    #3d8bff 50%,
-    #0052cc 100%
+    hsl(204, 91%, 53%) 0%,
+    hsl(204, 80%, 63%) 50%,
+    hsl(211, 100%, 35%) 100%
   );
-  --color-secondary: #00d4aa;
-  --color-secondary-light: #3db;
-  --color-secondary-dark: #00a885;
-  --color-secondary-gradient: linear-gradient(135deg, #00d4aa 0%, #3db 100%);
+  --color-secondary: hsl(152, 63%, 43%); /* Medium Sea Green */
+  --color-secondary-light: hsl(152, 48%, 89%); /* Honey Dew */
+  --color-secondary-dark: hsl(152, 63%, 35%);
+  --color-secondary-gradient: linear-gradient(135deg, hsl(152, 63%, 43%) 0%, hsl(152, 48%, 89%) 100%);
   --color-accent: #ff4757;
   --color-accent-light: #ff6b7a;
   --color-accent-dark: #e73c44;
@@ -26,19 +26,19 @@
   --color-error: #ff3838;
   --color-info: #3742fa;
 
-  /* Sophisticated Neutral Palette */
-  --color-white: #fff;
-  --color-black: #0a0a0a;
-  --color-gray-50: #fafbfc;
-  --color-gray-100: #f1f3f6;
-  --color-gray-200: #e4e8ed;
-  --color-gray-300: #d1d9e0;
-  --color-gray-400: #a8b5c4;
-  --color-gray-500: #7c8894;
-  --color-gray-600: #5a6c7d;
-  --color-gray-700: #3e4c59;
-  --color-gray-800: #2d3748;
-  --color-gray-900: #1a202c;
+  /* Ridex Neutral Palette */
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(210, 11%, 15%); /* Eerie Black */
+  --color-gray-50: hsl(216, 75%, 97%); /* Alice Blue 2 */
+  --color-gray-100: hsl(216, 38%, 95%); /* Alice Blue 1 */
+  --color-gray-200: hsl(217, 33%, 92%); /* Alice Blue 4 */
+  --color-gray-300: hsl(208, 86%, 92%); /* Beau Blue */
+  --color-gray-400: hsl(204, 92%, 90%); /* Columbia Blue */
+  --color-gray-500: hsl(219, 14%, 60%); /* Manatee */
+  --color-gray-600: hsl(219, 21%, 39%); /* Independence */
+  --color-gray-700: hsl(240, 22%, 25%); /* Space Cadet */
+  --color-gray-800: hsl(210, 11%, 15%); /* Eerie Black */
+  --color-gray-900: hsl(240, 22%, 25%); /* Space Cadet */
 
   /* Advanced 3D Gradients & Glass Effects */
   --gradient-glass-light: linear-gradient(
@@ -88,12 +88,12 @@
       transparent 50%
     );
 
-  /* Modern Typography System */
+  /* Ridex Typography System */
   --font-family-primary:
-    "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
+    "Nunito", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
     sans-serif;
   --font-family-display:
-    "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
+    "Nunito", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
     sans-serif;
   --font-family-mono:
     "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace;
@@ -161,7 +161,7 @@
   --space-80: 20rem; /* 320px */
   --space-96: 24rem; /* 384px */
 
-  /* Modern Border Radius */
+  /* Ridex Border Radius System */
   --radius-none: 0;
   --radius-sm: 0.125rem; /* 2px */
   --radius-base: 0.25rem; /* 4px */
@@ -172,14 +172,14 @@
   --radius-3xl: 1.5rem; /* 24px */
   --radius-4xl: 2rem; /* 32px */
   --radius-full: 9999px;
+  --radius-14: 14px; /* Ridex Standard */
+  --radius-18: 18px; /* Ridex Cards */
 
-  /* Professional 3D Shadows */
+  /* Ridex Shadow System */
   --shadow-none: 0 0 #0000;
   --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  --shadow-sm:
-    0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
-  --shadow-base:
-    0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  --shadow-sm: 3px 3px 9px hsla(240, 14%, 69%, 0.2);
+  --shadow-base: 3px 3px 9px hsla(204, 92%, 59%, 0.3);
   --shadow-md:
     0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
   --shadow-lg:
@@ -188,6 +188,8 @@
   --shadow-2xl: 0 50px 100px -20px rgb(0 0 0 / 25%);
   --shadow-3xl: 0 60px 120px -20px rgb(0 0 0 / 30%);
   --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 5%);
+  --shadow-ridex-1: 3px 3px 9px hsla(240, 14%, 69%, 0.2);
+  --shadow-ridex-2: 3px 3px 9px hsla(204, 92%, 59%, 0.3);
 
   /* 3D Depth Shadows */
   --shadow-3d-sm:
@@ -203,21 +205,22 @@
     0 16px 32px rgb(0 0 0 / 20%), 0 32px 64px rgb(0 0 0 / 25%),
     0 64px 128px rgb(0 0 0 / 20%), inset 0 4px 0 rgb(255 255 255 / 10%);
 
-  /* Smooth Professional Transitions */
+  /* Ridex Smooth Transitions */
   --transition-none: none;
-  --transition-all: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-all: 0.5s ease;
   --transition-colors:
-    color 150ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-opacity: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-shadow: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-transform: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 0.5s ease,
+    background-color 0.5s ease,
+    border-color 0.5s ease;
+  --transition-opacity: opacity 0.5s ease;
+  --transition-shadow: box-shadow 0.5s ease;
+  --transition-transform: transform 0.5s ease;
+  --transition-ridex: 0.5s ease;
 
-  /* 3D Specific Transitions */
-  --transition-3d: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --transition-elastic: all 400ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  /* Ridex 3D Transitions */
+  --transition-3d: all 0.5s ease;
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-elastic: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
   /* Z-index Management */
   --z-behind: -1;
