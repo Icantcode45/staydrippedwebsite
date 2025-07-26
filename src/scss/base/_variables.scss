@@ -4,43 +4,43 @@
    ======================================================================== */
 
 :root {
-  /* Ridex Car Rental Color Palette - Carolina Blue Theme */
-  --color-primary: hsl(204, 91%, 53%); /* Carolina Blue */
-  --color-primary-light: hsl(204, 80%, 63%); /* Blue Jeans */
-  --color-primary-dark: hsl(211, 100%, 35%); /* Sapphire */
+  /* Stay Dripped Medical Wellness Theme - Teal & Green */
+  --color-primary: hsl(158, 64%, 52%); /* Medical Teal */
+  --color-primary-light: hsl(166, 56%, 65%); /* Light Teal */
+  --color-primary-dark: hsl(150, 75%, 35%); /* Deep Green */
   --color-primary-gradient: linear-gradient(
     135deg,
-    hsl(204, 91%, 53%) 0%,
-    hsl(204, 80%, 63%) 50%,
-    hsl(211, 100%, 35%) 100%
+    hsl(158, 64%, 52%) 0%,
+    hsl(166, 56%, 65%) 50%,
+    hsl(150, 75%, 35%) 100%
   );
-  --color-secondary: hsl(152, 63%, 43%); /* Medium Sea Green */
-  --color-secondary-light: hsl(152, 48%, 89%); /* Honey Dew */
-  --color-secondary-dark: hsl(152, 63%, 35%);
-  --color-secondary-gradient: linear-gradient(135deg, hsl(152, 63%, 43%) 0%, hsl(152, 48%, 89%) 100%);
-  --color-accent: #ff4757;
-  --color-accent-light: #ff6b7a;
-  --color-accent-dark: #e73c44;
-  --color-success: #2ed573;
-  --color-warning: #ffa502;
-  --color-error: #ff3838;
-  --color-info: #3742fa;
+  --color-secondary: hsl(193, 95%, 68%); /* Wellness Blue */
+  --color-secondary-light: hsl(193, 100%, 85%); /* Light Wellness Blue */
+  --color-secondary-dark: hsl(193, 95%, 45%); /* Dark Wellness Blue */
+  --color-secondary-gradient: linear-gradient(135deg, hsl(193, 95%, 68%) 0%, hsl(193, 100%, 85%) 100%);
+  --color-accent: hsl(14, 100%, 66%); /* Coral accent */
+  --color-accent-light: hsl(14, 100%, 75%);
+  --color-accent-dark: hsl(14, 85%, 55%);
+  --color-success: hsl(158, 64%, 52%); /* Use primary teal for success */
+  --color-warning: hsl(45, 100%, 60%); /* Golden yellow */
+  --color-error: hsl(0, 84%, 60%); /* Medical red */
+  --color-info: hsl(193, 95%, 68%); /* Use secondary blue for info */
 
-  /* Ridex Neutral Palette */
+  /* Medical Professional Neutral Palette */
   --color-white: hsl(0, 0%, 100%);
-  --color-black: hsl(210, 11%, 15%); /* Eerie Black */
-  --color-gray-50: hsl(216, 75%, 97%); /* Alice Blue 2 */
-  --color-gray-100: hsl(216, 38%, 95%); /* Alice Blue 1 */
-  --color-gray-200: hsl(217, 33%, 92%); /* Alice Blue 4 */
-  --color-gray-300: hsl(208, 86%, 92%); /* Beau Blue */
-  --color-gray-400: hsl(204, 92%, 90%); /* Columbia Blue */
-  --color-gray-500: hsl(219, 14%, 60%); /* Manatee */
-  --color-gray-600: hsl(219, 21%, 39%); /* Independence */
-  --color-gray-700: hsl(240, 22%, 25%); /* Space Cadet */
-  --color-gray-800: hsl(210, 11%, 15%); /* Eerie Black */
-  --color-gray-900: hsl(240, 22%, 25%); /* Space Cadet */
+  --color-black: hsl(210, 16%, 12%); /* Deep charcoal */
+  --color-gray-50: hsl(158, 25%, 97%); /* Very light teal gray */
+  --color-gray-100: hsl(158, 20%, 95%); /* Light teal gray */
+  --color-gray-200: hsl(158, 15%, 90%); /* Soft teal gray */
+  --color-gray-300: hsl(158, 12%, 82%); /* Medium teal gray */
+  --color-gray-400: hsl(158, 10%, 70%); /* Balanced teal gray */
+  --color-gray-500: hsl(158, 8%, 55%); /* Mid teal gray */
+  --color-gray-600: hsl(158, 10%, 40%); /* Dark teal gray */
+  --color-gray-700: hsl(158, 12%, 28%); /* Darker teal gray */
+  --color-gray-800: hsl(158, 15%, 18%); /* Very dark teal gray */
+  --color-gray-900: hsl(158, 18%, 10%); /* Deep teal black */
 
-  /* Advanced 3D Gradients & Glass Effects */
+  /* Medical Glass Effects & Gradients */
   --gradient-glass-light: linear-gradient(
     135deg,
     rgb(255 255 255 / 25%) 0%,
@@ -56,44 +56,44 @@
   --gradient-surface: linear-gradient(
     145deg,
     #fff 0%,
-    #f8fafc 50%,
-    #f1f5f9 100%
+    hsl(158, 25%, 98%) 50%,
+    hsl(158, 20%, 96%) 100%
   );
   --gradient-surface-dark: linear-gradient(
     145deg,
-    #2d3748 0%,
-    #1a202c 50%,
-    #0f1419 100%
+    hsl(158, 15%, 18%) 0%,
+    hsl(158, 18%, 10%) 50%,
+    hsl(158, 20%, 8%) 100%
   );
   --gradient-hero: linear-gradient(
     135deg,
-    rgb(0 102 255 / 95%) 0%,
-    rgb(61 139 255 / 90%) 50%,
-    rgb(0 82 204 / 95%) 100%
+    hsl(158, 64%, 52%) 0%,
+    hsl(166, 56%, 65%) 50%,
+    hsl(150, 75%, 35%) 100%
   );
   --gradient-mesh:
     radial-gradient(
       circle at 20% 50%,
-      rgb(0 102 255 / 10%) 0%,
+      hsl(158, 64%, 52% / 10%) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 80% 20%,
-      rgb(0 212 170 / 10%) 0%,
+      hsl(193, 95%, 68% / 10%) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 40% 80%,
-      rgb(255 71 87 / 5%) 0%,
+      hsl(14, 100%, 66% / 5%) 0%,
       transparent 50%
     );
 
-  /* Ridex Typography System */
+  /* Medical Professional Typography */
   --font-family-primary:
-    "Nunito", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
+    "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
     sans-serif;
   --font-family-display:
-    "Nunito", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
+    "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
     sans-serif;
   --font-family-mono:
     "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace;
@@ -175,11 +175,11 @@
   --radius-14: 14px; /* Ridex Standard */
   --radius-18: 18px; /* Ridex Cards */
 
-  /* Ridex Shadow System */
+  /* Medical Professional Shadow System */
   --shadow-none: 0 0 #0000;
   --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  --shadow-sm: 3px 3px 9px hsla(240, 14%, 69%, 0.2);
-  --shadow-base: 3px 3px 9px hsla(204, 92%, 59%, 0.3);
+  --shadow-sm: 0 2px 4px -1px hsl(158, 15%, 80% / 30%);
+  --shadow-base: 0 4px 8px -2px hsl(158, 25%, 65% / 25%);
   --shadow-md:
     0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
   --shadow-lg:
@@ -188,8 +188,8 @@
   --shadow-2xl: 0 50px 100px -20px rgb(0 0 0 / 25%);
   --shadow-3xl: 0 60px 120px -20px rgb(0 0 0 / 30%);
   --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 5%);
-  --shadow-ridex-1: 3px 3px 9px hsla(240, 14%, 69%, 0.2);
-  --shadow-ridex-2: 3px 3px 9px hsla(204, 92%, 59%, 0.3);
+  --shadow-medical-1: 0 3px 6px -1px hsl(158, 20%, 70% / 20%);
+  --shadow-medical-2: 0 6px 12px -2px hsl(158, 25%, 60% / 25%);
 
   /* 3D Depth Shadows */
   --shadow-3d-sm:
@@ -205,22 +205,22 @@
     0 16px 32px rgb(0 0 0 / 20%), 0 32px 64px rgb(0 0 0 / 25%),
     0 64px 128px rgb(0 0 0 / 20%), inset 0 4px 0 rgb(255 255 255 / 10%);
 
-  /* Ridex Smooth Transitions */
+  /* Medical Professional Transitions */
   --transition-none: none;
-  --transition-all: 0.5s ease;
+  --transition-all: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-colors:
-    color 0.5s ease,
-    background-color 0.5s ease,
-    border-color 0.5s ease;
-  --transition-opacity: opacity 0.5s ease;
-  --transition-shadow: box-shadow 0.5s ease;
-  --transition-transform: transform 0.5s ease;
-  --transition-ridex: 0.5s ease;
+    color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-opacity: opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-shadow: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-transform: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medical: 280ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Ridex 3D Transitions */
-  --transition-3d: all 0.5s ease;
-  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --transition-elastic: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  /* Medical 3D Transitions */
+  --transition-3d: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 320ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-elastic: all 360ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
   /* Z-index Management */
   --z-behind: -1;
