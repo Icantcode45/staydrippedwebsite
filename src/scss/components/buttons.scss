@@ -1,20 +1,21 @@
 /* ========================================================================
-   RIDEX CAR RENTAL BUTTON SYSTEM
-   Clean, modern buttons inspired by automotive design excellence
+   STAY DRIPPED MINIMAL BUTTON SYSTEM
+   Clean, minimal buttons for professional medical interface
    ======================================================================== */
 
-/* Base Button Foundation - Ridex Style */
+/* Base Button Foundation - Minimal Style */
 .btn {
   position: relative;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-2);
-  padding: 5px;
+  padding: 12px 24px;
   margin: 0;
 
   font-family: var(--font-family-primary);
   font-size: var(--text-sm);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);
   line-height: 1.25;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -23,44 +24,26 @@
   user-select: none;
   cursor: pointer;
 
-  border: none;
-  border-radius: var(--radius-14);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
   background: var(--color-primary);
   color: var(--color-white);
 
-  transition: var(--transition-ridex);
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  transition: var(--transition-all);
+  transform: translateZ(0);
 
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 
-  min-height: 40px;
-  min-width: 40px;
+  min-height: 44px;
+  min-width: auto;
 
-  /* Ridex 3D Transform Base */
-  transform: translateZ(0) translateY(0) scale(1);
-
-  /* Ridex Shine Effect */
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, hsla(0, 0%, 100%, 0.4), transparent);
-    opacity: 0;
-    pointer-events: none;
-    transition: var(--transition-ridex);
-    border-radius: inherit;
-  }
-
-  /* Ridex Enhanced Interactions */
-  &:is(:hover, :focus) {
-    box-shadow: var(--shadow-ridex-2);
-
-    &::before {
-      opacity: 1;
-    }
+  /* Clean hover effect */
+  &:hover {
+    background: var(--color-primary-dark);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
   }
 
   &:focus {
@@ -70,7 +53,11 @@
   &:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
-    box-shadow: var(--shadow-ridex-2);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
   }
 
   /* Disabled State */
@@ -82,21 +69,21 @@
     transform: none !important;
   }
 
-  /* Icon Styling - Ridex */
+  /* Icon Styling */
   .icon,
   i,
   ion-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 22px;
-    font-size: 22px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
     --ionicon-stroke-width: 40px;
-    transition: var(--transition-ridex);
+    transition: var(--transition-transform);
   }
 
-  /* Ridex Loading State */
+  /* Loading State */
   &.loading {
     position: relative;
     color: transparent;
@@ -121,224 +108,115 @@
   }
 }
 
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Primary Button - Ridex Carolina Blue */
+/* Primary Button - Clean Blue */
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-white);
-  min-width: 40px;
-  min-height: 40px;
-  padding: 5px 15px;
+  border-color: var(--color-primary);
 
-  &:is(:hover, :focus) {
-    box-shadow: var(--shadow-ridex-2);
-
-    &::before {
-      opacity: 1;
-    }
-
-    .icon,
-    i,
-    ion-icon {
-      transform: scale(1.1);
-    }
+  &:hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
   }
 
   &:active {
-    transform: scale(0.98);
-    box-shadow: var(--shadow-ridex-1);
-  }
-
-  /* Ridex button with icon and text */
-  &.btn-with-text {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: 5px 15px;
-    min-width: auto;
-
-    .icon,
-    i,
-    ion-icon {
-      margin-right: 0;
-    }
-
-    span {
-      display: inline-block;
-      font-weight: var(--font-weight-regular);
-      padding-inline: 15px;
-    }
+    background: var(--color-primary-dark);
   }
 }
 
-/* Secondary Button - Ridex Light Style */
+/* Secondary Button - Clean White */
 .btn-secondary {
   background: var(--color-white);
   color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-  box-shadow: var(--shadow-ridex-1);
-  min-width: 40px;
-  min-height: 40px;
-  padding: 5px 15px;
+  border-color: var(--color-primary);
 
-  &:is(:hover, :focus) {
+  &:hover {
     background: var(--color-primary);
     color: var(--color-white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-ridex-2);
-
-    &::before {
-      opacity: 1;
-    }
-
-    .icon,
-    i,
-    ion-icon {
-      transform: scale(1.1);
-    }
   }
 
   &:active {
-    transform: translateY(0);
-    box-shadow: var(--shadow-ridex-1);
+    background: var(--color-primary-dark);
+    color: var(--color-white);
   }
 }
 
-/* Outline Button - Ridex Style */
+/* Outline Button */
 .btn-outline {
   background: transparent;
-  border: 2px solid var(--color-white);
-  color: var(--color-white);
-  min-width: 40px;
-  min-height: 40px;
-  padding: 5px 15px;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--color-white);
-    border-radius: inherit;
-    transform: scale(0);
-    transition: var(--transition-ridex);
-    z-index: 1;
-  }
-
-  & > * {
-    position: relative;
-    z-index: 2;
-    transition: var(--transition-colors);
-  }
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 
   &:hover {
-    background: var(--color-white);
-    color: var(--color-primary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-ridex-2);
-
-    &::before {
-      transform: scale(1);
-    }
+    background: var(--color-primary);
+    color: var(--color-white);
   }
 
   &:active {
-    transform: translateY(0);
-  }
-}
-
-/* Success Button */
-.btn-success {
-  background: linear-gradient(135deg, var(--color-success) 0%, #26d969 100%);
-  color: var(--color-white);
-  box-shadow: var(--shadow-3d-md);
-
-  &:hover {
-    transform: var(--transform-button-hover);
-    box-shadow: var(--shadow-3d-lg);
-    background: linear-gradient(135deg, #26d969 0%, var(--color-success) 100%);
-  }
-
-  &:active {
-    transform: var(--transform-button-active);
-    box-shadow: var(--shadow-3d-sm);
-  }
-}
-
-/* Warning Button */
-.btn-warning {
-  background: linear-gradient(135deg, var(--color-warning) 0%, #ff8c42 100%);
-  color: var(--color-white);
-  box-shadow: var(--shadow-3d-md);
-
-  &:hover {
-    transform: var(--transform-button-hover);
-    box-shadow: var(--shadow-3d-lg);
-    background: linear-gradient(135deg, #ff8c42 0%, var(--color-warning) 100%);
-  }
-
-  &:active {
-    transform: var(--transform-button-active);
-    box-shadow: var(--shadow-3d-sm);
-  }
-}
-
-/* Error/Danger Button */
-.btn-error,
-.btn-danger {
-  background: linear-gradient(135deg, var(--color-error) 0%, #ff4757 100%);
-  color: var(--color-white);
-  box-shadow: var(--shadow-3d-md);
-
-  &:hover {
-    transform: var(--transform-button-hover);
-    box-shadow: var(--shadow-3d-lg);
-    background: linear-gradient(135deg, #ff4757 0%, var(--color-error) 100%);
-  }
-
-  &:active {
-    transform: var(--transform-button-active);
-    box-shadow: var(--shadow-3d-sm);
+    background: var(--color-primary-dark);
+    color: var(--color-white);
   }
 }
 
 /* Ghost Button */
 .btn-ghost {
   background: transparent;
-  border: none;
   color: var(--color-gray-600);
-  padding: var(--space-2) var(--space-4);
+  border-color: transparent;
 
   &:hover {
     background: var(--color-gray-100);
     color: var(--color-gray-800);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
   }
 
   &:active {
-    transform: translateY(0);
     background: var(--color-gray-200);
   }
 }
 
-/* Ridex Button Sizes */
+/* Success Button */
+.btn-success {
+  background: var(--color-success);
+  color: var(--color-white);
+  border-color: var(--color-success);
+
+  &:hover {
+    background: hsl(142, 71%, 40%);
+    border-color: hsl(142, 71%, 40%);
+  }
+}
+
+/* Warning Button */
+.btn-warning {
+  background: var(--color-warning);
+  color: var(--color-white);
+  border-color: var(--color-warning);
+
+  &:hover {
+    background: hsl(38, 92%, 45%);
+    border-color: hsl(38, 92%, 45%);
+  }
+}
+
+/* Error Button */
+.btn-error,
+.btn-danger {
+  background: var(--color-error);
+  color: var(--color-white);
+  border-color: var(--color-error);
+
+  &:hover {
+    background: hsl(0, 84%, 55%);
+    border-color: hsl(0, 84%, 55%);
+  }
+}
+
+/* Button Sizes */
 .btn-xs {
-  padding: 3px 8px;
+  padding: 6px 12px;
   font-size: var(--text-xs);
-  min-height: 30px;
-  min-width: 30px;
-  border-radius: var(--radius-lg);
+  min-height: 32px;
+  border-radius: var(--radius-md);
 
   .icon,
   i,
@@ -350,11 +228,10 @@
 }
 
 .btn-sm {
-  padding: 4px 12px;
+  padding: 8px 16px;
   font-size: var(--text-sm);
   min-height: 36px;
-  min-width: 36px;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-md);
 
   .icon,
   i,
@@ -366,172 +243,63 @@
 }
 
 .btn-lg {
-  padding: 8px 24px;
+  padding: 16px 32px;
   font-size: var(--text-lg);
   font-weight: var(--font-weight-semibold);
-  min-height: 50px;
-  min-width: 50px;
-  border-radius: var(--radius-18);
+  min-height: 52px;
+  border-radius: var(--radius-xl);
 
   .icon,
   i,
   ion-icon {
-    width: 26px;
-    height: 26px;
-    font-size: 26px;
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
   }
 }
 
 .btn-xl {
-  padding: 12px 32px;
+  padding: 20px 40px;
   font-size: var(--text-xl);
   font-weight: var(--font-weight-semibold);
   min-height: 60px;
-  min-width: 60px;
-  border-radius: var(--radius-18);
+  border-radius: var(--radius-xl);
 
   .icon,
   i,
   ion-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 30px;
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
   }
 }
 
-/* Ridex Button Widths */
+/* Button Widths */
 .btn-full {
   width: 100%;
   justify-content: center;
-  min-width: 100%;
 }
 
 .btn-auto {
   width: auto;
-  min-width: auto;
 }
 
-/* Ridex Card Badge Buttons */
-.btn.card-badge {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  min-height: 30px;
-  min-width: 92px;
-  padding: 5px 12px;
-  font-size: var(--text-xs);
-  font-weight: var(--font-weight-semibold);
-}
-
-/* Ridex Button Groups */
-.btn-group {
-  display: inline-flex;
-  border-radius: var(--radius-14);
-  box-shadow: var(--shadow-ridex-1);
-  overflow: hidden;
-
-  .btn {
-    border-radius: 0;
-    margin: 0;
-    border-right: 1px solid rgb(255 255 255 / 20%);
-
-    &:first-child {
-      border-top-left-radius: var(--radius-14);
-      border-bottom-left-radius: var(--radius-14);
-    }
-
-    &:last-child {
-      border-top-right-radius: var(--radius-14);
-      border-bottom-right-radius: var(--radius-14);
-      border-right: none;
-    }
-
-    &:hover {
-      z-index: 1;
-      transform: scale(1.02);
-      box-shadow: var(--shadow-ridex-2);
-    }
-  }
-}
-
-/* Special Effects */
-.btn-gradient {
-  background: linear-gradient(
-    45deg,
-    var(--color-primary),
-    var(--color-secondary),
-    var(--color-primary)
-  );
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
-  color: var(--color-white);
-  box-shadow: var(--shadow-3d-lg);
-
-  &:hover {
-    animation-duration: 1s;
-    transform: var(--transform-button-hover);
-    box-shadow: var(--shadow-3d-xl);
-  }
-}
-
-.btn-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-
-  &:hover {
-    animation: none;
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-.btn-bounce {
-  animation: bounce 1s infinite;
-
-  &:hover {
-    animation: none;
-  }
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-
-  50% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-}
-
-/* Ridex Icon-only Buttons */
+/* Icon-only Buttons */
 .btn-icon {
-  padding: 8px;
+  padding: 12px;
   aspect-ratio: 1;
-  border-radius: var(--radius-14);
+  border-radius: var(--radius-lg);
 
   .icon,
   i,
   ion-icon {
-    width: 22px;
-    height: 22px;
-    font-size: 22px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
   }
 
   &.btn-sm {
-    padding: 6px;
+    padding: 8px;
 
     .icon,
     i,
@@ -543,41 +311,43 @@
   }
 
   &.btn-lg {
-    padding: 12px;
+    padding: 16px;
 
     .icon,
     i,
     ion-icon {
-      width: 26px;
-      height: 26px;
-      font-size: 26px;
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
     }
   }
 }
 
-/* Ridex Favorite Button Style */
+/* Favorite Button Style */
 .btn.fav-btn {
-  background: var(--color-gray-300); /* Beau Blue */
-  color: var(--color-primary-light); /* Blue Jeans */
-  min-width: 36px;
-  min-height: 36px;
-  padding: 6px;
-
+  background: var(--color-gray-100);
+  color: var(--color-gray-500);
+  border-color: var(--color-gray-200);
+  min-width: 40px;
+  min-height: 40px;
+  padding: 10px;
+  
   .icon,
   i,
   ion-icon {
-    width: 18px;
-    height: 18px;
-    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
   }
 
-  &:is(:hover, :focus) {
-    background: hsl(329, 63%, 90%); /* Mimi Pink */
-    color: hsl(0, 79%, 63%); /* Red Salsa */
+  &:hover {
+    background: hsl(0, 84%, 95%);
+    color: var(--color-error);
+    border-color: hsl(0, 84%, 90%);
   }
 }
 
-/* Ridex Floating Action Button */
+/* Floating Action Button */
 .btn-fab {
   position: fixed;
   bottom: var(--space-6);
@@ -591,7 +361,7 @@
 
   background: var(--color-primary);
   color: var(--color-white);
-  box-shadow: var(--shadow-ridex-2);
+  box-shadow: var(--shadow-lg);
 
   .icon,
   i,
@@ -602,31 +372,75 @@
   }
 
   &:hover {
-    transform: scale(1.1) translateY(-2px);
-    box-shadow: var(--shadow-ridex-2);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: var(--shadow-xl);
   }
 
   &:active {
     transform: scale(0.95);
-    box-shadow: var(--shadow-ridex-1);
+    box-shadow: var(--shadow-md);
   }
+}
+
+/* Button Groups */
+.btn-group {
+  display: inline-flex;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+
+  .btn {
+    border-radius: 0;
+    margin: 0;
+    border-right: 1px solid var(--color-gray-200);
+
+    &:first-child {
+      border-top-left-radius: var(--radius-lg);
+      border-bottom-left-radius: var(--radius-lg);
+    }
+
+    &:last-child {
+      border-top-right-radius: var(--radius-lg);
+      border-bottom-right-radius: var(--radius-lg);
+      border-right: none;
+    }
+
+    &:hover {
+      z-index: 1;
+    }
+  }
+}
+
+/* Card Badge Buttons */
+.btn.card-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  min-height: 32px;
+  padding: 6px 12px;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
 }
 
 /* Responsive Adjustments */
 @media (width <= 768px) {
   .btn {
-    padding: var(--space-3) var(--space-5);
+    padding: 10px 20px;
     font-size: var(--text-sm);
+    min-height: 40px;
   }
 
   .btn-lg {
-    padding: var(--space-3-5) var(--space-6);
+    padding: 12px 24px;
     font-size: var(--text-base);
+    min-height: 44px;
   }
 
   .btn-xl {
-    padding: var(--space-4) var(--space-7);
+    padding: 14px 28px;
     font-size: var(--text-lg);
+    min-height: 48px;
   }
 
   .btn-group {
@@ -634,14 +448,14 @@
 
     .btn {
       border-right: none;
-      border-bottom: 1px solid rgb(255 255 255 / 20%);
+      border-bottom: 1px solid var(--color-gray-200);
 
       &:first-child {
-        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
       }
 
       &:last-child {
-        border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
         border-bottom: none;
       }
     }
@@ -653,19 +467,10 @@
   .btn {
     transition: none;
 
-    &:hover {
-      transform: none;
-    }
-
+    &:hover,
     &:active {
       transform: none;
     }
-  }
-
-  .btn-gradient,
-  .btn-pulse,
-  .btn-bounce {
-    animation: none;
   }
 }
 
@@ -676,7 +481,7 @@
   }
 
   .btn-outline {
-    border-width: 3px;
+    border-width: 2px;
   }
 }
 
