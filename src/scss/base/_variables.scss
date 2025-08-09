@@ -4,91 +4,80 @@
    ======================================================================== */
 
 :root {
-  /* Modern Color Palette - Professional Medical/Tech */
-  --color-primary: #06f;
-  --color-primary-light: #3d8bff;
-  --color-primary-dark: #0052cc;
+  /* Minimal Clean Design - White with Subtle Blue */
+  --color-primary: hsl(212, 100%, 48%); /* Clean Medical Blue */
+  --color-primary-light: hsl(212, 100%, 65%); /* Light Blue */
+  --color-primary-dark: hsl(212, 100%, 35%); /* Dark Blue */
   --color-primary-gradient: linear-gradient(
     135deg,
-    #06f 0%,
-    #3d8bff 50%,
-    #0052cc 100%
+    hsl(212, 100%, 48%) 0%,
+    hsl(212, 100%, 55%) 100%
   );
-  --color-secondary: #00d4aa;
-  --color-secondary-light: #3db;
-  --color-secondary-dark: #00a885;
-  --color-secondary-gradient: linear-gradient(135deg, #00d4aa 0%, #3db 100%);
-  --color-accent: #ff4757;
-  --color-accent-light: #ff6b7a;
-  --color-accent-dark: #e73c44;
-  --color-success: #2ed573;
-  --color-warning: #ffa502;
-  --color-error: #ff3838;
-  --color-info: #3742fa;
+  --color-secondary: hsl(0, 0%, 100%); /* Pure White */
+  --color-secondary-light: hsl(210, 20%, 98%); /* Off White */
+  --color-secondary-dark: hsl(210, 15%, 95%); /* Light Gray */
+  --color-secondary-gradient: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(210, 20%, 98%) 100%);
+  --color-accent: hsl(212, 100%, 48%); /* Use primary blue as accent */
+  --color-accent-light: hsl(212, 100%, 65%);
+  --color-accent-dark: hsl(212, 100%, 35%);
+  --color-success: hsl(142, 71%, 45%); /* Clean green */
+  --color-warning: hsl(38, 92%, 50%); /* Clean orange */
+  --color-error: hsl(0, 84%, 60%); /* Clean red */
+  --color-info: hsl(212, 100%, 48%); /* Use primary blue */
 
-  /* Sophisticated Neutral Palette */
-  --color-white: #fff;
-  --color-black: #0a0a0a;
-  --color-gray-50: #fafbfc;
-  --color-gray-100: #f1f3f6;
-  --color-gray-200: #e4e8ed;
-  --color-gray-300: #d1d9e0;
-  --color-gray-400: #a8b5c4;
-  --color-gray-500: #7c8894;
-  --color-gray-600: #5a6c7d;
-  --color-gray-700: #3e4c59;
-  --color-gray-800: #2d3748;
-  --color-gray-900: #1a202c;
+  /* Minimal Clean Neutral Palette */
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 9%); /* Almost black */
+  --color-gray-50: hsl(210, 40%, 99%); /* Very light */
+  --color-gray-100: hsl(210, 40%, 98%); /* Super light */
+  --color-gray-200: hsl(210, 16%, 93%); /* Light */
+  --color-gray-300: hsl(210, 14%, 83%); /* Medium light */
+  --color-gray-400: hsl(210, 14%, 71%); /* Medium */
+  --color-gray-500: hsl(210, 11%, 71%); /* Balanced */
+  --color-gray-600: hsl(210, 7%, 56%); /* Medium dark */
+  --color-gray-700: hsl(210, 9%, 31%); /* Dark */
+  --color-gray-800: hsl(210, 10%, 23%); /* Very dark */
+  --color-gray-900: hsl(210, 11%, 15%); /* Almost black */
 
-  /* Advanced 3D Gradients & Glass Effects */
+  /* Minimal Clean Effects */
   --gradient-glass-light: linear-gradient(
     135deg,
-    rgb(255 255 255 / 25%) 0%,
-    rgb(255 255 255 / 10%) 50%,
+    rgb(255 255 255 / 15%) 0%,
     rgb(255 255 255 / 5%) 100%
   );
   --gradient-glass-dark: linear-gradient(
     135deg,
-    rgb(0 0 0 / 10%) 0%,
-    rgb(0 0 0 / 5%) 50%,
-    rgb(0 0 0 / 2%) 100%
+    rgb(0 0 0 / 3%) 0%,
+    rgb(0 0 0 / 1%) 100%
   );
   --gradient-surface: linear-gradient(
     145deg,
-    #fff 0%,
-    #f8fafc 50%,
-    #f1f5f9 100%
+    hsl(0, 0%, 100%) 0%,
+    hsl(210, 40%, 99%) 100%
   );
   --gradient-surface-dark: linear-gradient(
     145deg,
-    #2d3748 0%,
-    #1a202c 50%,
-    #0f1419 100%
+    hsl(210, 10%, 23%) 0%,
+    hsl(210, 11%, 15%) 100%
   );
   --gradient-hero: linear-gradient(
     135deg,
-    rgb(0 102 255 / 95%) 0%,
-    rgb(61 139 255 / 90%) 50%,
-    rgb(0 82 204 / 95%) 100%
+    hsl(212, 100%, 48%) 0%,
+    hsl(212, 100%, 55%) 100%
   );
   --gradient-mesh:
     radial-gradient(
       circle at 20% 50%,
-      rgb(0 102 255 / 10%) 0%,
+      hsl(212, 100%, 48% / 3%) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 80% 20%,
-      rgb(0 212 170 / 10%) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 80%,
-      rgb(255 71 87 / 5%) 0%,
+      hsl(212, 100%, 65% / 2%) 0%,
       transparent 50%
     );
 
-  /* Modern Typography System */
+  /* Clean Typography System */
   --font-family-primary:
     "Inter", -apple-system, blinkmacsystemfont, "Segoe UI", system-ui,
     sans-serif;
@@ -161,7 +150,7 @@
   --space-80: 20rem; /* 320px */
   --space-96: 24rem; /* 384px */
 
-  /* Modern Border Radius */
+  /* Ridex Border Radius System */
   --radius-none: 0;
   --radius-sm: 0.125rem; /* 2px */
   --radius-base: 0.25rem; /* 4px */
@@ -172,22 +161,22 @@
   --radius-3xl: 1.5rem; /* 24px */
   --radius-4xl: 2rem; /* 32px */
   --radius-full: 9999px;
+  --radius-14: 14px; /* Ridex Standard */
+  --radius-18: 18px; /* Ridex Cards */
 
-  /* Professional 3D Shadows */
+  /* Minimal Clean Shadow System */
   --shadow-none: 0 0 #0000;
-  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  --shadow-sm:
-    0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
-  --shadow-base:
-    0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 3%);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 8%);
+  --shadow-base: 0 2px 4px 0 rgb(0 0 0 / 6%);
   --shadow-md:
-    0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+    0 4px 6px -1px rgb(0 0 0 / 8%), 0 2px 4px -2px rgb(0 0 0 / 6%);
   --shadow-lg:
-    0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
-  --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 25%);
-  --shadow-2xl: 0 50px 100px -20px rgb(0 0 0 / 25%);
-  --shadow-3xl: 0 60px 120px -20px rgb(0 0 0 / 30%);
-  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 5%);
+    0 10px 15px -3px rgb(0 0 0 / 8%), 0 4px 6px -4px rgb(0 0 0 / 5%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 15%);
+  --shadow-3xl: 0 35px 60px -12px rgb(0 0 0 / 20%);
+  --shadow-inner: inset 0 1px 2px 0 rgb(0 0 0 / 3%);
 
   /* 3D Depth Shadows */
   --shadow-3d-sm:
@@ -203,21 +192,21 @@
     0 16px 32px rgb(0 0 0 / 20%), 0 32px 64px rgb(0 0 0 / 25%),
     0 64px 128px rgb(0 0 0 / 20%), inset 0 4px 0 rgb(255 255 255 / 10%);
 
-  /* Smooth Professional Transitions */
+  /* Clean Smooth Transitions */
   --transition-none: none;
-  --transition-all: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-all: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-colors:
-    color 150ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-opacity: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-shadow: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-transform: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-opacity: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-shadow: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-transform: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* 3D Specific Transitions */
-  --transition-3d: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --transition-elastic: all 400ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  /* Clean 3D Transitions */
+  --transition-3d: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-elastic: all 300ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
   /* Z-index Management */
   --z-behind: -1;

@@ -1,971 +1,803 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Premium mobile IV therapy delivered to you. Professional hydration, NAD+, peptide therapy, and wellness services in Scottsdale & Phoenix. Book now for same-day service."
-    />
-    <meta
-      name="keywords"
-      content="mobile IV therapy, NAD therapy, peptide therapy, IV hydration, wellness, Scottsdale, Phoenix, vitamin injections, hormone therapy, aesthetics"
-    />
-    <meta name="author" content="Stay Dripped Mobile IV" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="/modules/iv-therapy.webp">
+  <link rel="preload" as="image" href="/modules/nad-therapy.webp">
+  <link rel="preload" as="image" href="/modules/vitamin-shots.webp">
+  <link rel="preload" as="image" href="/modules/wellness-iv.webp">
+  
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="canonical" href="https://staydrippedmobileiv.com">
+  
+  <title>Stay Dripped Mobile IV | Premium Mobile IV Therapy & Wellness Services</title>
+  <meta name="description" content="Professional mobile IV therapy delivered to your location in Phoenix Valley. Licensed medical professionals, same-day service, NAD+ therapy, vitamin injections, and wellness treatments.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Stay Dripped Mobile IV | Premium Mobile IV Therapy & Wellness Services">
+  <meta property="og:description" content="Professional mobile IV therapy delivered to your location in Phoenix Valley. Licensed medical professionals, same-day service, NAD+ therapy, vitamin injections, and wellness treatments.">
+  <meta property="og:image" content="/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Stay Dripped Mobile IV">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stay Dripped Mobile IV | Premium Mobile IV Therapy & Wellness Services">
+  <meta name="twitter:description" content="Professional mobile IV therapy delivered to your location in Phoenix Valley. Licensed medical professionals, same-day service, NAD+ therapy, vitamin injections, and wellness treatments.">
+  <meta name="twitter:image" content="/assets/images/og-image.jpg">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16">
+  
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
 
-    <!-- Open Graph Meta Tags -->
-    <meta
-      property="og:title"
-      content="Stay Dripped Mobile IV - Premium Mobile IV Therapy"
-    />
-    <meta
-      property="og:description"
-      content="Professional IV therapy, NAD+, peptide treatments delivered to your location in Phoenix Valley. Licensed medical professionals, same-day service."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://staydrippedmobileiv.com" />
-    <meta property="og:image" content="/assets/images/og-image.jpg" />
-
-    <!-- Favicon and manifest -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/icons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/icons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/icons/favicon-16x16.png"
-    />
-
-    <link rel="manifest" href="/json/manifest.json" />
-    <meta name="theme-color" content="#0066ff" />
-
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "MedicalBusiness",
-        "name": "Stay Dripped Mobile IV",
-        "description": "Premium mobile IV therapy and wellness services",
-        "url": "https://staydrippedmobileiv.com",
-        "telephone": "+1-602-688-9825",
-        "email": "info@staydrippedmobileiv.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Scottsdale",
-          "addressRegion": "AZ",
-          "addressCountry": "US"
-        },
-        "areaServed": [
-          "Phoenix",
-          "Scottsdale",
-          "Tempe",
-          "Mesa",
-          "Chandler",
-          "Gilbert",
-          "Glendale",
-          "Peoria"
-        ],
-        "medicalSpecialty": [
-          "IV Therapy",
-          "Wellness Medicine",
-          "Aesthetic Medicine"
-        ],
-        "priceRange": "$$$"
-      }
-    </script>
-
-    <title>
-      Stay Dripped Mobile IV - Premium Mobile IV Therapy & Wellness Services
-    </title>
-
-    <!-- Preload critical fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- Skip to content -->
-    <a href="#main" class="skip-link">Skip to main content</a>
-  </head>
-
-  <body class="page-transition">
-    <!-- Header -->
-    <header class="header" id="header">
-      <div class="header-container">
-        <a href="/" class="logo">
-          <div class="logo-icon">
-            <i class="fas fa-tint"></i>
-          </div>
-          <span class="logo-text">Stay Dripped</span>
+<body>
+  <header class="header">
+    <div class="header-bg"></div>
+    <div class="header-container">
+      <div class="logo">
+        <a aria-label="Stay Dripped Mobile IV - Go to homepage" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 78.82" style="display:block" class="logo-svg">
+            <g>
+              <path d="M47.71,43.57l16.54,16.54c.5.5.5,1.3,0,1.79l-16.54,16.54c-.5.5-1.3.5-1.79,0l-16.54-16.54c-.5-.5-.5-1.3,0-1.79l16.54-16.54c.5-.5,1.3-.5,1.79,0Z" fill="currentColor"></path>
+              <path d="M30.9,15.06L44.34,1.62c.6-.6.17-1.62-.67-1.62h-27.02c-.34,0-.66.13-.9.37L1.49,14.62c-1.98,1.98-1.98,5.18-.01,7.17l14.44,14.52c.24.24.56.37.9.37h27.14c.85,0,1.27-1.02.67-1.62l-13.72-13.72c-1.73-1.73-1.73-4.54,0-6.28Z" fill="currentColor"></path>
+              <path d="M62.72,15.06L49.28,1.62C48.69,1.02,49.11,0,49.96,0h27.02c.34,0,.66.13.9.37l14.26,14.25c1.98,1.98,1.98,5.18.01,7.17l-14.44,14.52c-.24.24-.56.37-.9.37h-27.14c-.85,0-1.27-1.02-.67-1.62l13.72-13.72c1.73-1.73,1.73-4.54,0-6.28Z" fill="currentColor"></path>
+            </g>
+            <g>
+              <text x="100" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="currentColor" letter-spacing="0.5px">STAY DRIPPED</text>
+              <text x="100" y="45" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="currentColor" letter-spacing="1px">MOBILE IV THERAPY</text>
+            </g>
+          </svg>
         </a>
+      </div>
 
-        <nav class="nav">
-          <ul class="nav-links">
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="pages/services.html" class="nav-link">Services</a></li>
-            <li><a href="pages/iv-menu.html" class="nav-link">IV Menu</a></li>
-            <li><a href="pages/pricing.html" class="nav-link">Pricing</a></li>
-            <li><a href="pages/booking.html" class="nav-link">Book Now</a></li>
-            <li>
-              <a href="pages/membership.html" class="nav-link">Membership</a>
+      <button class="hamburger" aria-label="Open menu" type="button" tabindex="0">
+        <svg stroke="currentcolor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" color="#fff" style="color:#fff" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav class="navigation">
+        <ul class="nav-list">
+          <li><a href="/pages/about.html">About</a></li>
+          <li><a href="/pages/membership.html">Membership</a></li>
+          <li class="dropdown-parent">
+            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Treatments</button>
+            <div class="dropdown-menu treatment-dropdown">
+              <div class="dropdown-title">Explore Treatments</div>
+              <div class="treatment-grid">
+                <a class="treatment-item" href="/pages/iv-therapy.html">
+                  <div class="treatment-img">
+                    <img src="/modules/menu/iv-therapy.webp" alt="IV Therapy">
+                  </div>
+                  <div class="treatment-label">IV Hydration</div>
+                </a>
+                <a class="treatment-item" href="/pages/nad-therapy.html">
+                  <div class="treatment-img">
+                    <img src="/modules/menu/nad-therapy.webp" alt="NAD+ Therapy">
+                  </div>
+                  <div class="treatment-label">NAD+ Anti-Aging</div>
+                </a>
+                <a class="treatment-item" href="/pages/vitamin-shots.html">
+                  <div class="treatment-img">
+                    <img src="/modules/menu/vitamin-shots.webp" alt="Vitamin Shots">
+                  </div>
+                  <div class="treatment-label">Vitamin Injections</div>
+                </a>
+                <a class="treatment-item" href="/pages/wellness-iv.html">
+                  <div class="treatment-img">
+                    <img src="/modules/menu/wellness-iv.webp" alt="Wellness IV">
+                  </div>
+                  <div class="treatment-label">Wellness IV</div>
+                </a>
+                <a class="treatment-item" href="/pages/hangover-relief.html">
+                  <div class="treatment-img">
+                    <img src="/modules/menu/hangover-relief.webp" alt="Hangover Relief">
+                  </div>
+                  <div class="treatment-label">Hangover Relief</div>
+                </a>
+                <a class="treatment-item" href="/pages/athletic-recovery.html">
+                  <div class="treatment-img">
+                    <img src="/modules/menu/athletic-recovery.webp" alt="Athletic Recovery">
+                  </div>
+                  <div class="treatment-label">Athletic Recovery</div>
+                </a>
+              </div>
+              <div style="margin-top:1.5rem;text-align:center;display:flex;justify-content:center">
+                <a href="/pages/services.html" class="vitabella-button">
+                  <span>View All Services</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730.01 730.01" width="30" height="30" class="vitabella-arrow">
+                    <circle cx="365.01" cy="365.01" r="365.01" fill="var(--arrow-circle-color)" class="arrow-circle"></circle>
+                    <path d="M250.42,511.01l215.63-215.63v193.17h44.92V219.01H241.44v44.92h193.17l-215.63,215.63,31.45,31.45Z" fill="var(--arrow-path-color)" class="arrow-path"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown-parent">
+            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" tabindex="0">Resources</button>
+            <div class="dropdown-menu resources-dropdown">
+              <a href="/pages/faq.html">FAQ</a>
+              <a href="/pages/testimonials.html">Testimonials</a>
+              <a href="/pages/blog.html">Blog</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="get-started-btn" href="/pages/booking.html">
+          <span>Book Now</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730.01 730.01" width="30" height="30" class="vitabella-arrow">
+            <circle cx="365.01" cy="365.01" r="365.01" fill="var(--arrow-circle-color)" class="arrow-circle"></circle>
+            <path d="M250.42,511.01l215.63-215.63v193.17h44.92V219.01H241.44v44.92h193.17l-215.63,215.63,31.45,31.45Z" fill="var(--arrow-path-color)" class="arrow-path"></path>
+          </svg>
+        </a>
+        <a href="tel:+16026889825" class="login-btn">Call (602) 688-9825</a>
+      </div>
+
+      <div class="mobile-menu">
+        <div class="mobile-menu-content">
+          <ul class="mobile-nav-list">
+            <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/membership.html">Membership</a></li>
+            <li class="mobile-dropdown-parent">
+              <button class="mobile-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                Treatments
+                <svg stroke="currentcolor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="mobile-caret" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="mobile-dropdown-menu treatment-dropdown">
+                <div class="dropdown-title">Explore Treatments</div>
+                <div class="treatment-grid">
+                  <a class="treatment-item" href="/pages/iv-therapy.html">
+                    <div class="treatment-img">
+                      <img src="/modules/menu/iv-therapy.webp" alt="IV Therapy">
+                    </div>
+                    <div class="treatment-label">IV Hydration</div>
+                  </a>
+                  <a class="treatment-item" href="/pages/nad-therapy.html">
+                    <div class="treatment-img">
+                      <img src="/modules/menu/nad-therapy.webp" alt="NAD+ Therapy">
+                    </div>
+                    <div class="treatment-label">NAD+ Anti-Aging</div>
+                  </a>
+                  <a class="treatment-item" href="/pages/vitamin-shots.html">
+                    <div class="treatment-img">
+                      <img src="/modules/menu/vitamin-shots.webp" alt="Vitamin Shots">
+                    </div>
+                    <div class="treatment-label">Vitamin Injections</div>
+                  </a>
+                  <a class="treatment-item" href="/pages/wellness-iv.html">
+                    <div class="treatment-img">
+                      <img src="/modules/menu/wellness-iv.webp" alt="Wellness IV">
+                    </div>
+                    <div class="treatment-label">Wellness IV</div>
+                  </a>
+                </div>
+                <div style="margin-top:1.5rem;text-align:center">
+                  <a href="/pages/services.html" class="vitabella-button">
+                    <span>View All Services</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730.01 730.01" width="30" height="30" class="vitabella-arrow">
+                      <circle cx="365.01" cy="365.01" r="365.01" fill="var(--arrow-circle-color)" class="arrow-circle"></circle>
+                      <path d="M250.42,511.01l215.63-215.63v193.17h44.92V219.01H241.44v44.92h193.17l-215.63,215.63,31.45,31.45Z" fill="var(--arrow-path-color)" class="arrow-path"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="mobile-login">
+              <a href="tel:+16026889825" class="login-btn">Call (602) 688-9825</a>
             </li>
           </ul>
-
-          <div class="header-actions">
-            <a href="tel:+16026889825" class="btn btn-primary">
-              <i class="fas fa-phone"></i>
-              (602) 688-9825
-            </a>
-          </div>
-
-          <button
-            class="mobile-menu-btn"
-            aria-label="Open mobile menu"
-            aria-expanded="false"
-          >
-            <div class="hamburger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </button>
-        </nav>
+        </div>
       </div>
-      <div class="scroll-progress"></div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-      <div class="mobile-menu-content">
-        <div class="mobile-menu-header">
-          <div class="logo">
-            <div class="logo-icon">
-              <i class="fas fa-tint"></i>
-            </div>
-            <span class="logo-text">Stay Dripped</span>
-          </div>
-          <button class="mobile-menu-close" aria-label="Close mobile menu">
-            <i class="fas fa-times"></i>
-          </button>
+  <div class="container">
+    <div class="hero-body" style="background-image:url('https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2Fe8f02bdd560944b1928c770824445216?format=webp&width=800');background-color:#007AFF">
+      <div class="hero-container" style="background-image:url('/modules/hero/iv-therapy.webp')">
+        <div class="hero-heading-test">CLINICALLY PROVEN</div>
+        <h1 class="highlight" style="color:#CEE9FF">Mobile IV Therapy</h1>
+        <p class="subtext">Professional IV hydration, NAD+ therapy, and wellness treatments delivered to your location in Phoenix Valley.</p>
+        
+        <div style="display:flex;flex-direction:row;gap:20px;align-items:center;justify-content:flex-start;width:auto;margin-bottom:0">
+          <a href="/pages/booking.html" class="vitabella-button" style="background:#CEE9FF;color:#007AFF;font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:1.1rem;border:none;border-radius:2rem;padding:0.4rem 0.4rem 0.4rem 1.4rem;min-width:200px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;box-shadow:0 2px 8px rgba(44, 60, 50, 0.07);transition:background 0.18s, color 0.18s, box-shadow 0.18s;position:relative;cursor:pointer;width:250px;align-self:flex-start;--arrow-circle-color:#007AFF;--arrow-path-color:#CEE9FF">
+            <span style="flex:1;text-align:left;text-decoration:none">Book Treatment Now</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730.01 730.01" width="30" height="30" class="vitabella-arrow" style="margin-left:0.7em;margin-right:0.2em;width:30px;height:30px">
+              <circle cx="365.01" cy="365.01" r="365.01" fill="var(--arrow-circle-color)" class="arrow-circle"></circle>
+              <path d="M250.42,511.01l215.63-215.63v193.17h44.92V219.01H241.44v44.92h193.17l-215.63,215.63,31.45,31.45Z" fill="var(--arrow-path-color)" class="arrow-path"></path>
+            </svg>
+          </a>
+          <a href="/pages/services.html" class="vitabella-button" style="background:#fff;color:#007AFF;font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:1.1rem;border:none;border-radius:2rem;padding:0.4rem 0.4rem 0.4rem 1.4rem;min-width:150px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;box-shadow:0 2px 8px rgba(44, 60, 50, 0.07);transition:background 0.18s, color 0.18s, box-shadow 0.18s;position:relative;cursor:pointer;width:175px;align-self:flex-start;margin-bottom:0;--arrow-circle-color:#007AFF;--arrow-path-color:#CEE9FF">
+            <span style="flex:1;text-align:left;text-decoration:none">Learn More</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730.01 730.01" width="30" height="30" class="vitabella-arrow" style="margin-left:0.7em;margin-right:0.2em;width:30px;height:30px">
+              <circle cx="365.01" cy="365.01" r="365.01" fill="var(--arrow-circle-color)" class="arrow-circle"></circle>
+              <path d="M250.42,511.01l215.63-215.63v193.17h44.92V219.01H241.44v44.92h193.17l-215.63,215.63,31.45,31.45Z" fill="var(--arrow-path-color)" class="arrow-path"></path>
+            </svg>
+          </a>
         </div>
 
-        <nav class="mobile-menu-nav">
-          <ul class="mobile-menu-list">
-            <li class="mobile-menu-item">
-              <a href="#home" class="mobile-menu-link active">
-                <div class="mobile-menu-icon">
-                  <i class="fas fa-home"></i>
-                </div>
-                <span>Home</span>
-              </a>
-            </li>
-            <li class="mobile-menu-item">
-              <a href="pages/services.html" class="mobile-menu-link">
-                <div class="mobile-menu-icon">
-                  <i class="fas fa-heartbeat"></i>
-                </div>
-                <span>Services</span>
-              </a>
-            </li>
-            <li class="mobile-menu-item">
-              <a href="pages/iv-menu.html" class="mobile-menu-link">
-                <div class="mobile-menu-icon">
-                  <i class="fas fa-tint"></i>
-                </div>
-                <span>IV Menu</span>
-              </a>
-            </li>
-            <li class="mobile-menu-item">
-              <a href="pages/pricing.html" class="mobile-menu-link">
-                <div class="mobile-menu-icon">
-                  <i class="fas fa-dollar-sign"></i>
-                </div>
-                <span>Pricing</span>
-              </a>
-            </li>
-            <li class="mobile-menu-item">
-              <a href="pages/booking.html" class="mobile-menu-link">
-                <div class="mobile-menu-icon">
-                  <i class="fas fa-calendar-plus"></i>
-                </div>
-                <span>Book Now</span>
-              </a>
-            </li>
-            <li class="mobile-menu-item">
-              <a href="pages/membership.html" class="mobile-menu-link">
-                <div class="mobile-menu-icon">
-                  <i class="fas fa-crown"></i>
-                </div>
-                <span>Membership</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div class="divider"></div>
+        <div class="testimonial">
+          <img alt="review people" width="142" height="49" decoding="async" data-nimg="1" style="color:transparent;width:142px;height:49px;min-width:142px;min-height:49px;object-fit:contain" src="/modules/fourreviewpeople.webp">
+          <div class="testimonial-text">
+            <h4>5,000+ Customers</h4>
+            <p style="color:#CEE9FF">received premium mobile IV therapy treatments</p>
+          </div>
+        </div>
+      </div>
 
-        <div class="mobile-menu-cta">
-          <a href="tel:+16026889825" class="btn btn-primary btn-full">
-            <i class="fas fa-phone"></i>
-            Call (602) 688-9825
-          </a>
-          <a href="pages/booking.html" class="btn btn-secondary btn-full">
-            <i class="fas fa-calendar-plus"></i>
-            Book Treatment Now
-          </a>
+      <div class="navbar" style="border-top-color:#CEE9FF">
+        <div class="navbar-inner">
+          <button data-category="iv-hydration" class="active" style="background-color:#007AFF;color:#fff">
+            <span style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img alt="IV Hydration Icon" loading="lazy" width="40" height="40" decoding="async" data-nimg="1" style="color:transparent;width:40px;height:40px" src="/modules/iv-hydration.svg">
+              <span style="font-size:14px;font-weight:600">IV Hydration</span>
+            </span>
+          </button>
+          <button data-category="nad-therapy" class="">
+            <span style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img alt="NAD+ Therapy Icon" loading="lazy" width="40" height="40" decoding="async" data-nimg="1" style="color:transparent;width:40px;height:40px" src="/modules/nad-therapy.svg">
+              <span style="font-size:14px;font-weight:600">NAD+ Therapy</span>
+            </span>
+          </button>
+          <button data-category="vitamin-shots" class="">
+            <span style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img alt="Vitamin Shots Icon" loading="lazy" width="40" height="40" decoding="async" data-nimg="1" style="color:transparent;width:40px;height:40px" src="/modules/vitamin-shots.svg">
+              <span style="font-size:14px;font-weight:600">Vitamin Shots</span>
+            </span>
+          </button>
+          <button data-category="wellness-iv" class="">
+            <span style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img alt="Wellness IV Icon" loading="lazy" width="40" height="40" decoding="async" data-nimg="1" style="color:transparent;width:40px;height:40px" src="/modules/wellness-iv.svg">
+              <span style="font-size:14px;font-weight:600">Wellness IV</span>
+            </span>
+          </button>
+          <button data-category="hangover-relief" class="">
+            <span style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img alt="Hangover Relief Icon" loading="lazy" width="40" height="40" decoding="async" data-nimg="1" style="color:transparent;width:40px;height:40px" src="/modules/hangover-relief.svg">
+              <span style="font-size:14px;font-weight:600">Hangover Relief</span>
+            </span>
+          </button>
+          <button data-category="athletic-recovery" class="">
+            <span style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <img alt="Athletic Recovery Icon" loading="lazy" width="40" height="40" decoding="async" data-nimg="1" style="color:transparent;width:40px;height:40px" src="/modules/athletic-recovery.svg">
+              <span style="font-size:14px;font-weight:600">Athletic Recovery</span>
+            </span>
+          </button>
         </div>
       </div>
     </div>
 
-    <main id="main">
-      <!-- Hero Section -->
-      <section class="hero" id="home">
-        <div
-          class="hero-bg parallax"
-          style="
-            background-image: url(&quot;https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2Fe8f02bdd560944b1928c770824445216?format=webp&width=800&quot;);
-          "
-        ></div>
-
-        <div class="container">
-          <div class="hero-content">
-            <h1
-              class="hero-title display-1 fade-in"
-              data-text="Premium Mobile IV Therapy Delivered to You"
-            >
-              Premium Mobile IV Therapy
-              <br />Delivered to You
-            </h1>
-            <p class="hero-subtitle fade-in">
-              Professional IV hydration, NAD+ therapy, vitamin injections, and
-              wellness treatments delivered to your location in Phoenix Valley.
-              Same-day service available.
-            </p>
-
-            <div class="hero-cta fade-in">
-              <a
-                href="pages/booking.html"
-                class="btn btn-primary btn-lg hover-lift"
-              >
-                <i class="fas fa-calendar-plus"></i>
-                Book Treatment Now
-              </a>
-              <a
-                href="tel:+16026889825"
-                class="btn btn-secondary btn-lg hover-lift"
-              >
-                <i class="fas fa-phone"></i>
-                Call (602) 688-9825
-              </a>
-            </div>
-
-            <div class="hero-stats glass fade-in">
-              <div class="stat hover-float">
-                <span class="stat-number animate-count">5000+</span>
-                <span class="stat-label">Treatments Delivered</span>
-              </div>
-              <div class="stat hover-float">
-                <span class="stat-number animate-count">98%</span>
-                <span class="stat-label">Client Satisfaction</span>
-              </div>
-              <div class="stat hover-float">
-                <span class="stat-number animate-count">45</span>
-                <span class="stat-label">Min Response Time</span>
-              </div>
-              <div class="stat hover-float">
-                <span class="stat-number animate-count">7</span>
-                <span class="stat-label">Days Weekly</span>
-              </div>
-            </div>
-          </div>
+    <div class="home">
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="h2-alt">One Service.</div>
+          <div class="h2">A lifetime of wellness.</div>
         </div>
-
-        <a href="#services" class="hero-scroll">
-          <span>Scroll to explore</span>
-        </a>
-      </section>
-
-      <!-- Social Proof Section -->
-      <section class="section bg-white">
-        <div class="container">
-          <div class="text-center scroll-reveal">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">
-              Trusted by Thousands Across Phoenix Valley
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              From luxury homes to corporate events, we deliver premium IV
-              therapy wherever you are
-            </p>
-          </div>
-
-          <div class="grid grid-3 gap-8 mt-16 stagger-children">
-            <div class="surface hover-lift fade-in overflow-hidden">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2Fd512f00abdbb47a2a7138d2c3f93fb00?format=webp&width=800"
-                alt="Group IV therapy session at luxury poolside location"
-                class="w-full h-64 object-cover"
-              />
-            </div>
-            <div class="surface hover-lift fade-in overflow-hidden">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2Fc6aa22b70ba1400aa4e4c836eae1df57?format=webp&width=800"
-                alt="Friends enjoying IV therapy treatment in modern living room"
-                class="w-full h-64 object-cover"
-              />
-            </div>
-            <div class="surface hover-lift fade-in overflow-hidden">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2F4409386656d8483d889bb3f5a3e66093?format=webp&width=800"
-                alt="Mobile IV therapy service in luxury RV for events"
-                class="w-full h-64 object-cover"
-              />
-            </div>
-          </div>
-
-          <div class="text-center mt-12 scroll-reveal">
-            <blockquote class="text-xl text-gray-700 font-semibold mb-4">
-              "The convenience and professionalism exceeded our expectations.
-              Perfect for our group events!"
-            </blockquote>
-            <div class="flex items-center justify-center gap-2">
-              <div class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</div>
-              <span class="text-gray-600 ml-2"
-                >Verified Phoenix Valley Clients</span
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Services Section -->
-      <section class="section bg-gray-50" id="services">
-        <div class="container">
-          <div class="text-center scroll-reveal mb-16">
-            <h2 class="text-5xl font-bold text-gray-900 mb-6">
-              Our Premium Services
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Professional mobile IV therapy and wellness treatments delivered
-              by licensed medical professionals
-            </p>
-          </div>
-
-          <div class="grid grid-auto-fit gap-8 stagger-children">
-            <div class="service-card scroll-reveal">
-              <div class="service-icon">
-                <i class="fas fa-tint"></i>
-              </div>
-              <h3 class="service-title">IV Hydration Therapy</h3>
-              <p class="service-description">
-                Rapid rehydration and nutrient delivery with customized vitamin
-                blends for optimal wellness.
-              </p>
-              <ul class="service-features">
-                <li>Myers' Cocktail IV Drips</li>
-                <li>Hangover Relief Treatment</li>
-                <li>Athletic Recovery Infusions</li>
-                <li>Custom Vitamin Blends</li>
-              </ul>
-              <a
-                href="pages/booking-iv-therapy.html"
-                class="btn btn-primary btn-full"
-              >
-                Book IV Therapy
-              </a>
-            </div>
-
-            <div class="service-card scroll-reveal">
-              <div class="service-icon">
-                <i class="fas fa-dna"></i>
-              </div>
-              <h3 class="service-title">NAD+ Anti-Aging</h3>
-              <p class="service-description">
-                Cutting-edge NAD+ therapy for cellular repair, mental clarity,
-                and anti-aging benefits.
-              </p>
-              <ul class="service-features">
-                <li>Cellular Regeneration</li>
-                <li>Mental Clarity Enhancement</li>
-                <li>Energy Level Boost</li>
-                <li>Anti-Aging Benefits</li>
-              </ul>
-              <a href="pages/booking.html" class="btn btn-primary btn-full">
-                Book NAD+ Therapy
-              </a>
-            </div>
-
-            <div class="service-card scroll-reveal">
-              <div class="service-icon">
-                <i class="fas fa-syringe"></i>
-              </div>
-              <h3 class="service-title">Vitamin Injections</h3>
-              <p class="service-description">
-                Quick and effective vitamin shots for energy, weight management,
-                and overall wellness.
-              </p>
-              <ul class="service-features">
-                <li>B12 Energy Shots</li>
-                <li>Lipo Weight Management</li>
-                <li>Vitamin D Injections</li>
-                <li>Custom Formulations</li>
-              </ul>
-              <a
-                href="pages/booking-vitamin-shots.html"
-                class="btn btn-primary btn-full"
-              >
-                Book Vitamin Shots
-              </a>
-            </div>
-
-            <div class="service-card scroll-reveal">
-              <div class="service-icon">
-                <i class="fas fa-crown"></i>
-              </div>
-              <h3 class="service-title">VIP Membership</h3>
-              <p class="service-description">
-                Exclusive membership benefits with priority booking and
-                significant savings on treatments.
-              </p>
-              <ul class="service-features">
-                <li>Up to 30% Savings</li>
-                <li>Priority Booking</li>
-                <li>Monthly Treatment Credits</li>
-                <li>VIP Customer Support</li>
-              </ul>
-              <a
-                href="pages/booking-membership.html"
-                class="btn btn-primary btn-full"
-              >
-                Join VIP Program
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <section class="section bg-white" id="about">
-        <div class="container">
-          <div class="grid grid-2 gap-16 items-center">
-            <div class="scroll-reveal">
-              <h2 class="text-5xl font-bold text-gray-900 mb-6">
-                Why Choose Stay Dripped?
-              </h2>
-              <p class="text-lg text-gray-600 leading-relaxed mb-8">
-                We're Phoenix Valley's premier mobile IV therapy service,
-                delivering professional wellness treatments directly to your
-                location. Our licensed medical professionals use only the
-                highest quality ingredients and sterile techniques to ensure
-                your safety and satisfaction.
-              </p>
-
-              <div class="grid grid-2 gap-6">
-                <div
-                  class="flex items-center gap-4 glass p-4 rounded-xl hover-lift"
-                >
-                  <div
-                    class="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-xl text-white"
-                  >
-                    <i class="fas fa-user-md"></i>
-                  </div>
-                  <span class="font-semibold text-gray-700"
-                    >Licensed Medical Professionals</span
-                  >
-                </div>
-                <div
-                  class="flex items-center gap-4 glass p-4 rounded-xl hover-lift"
-                >
-                  <div
-                    class="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-xl text-white"
-                  >
-                    <i class="fas fa-home"></i>
-                  </div>
-                  <span class="font-semibold text-gray-700"
-                    >Mobile Service to You</span
-                  >
-                </div>
-                <div
-                  class="flex items-center gap-4 glass p-4 rounded-xl hover-lift"
-                >
-                  <div
-                    class="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-xl text-white"
-                  >
-                    <i class="fas fa-clock"></i>
-                  </div>
-                  <span class="font-semibold text-gray-700"
-                    >Same-Day Availability</span
-                  >
-                </div>
-                <div
-                  class="flex items-center gap-4 glass p-4 rounded-xl hover-lift"
-                >
-                  <div
-                    class="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-xl text-white"
-                  >
-                    <i class="fas fa-shield-alt"></i>
-                  </div>
-                  <span class="font-semibold text-gray-700"
-                    >FDA-Approved Ingredients</span
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="scroll-reveal">
-              <div class="surface overflow-hidden hover-tilt">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F337c720945064b44af05129952e6433b%2F32984d6b58b94689a11e726a07b915d1?format=webp&width=800"
-                  alt="Licensed medical professional providing IV therapy treatment"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA Section -->
-      <section class="section bg-gradient-primary text-white" id="booking">
-        <div class="container text-center">
-          <div class="scroll-reveal">
-            <h2 class="text-5xl font-bold mb-6">Ready to Feel Your Best?</h2>
-            <p class="text-xl mb-10 max-w-3xl mx-auto opacity-90">
-              Book your premium mobile IV therapy treatment today and experience
-              the difference professional care makes.
-            </p>
-
-            <div
-              class="flex flex-col sm:flex-row items-center justify-center gap-6"
-            >
-              <a
-                href="pages/booking.html"
-                class="btn btn-secondary btn-lg min-w-64"
-              >
-                <i class="fas fa-calendar-plus"></i>
-                Book Treatment Online
-              </a>
-              <a
-                href="tel:+16026889825"
-                class="btn btn-outline btn-lg min-w-64 text-white border-white hover:bg-white hover:text-primary"
-              >
-                <i class="fas fa-phone"></i>
-                Call (602) 688-9825
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-16">
-      <div class="container">
-        <div class="grid grid-4 gap-8 mb-12">
-          <div>
-            <div class="logo mb-6">
-              <div class="logo-icon">
-                <i class="fas fa-tint"></i>
-              </div>
-              <span class="logo-text text-white">Stay Dripped</span>
-            </div>
-            <p class="text-gray-400 mb-4">
-              Premium mobile IV therapy and wellness services delivered to your
-              location in Phoenix Valley.
-            </p>
-            <a
-              href="tel:+16026889825"
-              class="text-primary hover:text-primary-light transition-colors"
-            >
-              <i class="fas fa-phone mr-2"></i> (602) 688-9825
-            </a>
-          </div>
-
-          <div>
-            <h3 class="text-white font-bold mb-6">Services</h3>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="pages/services.html"
-                  class="hover:text-primary transition-colors"
-                  >IV Hydration Therapy</a
-                >
-              </li>
-              <li>
-                <a
-                  href="pages/services.html"
-                  class="hover:text-primary transition-colors"
-                  >NAD+ Anti-Aging</a
-                >
-              </li>
-              <li>
-                <a
-                  href="pages/services.html"
-                  class="hover:text-primary transition-colors"
-                  >Vitamin Injections</a
-                >
-              </li>
-              <li>
-                <a
-                  href="pages/pricing.html"
-                  class="hover:text-primary transition-colors"
-                  >View All Pricing</a
-                >
-              </li>
-              <li>
-                <a
-                  href="pages/membership.html"
-                  class="hover:text-primary transition-colors"
-                  >VIP Membership</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-white font-bold mb-6">Quick Links</h3>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="pages/booking.html"
-                  class="hover:text-primary transition-colors"
-                  >Book Treatment</a
-                >
-              </li>
-              <li>
-                <a
-                  href="pages/client-portal.html"
-                  class="hover:text-primary transition-colors"
-                  >Client Portal</a
-                >
-              </li>
-              <li>
-                <a
-                  href="pages/corporate-events.html"
-                  class="hover:text-primary transition-colors"
-                  >Corporate Events</a
-                >
-              </li>
-              <li>
-                <a
-                  href="pages/testimonials.html"
-                  class="hover:text-primary transition-colors"
-                  >Testimonials</a
-                >
-              </li>
-              <li>
-                <a
-                  href="pages/about.html"
-                  class="hover:text-primary transition-colors"
-                  >About Us</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-white font-bold mb-6">Service Areas</h3>
-            <ul class="space-y-2 text-sm">
-              <li>Phoenix</li>
-              <li>Scottsdale</li>
-              <li>Tempe</li>
-              <li>Mesa</li>
-              <li>Chandler</li>
-              <li>Gilbert</li>
-              <li>Glendale</li>
-              <li>Peoria</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="border-t border-gray-700 pt-8 text-center text-gray-500">
-          <p>
-            &copy; 2024 Stay Dripped Mobile IV. All rights reserved. Licensed
-            medical professionals.
-          </p>
+        <div class="section-header-right body-text">
+          Whether you're looking to boost your energy, enhance recovery, or optimize your health, we're here to deliver professional IV therapy directly to your location.
         </div>
       </div>
-    </footer>
 
-    <!-- Scripts -->
-    <script>
-      // Enhanced Mobile Menu Class
-      class MobileMenu {
-        constructor() {
-          this.toggle = document.querySelector(".mobile-menu-btn");
-          this.menu = document.querySelector(".mobile-menu");
-          this.overlay = document.querySelector(".mobile-menu");
-          this.closeBtn = document.querySelector(".mobile-menu-close");
-          this.links = document.querySelectorAll(".mobile-menu-link");
-          this.isOpen = false;
-          this.init();
-        }
+      <section class="how-it-works" aria-label="How It Works">
+        <div class="how-it-works-card">
+          <div class="how-it-works-content">
+            <div class="step">STEP 1</div>
+            <div class="title">Choose Your Treatment</div>
+            <div class="description">
+              Select from our range of IV hydration, NAD+ therapy, vitamin injections, and wellness treatments tailored to your needs.
+            </div>
+          </div>
+          <div class="img-wrap">
+            <img alt="Choose Treatment" loading="lazy" decoding="async" data-nimg="fill" class="img" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:top center;color:transparent" src="/modules/choose-treatment.webp">
+          </div>
+        </div>
 
-        init() {
-          if (!this.toggle || !this.menu) return;
+        <div class="how-it-works-card">
+          <div class="how-it-works-content">
+            <div class="step">STEP 2</div>
+            <div class="title">Book Your Appointment</div>
+            <div class="description">
+              Schedule your mobile IV therapy session at your preferred location and time. Same-day appointments available.
+            </div>
+          </div>
+          <div class="img-wrap">
+            <img alt="Book Appointment" loading="lazy" decoding="async" data-nimg="fill" class="img" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;color:transparent" src="/modules/book-appointment.webp">
+          </div>
+        </div>
 
-          this.toggle.addEventListener("click", (e) => {
-            e.preventDefault();
-            this.toggleMenu();
-          });
+        <div class="how-it-works-card">
+          <div class="how-it-works-content">
+            <div class="step">STEP 3</div>
+            <div class="title">Receive Professional Care</div>
+            <div class="description">
+              Our licensed medical professionals arrive at your location with all necessary equipment and administer your treatment safely.
+            </div>
+          </div>
+          <div class="img-wrap">
+            <img alt="Professional Care" loading="lazy" decoding="async" data-nimg="fill" class="img" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;color:transparent" src="/modules/professional-care.webp">
+          </div>
+        </div>
 
-          if (this.closeBtn) {
-            this.closeBtn.addEventListener("click", (e) => {
-              e.preventDefault();
-              this.closeMenu();
-            });
-          }
+        <div class="how-it-works-card">
+          <div class="how-it-works-content">
+            <div class="step">STEP 4</div>
+            <div class="title">Feel the Difference</div>
+            <div class="description">
+              Experience rapid hydration, increased energy, and enhanced wellness from the comfort of your chosen location.
+            </div>
+          </div>
+          <div class="img-wrap">
+            <img alt="Feel the Difference" loading="lazy" decoding="async" data-nimg="fill" class="img" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:top center;color:transparent" src="/modules/feel-difference.webp">
+          </div>
+        </div>
+      </section>
 
-          if (this.overlay) {
-            this.overlay.addEventListener("click", (e) => {
-              if (e.target === this.overlay) this.closeMenu();
-            });
-          }
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="h2-alt">Popular Treatments</div>
+          <div class="h2">Hydration & Wellness</div>
+        </div>
+        <div class="section-header-right body-text">
+          Professional IV therapy treatments designed to boost energy, enhance recovery, and optimize your overall wellness.
+        </div>
+      </div>
 
-          this.links.forEach((link) => {
-            link.addEventListener("click", () => {
-              setTimeout(() => this.closeMenu(), 200);
-            });
-          });
+      <div style="width:100%;display:flex;justify-content:center;margin-bottom:48px">
+        <div class="slider-section">
+          <div class="slider-wrapper" style="margin:0 auto;max-width:1340px">
+            <div class="slider-container">
+              <button class="arrow-btn" aria-label="Previous" type="button"><span style="font-size:36px;color:var(--color-primary)">‹</span></button>
+              <div class="slides-flex">
+                <div class="slider-track" style="cursor:grab;user-select:none">
+                  <div style="display:flex;gap:12px;align-items:stretch;height:100%;transform:translateX(0px)">
+                    <div style="height:100%;display:flex;align-items:stretch;opacity:1;transform:none">
+                      <div class="treatment-card">
+                        <a href="/pages/iv-hydration.html" class="image-link" style="display:block;border-radius:18px;overflow:hidden">
+                          <img src="/categories/iv-hydration.webp" alt="IV Hydration" style="width:100%;height:360px;min-height:360px;object-fit:cover;border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,0.07);aspect-ratio:16/9" loading="lazy">
+                        </a>
+                        <div class="card-content">
+                          <div class="card-title" style="font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:28px;color:var(--color-primary);text-transform:none;margin-bottom:6px;text-align:center">IV Hydration</div>
+                          <div class="card-desc" style="font-family:Inter, Arial, Helvetica, sans-serif;font-size:15px;color:var(--color-text-light);text-align:center;margin-bottom:16px;min-height:48px">Rapid rehydration and nutrient delivery for optimal wellness.</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="height:100%;display:flex;align-items:stretch;opacity:1;transform:none">
+                      <div class="treatment-card">
+                        <a href="/pages/nad-therapy.html" class="image-link" style="display:block;border-radius:18px;overflow:hidden">
+                          <img src="/categories/nad-therapy.webp" alt="NAD+ Therapy" style="width:100%;height:360px;min-height:360px;object-fit:cover;border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,0.07);aspect-ratio:16/9" loading="lazy">
+                        </a>
+                        <div class="card-content">
+                          <div class="card-title" style="font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:28px;color:var(--color-primary);text-transform:none;margin-bottom:6px;text-align:center">NAD+ Therapy</div>
+                          <div class="card-desc" style="font-family:Inter, Arial, Helvetica, sans-serif;font-size:15px;color:var(--color-text-light);text-align:center;margin-bottom:16px;min-height:48px">Advanced cellular regeneration for anti-aging and mental clarity.</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="height:100%;display:flex;align-items:stretch;opacity:1;transform:none">
+                      <div class="treatment-card">
+                        <a href="/pages/vitamin-shots.html" class="image-link" style="display:block;border-radius:18px;overflow:hidden">
+                          <img src="/categories/vitamin-shots.webp" alt="Vitamin Shots" style="width:100%;height:360px;min-height:360px;object-fit:cover;border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,0.07);aspect-ratio:16/9" loading="lazy">
+                        </a>
+                        <div class="card-content">
+                          <div class="card-title" style="font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:28px;color:var(--color-primary);text-transform:none;margin-bottom:6px;text-align:center">Vitamin Shots</div>
+                          <div class="card-desc" style="font-family:Inter, Arial, Helvetica, sans-serif;font-size:15px;color:var(--color-text-light);text-align:center;margin-bottom:16px;min-height:48px">Quick and effective vitamin injections for energy and wellness.</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="height:100%;display:flex;align-items:stretch;opacity:1;transform:none">
+                      <div class="treatment-card">
+                        <a href="/pages/wellness-iv.html" class="image-link" style="display:block;border-radius:18px;overflow:hidden">
+                          <img src="/categories/wellness-iv.webp" alt="Wellness IV" style="width:100%;height:360px;min-height:360px;object-fit:cover;border-radius:18px;box-shadow:0 2px 12px rgba(0,0,0,0.07);aspect-ratio:16/9" loading="lazy">
+                        </a>
+                        <div class="card-content">
+                          <div class="card-title" style="font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:28px;color:var(--color-primary);text-transform:none;margin-bottom:6px;text-align:center">Wellness IV</div>
+                          <div class="card-desc" style="font-family:Inter, Arial, Helvetica, sans-serif;font-size:15px;color:var(--color-text-light);text-align:center;margin-bottom:16px;min-height:48px">Comprehensive vitamin and mineral infusion for immune support.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="arrow-btn" aria-label="Next" type="button"><span style="font-size:36px;color:var(--color-primary)">›</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && this.isOpen) {
-              this.closeMenu();
-            }
-          });
-        }
+      <section class="about-story-section container" style="display:flex;align-items:stretch">
+        <div class="about-story-photo" style="flex:1;display:flex;flex-direction:column;padding:0;position:relative;min-height:400px">
+          <img alt="Professional mobile IV therapy service" decoding="async" data-nimg="fill" class="img" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;color:transparent;border-radius:32px;box-shadow:0 2px 12px rgba(0,0,0,0.07)" src="/modules/mobile-iv-service.webp">
+        </div>
+        <div class="about-story-content" style="flex:1;display:flex;flex-direction:column;height:auto">
+          <h2 class="h2" style="font-weight:700;font-size:50px;margin-top:0;margin-bottom:16px;line-height:1.1">Premium Mobile IV Therapy,<br>Delivered to You</h2>
+          <div class="body-text" style="margin-bottom:32px">
+            <p style="margin:0">We bring the highest standard of IV therapy directly to your location. Our licensed medical professionals use FDA-approved ingredients and maintain strict safety protocols to ensure you receive the best possible care in the comfort of your preferred setting.</p>
+            <ul style="margin:18px 0 0 0;padding:0 0 0 18px;font-size:16px;color:#333;line-height:1.6">
+              <li>Licensed medical professionals</li>
+              <li>FDA-approved ingredients and sterile techniques</li>
+              <li>Same-day and next-day appointment availability</li>
+              <li>Mobile service throughout Phoenix Valley</li>
+              <li>Personalized treatment plans for optimal results</li>
+            </ul>
+          </div>
+          <div class="clinically-proven-box">
+            <img alt="Licensed Medical Professional" width="220" height="140" decoding="async" data-nimg="1" class="clinically-proven-img" style="color:transparent" src="/modules/medical-professional.webp">
+            <div class="clinically-proven-content">
+              <div style="font-weight:700;font-size:19px;color:#012B27;margin-bottom:4px">
+                Licensed Medical Professionals <span style="font-weight:400">You Can Trust</span>
+              </div>
+              <div style="font-size:15px;color:#333;margin-bottom:12px">
+                At Stay Dripped, our certified medical professionals provide safe, effective IV therapy treatments using the latest protocols and highest quality ingredients.
+              </div>
+              <a href="/pages/booking.html" class="vitabella-button" style="background:var(--color-primary);color:var(--color-white);font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:16px;border:none;border-radius:2rem;padding:0.4rem 0.4rem 0.4rem 1.4rem;min-width:180px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;box-shadow:0 2px 8px rgba(44, 60, 50, 0.07);transition:background 0.18s, color 0.18s, box-shadow 0.18s;position:relative;cursor:pointer;--arrow-circle-color:var(--color-light);--arrow-path-color:var(--color-primary)">
+                <span style="flex:1;text-align:left;text-decoration:none">Book Now</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730.01 730.01" width="30" height="30" class="vitabella-arrow" style="margin-left:0.7em;margin-right:0.2em;width:30px;height:30px">
+                  <circle cx="365.01" cy="365.01" r="365.01" fill="var(--arrow-circle-color)" class="arrow-circle"></circle>
+                  <path d="M250.42,511.01l215.63-215.63v193.17h44.92V219.01H241.44v44.92h193.17l-215.63,215.63,31.45,31.45Z" fill="var(--arrow-path-color)" class="arrow-path"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        toggleMenu() {
-          if (this.isOpen) {
-            this.closeMenu();
-          } else {
-            this.openMenu();
-          }
-        }
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="h2-alt">Join 5,000+</div>
+          <div class="h2">satisfied clients.</div>
+        </div>
+        <div class="section-header-right body-text">
+          Experience the convenience and effectiveness of professional mobile IV therapy delivered directly to your location.
+        </div>
+      </div>
 
-        openMenu() {
-          this.isOpen = true;
-          this.menu.classList.add("active");
-          this.toggle.classList.add("active");
-          document.body.style.overflow = "hidden";
-          this.toggle.setAttribute("aria-expanded", "true");
-        }
+      <div style="width:100%;display:flex;justify-content:center">
+        <div class="slider-wrapper">
+          <div class="slider-container">
+            <button class="arrow-btn" aria-label="Previous" type="button">‹</button>
+            <div class="slides-flex">
+              <div class="slider-track" style="cursor:grab;user-select:none">
+                <div style="display:flex;gap:12px;align-items:stretch;height:100%;transform:translateX(0px)">
+                  <div style="height:100%;display:flex;align-items:stretch;opacity:1;transform:none">
+                    <div class="testimonial-slide">
+                      <img src="/testimonial/client1.webp" alt="Sarah M. after IV therapy treatment" class="testimonial-photo" draggable="false" style="width:100%;height:350px;aspect-ratio:1/1;object-fit:cover;border-radius:12px" loading="lazy">
+                      <div class="testimonial-caption">Sarah M.</div>
+                    </div>
+                  </div>
+                  <div style="height:100%;display:flex;align-items:stretch;opacity:1;transform:none">
+                    <div class="testimonial-slide">
+                      <img src="/testimonial/client2.webp" alt="Michael R. with energy boost" class="testimonial-photo" draggable="false" style="width:100%;height:350px;aspect-ratio:1/1;object-fit:cover;border-radius:12px" loading="lazy">
+                      <div class="testimonial-caption">Michael R.</div>
+                    </div>
+                  </div>
+                  <div style="height:100%;display:flex;align-items:stretch;opacity:1;transform:none">
+                    <div class="testimonial-slide">
+                      <img src="/testimonial/client3.webp" alt="Jessica L. feeling refreshed" class="testimonial-photo" draggable="false" style="width:100%;height:350px;aspect-ratio:1/1;object-fit:cover;border-radius:12px" loading="lazy">
+                      <div class="testimonial-caption">Jessica L.</div>
+                    </div>
+                  </div>
+                  <div style="height:100%;display:flex;align-items:stretch;opacity:1;transform:none">
+                    <div class="testimonial-slide">
+                      <img src="/testimonial/client4.webp" alt="David K. after NAD+ therapy" class="testimonial-photo" draggable="false" style="width:100%;height:350px;aspect-ratio:1/1;object-fit:cover;border-radius:12px" loading="lazy">
+                      <div class="testimonial-caption">David K.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="arrow-btn" aria-label="Next" type="button">›</button>
+          </div>
+        </div>
+      </div>
 
-        closeMenu() {
-          this.isOpen = false;
-          this.menu.classList.remove("active");
-          this.toggle.classList.remove("active");
-          document.body.style.overflow = "";
-          this.toggle.setAttribute("aria-expanded", "false");
-        }
-      }
+      <div class="stats-row">
+        <div class="stats-tiles-group">
+          <div class="stats-tile">
+            <div class="stats-value">5k+</div>
+            <div class="stats-label">Treatments Delivered</div>
+          </div>
+          <div class="stats-tile">
+            <div class="stats-value">98%</div>
+            <div class="stats-label">Client Satisfaction</div>
+          </div>
+          <div class="stats-tile stats-hide-desktop">
+            <div class="stats-value">45min</div>
+            <div class="stats-label">Response Time</div>
+          </div>
+        </div>
+        <div class="stats-transform-tile">
+          <img src="/modules/iv-bag-icon.webp" alt="IV therapy icon" class="stats-transform-img">
+          <div class="stats-transform-left">
+            <div class="stats-stars-row">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--color-light)" style="display:inline-block">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+              </svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--color-light)" style="display:inline-block">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+              </svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--color-light)" style="display:inline-block">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+              </svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--color-light)" style="display:inline-block">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+              </svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--color-light)" style="display:inline-block">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+              </svg>
+            </div>
+            <span class="stats-transform-reviews">4.9/5 Star Reviews</span>
+          </div>
+          <div class="stats-transform-right">
+            <div class="stats-transform-headline">
+              <span>BOOST YOUR WELLNESS.</span>
+              <span>BOOK TODAY</span>
+            </div>
+            <a href="/pages/booking.html" class="vitabella-button" style="background:var(--color-light);color:var(--color-primary);font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:16px;border:none;border-radius:2rem;padding:0.4rem 0.4rem 0.4rem 1.4rem;min-width:180px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;box-shadow:0 2px 8px rgba(44, 60, 50, 0.07);transition:background 0.18s, color 0.18s, box-shadow 0.18s;position:relative;cursor:pointer;width:fit-content;max-width:100%;--arrow-circle-color:var(--color-primary);--arrow-path-color:var(--color-light)">
+              <span style="flex:1;text-align:left;text-decoration:none">Book Treatment</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730.01 730.01" width="30" height="30" class="vitabella-arrow" style="margin-left:0.7em;margin-right:0.2em;width:30px;height:30px">
+                <circle cx="365.01" cy="365.01" r="365.01" fill="var(--arrow-circle-color)" class="arrow-circle"></circle>
+                <path d="M250.42,511.01l215.63-215.63v193.17h44.92V219.01H241.44v44.92h193.17l-215.63,215.63,31.45,31.45Z" fill="var(--arrow-path-color)" class="arrow-path"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
 
-      // Enhanced Scroll Effects
-      class ScrollEffects {
-        constructor() {
-          this.header = document.getElementById("header");
-          this.progressBar = document.querySelector(".scroll-progress");
-          this.parallaxElements = document.querySelectorAll(".parallax");
-          this.init();
-        }
+      <div style="width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;background:var(--color-primary);padding:var(--space-4x) 0;border-radius:32px;margin-top:var(--space-3x)">
+        <div class="container">
+          <div class="pricing-comparison-row">
+            <div class="pricing-left-col">
+              <div style="font-size:56px;font-weight:700;color:var(--color-light);line-height:1;margin-bottom:8px;text-align:left">50%</div>
+              <div class="h4" style="font-family:Inter, Arial, Helvetica, sans-serif;font-weight:400;color:var(--color-white);margin-bottom:8px;text-transform:none;text-align:left">more affordable than clinic visits.</div>
+              <div class="body-text" style="color:var(--color-white);margin-bottom:16px;text-align:left">Get professional IV therapy at your location for less than traditional clinic visits, with no travel time or waiting rooms.</div>
+              <a href="/pages/booking.html" class="vitabella-button start-today-btn" style="background:var(--color-white);color:var(--color-primary);font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:16px;border:none;border-radius:2rem;padding:0.4rem 0.4rem 0.4rem 1.4rem;min-width:0;text-decoration:none;display:inline-flex;align-items:center;justify-content:space-between;gap:1.2rem;box-shadow:0 2px 8px rgba(44, 60, 50, 0.07);transition:background 0.18s, color 0.18s, box-shadow 0.18s;position:relative;cursor:pointer;width:fit-content;max-width:100%;--arrow-circle-color:var(--color-primary);--arrow-path-color:var(--color-light)">
+                <span style="flex:1;text-align:left;text-decoration:none">Book Today</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730.01 730.01" width="30" height="30" class="vitabella-arrow" style="margin-left:0.7em;margin-right:0.2em;width:30px;height:30px">
+                  <circle cx="365.01" cy="365.01" r="365.01" fill="var(--arrow-circle-color)" class="arrow-circle"></circle>
+                  <path d="M250.42,511.01l215.63-215.63v193.17h44.92V219.01H241.44v44.92h193.17l-215.63,215.63,31.45,31.45Z" fill="var(--arrow-path-color)" class="arrow-path"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="pricing-right-col">
+              <div style="overflow-x:auto">
+                <table style="width:100%;color:var(--color-white);border-collapse:collapse;font-size:16px">
+                  <thead>
+                    <tr style="border-bottom:1px solid rgba(255,255,255,0.18)">
+                      <th style="text-align:left;padding:6px 8px;font-weight:700;color:var(--color-light);white-space:nowrap">
+                        <span class="h6" style="color:var(--color-light);font-weight:700;margin-bottom:0">Service</span>
+                      </th>
+                      <th style="text-align:center;padding:6px 8px;font-weight:700;color:var(--color-white)">Traditional Clinics</th>
+                      <th style="text-align:center;padding:6px 8px;font-weight:700;color:var(--color-white)">
+                        <span style="display:inline-flex;align-items:center;gap:0;justify-content:center;width:100%">Stay Dripped Mobile</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="background:rgba(0,0,0,0.10)">
+                      <td style="padding:6px 8px">IV Hydration</td>
+                      <td style="text-align:center;padding:6px 8px">$250 + travel time</td>
+                      <td style="text-align:center;padding:6px 8px">$149 at your location</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:6px 8px">NAD+ Therapy</td>
+                      <td style="text-align:center;padding:6px 8px">$800 + travel time</td>
+                      <td style="text-align:center;padding:6px 8px">$449 at your location</td>
+                    </tr>
+                    <tr style="background:rgba(0,0,0,0.10)">
+                      <td style="padding:6px 8px">Mobile Service</td>
+                      <td style="text-align:center;padding:6px 8px">No</td>
+                      <td style="text-align:center;padding:6px 8px">Yes</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:6px 8px">Same-Day Availability</td>
+                      <td style="text-align:center;padding:6px 8px">Limited</td>
+                      <td style="text-align:center;padding:6px 8px">Yes</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="asterisk-row">
+                <div class="asterisk-text">*Prices subject to location and treatment selection</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        init() {
-          window.addEventListener("scroll", () => {
-            this.updateHeader();
-            this.updateProgress();
-            this.updateParallax();
-          });
-        }
+      <section class="newsletter-section">
+        <div class="bg-wrap">
+          <img alt="Newsletter background" decoding="async" data-nimg="fill" class="bg-image" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="/modules/newsletter-bg.webp">
+          <div class="bg-gradient"></div>
+        </div>
+        <div class="container">
+          <div class="content-box">
+            <h2 class="newsletter-title">
+              <span class="newsletter-title-main">STAY UPDATED</span><br>
+              <span class="newsletter-title-sub">JOIN OUR NEWSLETTER</span>
+            </h2>
+            <div class="newsletter-desc">
+              Stay informed about new treatments, wellness tips, and exclusive offers for premium mobile IV therapy services.
+            </div>
+            <form class="newsletter-form" autocomplete="off">
+              <input type="email" class="newsletter-input" placeholder="Enter your e-mail address" required="" value="">
+              <button type="submit" class="vitabella-button signup-btn" style="background:var(--color-primary);color:var(--color-white);font-family:Inter, Arial, Helvetica, sans-serif;font-weight:700;font-size:16px;border:none;border-radius:2rem;padding:0.4rem 0.4rem 0.4rem 1.4rem;min-width:180px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;box-shadow:0 2px 8px rgba(44, 60, 50, 0.07);transition:background 0.18s, color 0.18s, box-shadow 0.18s;position:relative;cursor:pointer;--arrow-circle-color:var(--color-light);--arrow-path-color:var(--color-primary)">
+                <span style="flex:1;text-align:left;text-decoration:none">Sign Up</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730.01 730.01" width="30" height="30" class="vitabella-arrow" style="margin-left:0.7em;margin-right:0.2em;width:30px;height:30px">
+                  <circle cx="365.01" cy="365.01" r="365.01" fill="var(--arrow-circle-color)" class="arrow-circle"></circle>
+                  <path d="M250.42,511.01l215.63-215.63v193.17h44.92V219.01H241.44v44.92h193.17l-215.63,215.63,31.45,31.45Z" fill="var(--arrow-path-color)" class="arrow-path"></path>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 
-        updateHeader() {
-          const scrolled = window.scrollY > 50;
-          if (scrolled) {
-            this.header.classList.add("scrolled");
-          } else {
-            this.header.classList.remove("scrolled");
-          }
-        }
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-col brand">
+        <div class="footer-logo-row">
+          <a href="/" aria-label="Stay Dripped Mobile IV Home" style="display:inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 78.82" style="height:40px;margin-bottom:8px;color:var(--color-text)">
+              <g>
+                <path d="M47.71,43.57l16.54,16.54c.5.5.5,1.3,0,1.79l-16.54,16.54c-.5.5-1.3.5-1.79,0l-16.54-16.54c-.5-.5-.5-1.3,0-1.79l16.54-16.54c.5-.5,1.3-.5,1.79,0Z" fill="currentColor"></path>
+                <path d="M30.9,15.06L44.34,1.62c.6-.6.17-1.62-.67-1.62h-27.02c-.34,0-.66.13-.9.37L1.49,14.62c-1.98,1.98-1.98,5.18-.01,7.17l14.44,14.52c.24.24.56.37.9.37h27.14c.85,0,1.27-1.02.67-1.62l-13.72-13.72c-1.73-1.73-1.73-4.54,0-6.28Z" fill="currentColor"></path>
+                <path d="M62.72,15.06L49.28,1.62C48.69,1.02,49.11,0,49.96,0h27.02c.34,0,.66.13.9.37l14.26,14.25c1.98,1.98,1.98,5.18.01,7.17l-14.44,14.52c-.24.24-.56.37-.9.37h-27.14c-.85,0-1.27-1.02-.67-1.62l13.72-13.72c1.73-1.73,1.73-4.54,0-6.28Z" fill="currentColor"></path>
+              </g>
+              <g>
+                <text x="100" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="currentColor" letter-spacing="0.5px">STAY DRIPPED</text>
+                <text x="100" y="45" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="currentColor" letter-spacing="1px">MOBILE IV</text>
+              </g>
+            </svg>
+          </a>
+        </div>
+        <p class="footer-brand-desc">Stay Dripped Mobile IV is a leading provider of professional mobile IV therapy services, specializing in hydration therapy, NAD+ treatments, and vitamin injections. Our team of licensed medical professionals is dedicated to delivering the highest quality care directly to your location throughout Phoenix Valley.</p>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"></path>
+            </svg>
+            <a href="tel:+1-602-688-9825">(602) 688-9825</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"></path>
+            </svg>
+            <a href="mailto:info@staydrippedmobileiv.com">info@staydrippedmobileiv.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path>
+            </svg>
+            <span>Serving Phoenix Valley & Scottsdale Area</span>
+          </div>
+        </div>
+      </div>
 
-        updateProgress() {
-          const scrollPercent =
-            (window.scrollY /
-              (document.documentElement.scrollHeight - window.innerHeight)) *
-            100;
-          if (this.progressBar) {
-            this.progressBar.style.transform = `scaleX(${scrollPercent / 100})`;
-          }
-        }
+      <div class="footer-col">
+        <div class="footer-col-title">TREATMENTS</div>
+        <ul>
+          <li><a href="/pages/iv-hydration.html">IV Hydration</a></li>
+          <li><a href="/pages/nad-therapy.html">NAD+ Therapy</a></li>
+          <li><a href="/pages/vitamin-shots.html">Vitamin Shots</a></li>
+          <li><a href="/pages/wellness-iv.html">Wellness IV</a></li>
+          <li><a href="/pages/hangover-relief.html">Hangover Relief</a></li>
+          <li><a href="/pages/athletic-recovery.html">Athletic Recovery</a></li>
+        </ul>
+      </div>
 
-        updateParallax() {
-          const scrolled = window.scrollY;
-          this.parallaxElements.forEach((element) => {
-            const rate = scrolled * -0.5;
-            element.style.transform = `translateZ(-200px) scale(1.2) translateY(${rate}px)`;
-          });
-        }
-      }
+      <div class="footer-col">
+        <div class="footer-col-title">STAY DRIPPED</div>
+        <ul>
+          <li><a href="/pages/booking.html">Book Treatment</a></li>
+          <li><a href="/pages/about.html">About Us</a></li>
+          <li><a href="/pages/membership.html">VIP Membership</a></li>
+          <li><a href="/pages/testimonials.html">Testimonials</a></li>
+          <li><a href="/pages/faq.html">FAQs</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
 
-      // Enhanced Intersection Observer
-      class AnimationObserver {
-        constructor() {
-          this.observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -80px 0px",
-          };
-          this.init();
-        }
+      <div class="footer-col">
+        <div class="footer-col-title">SERVICE AREAS</div>
+        <ul>
+          <li>Phoenix</li>
+          <li>Scottsdale</li>
+          <li>Tempe</li>
+          <li>Mesa</li>
+          <li>Chandler</li>
+          <li>Gilbert</li>
+          <li>Glendale</li>
+          <li>Peoria</li>
+        </ul>
+      </div>
+    </div>
 
-        init() {
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible", "revealed");
+    <div class="footer-bottom-wrapper">
+      <div class="footer-bottom">
+        <div>
+          Copyright 2024 © Stay Dripped Mobile IV LLC<br>
+          Stay Dripped® is a registered trademark of Stay Dripped Mobile IV LLC
+        </div>
+        <nav class="footer-bottom-links">
+          <a href="/pages/privacy-policy.html">
+            <span style="display:flex;align-items:center">
+              <svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 640 512" style="margin-right:4px" aria-label="privacy" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c1.8 0 3.5-.2 5.3-.5c-76.3-55.1-99.8-141-103.1-200.2c-16.1-4.8-33.1-7.3-50.7-7.3l-91.4 0zm308.8-78.3l-120 48C358 277.4 352 286.2 352 296c0 63.3 25.9 168.8 134.8 214.2c5.9 2.5 12.6 2.5 18.5 0C614.1 464.8 640 359.3 640 296c0-9.8-6-18.6-15.1-22.3l-120-48c-5.7-2.3-12.1-2.3-17.8 0zM591.4 312c-3.9 50.7-27.2 116.7-95.4 149.7l0-187.8L591.4 312z"></path>
+              </svg>
+              Privacy Policy
+            </span>
+          </a>
+          <a href="/pages/terms.html">
+            <span style="display:flex;align-items:center">
+              <svg stroke="currentcolor" fill="currentcolor" stroke-width="0" viewBox="0 0 384 512" style="margin-right:4px" aria-label="terms" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 288c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128z"></path>
+              </svg>
+              Terms of Service
+            </span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
 
-                // Stagger children animations
-                const children = entry.target.querySelectorAll(
-                  ".service-card, .stat, .fade-in",
-                );
-                children.forEach((child, index) => {
-                  setTimeout(() => {
-                    child.classList.add("visible");
-                  }, index * 100);
-                });
-              }
-            });
-          }, this.observerOptions);
-
-          // Observe scroll reveal elements
-          document
-            .querySelectorAll(".scroll-reveal, .fade-in")
-            .forEach((el) => {
-              observer.observe(el);
-            });
-        }
-      }
-
-      // Enhanced Smooth Scrolling
-      function initSmoothScrolling() {
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
-            if (target) {
-              const headerHeight =
-                document.querySelector(".header").offsetHeight;
-              const targetPosition =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                20;
-
-              window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth",
-              });
-            }
-          });
+  <!-- JavaScript -->
+  <script>
+    // Enhanced mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          mobileMenu.classList.toggle('active');
+          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
       }
-
-      // Counter Animation
-      function animateCounters() {
-        const counters = document.querySelectorAll(".animate-count");
-
-        counters.forEach((counter) => {
-          const target = parseInt(counter.textContent.replace(/[^\d]/g, ""));
-          const suffix = counter.textContent.replace(/[\d]/g, "");
-          let current = 0;
-          const increment = target / 100;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              counter.textContent = target + suffix;
-              clearInterval(timer);
-            } else {
-              counter.textContent = Math.floor(current) + suffix;
-            }
-          }, 20);
+      
+      // Dropdown functionality
+      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+      dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+          const dropdown = this.nextElementSibling;
+          dropdown.style.pointerEvents = dropdown.style.pointerEvents === 'auto' ? 'none' : 'auto';
         });
-      }
-
-      // Page Load Animation
-      function initPageAnimations() {
-        document.body.classList.add("loaded");
-
-        // Animate counters when they come into view
-        const counterObserver = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animateCounters();
-              counterObserver.unobserve(entry.target);
-            }
-          });
-        });
-
-        const statsSection = document.querySelector(".hero-stats");
-        if (statsSection) {
-          counterObserver.observe(statsSection);
-        }
-      }
-
-      // Initialize everything when DOM is ready
-      document.addEventListener("DOMContentLoaded", () => {
-        // Initialize core functionality
-        new MobileMenu();
-        new ScrollEffects();
-        new AnimationObserver();
-
-        // Initialize enhancements
-        initSmoothScrolling();
-        initPageAnimations();
-
-        // Add 3D mouse tracking for hero
-        const hero = document.querySelector(".hero");
-        if (hero) {
-          hero.addEventListener("mousemove", (e) => {
-            const rect = hero.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * 5;
-            const rotateY = ((centerX - x) / centerX) * 5;
-
-            hero.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-          });
-
-          hero.addEventListener("mouseleave", () => {
-            hero.style.transform =
-              "perspective(1000px) rotateX(0deg) rotateY(0deg)";
-          });
-        }
-
-        console.log("✨ Stay Dripped Mobile IV - Modern 3D Design Loaded");
       });
-    </script>
-    
-<!-- Start of OpenWidget (www.openwidget.com) code -->
-<script>
-  window.__ow = window.__ow || {};
-  window.__ow.organizationId = "6924ceb6-2678-4c92-8fcb-7c66c2582fa9";
-  window.__ow.integration_name = "manual_settings";
-  window.__ow.product_name = "openwidget";   
-  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
-</script>
-<noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
-<!-- End of OpenWidget code -->
-
-  </body>
+      
+      // Mobile dropdown functionality
+      const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+      mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+          const dropdown = this.nextElementSibling;
+          dropdown.classList.toggle('active');
+          this.setAttribute('aria-expanded', dropdown.classList.contains('active'));
+        });
+      });
+      
+      // Newsletter form
+      const newsletterForm = document.querySelector('.newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]').value;
+          alert(`Thank you for subscribing with email: ${email}`);
+          this.reset();
+        });
+      }
+    });
+  </script>
+</body>
 </html>
